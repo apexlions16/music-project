@@ -42,7 +42,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          rm -f HF_SHARD_PATCH.log
+          rm -f HF_SHARD_PATCH.log HF_SHARD_COMMIT.log
           python - <<'PY'
           from pathlib import Path
           path = Path("tools/apply_hf_sharding_patch.py")
@@ -69,7 +69,7 @@ jobs:
           } 2>&1 | tee HF_SHARD_PATCH.log
           exit ${PIPESTATUS[0]}
 
-      - name: Hata kaydını dala yaz
+      - name: Yama hata kaydını dala yaz
         if: failure() && steps.trigger.outputs.enabled == 'true'
         shell: bash
         run: |
@@ -81,17 +81,36 @@ jobs:
           git push origin HEAD:agent/hf-folder-sharding || true
 
       - name: Değişiklikleri dala yaz
+        id: commit_changes
         if: success() && steps.trigger.outputs.enabled == 'true'
         shell: bash
         run: |
-          set -euxo pipefail
-          git restore tools/apply_hf_sharding_patch.py
-          rm -rf pc/__pycache__
-          rm -f HF_SHARD_TRIGGER.txt HF_SHARD_PATCH.log
+          set +e
+          {
+            set -x
+            git restore tools/apply_hf_sharding_patch.py
+            rm -rf pc/__pycache__
+            rm -f HF_SHARD_TRIGGER.txt HF_SHARD_PATCH.log
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git reset -- .github/workflows/apply-hf-sharding.yml tools/apply_hf_sharding_patch.py README-HF-SHARD-PR.txt dummy || true
+            git status --short
+            git commit -m "Aurora Studio HF shard ve yükleme koruması"
+            git push origin HEAD:agent/hf-folder-sharding
+          } 2>&1 | tee HF_SHARD_COMMIT.log
+          exit ${PIPESTATUS[0]}
+
+      - name: Commit hata kaydını dala yaz
+        if: failure() && steps.trigger.outputs.enabled == 'true'
+        shell: bash
+        run: |
+          git reset --hard HEAD
+          git clean -fd
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git reset -- .github/workflows/apply-hf-sharding.yml tools/apply_hf_sharding_patch.py README-HF-SHARD-PR.txt dummy || true
-          git status --short
-          git commit -m "Aurora Studio HF shard ve yükleme koruması"
-          git push origin HEAD:agent/hf-folder-sharding
+          if [ -f HF_SHARD_COMMIT.log ]; then
+            git add HF_SHARD_COMMIT.log
+            git commit -m "HF shard commit hata kaydını ekle" || true
+            git push origin HEAD:agent/hf-folder-sharding || true
+          fi
