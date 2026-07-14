@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-14T12:57:38.372Z",
+  "updatedAt": "2026-07-14T13:00:15.990Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_41a8f051b2634f37895c2a903c9b0df6",
     "release_c5df08aaf7734416856f5f0678d1a1e5",
     "release_4d0bb3da649642f7b8c69a66e7ff6c51"
   ],
@@ -162,6 +163,73 @@
           "bitDepth": 24
         }
       ]
+    },
+    {
+      "id": "track_789badfe855c44bfb9aea973eb8a1bba",
+      "slug": "kts",
+      "title": "KTS",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "durationSeconds": 147,
+      "isrc": "TRAUR2500022",
+      "lyrics": "İstese aşkına köle olurum\nTek sözüne kendimi avuturum\nAma yok (ah-ah-ah), inatla dönüyoruz en başına\n(En başına, a-ah)\nHiç elimde yok (yok), hiç (yok) elimde (yok) yok bi' çare\nKaçamam, olmuyo' (olmuyo'), bu kalp yerinde durmuyo'\nSardın mı en başa? Düşmem o tuzağa\nİstiyorum ol Bonnie'me Clyde, kaçalım bur'dan\nAşkın yaktı beni, ya, söndürsene o zaman (söndürsene o zaman)\nDüştüm yoluna, bul beni şimdi or'da\nSorma ne hâldeyim, biter mi? Korkma\nİşte bur'da kalbimin tek sahibi (yeah, yeah, yeah)\nŞimdi dönüyo'sun bana (ice)\nYok muydu başka numara? (Hişt)\nÇalıyo', açamam ama (ıh-ıh)\nOlmuyo' ne uydursam da\nİçim ürpеriyo', beni deli ediyo' (ediyo')\nSarmıyo', hissi kavramıyo'\nNеresinden tutsan bu aşkı\nHer türlü sınıfta kalıyo'\nHiç elimde yok (yok), hiç (yok) elimde (yok) yok bi' çare\nKaçamam, olmuyo' (olmuyo'), bu kalp yerinde durmuyo'\nSardın mı en başa? Düşmem o tuzağa\nİstiyorum ol Bonnie'me Clyde, kaçalım bur'dan\nAşkın yaktı beni, ya, söndürsene o zaman (söndürsene o zaman)\nDüştüm yoluna, bul beni şimdi or'da\nSorma ne hâldeyim, biter mi? Korkma\nİşte bur'da kalbimin tek sahibi\nAşkın yaktı beni, ya, söndürsene o zaman (söndürsene o zaman)\nDüştüm yoluna, bul beni şimdi or'da\nSorma ne hâldeyim, biter mi? Korkma\nİşte bur'da kalbimin tek sahibi",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_e92c749193cc44ee849e00b71194424c",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/63e4d1282e484e7587c6129e93de7bd4.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/63e4d1282e484e7587c6129e93de7bd4.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_7f53d542c68c48a68c47f4b314ae6d38",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/0d1917f3b7744238aabfa4ad3c55230c.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/0d1917f3b7744238aabfa4ad3c55230c.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_c3dff20df18646a3b628866b1158413e",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/185a024389e34b89bbfd4b54cf9f058c.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/185a024389e34b89bbfd4b54cf9f058c.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_ab758e7ec3794642a608122eb84da730",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/d2f2800e4e6647abad71c76b531cf398.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/d2f2800e4e6647abad71c76b531cf398.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
     }
   ],
   "releases": [
@@ -206,6 +274,29 @@
       "tracks": [
         {
           "trackId": "track_6484eb96b3e44df48bb62fdaa11c6d9f",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "release_41a8f051b2634f37895c2a903c9b0df6",
+      "slug": "kts",
+      "title": "KTS",
+      "type": "single",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "releaseDate": "2025-05-16",
+      "cover": "https://images.genius.com/96bae7f8bb43b7362ae13d362a4c03de.1000x1000x1.png",
+      "heroImage": "https://images.genius.com/96bae7f8bb43b7362ae13d362a4c03de.1000x1000x1.png",
+      "animatedCoverUrl": "",
+      "label": "© 2025 Hypers Music",
+      "copyright": "© 2025 Hypers Music",
+      "description": "",
+      "tracks": [
+        {
+          "trackId": "track_789badfe855c44bfb9aea973eb8a1bba",
           "disc": 1,
           "position": 1
         }
