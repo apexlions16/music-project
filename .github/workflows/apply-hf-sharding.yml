@@ -80,7 +80,7 @@ jobs:
           git commit -m "HF shard yama hata kaydını güncelle" || true
           git push origin HEAD:agent/hf-folder-sharding || true
 
-      - name: Değişiklikleri dala yaz
+      - name: Uygulama kaynaklarını dala yaz
         id: commit_changes
         if: success() && steps.trigger.outputs.enabled == 'true'
         shell: bash
@@ -89,12 +89,13 @@ jobs:
           {
             set -x
             git restore tools/apply_hf_sharding_patch.py
+            git restore .github/workflows/aurora-v030-build.yml
             rm -rf pc/__pycache__
-            rm -f HF_SHARD_TRIGGER.txt HF_SHARD_PATCH.log
+            rm -f HF_SHARD_TRIGGER.txt HF_SHARD_PATCH.log HF_SHARD_COMMIT.log
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git reset -- .github/workflows/apply-hf-sharding.yml tools/apply_hf_sharding_patch.py README-HF-SHARD-PR.txt dummy || true
+            git reset -- .github/workflows/apply-hf-sharding.yml tools/apply_hf_sharding_patch.py README-HF-SHARD-PR.txt dummy HF_SHARD_COMMIT.log || true
             git status --short
             git commit -m "Aurora Studio HF shard ve yükleme koruması"
             git push origin HEAD:agent/hf-folder-sharding
@@ -110,19 +111,3 @@ jobs:
             HF_SHARD_COMMIT.log
             HF_SHARD_PATCH.log
           if-no-files-found: warn
-
-      - name: Commit hata kaydını dala yaz
-        if: failure() && steps.trigger.outputs.enabled == 'true'
-        shell: bash
-        run: |
-          if [ -f HF_SHARD_COMMIT.log ]; then cp HF_SHARD_COMMIT.log /tmp/HF_SHARD_COMMIT.log; fi
-          git reset --hard HEAD
-          git clean -fd
-          if [ -f /tmp/HF_SHARD_COMMIT.log ]; then cp /tmp/HF_SHARD_COMMIT.log HF_SHARD_COMMIT.log; fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ -f HF_SHARD_COMMIT.log ]; then
-            git add HF_SHARD_COMMIT.log
-            git commit -m "HF shard commit hata kaydını ekle" || true
-            git push origin HEAD:agent/hf-folder-sharding || true
-          fi
