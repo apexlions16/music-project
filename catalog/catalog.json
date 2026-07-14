@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-07-14T17:06:56.449Z",
+  "updatedAt": "2026-07-14T17:12:34.893Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_e22656de64b540748b54c4848bc80cc6",
     "release_133ce2564a904a45ab2449996627ffe1",
     "release_58341a6ee2d745948147909941632958",
     "release_1ae10cb8f4cf465a8f1683f45069ca42",
@@ -1555,6 +1556,80 @@
           "bitDepth": 24
         }
       ]
+    },
+    {
+      "id": "track_b164e4ad9ea54d8b9e2246a1b6c2306d",
+      "slug": "amateur",
+      "title": "Amateur",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "featuredArtistIds": [],
+      "durationSeconds": 194,
+      "isrc": "Amateur",
+      "explicit": false,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "lyrics": "intro\n(Ma-manifest, yeah)\nOh, ooh\nverse\nThinks the crowd is losing their mind (oh, no-no)\nOh, boy, you're not one of a kind (yeah, yeah)\npre-chorus\nUh, this one's knockout, your time is out\nWrote too many roles, I can't keep up\nDon't you ever feel, feel the shame?\n(Hush, watch me now) (watch me, watch me)\nchorus\nHe's all in my head, my head\nPlaying with my feelings, some kind of way\nHad enough, same old show and dance\nI've seen this scene, I know the end\nKeep it up, no one's gonna\nBuy the lies behind your drama\nDon't push too hard, that's where it ends\nNothing but talk, talk, ama-ama-ama\nhook\nTeur-teur-teur-teur-teur\nAmateur-teur-teur-teur-teur-teur\nAmateur-teur-teur-teur-teur-teur\nAmateur, hey\nverse\nWait, I keep on saying \"No, it's true\"\nIf it hurts so bad, that's overdue (game's off, no déjà vu)\nActs untouchable, so clean\nSmells perfection's what it means\nLovers that you call divine\nThey begging for a resign\npre-chorus\nUh, this one's knockout, your time is out\nWrote too many roles, I can't keep up\nDon't you ever feel, feel the shame?\nHush, watch me now (watch me, watch me)\nchorus\nHe's all in my head, my head\nPlaying with my feelings, some kind of way\nHad enough, same old show and dance\nI've seen this scene, I know the end\nKeep it up, no one's gonna\nBuy the lies behind your drama\nDon't push too hard, that's where it ends\nNothing but talk, talk, ama-ama-ama\nhook\nTeur-teur-teur-teur-teur\nAmateur-teur-teur-teur-teur-teur\nAmateur-teur-teur-teur-teur-teur\nAmateur\nbridge\nNo tricks, no games, they don't land\nOnce got burned, won't hold that hand again\nYeah, wanted all in, all in, all again\nIce on my chest, it's a long-time chill\nYou laid the traps and fell into my arms\nNow bow down, you amateur\nchorus\nHe's all in my head (my head)\nPlaying with my feelings, some kind of way\nHad enough, same old show and dance\nI've seen this scene, I know the end\nKeep it up, no one's gonna\nBuy the lies behind your drama\nDon't push too hard, that's where it ends\nNothing but talk, talk, ama-ama-ama\nhook\nTeur-teur-teur-teur-teur\nAmateur-teur-teur-teur-teur-teur\nAmateur-teur-teur-teur-teur-teur\nAmateur\nWriter(s): Aleyna Korkmaz",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_fea553542b3040229061550bbf0718bf",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a0a80ce7503a49fd990246b6d3294d3d.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a0a80ce7503a49fd990246b6d3294d3d.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_a1ffa3dc58444ccbbd4fd18a42b370bf",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ecb2be98dcf04ad39412ff50c3a88bdc.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ecb2be98dcf04ad39412ff50c3a88bdc.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_0e6440825b134af9aec60775656b2f2b",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c0d243b8241245c0942678e36a171888.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c0d243b8241245c0942678e36a171888.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_c83d57e3649943ac9fbf81417b26c686",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/99b4618ce82f441c8edb8d74142671d8.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/99b4618ce82f441c8edb8d74142671d8.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
     }
   ],
   "releases": [
@@ -1877,6 +1952,34 @@
       "tracks": [
         {
           "trackId": "track_f7139ed0a6154cbfa5fb7eff9f86ecaf",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "release_e22656de64b540748b54c4848bc80cc6",
+      "slug": "amateur",
+      "title": "Amateur",
+      "type": "maxi_single",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "releaseDate": "2025-12-19",
+      "cover": "https://images.genius.com/d0fb41cf44f5466319fad5f54aa452af.1000x1000x1.png",
+      "heroImage": "https://images.genius.com/d0fb41cf44f5466319fad5f54aa452af.1000x1000x1.png",
+      "animatedCoverUrl": "",
+      "label": "© 2025 Hypers Music",
+      "copyright": "© 2025 Hypers Music",
+      "description": "",
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "tracks": [
+        {
+          "trackId": "track_b164e4ad9ea54d8b9e2246a1b6c2306d",
           "disc": 1,
           "position": 1
         }
