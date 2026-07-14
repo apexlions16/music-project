@@ -1,0 +1,80 @@
+name: CI Tanılama
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/ci-tani.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  tani:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Actions çalışmalarını ve önceki hata logunu al
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -e
+          curl -fsSL \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs?per_page=30" \
+            -o /tmp/runs.json
+
+          python - <<'PY'
+          import json
+          data = json.load(open('/tmp/runs.json', encoding='utf-8'))
+          rows = []
+          for run in data.get('workflow_runs', []):
+              rows.append({
+                  'id': run.get('id'),
+                  'name': run.get('name'),
+                  'event': run.get('event'),
+                  'status': run.get('status'),
+                  'conclusion': run.get('conclusion'),
+                  'head_sha': run.get('head_sha'),
+                  'created_at': run.get('created_at'),
+                  'updated_at': run.get('updated_at'),
+                  'html_url': run.get('html_url'),
+              })
+          with open('ACTIONS_DURUM.json', 'w', encoding='utf-8') as f:
+              json.dump(rows, f, ensure_ascii=False, indent=2)
+              f.write('\n')
+          PY
+
+          curl -fsSL \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/jobs/87044450772/logs" \
+            -o /tmp/onceki-log || true
+
+          if [ -s /tmp/onceki-log ]; then
+            if file /tmp/onceki-log | grep -qi zip; then
+              unzip -p /tmp/onceki-log | tail -n 700 > ONCEKI_BUILD_LOG.txt
+            else
+              tail -n 700 /tmp/onceki-log > ONCEKI_BUILD_LOG.txt
+            fi
+          else
+            echo "Önceki iş logu indirilemedi." > ONCEKI_BUILD_LOG.txt
+          fi
+
+      - name: Tanılama sonuçlarını kaydet
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
+          git add ACTIONS_DURUM.json ONCEKI_BUILD_LOG.txt
+          git commit -m "CI tanılama sonuçlarını kaydet [skip ci]" || true
+          git push origin HEAD:main
