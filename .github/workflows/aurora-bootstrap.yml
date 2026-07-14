@@ -1,0 +1,39 @@
+name: Aurora Kaynaklarını Kur
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/aurora-bootstrap.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    name: Aurora kaynak paketini doğrula ve kur
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu al
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Paketi doğrula ve aç
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(find .aurora-bundle -maxdepth 1 -name 'seg-*' | wc -l)" -eq 10
+          cat .aurora-bundle/seg-* > /tmp/aurora.b64
+          base64 --decode /tmp/aurora.b64 > /tmp/aurora-update.tar.gz
+          echo "8c0f970adf18b690fc49d4795efc54515ca50b5f73d3f32bf02a309fc6891cb0  /tmp/aurora-update.tar.gz" | sha256sum -c -
+          tar -xzf /tmp/aurora-update.tar.gz
+          rm -rf .aurora-bundle .aurora-bootstrap pc/__pycache__
+          rm -f .github/workflows/aurora-bootstrap.yml
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Aurora Music ve Aurora Studio kaynaklarını ekle"
+          git push origin HEAD:main
