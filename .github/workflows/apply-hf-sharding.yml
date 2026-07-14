@@ -1,10 +1,6 @@
 name: Aurora HF Shard Yamasını Uygula
 
 on:
-  push:
-    branches: [agent/hf-folder-sharding]
-    paths:
-      - "HF_SHARD_TRIGGER.txt"
   pull_request:
     branches: [main]
     paths:
@@ -77,19 +73,23 @@ jobs:
         if: failure() && steps.trigger.outputs.enabled == 'true'
         shell: bash
         run: |
+          git restore tools/apply_hf_sharding_patch.py || true
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add HF_SHARD_PATCH.log
           git commit -m "HF shard yama hata kaydını güncelle" || true
+          git pull --rebase origin agent/hf-folder-sharding
           git push origin HEAD:agent/hf-folder-sharding
 
       - name: Değişiklikleri dala yaz
         if: success() && steps.trigger.outputs.enabled == 'true'
         run: |
           set -euo pipefail
+          git restore tools/apply_hf_sharding_patch.py
           rm -f HF_SHARD_TRIGGER.txt HF_SHARD_PATCH.log
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add pc/AuroraStudio.py pc/README.md .github/workflows/aurora-v030-build.yml HF_SHARD_TRIGGER.txt HF_SHARD_PATCH.log
+          git add -A pc/AuroraStudio.py pc/README.md .github/workflows/aurora-v030-build.yml HF_SHARD_TRIGGER.txt HF_SHARD_PATCH.log
           git commit -m "Aurora Studio HF shard ve yükleme koruması"
+          git pull --rebase origin agent/hf-folder-sharding
           git push origin HEAD:agent/hf-folder-sharding
