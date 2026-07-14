@@ -43,22 +43,42 @@ jobs:
 
       - name: Yamayı uygula ve Python sözdizimini doğrula
         if: steps.trigger.outputs.enabled == 'true'
+        shell: bash
         run: |
-          set -euo pipefail
-          python tools/apply_hf_sharding_patch.py
-          python -m py_compile pc/AuroraStudio.py
-          grep -q 'APP_VERSION = "0.2.1"' pc/AuroraStudio.py
-          grep -q 'HF_SHARD_FILE_LIMIT = 9000' pc/AuroraStudio.py
-          grep -q 'HF_COMMIT_SOFT_LIMIT = 120' pc/AuroraStudio.py
-          grep -q 'allocate_remote("audio"' pc/AuroraStudio.py
+          set +e
+          {
+            python tools/apply_hf_sharding_patch.py
+            PATCH_CODE=$?
+            if [ "$PATCH_CODE" -eq 0 ]; then
+              python -m py_compile pc/AuroraStudio.py
+              PATCH_CODE=$?
+            fi
+            if [ "$PATCH_CODE" -eq 0 ]; then grep -q 'APP_VERSION = "0.2.1"' pc/AuroraStudio.py; PATCH_CODE=$?; fi
+            if [ "$PATCH_CODE" -eq 0 ]; then grep -q 'HF_SHARD_FILE_LIMIT = 9000' pc/AuroraStudio.py; PATCH_CODE=$?; fi
+            if [ "$PATCH_CODE" -eq 0 ]; then grep -q 'HF_COMMIT_SOFT_LIMIT = 120' pc/AuroraStudio.py; PATCH_CODE=$?; fi
+            if [ "$PATCH_CODE" -eq 0 ]; then grep -q 'allocate_remote("audio"' pc/AuroraStudio.py; PATCH_CODE=$?; fi
+            echo "exit_code=$PATCH_CODE"
+            exit "$PATCH_CODE"
+          } 2>&1 | tee HF_SHARD_PATCH.log
+          exit ${PIPESTATUS[0]}
 
-      - name: Değişiklikleri dala yaz
-        if: steps.trigger.outputs.enabled == 'true'
+      - name: Hata kaydını dala yaz
+        if: failure() && steps.trigger.outputs.enabled == 'true'
+        shell: bash
         run: |
-          set -euo pipefail
-          rm -f HF_SHARD_TRIGGER.txt
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add pc/AuroraStudio.py pc/README.md .github/workflows/aurora-v030-build.yml HF_SHARD_TRIGGER.txt
+          git add HF_SHARD_PATCH.log
+          git commit -m "HF shard yama hata kaydını ekle" || true
+          git push origin HEAD:agent/hf-folder-sharding
+
+      - name: Değişiklikleri dala yaz
+        if: success() && steps.trigger.outputs.enabled == 'true'
+        run: |
+          set -euo pipefail
+          rm -f HF_SHARD_TRIGGER.txt HF_SHARD_PATCH.log
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pc/AuroraStudio.py pc/README.md .github/workflows/aurora-v030-build.yml HF_SHARD_TRIGGER.txt HF_SHARD_PATCH.log
           git commit -m "Aurora Studio HF shard ve yükleme koruması"
           git push origin HEAD:agent/hf-folder-sharding
