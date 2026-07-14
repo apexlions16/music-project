@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-14T12:43:18.466Z",
+  "updatedAt": "2026-07-14T12:57:38.372Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_c5df08aaf7734416856f5f0678d1a1e5",
     "release_4d0bb3da649642f7b8c69a66e7ff6c51"
   ],
   "artists": [
@@ -94,6 +95,73 @@
           "bitDepth": 24
         }
       ]
+    },
+    {
+      "id": "track_6484eb96b3e44df48bb62fdaa11c6d9f",
+      "slug": "ariyo",
+      "title": "Arıyo",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "durationSeconds": 143,
+      "isrc": "TRAUR2500017",
+      "lyrics": "[Giriş: Lidya]\nManifest, ah\n\n[Ön Nakarat: Lidya, Sueda]\nAlışır kalbim sensiz yazlara (Ah)\nSeni istemeye artık son verdim\n\n[Nakarat: Sueda, Hilal, Mina, Lidya]\nTenimi (Oh-oh) geceleri arıyo'\nOlmuyo' (Oh-oh), aşkı bensiz arıyo'\nTenimi (Oh-oh) geceleri arıyo'\nOlmuyo' (Oh-oh), aşkı bensiz arıyo'\n\n[Bölüm 1: Mina, Esin, Sueda]\nGöremezsen, bizi sevemezsen\nAra, aşkım, gece ya da erken\n(Alo, kim o?) Yine af diledi benden (Ah)\nTam \"Olduk biz\" derken kopamaz hislerden\n\n[Ön Nakarat: Lidya, Sueda]\nAlışır kalbim (Ah) sensiz yazlara (Ah-ah)\nSeni istemeye artık son verdim\n\n[Nakarat: Sueda, Hilal, Mina, Lidya]\nTenimi (Oh-oh) geceleri arıyo'\nOlmuyo' (Oh-oh), aşkı bensiz arıyo'\nTenimi (Oh-oh) geceleri arıyo'\nOlmuyo' (Oh-oh), aşkı bensiz arıyo'\n\n[Bölüm 2: Zeynep, Hilal, Sueda]\nHep istedin aklına gelmiy'im\nOnlar biri, bense bi' taneyim\nBütün hisleri ben sana verdim\nNeden aşkımı yerlere serdin?\nArasan da artık dönmem (Uh-oh)\nYalan ettin her şeyi dünden (Ah-ah)\nGözün arkada kalmasın lütfen (Uh-oh)\nİtsen de ben yere düşmem\nArtık son verdim\n\n[Nakarat: Sueda, Hilal, Mina, Lidya]\nTenimi (Oh-oh) geceleri arıyo'\nOlmuyo' (Oh-oh), aşkı bensiz arıyo'\nTenimi (Oh-oh) geceleri arıyo'\nOlmuyo' (Oh-oh), aşkı bensiz arıyo'\n\n[Çıkış]\n(Ark, what do you have?)\n(A-A-A—)\n(Ark)",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_78368264b16e4ab9b19f639cd8778d2a",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/368b249165e444f9925819895141b4ee.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/368b249165e444f9925819895141b4ee.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_a67ab4c76ba8493b912fdb3aa4c595ac",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/0fc87d8d8b8643e7805c1783c824b2be.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/0fc87d8d8b8643e7805c1783c824b2be.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_e6aba6bc60e44edb8ca58cfa6967a738",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/a74472d1333342b7acc339b287b4764b.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/a74472d1333342b7acc339b287b4764b.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_04c1e221c52f4763aa5dfc30cbff0222",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/f17f9742fbc84d3c8987e131a5fe7d94.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/f17f9742fbc84d3c8987e131a5fe7d94.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
     }
   ],
   "releases": [
@@ -115,6 +183,29 @@
       "tracks": [
         {
           "trackId": "track_5a5000b2a2874ee783fa47147d5aaf93",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "release_c5df08aaf7734416856f5f0678d1a1e5",
+      "slug": "ariyo",
+      "title": "Arıyo",
+      "type": "single",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "releaseDate": "2025-04-11",
+      "cover": "https://images.genius.com/c94f430763f434c949371d895884ea38.1000x1000x1.png",
+      "heroImage": "https://images.genius.com/c94f430763f434c949371d895884ea38.1000x1000x1.png",
+      "animatedCoverUrl": "",
+      "label": "© 2025 Hypers Music",
+      "copyright": "© 2025 Hypers Music",
+      "description": "",
+      "tracks": [
+        {
+          "trackId": "track_6484eb96b3e44df48bb62fdaa11c6d9f",
           "disc": 1,
           "position": 1
         }
