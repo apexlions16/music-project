@@ -43,6 +43,7 @@ data class Track(
     val artistIds: List<String>,
     val primaryArtistIds: List<String>,
     val featuredArtistIds: List<String>,
+    val featuredArtistNames: List<String>,
     val durationSeconds: Int,
     val lyrics: String,
     val syncedLyrics: String,
@@ -92,7 +93,10 @@ data class Catalog(
 
     fun trackArtistLine(track: Track): String {
         val primary = artistNames(track.primaryArtistIds.ifEmpty { track.artistIds })
-        val featured = artistNames(track.featuredArtistIds)
+        val featured = (track.featuredArtistIds.mapNotNull { artist(it)?.name } + track.featuredArtistNames)
+            .filter { it.isNotBlank() }
+            .distinctBy { it.lowercase() }
+            .joinToString(", ")
         return when {
             featured.isBlank() -> primary
             primary.isBlank() -> featured
@@ -124,6 +128,7 @@ object CatalogParser {
             val primaryArtistIds = item.optJSONArray("primaryArtistIds").toStringList().ifEmpty { legacyArtistIds }
             val featuredArtistIds = item.optJSONArray("featuredArtistIds").toStringList()
                 .filterNot { it in primaryArtistIds }
+            val featuredArtistNames = item.optJSONArray("featuredArtistNames").toStringList()
             val allArtistIds = (legacyArtistIds + primaryArtistIds + featuredArtistIds).distinct()
             val credits = item.optJSONArray("credits").toObjectList { credit ->
                 Credit(credit.optString("role"), credit.optJSONArray("names").toStringList())
@@ -151,6 +156,7 @@ object CatalogParser {
                 artistIds = allArtistIds,
                 primaryArtistIds = primaryArtistIds,
                 featuredArtistIds = featuredArtistIds,
+                featuredArtistNames = featuredArtistNames,
                 durationSeconds = item.optInt("durationSeconds"),
                 lyrics = item.optString("lyrics"),
                 syncedLyrics = item.optString("syncedLyrics"),
