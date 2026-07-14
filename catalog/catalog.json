@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-14T12:20:43.701Z",
+  "updatedAt": "2026-07-14T12:24:49.776Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -24,7 +24,7 @@
       "name": "Manifest",
       "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-profile/88a6b344cdd546c98cc32303b3c3666d.webp",
       "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-profile/88a6b344cdd546c98cc32303b3c3666d.webp",
-      "backgroundImage": "https://cdn.img.anlatilaninotesi.com.tr/img/07e9/09/09/1099234501_0:16:750:438_1920x0_80_0_0_448d48612c383e2772374d7d274688de.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-background/082a41669b8b456388ade86939c3cca9.webp",
       "backgroundVideoUrl": "https://cdn.img.anlatilaninotesi.com.tr/img/07e9/09/09/1099234501_0:16:750:438_1920x0_80_0_0_448d48612c383e2772374d7d274688de.jpg",
       "bio": ""
     }
