@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-07-14T17:24:55.430Z",
+  "updatedAt": "2026-07-14T17:28:06.450Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -1699,15 +1699,12 @@
       "slug": "manifest-arem-arman-remix",
       "title": "Manifest - Arem & Arman Remix",
       "artistIds": [
-        "artist_69a7219681e54025b7c9db28b1b6fd0b",
-        "Arem & Arman"
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
       ],
       "primaryArtistIds": [
         "artist_69a7219681e54025b7c9db28b1b6fd0b"
       ],
-      "featuredArtistIds": [
-        "Arem & Arman"
-      ],
+      "featuredArtistIds": [],
       "durationSeconds": 174,
       "isrc": "Manifest - Arem & Arman Remix",
       "explicit": false,
@@ -2154,7 +2151,7 @@
       "releaseDate": "2026-02-27",
       "cover": "https://images.genius.com/29c39fd95c197ed2b6e37642613db408.1000x1000x1.png",
       "heroImage": "https://images.genius.com/29c39fd95c197ed2b6e37642613db408.1000x1000x1.png",
-      "animatedCoverUrl": "",
+      "animatedCoverUrl": "https://canvaz.scdn.co/upload/artist/2WjzL05RyqIk5n53sZc9nf/video/fa3bb7d334fb456e9767aeb76e5f6359.cnvs.mp4#t=0.001",
       "label": "© 2026 Hypers Music",
       "copyright": "© 2026 Hypers Music",
       "description": "",
