@@ -1,0 +1,136 @@
+name: Android APK Üret ve Yayınla
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "app/**"
+      - "catalog/**"
+      - "admin/**"
+      - "build.gradle.kts"
+      - "settings.gradle.kts"
+      - "gradle.properties"
+      - ".github/workflows/android-build.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: android-release
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+env:
+  SURUM: "0.1.0"
+
+jobs:
+  android:
+    name: Android APK oluştur
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kaynak kodu al
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Java 17 kur
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Android SDK kur
+        uses: android-actions/setup-android@v3
+
+      - name: Android 35 paketlerini kur
+        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Gradle 8.9 kur
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: APK derle
+        run: gradle --no-daemon assembleDebug
+
+      - name: APK dosyasını hazırla
+        run: |
+          mkdir -p yayin
+          cp app/build/outputs/apk/debug/app-debug.apk "yayin/muzik-projesi-v${SURUM}.apk"
+          sha256sum "yayin/muzik-projesi-v${SURUM}.apk" > "yayin/SHA256SUMS.txt"
+
+      - name: Derleme çıktısını sakla
+        uses: actions/upload-artifact@v4
+        with:
+          name: muzik-projesi-android-v${{ env.SURUM }}
+          path: yayin/*
+
+      - name: Önceki aynı sürümü kaldır
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release delete "v${SURUM}" --cleanup-tag --yes || true
+
+      - name: GitHub Release oluştur
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v${SURUM}" yayin/* \
+            --title "Müzik Projesi Android v${SURUM}" \
+            --notes "İlk Android sürümü. Tamamen Türkçe, Apple Music esintili özgün telefon arayüzü; GitHub katalog sistemi; çevrimiçi oynatma; kalite seçimi; şarkı sözleri ve cihaz indirme desteği içerir." \
+            --latest
+
+      - name: Başarılı derleme durumunu kaydet
+        if: success()
+        env:
+          DURUM: success
+          MESAJ: APK başarıyla derlendi ve GitHub Release olarak yayımlandı.
+          RELEASE_URL: https://github.com/${{ github.repository }}/releases/tag/v${{ env.SURUM }}
+        run: |
+          python - <<'PY'
+          import json, os
+          data = {
+              "durum": os.environ["DURUM"],
+              "mesaj": os.environ["MESAJ"],
+              "surum": os.environ["SURUM"],
+              "commit": os.environ["GITHUB_SHA"],
+              "actionsUrl": f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
+              "releaseUrl": os.environ["RELEASE_URL"]
+          }
+          with open("BUILD_STATUS.json", "w", encoding="utf-8") as f:
+              json.dump(data, f, ensure_ascii=False, indent=2)
+              f.write("\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
+          git add BUILD_STATUS.json
+          git commit -m "Başarılı Android derlemesini kaydet [skip ci]" || true
+          git push origin HEAD:main
+
+      - name: Başarısız derleme durumunu kaydet
+        if: failure()
+        env:
+          DURUM: failure
+          MESAJ: Android derlemesi veya yayınlama işlemi başarısız oldu. Ayrıntı için Actions bağlantısını açın.
+          RELEASE_URL: ""
+        run: |
+          python - <<'PY'
+          import json, os
+          data = {
+              "durum": os.environ["DURUM"],
+              "mesaj": os.environ["MESAJ"],
+              "surum": os.environ["SURUM"],
+              "commit": os.environ["GITHUB_SHA"],
+              "actionsUrl": f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
+              "releaseUrl": ""
+          }
+          with open("BUILD_STATUS.json", "w", encoding="utf-8") as f:
+              json.dump(data, f, ensure_ascii=False, indent=2)
+              f.write("\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
+          git add BUILD_STATUS.json
+          git commit -m "Başarısız Android derlemesini kaydet [skip ci]" || true
+          git push origin HEAD:main
