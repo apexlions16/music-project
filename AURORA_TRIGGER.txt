@@ -1,1 +1,1 @@
-Aurora PR merge tetikleyicisi: GitHub web-flow push olayı.
+Aurora PR derlemesini eksik seg-01 ve seg-07 tamamlandıktan sonra yeniden başlat.
