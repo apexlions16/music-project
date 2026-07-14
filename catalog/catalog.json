@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-14T13:00:15.990Z",
+  "updatedAt": "2026-07-14T13:05:39.757Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_1ae10cb8f4cf465a8f1683f45069ca42",
     "release_41a8f051b2634f37895c2a903c9b0df6",
     "release_c5df08aaf7734416856f5f0678d1a1e5",
     "release_4d0bb3da649642f7b8c69a66e7ff6c51"
@@ -230,6 +231,73 @@
           "bitDepth": 24
         }
       ]
+    },
+    {
+      "id": "track_df3cfc8c856a472aa9b4948beb77da9f",
+      "slug": "snap",
+      "title": "Snap",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "durationSeconds": 159,
+      "isrc": "TRAUR2500021",
+      "lyrics": "Sana alkış yok anca finger snap\nMm, no, thanks\nGüzel outfit, yakışıyo'duk, tam match'tik\nSayende hepsini, ettik\nSana yakışanı yaptın giderek\nBuna şaşırdım mı sandın?\nGeleceğinden parlak lip stick sürdüm\nSıfır gramsın, yok kalsın\nYanıma renk renk çiçeklerle gelsen de\nTelefonun arka planında gezsem de olmaz\nNew York, Bali, Paris, hiçbiri kesmez\nBi' zamanlar sen yeterdin, şimdi hiçbi' şey yetmez\nOrtada mı kaldın? Pardon\nÜzülmüş gibi rollendin, bravo sana\nÇoktan unuttum, sildim her yerden\nSakın deneme\nKaçma, kovalamam\nSenin gibisini çok (çok) çok (çok) çok (çok) gördüm\nAffedemem, hayır, sesin gelmiyo' hiç\nYok, yok, yok, bye-bye (bye-bye)\nKaçma, kovalamam (kaçma, kovalamam)\nSenin gibisini çok (çok) çok (çok) çok (çok) gördüm\nAffedemem, hayır (affedemem, hayır) sesin gelmiyo' hiç\nYok, yok, yok, bye-bye (bye-bye)\nSana alkış yok, anca finger snap-nap-nap-nap-nap\nOrtada mı kaldın? Pardon\nÜzülmüş gibi rollendin, bravo sana\nÇoktan unuttum, sildim her yerden\nSakın deneme\nKaçma, kovalamam\nSenin gibisini çok (çok) çok (çok) çok (çok) gördüm\nAffedemem, hayır (hayır) sesin gelmiyo' hiç\nYok, yok, yok, bye-bye (bye-bye)\nKaçma, kovalamam (kaçma, kovalamam)\nSenin gibisini çok (çok) çok (çok) çok (çok) gördüm\nAffedemem, hayır (affedemem, hayır) sesin gelmiyo' hiç\nYok, yok, yok, bye-bye (bye-bye)\nLa, la-la-la-la-la, la-la-la-la-la-la\nLa, la, la, la-la\nLa, la-la-la-la-la, la-la-la-la-la-la\nLa, la, la, la-la (bye-bye)\nLa, la, la",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_6d0f2a48af474717aa5298143693eb9a",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/872d8ba6d5c349a1a2b148713a4fda07.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/872d8ba6d5c349a1a2b148713a4fda07.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_e16372a6387348ea843881c0dbfa6e90",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/bf9c627c0b6e42239f3ca8c08a4486e6.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/bf9c627c0b6e42239f3ca8c08a4486e6.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_59377651ad9d462682c94e51e6ac2241",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/5a8ee27126964e45b781d445485c8f66.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/5a8ee27126964e45b781d445485c8f66.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_6a69e1596c8545d9956dab5b886b9e45",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/2ec5c5ed70b243eeb34095e866ca2065.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/2ec5c5ed70b243eeb34095e866ca2065.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
     }
   ],
   "releases": [
@@ -297,6 +365,29 @@
       "tracks": [
         {
           "trackId": "track_789badfe855c44bfb9aea973eb8a1bba",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "release_1ae10cb8f4cf465a8f1683f45069ca42",
+      "slug": "snap",
+      "title": "Snap",
+      "type": "single",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "releaseDate": "2025-05-30",
+      "cover": "https://images.genius.com/96bae7f8bb43b7362ae13d362a4c03de.1000x1000x1.png",
+      "heroImage": "https://images.genius.com/96bae7f8bb43b7362ae13d362a4c03de.1000x1000x1.png",
+      "animatedCoverUrl": "",
+      "label": "© 2025 Hypers Music",
+      "copyright": "© 2025 Hypers Music",
+      "description": "",
+      "tracks": [
+        {
+          "trackId": "track_df3cfc8c856a472aa9b4948beb77da9f",
           "disc": 1,
           "position": 1
         }
