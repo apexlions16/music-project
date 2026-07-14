@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-14T12:05:24.949Z",
+  "updatedAt": "2026-07-14T12:07:47.087Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -30,8 +30,8 @@
   "tracks": [
     {
       "id": "track_efd02c59c6184c6cbabb5974d73c5650",
-      "slug": "12321",
-      "title": "12321",
+      "slug": "Zamansızdık",
+      "title": "Zamansızdık",
       "artistIds": [
         "artist_822dc26094744478816b01dbbbf9b6c7"
       ],
