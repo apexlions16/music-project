@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-07-14T16:59:36.516Z",
+  "updatedAt": "2026-07-14T17:03:27.910Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -1406,6 +1406,80 @@
           "bitDepth": 24
         }
       ]
+    },
+    {
+      "id": "track_14a06ca8ff454b8fa8adec28031a53cb",
+      "slug": "ruya",
+      "title": "RÜYA",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "featuredArtistIds": [],
+      "durationSeconds": 196,
+      "isrc": "RÜYA",
+      "explicit": false,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "lyrics": "Sensiz bak ne mutluydum\nYapamıyorum, çok zor\nBıraktım senin gibi\nGeri gelme, son bulsun\nTekrar (tekrar) bak istersen\nNası' mutlu ol'caksan ol yeter\nSessizce\nKaybol, uzaklaş, biz çoktan göklerde\nYoksun\nHayallerin hep senin olsun\nGözlerine hâkim ol, hâlâ ister gibi bakıyorsun\nArtık yoksun (yoksun)\nHayallerin hep senin olsun (olsun)\nGözlerine hâkim ol, hâlâ ister gibi bakıyorsun\nRüyasında beni arıyormuş\nGüçlüyüz ve bunu biliyorsun\nSen vazgeçtin bizden\nTek sen kaybettin cidden (cidden, ey)\nRüyasında beni arıyormuş\nGüçlüyüz ve bunu biliyorsun\nSen vazgeçtin bizden\nTek sen kaybettin cidden (cidden)\nİstedim seni yanımda başlarda\nArtık hiç önemi yok (yok, yok, yok)\nBakıyorum da zor olmuş unutmak\nYüzümü görmen bile zor (çok zor, ey)\nTekrar (tekrar) bak istersen\nNası' mutlu ol'caksan ol yeter\nSessizce (sessizce)\nKaybol, uzaklaş, biz çoktan göklerde\nYoksun\nHayallerin hep senin olsun\nGözlerine hâkim ol, hâlâ ister gibi bakıyorsun\nArtık yoksun\nHayallerin hep senin olsun\nGözlerine hâkim ol, hâlâ ister gibi bakıyorsun\nRüyasında beni arıyormuş\nGüçlüyüz ve bunu biliyorsun\nSen vazgeçtin bizden\nTek sen kaybettin cidden (cidden, ey)\nRüyasında beni arıyormuş\nGüçlüyüz ve bunu biliyorsun\nSen vazgeçtin bizden\nTek sen kaybettin cidden (cidden, ey)\n(Tek sen kaybettin cidden, cidden)\nRüyasında beni arıyormuş\nGüçlüyüz ve bunu biliyorsun\nSen vazgeçtin bizden\nTek sen kaybettin cidden\nRüyasında beni arıyormuş\nGüçlüyüz ve bunu biliyorsun\nSen vazgeçtin bizden\nTek sen kaybettin cidden",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_4838a961d06b4c268fb0609950cf416f",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a8e534f094dd4f83bbb99616896bf426.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a8e534f094dd4f83bbb99616896bf426.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_30bcaa53f6f84eaea9dab74e4c67d5cc",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0caa17fdaaea4603ad61a15f557f1472.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0caa17fdaaea4603ad61a15f557f1472.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_b37e6a27ee2f419ca1cebbc7184b8683",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/384262cb97f84b95be7e337299e6f0d2.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/384262cb97f84b95be7e337299e6f0d2.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_c05c28a36a3f4900bed015da25f558a3",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0e3f64421f7e45b292bff050333adb2f.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0e3f64421f7e45b292bff050333adb2f.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
     }
   ],
   "releases": [
@@ -1672,6 +1746,34 @@
         },
         {
           "trackId": "track_9257ce4e8dd54dd98016565f333c6c4d",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "release_968e69db6d3e4708ba208fead6c8c6bc",
+      "slug": "ruya",
+      "title": "RÜYA",
+      "type": "single",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "releaseDate": "2025-10-03",
+      "cover": "https://images.genius.com/6fad46aab3c163c0e4823de6e0ba4dc9.1000x1000x1.png",
+      "heroImage": "https://images.genius.com/6fad46aab3c163c0e4823de6e0ba4dc9.1000x1000x1.png",
+      "animatedCoverUrl": "",
+      "label": "© 2025 Hypers Music",
+      "copyright": "© 2025 Hypers Music",
+      "description": "",
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "tracks": [
+        {
+          "trackId": "track_14a06ca8ff454b8fa8adec28031a53cb",
           "disc": 1,
           "position": 1
         }
