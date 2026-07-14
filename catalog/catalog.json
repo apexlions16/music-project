@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 2,
-  "updatedAt": "2026-07-14T16:55:30.202Z",
+  "schemaVersion": 3,
+  "updatedAt": "2026-07-14T16:59:36.516Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -1036,6 +1036,376 @@
           "bitDepth": 24
         }
       ]
+    },
+    {
+      "id": "track_d64dd5a059194cabb5ad4c5f7599b131",
+      "slug": "ariyo-zeki-arkun-remix",
+      "title": "Arıyo - Zeki Arkun Remix",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "featuredArtistIds": [],
+      "durationSeconds": 178,
+      "isrc": "",
+      "explicit": false,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_d916ec6e16a44dbb8099aaae599ee297",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b19c5fd9b0e6494a9baeb7c115fdb332.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b19c5fd9b0e6494a9baeb7c115fdb332.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_6d4c93bf391f4d0fa42b042b07da6466",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e27c47f4e4c4480f8317531e1e7812a2.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e27c47f4e4c4480f8317531e1e7812a2.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_acb9874bd5ba43059b48cc333fbec569",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f8560c1d7f754a9fa98b833dd7f5a0d2.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f8560c1d7f754a9fa98b833dd7f5a0d2.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_6e6ef543405c44babfd7285fa6f00b24",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ff34c12823f04804981858427623cae6.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ff34c12823f04804981858427623cae6.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_b39acd3b5d13452794fd1d0f82a52f28",
+      "slug": "hayir-aydeed-remix",
+      "title": "Hayır - AYDEED Remix",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "featuredArtistIds": [],
+      "durationSeconds": 176,
+      "isrc": "",
+      "explicit": false,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_328fe3bbbba0423aba905b0fa418800a",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5718f9dfce354058808171c4938e6f70.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5718f9dfce354058808171c4938e6f70.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_5c92d92db4ba4b2081ee2134df98bc1a",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/38d08ba2091046db8b3be743888dfbc7.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/38d08ba2091046db8b3be743888dfbc7.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_86d58e36f3f74d11800ff53106edb546",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/6f0b24e5d51748abbb3207eec1686acb.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/6f0b24e5d51748abbb3207eec1686acb.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_a3f0f98eb449487dbefc0fe57050b8cb",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/7b1552f875f3462da354f1c5987e44d1.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/7b1552f875f3462da354f1c5987e44d1.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_b499f122279e40319f428499d3bff6cf",
+      "slug": "outro-extended-version",
+      "title": "Outro - Extended Version",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "featuredArtistIds": [],
+      "durationSeconds": 180,
+      "isrc": "",
+      "explicit": false,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_fdce0ac9c50f42abab3fa4dc8b3a2ba5",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d7496a2c7c174ffca4d75e62a4f56def.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d7496a2c7c174ffca4d75e62a4f56def.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_1857b459d5b54b9394ad52ca0f82bda7",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/eb5cd0f5d8d547949b6a88f8599e7d61.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/eb5cd0f5d8d547949b6a88f8599e7d61.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_da516ddc623345a394d90ba967de67e4",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5e4fe89d6c994ee88cd97b3e8fae3c18.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5e4fe89d6c994ee88cd97b3e8fae3c18.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_535c0758e3234137b91d5611a35ff46d",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0af8bfdb39e74efb8fa805ecbedd6360.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0af8bfdb39e74efb8fa805ecbedd6360.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_8ee9c3bc8be4434ebe8165e58882beb1",
+      "slug": "rampapapam-arem-ozguc-arman-aydin-remix",
+      "title": "Rampapapam - Arem Ozguc & Arman Aydin Remix",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "featuredArtistIds": [],
+      "durationSeconds": 136,
+      "isrc": "",
+      "explicit": false,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_1b0666cc47c54d1a846ec27eedcb1502",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f605447046844c259849927a3146745f.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f605447046844c259849927a3146745f.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_8f859cd38f3046adb5017a435c665052",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a64515be52164f65a9bd12f940687682.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a64515be52164f65a9bd12f940687682.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_48ad480df5904eacafe3b51927615708",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/19706d0c169e4a2da7d05fdcbf2ec7a5.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/19706d0c169e4a2da7d05fdcbf2ec7a5.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_944b31e5697542d0abb94ae9316f55a8",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/86f0802538b74243951148f801cd2200.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/86f0802538b74243951148f801cd2200.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_6f3f8f09be7044709c2ce59cd7eb37a7",
+      "slug": "zehir-motive-remix",
+      "title": "Zehir - Motive Remix",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "featuredArtistIds": [],
+      "durationSeconds": 232,
+      "isrc": "",
+      "explicit": false,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_4f0cc09a5c0743a692beeb1a96156d2d",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8786f33c2d6441cb90aaa6b6ba83749d.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8786f33c2d6441cb90aaa6b6ba83749d.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_38f88f6ecce54def95925b6dcc111a3a",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c7bbb15aea484559834599f9b78f1da3.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c7bbb15aea484559834599f9b78f1da3.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_9edcf045c05346b2b69cb551da5d6c41",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/2a829a23a52d480ba9cff720eb83504a.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/2a829a23a52d480ba9cff720eb83504a.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_44ab5e1b18d348d59a23587a9da10b41",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5228f04667434573acae3839e39eae5b.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5228f04667434573acae3839e39eae5b.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
     }
   ],
   "releases": [
@@ -1201,6 +1571,109 @@
           "trackId": "track_23796e708d844e01b48807c96b09afd8",
           "disc": 1,
           "position": 11
+        }
+      ]
+    },
+    {
+      "id": "release_da149a2bf9ce412b9760a8657ddd3c3d",
+      "slug": "manifestival-deluxe",
+      "title": "manifestival (deluxe)",
+      "type": "album",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "releaseDate": "2025-09-05",
+      "cover": "https://cdn-images.dzcdn.net/images/cover/e65e39c45675a074bfc9fb1900c6c9ab/1900x1900-000000-80-0-0.jpg",
+      "heroImage": "https://cdn-images.dzcdn.net/images/cover/e65e39c45675a074bfc9fb1900c6c9ab/1900x1900-000000-80-0-0.jpg",
+      "animatedCoverUrl": "",
+      "label": "© 2025 Hypers Music",
+      "copyright": "© 2025 Hypers Music",
+      "description": "",
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "tracks": [
+        {
+          "trackId": "track_d64dd5a059194cabb5ad4c5f7599b131",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_ae5587f8ca4f4663be6aaf574d22aaee",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_a3ab3c8c7af64241ae4f7cc3c98c1062",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_b39acd3b5d13452794fd1d0f82a52f28",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_572780bad21c43b881fe0b0d7b4a0315",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_1e315ee31a3c4b94865e2e6c0bac2aed",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_661288848a98436296928e2b54badbef",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_cbbab467817048ecb28bd5a71e604368",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_b499f122279e40319f428499d3bff6cf",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_23796e708d844e01b48807c96b09afd8",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_8ee9c3bc8be4434ebe8165e58882beb1",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_6b35bf1189d34c53b83553b6a633021f",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_27371b18773a408bbb8b88a4a77dc36f",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_d9a945e7651c4820b87a01c2ee16f758",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_6f3f8f09be7044709c2ce59cd7eb37a7",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_9257ce4e8dd54dd98016565f333c6c4d",
+          "disc": 1,
+          "position": 1
         }
       ]
     }
