@@ -59,7 +59,7 @@ jobs:
       - name: Hata logunu repoya yaz
         if: steps.build.outcome == 'failure'
         run: |
-          tail -n 500 BUILD_FULL.log > BUILD_LOG.txt
+          tail -n 700 BUILD_FULL.log > BUILD_LOG.txt
           cat > BUILD_STATUS.json <<EOF
           {
             "durum": "failure",
@@ -72,7 +72,6 @@ jobs:
           EOF
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
           git add BUILD_LOG.txt BUILD_STATUS.json
           git commit -m "Android derleme hatasını kaydet [skip ci]" || true
           git push origin HEAD:main
@@ -123,7 +122,6 @@ jobs:
           EOF
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
           git add BUILD_STATUS.json
           git rm --ignore-unmatch BUILD_LOG.txt
           git commit -m "Başarılı Android derlemesini kaydet [skip ci]" || true
