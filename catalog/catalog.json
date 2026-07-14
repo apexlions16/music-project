@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-07-14T17:16:03.122Z",
+  "updatedAt": "2026-07-14T17:20:13.681Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -2061,7 +2061,7 @@
       "releaseDate": "2026-02-13",
       "cover": "https://images.genius.com/0473be2fafdf43f38d6abf6b6014ff2c.1000x1000x1.png",
       "heroImage": "https://images.genius.com/0473be2fafdf43f38d6abf6b6014ff2c.1000x1000x1.png",
-      "animatedCoverUrl": "",
+      "animatedCoverUrl": "https://canvaz.scdn.co/upload/artist/2WjzL05RyqIk5n53sZc9nf/video/b7d2bd097bac4f7e9712ec85fbc80e7f.cnvs.mp4#t=0.001",
       "label": "© 2026 Hypers Music",
       "copyright": "© 2026 Hypers Music",
       "description": "",
