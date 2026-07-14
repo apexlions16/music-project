@@ -1,3 +1,4 @@
+// Müzik Projesi Android uygulaması — Türkçe ilk sürüm
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
