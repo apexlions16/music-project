@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-07-14T17:22:22.707Z",
+  "updatedAt": "2026-07-14T17:24:55.430Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_f2ec86ba36bd456cb0b4a0f782580d40",
     "release_60b3cb8f030a4ac48c56d34adc9e6080",
     "release_e22656de64b540748b54c4848bc80cc6",
     "release_133ce2564a904a45ab2449996627ffe1",
@@ -1692,6 +1693,70 @@
           "bitDepth": 16
         }
       ]
+    },
+    {
+      "id": "track_25f9930bd492467bb009263e4cbd7d1d",
+      "slug": "manifest-arem-arman-remix",
+      "title": "Manifest - Arem & Arman Remix",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b",
+        "Arem & Arman"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "featuredArtistIds": [
+        "Arem & Arman"
+      ],
+      "durationSeconds": 174,
+      "isrc": "Manifest - Arem & Arman Remix",
+      "explicit": false,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_d962c95a81bd461f9b6970b9af2b5c5b",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/656e1e7f9a77443c8d5f07575048091a.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/656e1e7f9a77443c8d5f07575048091a.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_7bf58ba5abfd4588839db83d03f87832",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/49e419967bad4b84bb6202bb3b998672.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/49e419967bad4b84bb6202bb3b998672.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_2fc8294f092943c39f83bfaaa2b83019",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/96ce277f09514ad382a09fa0363afc2b.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/96ce277f09514ad382a09fa0363afc2b.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ]
     }
   ],
   "releases": [
@@ -2070,6 +2135,34 @@
       "tracks": [
         {
           "trackId": "track_a2e795dd6af547759b90d081728b713e",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "release_f2ec86ba36bd456cb0b4a0f782580d40",
+      "slug": "manifest-arem-arman-remix",
+      "title": "Manifest (Arem & Arman Remix)",
+      "type": "single",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "releaseDate": "2026-02-27",
+      "cover": "https://images.genius.com/29c39fd95c197ed2b6e37642613db408.1000x1000x1.png",
+      "heroImage": "https://images.genius.com/29c39fd95c197ed2b6e37642613db408.1000x1000x1.png",
+      "animatedCoverUrl": "",
+      "label": "© 2026 Hypers Music",
+      "copyright": "© 2026 Hypers Music",
+      "description": "",
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "tracks": [
+        {
+          "trackId": "track_25f9930bd492467bb009263e4cbd7d1d",
           "disc": 1,
           "position": 1
         }
