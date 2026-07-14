@@ -1,0 +1,101 @@
+[
+  {
+    "id": 29321719576,
+    "name": "CI Tanılama",
+    "event": "push",
+    "status": "in_progress",
+    "conclusion": null,
+    "head_sha": "1497ad7e4c3f24e4763f4c799697a49f0dcddda6",
+    "created_at": "2026-07-14T09:26:24Z",
+    "updated_at": "2026-07-14T09:26:26Z",
+    "html_url": "https://github.com/apexlions16/music-project/actions/runs/29321719576"
+  },
+  {
+    "id": 29321111997,
+    "name": "Android APK Üret ve Yayınla",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "failure",
+    "head_sha": "d23d9bb798f839951ffa5bd6b165653cca81f0bc",
+    "created_at": "2026-07-14T09:16:31Z",
+    "updated_at": "2026-07-14T09:17:38Z",
+    "html_url": "https://github.com/apexlions16/music-project/actions/runs/29321111997"
+  },
+  {
+    "id": 29320851700,
+    "name": "Android APK Son Derleme",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "failure",
+    "head_sha": "d0f2b945ad92c4949b5424d4b6d26c6f08ea2560",
+    "created_at": "2026-07-14T09:12:21Z",
+    "updated_at": "2026-07-14T09:13:26Z",
+    "html_url": "https://github.com/apexlions16/music-project/actions/runs/29320851700"
+  },
+  {
+    "id": 29320851388,
+    "name": "Android APK Derle ve Yayınla",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "failure",
+    "head_sha": "d0f2b945ad92c4949b5424d4b6d26c6f08ea2560",
+    "created_at": "2026-07-14T09:12:21Z",
+    "updated_at": "2026-07-14T09:13:25Z",
+    "html_url": "https://github.com/apexlions16/music-project/actions/runs/29320851388"
+  },
+  {
+    "id": 29320851357,
+    "name": "Android APK Üret ve Yayınla",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "cancelled",
+    "head_sha": "d0f2b945ad92c4949b5424d4b6d26c6f08ea2560",
+    "created_at": "2026-07-14T09:12:21Z",
+    "updated_at": "2026-07-14T09:12:23Z",
+    "html_url": "https://github.com/apexlions16/music-project/actions/runs/29320851357"
+  },
+  {
+    "id": 29320654665,
+    "name": "Android APK Son Derleme",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "failure",
+    "head_sha": "daaf074ec696632041fa3abdfd597d4d63d2acaa",
+    "created_at": "2026-07-14T09:09:13Z",
+    "updated_at": "2026-07-14T09:10:19Z",
+    "html_url": "https://github.com/apexlions16/music-project/actions/runs/29320654665"
+  },
+  {
+    "id": 29320506563,
+    "name": "Android APK Üret ve Yayınla",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "failure",
+    "head_sha": "eae4056b8fdeeb14c1ad012b30f0cd9c4126f040",
+    "created_at": "2026-07-14T09:06:53Z",
+    "updated_at": "2026-07-14T09:07:51Z",
+    "html_url": "https://github.com/apexlions16/music-project/actions/runs/29320506563"
+  },
+  {
+    "id": 29320446935,
+    "name": "Android APK Derle ve Yayınla",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "cancelled",
+    "head_sha": "8bc1d46e5934f5121170933d6f6593597435684d",
+    "created_at": "2026-07-14T09:05:56Z",
+    "updated_at": "2026-07-14T09:06:57Z",
+    "html_url": "https://github.com/apexlions16/music-project/actions/runs/29320446935"
+  },
+  {
+    "id": 29320258424,
+    "name": "Android APK Derle ve Yayınla",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "failure",
+    "head_sha": "246433855965df9f716afde020c37c321d6b3d1f",
+    "created_at": "2026-07-14T09:02:58Z",
+    "updated_at": "2026-07-14T09:05:07Z",
+    "html_url": "https://github.com/apexlions16/music-project/actions/runs/29320258424"
+  }
+]
