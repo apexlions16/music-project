@@ -1,1 +1,1 @@
-Aurora Music Android v0.3.0 ve Aurora Studio v0.2.0 küçük parçalı doğrulanmış kurulumu başlat.
+Aurora Music Android v0.3.0 ve Aurora Studio v0.2.0 tek commit kurulumunu başlat.
