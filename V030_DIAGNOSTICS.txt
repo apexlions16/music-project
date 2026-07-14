@@ -1,0 +1,28 @@
+part_count=12
+ 7999 .aurora-v030/seg-00
+ 8000 .aurora-v030/seg-01
+ 4000 .aurora-v030/seg-02-0
+ 4000 .aurora-v030/seg-02-1
+ 4000 .aurora-v030/seg-03-0
+ 4000 .aurora-v030/seg-03-1
+ 4000 .aurora-v030/seg-04-0
+ 4000 .aurora-v030/seg-04-1
+ 4000 .aurora-v030/seg-05-0
+ 4000 .aurora-v030/seg-05-1
+ 4000 .aurora-v030/seg-06-0
+ 3944 .aurora-v030/seg-06-1
+55943 total
+3b7fed81d97913dba990ee3c512158197eff1acbd41a52e6891dc5dfe820ddda  .aurora-v030/seg-00
+d44f1f343dcdb8015fbe376d2b9a4de1afeb57ca095c4703f01fe26e220cba8b  .aurora-v030/seg-01
+9a2b2f6b0107e580eabbb7f5b2ba439e137da6b5a4feaff110a109c293c8b802  .aurora-v030/seg-02-0
+a4b0d21db76c337a0c21ea45cb82c202d0725e39a231e747241c12c2d1e695d6  .aurora-v030/seg-02-1
+957bb0fe0d3dc907468decf095db50c62dd8bcfdb7a6a7144034acef17d52670  .aurora-v030/seg-03-0
+502d0cc0354267eae726ba5bbb6e768b689a4ff20f9579251eba367923181583  .aurora-v030/seg-03-1
+b606214685225e9e3b152489f68eb5ca6d3adf16da6c89b07cbed29ef72a597d  .aurora-v030/seg-04-0
+309635c4b680bb8da6f0ba3ca1ef40fc256cbecdc5175784bb5ecaa2fb5c6857  .aurora-v030/seg-04-1
+4dab754282448a007ad3622aa84ebecbc26d2ac3d9d374be47d128567e54cd33  .aurora-v030/seg-05-0
+2a41eaf79a341e59207374210652802e57f6e1e8e9052aea2f1db9d5b037fb2a  .aurora-v030/seg-05-1
+a248b3fc60180e3bf0ddad70cfcf997202c2514170d7aa267bce29d73ae6efbb  .aurora-v030/seg-06-0
+a478553c4ef194b0635d38f9d3443f625b4a11ccde4577d17dc97c6673070207  .aurora-v030/seg-06-1
+base64_bytes=55943
+bundle_sha256=DECODE_FAILED
