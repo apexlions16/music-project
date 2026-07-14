@@ -37,12 +37,12 @@ jobs:
           echo "ca1fb6cdf5ef097da16cdaf7bfbef750b67f50eecfd5cc132013cc85c933596e  /tmp/aurora-v030-update.tar.gz" | sha256sum -c -
           tar -xzf /tmp/aurora-v030-update.tar.gz
 
-      - name: Kaynakları tek commit ile dala yaz
+      - name: Uygulama kaynaklarını tek commit ile dala yaz
         shell: bash
         run: |
           set -euo pipefail
           rm -rf .aurora-v030
-          rm -f V030_TRIGGER.txt V030_DIAGNOSTICS.txt .github/workflows/aurora-v030-bootstrap.yml
+          rm -f V030_TRIGGER.txt V030_DIAGNOSTICS.txt .github/workflows/aurora-v030-build.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
