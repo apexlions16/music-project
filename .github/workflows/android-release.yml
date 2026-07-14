@@ -14,6 +14,10 @@ on:
       - ".github/workflows/android-release.yml"
   workflow_dispatch:
 
+concurrency:
+  group: android-release
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
@@ -108,3 +112,37 @@ jobs:
             --title "Müzik Projesi Android v${SURUM}" \
             --notes "İlk Android sürümü. Türkçe, Apple Music esintili özgün telefon arayüzü; GitHub katalog sistemi; çevrimiçi oynatma; kalite seçimi; şarkı sözleri ve indirme desteği içerir." \
             --latest
+
+      - name: Derleme sonucunu repoya yaz
+        if: always()
+        env:
+          DURUM: ${{ job.status }}
+        shell: bash
+        run: |
+          if [ "$DURUM" = "success" ]; then
+            MESAJ="APK başarıyla derlendi ve GitHub Release olarak yayımlandı."
+            RELEASE_URL="https://github.com/${GITHUB_REPOSITORY}/releases/tag/v${SURUM}"
+          else
+            MESAJ="Android derlemesi veya yayınlama işlemi başarısız oldu. Ayrıntı için Actions bağlantısını açın."
+            RELEASE_URL=""
+          fi
+          python - <<'PY'
+          import json, os
+          data = {
+              "durum": os.environ["DURUM"],
+              "mesaj": os.environ["MESAJ"],
+              "surum": os.environ["SURUM"],
+              "commit": os.environ["GITHUB_SHA"],
+              "actionsUrl": f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
+              "releaseUrl": os.environ.get("RELEASE_URL", "")
+          }
+          with open("BUILD_STATUS.json", "w", encoding="utf-8") as f:
+              json.dump(data, f, ensure_ascii=False, indent=2)
+              f.write("\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
+          git add BUILD_STATUS.json
+          git commit -m "Android derleme durumunu güncelle [skip ci]" || true
+          git push origin HEAD:main || true
