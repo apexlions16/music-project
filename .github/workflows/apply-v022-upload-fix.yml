@@ -1,0 +1,45 @@
+name: Aurora Studio v0.2.2 Upload Fix
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "tools/apply_v022_upload_fix.py"
+      - ".github/workflows/apply-v022-upload-fix.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aurora-v022-upload-fix
+  cancel-in-progress: true
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/hf-real-progress-v022
+          fetch-depth: 0
+
+      - name: Yükleme düzeltmesini uygula
+        run: |
+          set -euo pipefail
+          python tools/apply_v022_upload_fix.py
+          python -m py_compile pc/AuroraStudio.py
+          grep -q 'APP_VERSION = "0.2.2"' pc/AuroraStudio.py
+          grep -q 'def _hf_upload_process_worker' pc/AuroraStudio.py
+          grep -q 'preupload_lfs_files' pc/AuroraStudio.py
+          grep -q 'multiprocessing.freeze_support' pc/AuroraStudio.py
+          grep -q 'Callable\[\[str, int\]' pc/AuroraStudio.py
+
+      - name: Kaynakları dala yaz
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pc/AuroraStudio.py pc/README.md
+          git commit -m "Aurora Studio v0.2.2 gerçek yükleme görünürlüğü"
+          git push origin HEAD:agent/hf-real-progress-v022
