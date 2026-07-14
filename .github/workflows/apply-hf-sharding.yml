@@ -46,6 +46,17 @@ jobs:
         shell: bash
         run: |
           set +e
+          rm -f HF_SHARD_PATCH.log
+          python - <<'PY'
+          from pathlib import Path
+          path = Path("tools/apply_hf_sharding_patch.py")
+          text = path.read_text(encoding="utf-8")
+          old = "    new_storage,\n    source,"
+          new = "    lambda _match: new_storage,\n    source,"
+          if old not in text:
+              raise SystemExit("re.sub ham yerleştirme satırı bulunamadı")
+          path.write_text(text.replace(old, new, 1), encoding="utf-8")
+          PY
           {
             python tools/apply_hf_sharding_patch.py
             PATCH_CODE=$?
@@ -69,7 +80,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add HF_SHARD_PATCH.log
-          git commit -m "HF shard yama hata kaydını ekle" || true
+          git commit -m "HF shard yama hata kaydını güncelle" || true
           git push origin HEAD:agent/hf-folder-sharding
 
       - name: Değişiklikleri dala yaz
