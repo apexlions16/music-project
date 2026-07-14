@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-14T12:11:28.723Z",
+  "updatedAt": "2026-07-14T12:13:48.008Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_6a589894bd5a491a9b9bd2da104c9b67",
     "release_ca533964d66844c3ad10337a14a8ad70"
   ],
   "artists": [
@@ -68,6 +69,47 @@
           "sampleRateKhz": 48.0
         }
       ]
+    },
+    {
+      "id": "track_db20b8def5f947bab96244d2440e5b63",
+      "slug": "ariyo",
+      "title": "Arıyo",
+      "artistIds": [
+        "artist_822dc26094744478816b01dbbbf9b6c7"
+      ],
+      "durationSeconds": 133,
+      "isrc": "2",
+      "lyrics": "Alışır kalbim\nSensiz yazlara\nSeni istemeye\nArtık son verdim\nTenimi OOoOoOo\nGeceleri arıyo\nOlmuyo' OOooooO\nAşkı bensiz arıyo\nTenimi OOoOoOo\nGeceleri arıyo\nOlmuyo' OOooooO\nAşkı bensiz arıyo\nGöremezsen bizi sevemezsen\nAra aşkım gece ya da erken\n(Alo? Kim o?)\nYine af diledi benden\nTam olduk biz derken\nKopamaz hislerden\nAlışır kalbim\nSensiz yazlara\nSeni istemeye\nArtık son verdim\nTenimi OOoOoOo\nGeceleri arıyo'\nOlmuyo' OOoOoOo\nAşkı bensiz arıyo'\nTenimi OOoOoOo\nGeceleri arıyo\nOlmuyo' OOooooO\nAşkı bensiz arıyo\nHep istedin aklına gelmiyim\nOnlar biri bense bi'taneyim\nBütün hisleri ben sana verdim\nNeden aşkımı yerlere serdin?\nArasan da artık dönmem\nYalan ettin her şeyi dünden\nGözün arkada kalmasın lütfen\nİtsen de ben yere düşmem\nArtık son verdim\nTenimi OOoOoOo\nGeceleri arıyo\nOlmuyo OOooooO\nAşkı bensiz arıyo\nTenimi OOoOoOo\nGeceleri arıyo\nOlmuyo OOooooO\nAşkı bensiz arıyo",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_5f703454802245a19a9cfb3d089c9bb5",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/831cc90b21004a5da68a146fe8f84dfe.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/831cc90b21004a5da68a146fe8f84dfe.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_5d8e98f6153f46a7bfc655ade940affd",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/1717aa2326c34341b5296844560d0b0e.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/1717aa2326c34341b5296844560d0b0e.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
     }
   ],
   "releases": [
@@ -89,6 +131,29 @@
       "tracks": [
         {
           "trackId": "track_efd02c59c6184c6cbabb5974d73c5650",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "release_6a589894bd5a491a9b9bd2da104c9b67",
+      "slug": "ariyo",
+      "title": "Arıyo",
+      "type": "single",
+      "artistIds": [
+        "artist_822dc26094744478816b01dbbbf9b6c7"
+      ],
+      "releaseDate": "2025-04-11",
+      "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/0d/b7/92/0db79257-1e43-c720-10c6-3848ab26fc9c/cover.jpg/316x316bb.webp",
+      "heroImage": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/0d/b7/92/0db79257-1e43-c720-10c6-3848ab26fc9c/cover.jpg/316x316bb.webp",
+      "animatedCoverUrl": "",
+      "label": "© 2025 Hypers Music",
+      "copyright": "© 2025 Hypers Music",
+      "description": "",
+      "tracks": [
+        {
+          "trackId": "track_db20b8def5f947bab96244d2440e5b63",
           "disc": 1,
           "position": 1
         }
