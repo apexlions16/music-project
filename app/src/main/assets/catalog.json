@@ -1,135 +1,19 @@
 {
-  "schemaVersion": 1,
-  "updatedAt": "2026-07-14T08:00:00.000Z",
+  "schemaVersion": 2,
+  "updatedAt": "2026-07-14T12:00:00.000Z",
   "brand": {
-    "name": "Müzik Projesi",
+    "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
-    "logoText": "M"
+    "logoText": "A"
   },
-  "featuredReleaseIds": ["release_neon_ufku"],
-  "artists": [
-    {
-      "id": "artist_lal",
-      "slug": "lal",
-      "name": "Lâl",
-      "image": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1000&q=88",
-      "heroImage": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1800&q=85",
-      "bio": "Elektronik dokuları sinematik vokallerle birleştiren bağımsız sanatçı."
-    },
-    {
-      "id": "artist_gece_atlasi",
-      "slug": "gece-atlasi",
-      "name": "Gece Atlası",
-      "image": "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1000&q=88",
-      "heroImage": "https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?auto=format&fit=crop&w=1800&q=85",
-      "bio": "Canlı enstrümanlarla ambient ve alternatif pop arasında dolaşan bir kolektif."
-    }
-  ],
-  "tracks": [
-    {
-      "id": "track_gun_sonu",
-      "slug": "gun-sonu",
-      "title": "Gün Sonu",
-      "artistIds": ["artist_lal"],
-      "durationSeconds": 238,
-      "isrc": "TRAAA2600001",
-      "lyrics": "Gece inerken şehir susar\nIşıkların altında yeniden doğarız\nBir iz kalır, solmaz ardından\nGün sonu bizi eve götürür",
-      "credits": [{"role": "Söz ve Müzik", "names": ["Lâl"]}],
-      "sources": [
-        {
-          "id": "audio_gun_sonu_yuksek",
-          "kind": "high",
-          "label": "Yüksek Kalite",
-          "codec": "MP3",
-          "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-          "downloadUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-          "downloadable": true
-        }
-      ]
-    },
-    {
-      "id": "track_kadife_gokyuzu",
-      "slug": "kadife-gokyuzu",
-      "title": "Kadife Gökyüzü",
-      "artistIds": ["artist_lal", "artist_gece_atlasi"],
-      "durationSeconds": 204,
-      "lyrics": "Kadife gökyüzü üzerimizde\nYavaşça kaybolur bütün mesafeler\nBir şarkı kalır sessizliğin içinde",
-      "credits": [{"role": "Söz ve Müzik", "names": ["Lâl", "Gece Atlası"]}],
-      "sources": [
-        {
-          "id": "audio_kadife_yuksek",
-          "kind": "high",
-          "label": "Yüksek Kalite",
-          "codec": "MP3",
-          "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-          "downloadUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-          "downloadable": true
-        }
-      ]
-    },
-    {
-      "id": "track_yavas_sinyal",
-      "slug": "yavas-sinyal",
-      "title": "Yavaş Sinyal",
-      "artistIds": ["artist_gece_atlasi"],
-      "durationSeconds": 271,
-      "lyrics": "Yağmurun içinden geçen yavaş bir sinyal\nAdını yeniden çağırıyor",
-      "credits": [],
-      "sources": [
-        {
-          "id": "audio_yavas_sinyal",
-          "kind": "standard",
-          "label": "Standart",
-          "codec": "MP3",
-          "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-          "downloadUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-          "downloadable": true
-        }
-      ]
-    }
-  ],
-  "releases": [
-    {
-      "id": "release_neon_ufku",
-      "slug": "neon-ufku",
-      "title": "Neon Ufku",
-      "type": "album",
-      "artistIds": ["artist_lal"],
-      "releaseDate": "2026-06-06",
-      "cover": "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=90",
-      "heroImage": "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=2000&q=90",
-      "label": "Bağımsız",
-      "copyright": "℗ 2026 Lâl. Tüm hakları saklıdır.",
-      "description": "Şehir ışıkları, gece yolculukları ve analog synth dokularından oluşan sinematik bir albüm.",
-      "tracks": [
-        {"trackId": "track_gun_sonu", "disc": 1, "position": 1},
-        {"trackId": "track_kadife_gokyuzu", "disc": 1, "position": 2}
-      ]
-    },
-    {
-      "id": "release_gun_sonu_single",
-      "slug": "gun-sonu-single",
-      "title": "Gün Sonu",
-      "type": "single",
-      "artistIds": ["artist_lal"],
-      "releaseDate": "2026-05-15",
-      "cover": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=90",
-      "copyright": "℗ 2026 Lâl.",
-      "tracks": [{"trackId": "track_gun_sonu", "disc": 1, "position": 1}]
-    },
-    {
-      "id": "release_sessiz_iletimler",
-      "slug": "sessiz-iletimler",
-      "title": "Sessiz İletimler",
-      "type": "ep",
-      "artistIds": ["artist_gece_atlasi"],
-      "releaseDate": "2025-11-28",
-      "cover": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=90",
-      "copyright": "℗ 2025 Gece Atlası.",
-      "tracks": [
-        {"trackId": "track_yavas_sinyal", "disc": 1, "position": 1},
-        {"trackId": "track_kadife_gokyuzu", "disc": 1, "position": 2}
-      ]
-    }
-  ]
+  "features": {
+    "syncedLyrics": true,
+    "animatedCovers": true,
+    "artistBackgrounds": true,
+    "offlineDownloads": true
+  },
+  "featuredReleaseIds": [],
+  "artists": [],
+  "tracks": [],
+  "releases": []
 }
