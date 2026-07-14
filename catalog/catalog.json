@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-07-14T17:28:06.450Z",
+  "updatedAt": "2026-07-14T17:32:56.940Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_5ff3b93775fe4ca8a5645dd23143822d",
     "release_f2ec86ba36bd456cb0b4a0f782580d40",
     "release_60b3cb8f030a4ac48c56d34adc9e6080",
     "release_e22656de64b540748b54c4848bc80cc6",
@@ -1754,6 +1755,80 @@
           "bitDepth": 16
         }
       ]
+    },
+    {
+      "id": "track_59b2ebee276445ab947ad82a3cbbf87d",
+      "slug": "daha-iyi",
+      "title": "Daha İyi",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "featuredArtistIds": [],
+      "durationSeconds": 223,
+      "isrc": "Daha İyi",
+      "explicit": false,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "lyrics": "(ma-manifest, yeah, yeah, yeah, yeah)\n\nYalnız kalmadım işte\nGör'ce'n sen bu gidişle\nSensiz daha iyi\nSensiz, bensiz daha iyi\nKaybettin bu dönüşle\nŞimdi ne kaldı elinde?\nSensiz daha iyi\nSensiz, bensiz daha iyi\n\nSorsunlar bana derdi yok sayanlar\nKalbimden sana dik gelir yokuşlar\nOlmazlara inat dökülen onca teri\nSilmedim inan, kapattım o defteri, ya\nYerime koyamadın kimseyi, benim yerime\nNeyine kapılıp da kaybettin o son eli de?\nDeliye dönersin böyle bastım bam teline\nDeneme, o gemi aldı yol, dön artık evine\n\nYalnız kalmadım işte\nGör'ce'n sen bu gidişle\nSensiz daha iyi\nSensiz, bensiz daha iyi\nKaybettin bu dönüşle\nŞimdi ne kaldı elinde?\nSensiz daha iyi (yaz)\nSensiz, bensiz daha iyi (yaz, yaz)\n\nYaz, yaz aklının bi' kenarına, ya\nKendimi seçtim en sonunda\nSen'le geçen tüm günlerimin hat'rına\nGözünü aç, kapa, beni belki or'da bulursun\nÜşüyünce anılarına sarılıp uyursun\nPişman olup da dönme geri\nKapattım o defteri, ya\n\nYalnız kalmadım işte\nGör'ce'n sen bu gidişle\nSensiz daha iyi\nSensiz, bensiz daha iyi\nKaybettin bu dönüşle\nŞimdi ne kaldı elinde?\nSensiz daha iyi\nSensiz, bensiz daha iyi (yeah, yeah, yeah, yeah)\n\nBatırdığın güneş yine bi' gün doğabilir\nGözünün önünde dursa da yakabilir\nKalıcı olmuyo' hiçbi' şey\nEn dibi görmeden hazır zirveye kurulan\nHadi şimdi gözümün içine bak, söyle\nKaldı mı yanında seni seven biri böyle?\nKim bilebilirdi hepsi tersine dönücek\nBen parlarken senin ışığın sönücek\n\nYalnız kalmadım işte\nGör'ce'n sen bu gidişle\nSensiz daha iyi\nSensiz, bensiz daha iyi\nKaybettin bu dönüşle\nŞimdi ne kaldı elinde?\nSensiz daha iyi\nSensiz, bensiz daha iyi\nYalnız kalmadım işte\nGör'ce'n sen bu gidişle\nSensiz daha iyi\nSensiz, bensiz daha iyi\nKaybettin bu dönüşle\nŞimdi ne kaldı elinde?\nSensiz daha iyi\nSensiz, bensiz daha iyi\n\n\nWriter(s): Aleyna Korkmaz, Tutkus Elber",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_18cd6838c7214dd8a215453f98d7ee40",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/eb82eb31f07e4327a6f3fa8ff026681a.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/eb82eb31f07e4327a6f3fa8ff026681a.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_a8a3e0afc0724495b765aa9bc00ae81c",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/4aa7d847def646869b927452a37e7030.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/4aa7d847def646869b927452a37e7030.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_110d4df25cb7418bb491ecbd25b325a2",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/7e80d2be0f064cfdb67cbd1b4755b80e.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/7e80d2be0f064cfdb67cbd1b4755b80e.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_ad5b176147eb45358545f602950289c0",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a605d7119b2a4c5eacd44390c4b97dab.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a605d7119b2a4c5eacd44390c4b97dab.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
     }
   ],
   "releases": [
@@ -2160,6 +2235,34 @@
       "tracks": [
         {
           "trackId": "track_25f9930bd492467bb009263e4cbd7d1d",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "release_5ff3b93775fe4ca8a5645dd23143822d",
+      "slug": "daha-iyi",
+      "title": "Daha İyi",
+      "type": "single",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "releaseDate": "2026-04-03",
+      "cover": "https://images.genius.com/9017f64a5277c10b930d6e202138a29f.1000x1000x1.png",
+      "heroImage": "https://images.genius.com/9017f64a5277c10b930d6e202138a29f.1000x1000x1.png",
+      "animatedCoverUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/animated1/9beb0d792f434a878f85a62cbd5b99f9.mp4",
+      "label": "© 2026 Hypers Music",
+      "copyright": "© 2026 Hypers Music",
+      "description": "",
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "tracks": [
+        {
+          "trackId": "track_59b2ebee276445ab947ad82a3cbbf87d",
           "disc": 1,
           "position": 1
         }
