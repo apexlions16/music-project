@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-14T12:13:48.008Z",
+  "updatedAt": "2026-07-14T12:16:36.655Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -122,8 +122,8 @@
         "artist_822dc26094744478816b01dbbbf9b6c7"
       ],
       "releaseDate": "2025-02-07",
-      "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d4/e5/c7/d4e5c75b-62c9-40d6-7ed3-afbc91222777/cover.jpg/600x600bb.webp",
-      "heroImage": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d4/e5/c7/d4e5c75b-62c9-40d6-7ed3-afbc91222777/cover.jpg/600x600bb.webp",
+      "cover": "https://cdn-images.dzcdn.net/images/cover/d02e179412b9214fe302b77cb0ed82a7/1900x1900-000000-80-0-0.jpg",
+      "heroImage": "https://cdn-images.dzcdn.net/images/cover/d02e179412b9214fe302b77cb0ed82a7/1900x1900-000000-80-0-0.jpg",
       "animatedCoverUrl": "",
       "label": "© 2025 Hypers Music",
       "copyright": "© 2025 Hypers Music",
@@ -145,8 +145,8 @@
         "artist_822dc26094744478816b01dbbbf9b6c7"
       ],
       "releaseDate": "2025-04-11",
-      "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/0d/b7/92/0db79257-1e43-c720-10c6-3848ab26fc9c/cover.jpg/316x316bb.webp",
-      "heroImage": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/0d/b7/92/0db79257-1e43-c720-10c6-3848ab26fc9c/cover.jpg/316x316bb.webp",
+      "cover": "https://images.genius.com/c94f430763f434c949371d895884ea38.1000x1000x1.png",
+      "heroImage": "https://images.genius.com/c94f430763f434c949371d895884ea38.1000x1000x1.png",
       "animatedCoverUrl": "",
       "label": "© 2025 Hypers Music",
       "copyright": "© 2025 Hypers Music",
