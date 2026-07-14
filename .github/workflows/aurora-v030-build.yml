@@ -1,20 +1,23 @@
-name: Aurora Android 0.3.1 / Studio 0.2.2 Build
-# PR üzerindeki Android ve Windows doğrulama derlemesi.
+name: Aurora Music 0.3.2 / Studio Mobile 0.1.0 / Studio Windows 0.2.3 Build
 
 on:
   pull_request:
     branches: [main]
     paths:
       - "app/**"
+      - "studioapp/**"
       - "pc/**"
       - "catalog/schema.json"
+      - "settings.gradle.kts"
       - ".github/workflows/aurora-v030-build.yml"
   push:
     branches: [main]
     paths:
       - "app/**"
+      - "studioapp/**"
       - "pc/**"
       - "catalog/schema.json"
+      - "settings.gradle.kts"
       - ".github/workflows/aurora-v030-build.yml"
   workflow_dispatch:
 
@@ -22,12 +25,12 @@ permissions:
   contents: write
 
 concurrency:
-  group: aurora-v030-${{ github.ref }}
+  group: aurora-release-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  android:
-    name: Aurora Music Android v0.3.1
+  android_music:
+    name: Aurora Music Android v0.3.2
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -38,44 +41,90 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Android SDK
-        uses: android-actions/setup-android@v3
-
       - name: Android 36 paketleri
-        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36" "build-tools;36.0.0"
 
       - name: Gradle 8.11.1
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "8.11.1"
 
-      - name: APK derle
-        run: gradle --no-daemon --stacktrace --console=plain assembleDebug
+      - name: Aurora Music APK derle
+        run: gradle --no-daemon --stacktrace --console=plain :app:assembleDebug
 
-      - name: APK paketle
+      - name: Aurora Music paketle
         run: |
           mkdir -p yayin
-          cp app/build/outputs/apk/debug/app-debug.apk yayin/aurora-music-v0.3.1.apk
-          sha256sum yayin/aurora-music-v0.3.1.apk > yayin/SHA256SUMS-Aurora-Music.txt
+          cp app/build/outputs/apk/debug/app-debug.apk yayin/Aurora-Music-Android-v0.3.2.apk
+          sha256sum yayin/Aurora-Music-Android-v0.3.2.apk > yayin/SHA256SUMS-Aurora-Music.txt
 
-      - name: Android artifact
+      - name: Aurora Music artifact
         uses: actions/upload-artifact@v4
         with:
-          name: aurora-music-android-v0.3.1
+          name: aurora-music-android-v0.3.2
           path: yayin/*
 
-      - name: Android Release
+      - name: Aurora Music Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release delete v0.3.1 --cleanup-tag --yes || true
-          gh release create v0.3.1 yayin/* \
-            --title "Aurora Music Android v0.3.1" \
-            --notes "Oynatma ekranında ayarla açılıp kapatılabilen sessiz ve döngülü hareketli kapak desteği. Gated Hugging Face videolarında cihazdaki Read token yalnızca Hugging Face alan adlarına gönderilir; video açılamazsa normal kapak kullanılır."
+          gh release delete v0.3.2 --cleanup-tag --yes || true
+          gh release create v0.3.2 yayin/* \
+            --title "Aurora Music Android v0.3.2" \
+            --notes "Hareketli kapak videosu artık oynatma ekranının tamamını karartılmış arka plan olarak kaplar. Serbest feat isimleri ve Explicit E rozeti desteklenir. Gated Hugging Face videolarında token yalnızca Hugging Face alan adlarına gönderilir."
+
+  android_studio:
+    name: Aurora Studio Mobile v0.1.0
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Android 36 paketleri
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Gradle 8.11.1
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.11.1"
+
+      - name: Studio Mobile APK derle
+        run: gradle --no-daemon --stacktrace --console=plain :studioapp:assembleDebug
+
+      - name: Studio Mobile paketle
+        run: |
+          mkdir -p yayin
+          cp studioapp/build/outputs/apk/debug/studioapp-debug.apk yayin/Aurora-Studio-Mobile-v0.1.0.apk
+          sha256sum yayin/Aurora-Studio-Mobile-v0.1.0.apk > yayin/SHA256SUMS-Aurora-Studio-Mobile.txt
+
+      - name: Studio Mobile artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: aurora-studio-mobile-v0.1.0
+          path: yayin/*
+
+      - name: Studio Mobile Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete aurora-studio-mobile-v0.1.0 --cleanup-tag --yes || true
+          gh release create aurora-studio-mobile-v0.1.0 yayin/* \
+            --title "Aurora Studio Mobile v0.1.0" \
+            --notes "Ayrı mobil yönetim uygulaması. GitHub katalog yönetimi, Hugging Face Xet-backed depoya Git LFS uyumluluk katmanı üzerinden yükleme, 9.000 öğelik shard sistemi, ISRC tekrar kullanımı, serbest feat isimleri, Explicit E seçimi ve kapak/video yükleme desteği."
 
   windows:
-    name: Aurora Studio Windows v0.2.2
+    name: Aurora Studio Windows v0.2.3
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -87,7 +136,7 @@ jobs:
           cache: pip
           cache-dependency-path: pc/requirements.txt
 
-      - name: Bağımlılıklar
+      - name: Bağımlılıklar ve doğrulama
         shell: pwsh
         run: |
           python -m pip install --upgrade pip
@@ -95,6 +144,9 @@ jobs:
           python -m py_compile pc/AuroraStudio.py
           python -c "from huggingface_hub import HfApi; assert hasattr(HfApi, 'preupload_lfs_files')"
           if (Select-String -Path pc/AuroraStudio.py -Pattern 'HF_HUB_DISABLE_XET' -Quiet) { throw 'Xet kapatılmamalı' }
+          if (-not (Select-String -Path pc/AuroraStudio.py -Pattern 'HF_HUB_DISABLE_PROGRESS_BARS' -Quiet)) { throw 'Windowed tqdm düzeltmesi eksik' }
+          if (-not (Select-String -Path pc/AuroraStudio.py -Pattern 'featuredArtistNames' -Quiet)) { throw 'Serbest feat desteği eksik' }
+          if (-not (Select-String -Path pc/AuroraStudio.py -Pattern 'APP_VERSION = "0.2.3"' -Quiet)) { throw 'Studio sürümü yanlış' }
 
       - name: FFmpeg indir
         shell: pwsh
@@ -126,14 +178,14 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force yayin | Out-Null
-          Compress-Archive -Path dist\AuroraStudio\* -DestinationPath yayin\Aurora-Studio-Windows-x64-v0.2.2.zip -Force
-          $hash = (Get-FileHash yayin\Aurora-Studio-Windows-x64-v0.2.2.zip -Algorithm SHA256).Hash.ToLower()
-          "$hash  Aurora-Studio-Windows-x64-v0.2.2.zip" | Set-Content yayin\SHA256SUMS-Aurora-Studio.txt
+          Compress-Archive -Path dist\AuroraStudio\* -DestinationPath yayin\Aurora-Studio-Windows-x64-v0.2.3.zip -Force
+          $hash = (Get-FileHash yayin\Aurora-Studio-Windows-x64-v0.2.3.zip -Algorithm SHA256).Hash.ToLower()
+          "$hash  Aurora-Studio-Windows-x64-v0.2.3.zip" | Set-Content yayin\SHA256SUMS-Aurora-Studio.txt
 
       - name: Windows artifact
         uses: actions/upload-artifact@v4
         with:
-          name: aurora-studio-windows-v0.2.2
+          name: aurora-studio-windows-v0.2.3
           path: yayin/*
 
       - name: Windows Release
@@ -142,7 +194,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         shell: pwsh
         run: |
-          gh release delete aurora-studio-v0.2.2 --cleanup-tag --yes 2>$null
-          gh release create aurora-studio-v0.2.2 yayin/* `
-            --title "Aurora Studio Windows v0.2.2" `
-            --notes "Xet açık bırakılarak Hugging Face yükleme akışı düzeltildi. Dosya adı, boyutu, sıra, geçen süre ve tamamlanan toplam boyut görünür; shard sistemi, tek-commit yayın ve 128 commit/saat koruması aynen korunur."
+          gh release delete aurora-studio-v0.2.3 --cleanup-tag --yes 2>$null
+          gh release create aurora-studio-v0.2.3 yayin/* `
+            --title "Aurora Studio Windows v0.2.3" `
+            --notes "Xet açık, görünmez konsol tqdm hatası giderilmiş, serbest feat isimleri ve Explicit E desteği eklenmiş sürüm. Shard sistemi, tek commit akışı ve 128 commit/saat koruması korunur."
