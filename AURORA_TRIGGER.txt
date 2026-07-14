@@ -1,1 +1,1 @@
-Aurora PR merge tetikleyicisi: GitHub web-flow push olayı.
+Aurora PR tabanlı gerçek Android ve Windows derlemesini başlat.
