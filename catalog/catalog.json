@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-07-14T18:03:18.269Z",
+  "updatedAt": "2026-07-14T18:10:40.558Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_fbacac7a895e49b1820041a25ea04ac2",
     "release_a67a10795be84ba29316d87d8ea32c1b",
     "release_5ff3b93775fe4ca8a5645dd23143822d",
     "release_f2ec86ba36bd456cb0b4a0f782580d40",
@@ -1914,6 +1915,80 @@
           "bitDepth": 24
         }
       ]
+    },
+    {
+      "id": "track_9ad1ef3c8632464493543fffeddfb12c",
+      "slug": "toz-pembe",
+      "title": "Toz Pembe",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "featuredArtistIds": [],
+      "durationSeconds": 193,
+      "isrc": "Toz Pembe",
+      "explicit": false,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "lyrics": "Ah-ah, ah-ah, ah\nAh-ah, ah-ah\n\nVerir hep bana bi' mesaj (uh-huh)\nOnu lades ettiğimde\nKarşı koyamaz (ice)\nOna \"Vazgeç\" dediğimde\nAteşe at bizi\nBizim aşkımız zehirli (aşkımız zehirli)\n\nBir olalım isterdim\nAma artık tükendim\n\nBakıyo'sun niye çok toz pembe hislerle? (Yeah-eh)\nKafayı bozdun sen o düşlerle\nKoz bende (huh), acele etme (huh)\nYasak aşkın (huh) emin ellerde\nToz pembe hislerle (yeah-eh)\nKafayı bozdun sen o düşlerle\nKoz bende (huh), acele etme (huh)\nYasak aşkın (huh) emin ellerde\n\nHer şeyi denemeli\nBakışları tehlikeli\nGitgelleri beni geriyo' (oh)\nGittiysen gelme geri (gelme)\nHiç bozma ezberleri (uh-huh)\nBi' ileri bi' de geri, oh (yeah, yeah, yeah, yeah)\n\n(Let's go)\nBeni okudun, eksik sayfa, yırt at onları, uğraştırma (mmh-mmh)\nYine bi' dene, iltifatların hoşuma giderse kanabilirim\nKalabilirim ya da gidebilirim, kafama göre kararım değişebilir\nTam aklıma girdiğin anda fikrimden bile cayabilirim\n\n(Oh) Yıllardır kavuşamıyoruz (kavuşamıyoruz)\nIsrarla alışamıyoruz\n\nBakıyo'sun niye çok toz pembe hislerle? (Yeah-eh)\nKafayı bozdun sen o düşlerle\nKoz bende (huh), acele etme (huh)\nYasak aşkın (huh) emin ellerde\nToz pembe hislerle (yeah-eh)\nKafayı bozdun sen o düşlerle\nKoz bende (huh), acele etme (huh)\nYasak aşkın (huh) emin ellerde\n\nYalnız kal (oh)\nYalnız kal (oh)\nYalnız kal (oh)\nYalnız kal (oh)\n\n(Ark, what do you have, what do you have?)\n(A-a-ark, what do you have?)\n\n\n\n\nWriter(s): Esin Bahat, Lidya Pınar, Mina Solak, Zeki Arkun, Zeynep Sude Oktay",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_0b6226a4785a49f5a31e04b77b3d80a2",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/58093b7f01eb4ee9b8136fc6250b8008.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/58093b7f01eb4ee9b8136fc6250b8008.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_8bad6eede88f4e269ead030cc3009991",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/7bc407b947604263bb3d1482d4a3d0b2.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/7bc407b947604263bb3d1482d4a3d0b2.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_9cdec1c2138448b2af9c312b6a230cb8",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a822b6a89ebb4b3abcaeb7c7418f338c.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a822b6a89ebb4b3abcaeb7c7418f338c.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_61f95ccc98f54f4aaf6d635fda4f8192",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f2b858ea729b4a43999607d9999604c7.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f2b858ea729b4a43999607d9999604c7.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
     }
   ],
   "releases": [
@@ -2376,6 +2451,34 @@
       "tracks": [
         {
           "trackId": "track_1daf668ad19644eb8b14f0065d290cc8",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "release_fbacac7a895e49b1820041a25ea04ac2",
+      "slug": "toz-pembe",
+      "title": "Toz Pembe",
+      "type": "single",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "releaseDate": "2026-07-03",
+      "cover": "https://coverartarchive.org/release/c847ccb4-2849-4e30-95ad-53416cf4445b/45554032761.jpg",
+      "heroImage": "https://coverartarchive.org/release/c847ccb4-2849-4e30-95ad-53416cf4445b/45554032761.jpg",
+      "animatedCoverUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/animated1/e365c935df0d4d70bebe129514150da5.mp4",
+      "label": "© 2026 Hypers Music",
+      "copyright": "© 2026 Hypers Music",
+      "description": "",
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "tracks": [
+        {
+          "trackId": "track_9ad1ef3c8632464493543fffeddfb12c",
           "disc": 1,
           "position": 1
         }
