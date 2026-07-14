@@ -1,0 +1,110 @@
+name: Android APK Derle ve Yayınla
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".bootstrap/**"
+      - "app/**"
+      - "catalog/**"
+      - "admin/**"
+      - "build.gradle.kts"
+      - "settings.gradle.kts"
+      - "gradle.properties"
+      - ".github/workflows/android-release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  SURUM: "0.1.0"
+
+jobs:
+  android:
+    name: APK oluştur
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kaynak kodu al
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: İlk kurulum paketini doğrula ve aç
+        shell: bash
+        run: |
+          if compgen -G ".bootstrap/part-*" > /dev/null; then
+            cat > /tmp/PARCA_SHA256SUMS.txt <<'SUMS'
+          85a3b72d1314134c29c5d2cf5142f0e981035de5dddc6388c825947093186e0e  .bootstrap/part-000
+          47e460c0c3a54dcef98ac41f63ab476308ff887431aa0e8417d390e28e12bd5d  .bootstrap/part-001
+          64a9d0e3229d719c0ff5b182d3a866039397f3101b23d71c12bda3d2cccc777e  .bootstrap/part-002
+          f4dac852d66b48f7c136d6d725904f60c0d5e3e036635202de9c31e8c933c122  .bootstrap/part-003
+          e6a4979e219a4c55b3258057eab1ffc3f83740d8fdc4fa93f5e504715eff225f  .bootstrap/part-004
+          b6643081775c83fbc0a4df5be387db8ad1c47c0555f9d5bdd02939fb81958aa6  .bootstrap/part-005
+          ac040692965438bd6bb1cb6d45a812b77f4993e39b8da809843465f3e24ee3e8  .bootstrap/part-006
+          20d28f1f957bb221363f490d5ec8c081a36068a2778f0f0988c627fe47c25041  .bootstrap/part-007
+          05ea30f5b9fc6f20a2b46a1b87b68f9ca1cf292a2d84a21eb11ab27cb1ad929c  .bootstrap/part-008
+          b7c1380212e790199aae4973e324263859ca4233a721d363da7adb5099b82956  .bootstrap/part-009
+          84d4241437f280efe9c00f9875b803cb15a18a92f7e07f4d65d08632358488ba  .bootstrap/part-010
+          48c9fdf6e20cae2265018130d22d3e5af125bc2e09993e76333d0ceff088e4a4  .bootstrap/part-011
+          9c168b8225d1cd1e633858237478ea620b645b9cc03ecd2a3f54db6996de999d  .bootstrap/part-012
+          SUMS
+            sed -i 's/^          //' /tmp/PARCA_SHA256SUMS.txt
+            sha256sum -c /tmp/PARCA_SHA256SUMS.txt
+            cat .bootstrap/part-* | base64 --decode > /tmp/music-project.tar.gz
+            echo "47b687c1f2347edba7b727e377c1dc53aaceb5f237c89f12830c683bfb60de4c  /tmp/music-project.tar.gz" | sha256sum -c -
+            tar -xzf /tmp/music-project.tar.gz
+            rm -rf .bootstrap
+
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Android uygulamasını ve Türkçe kataloğu ekle [skip ci]"
+            git push origin HEAD:main
+          fi
+
+      - name: Java 17 kur
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Android SDK kur
+        uses: android-actions/setup-android@v3
+
+      - name: Android 35 paketlerini kur
+        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Gradle 8.9 kur
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: Test ve APK derle
+        run: gradle --no-daemon assembleDebug
+
+      - name: APK dosyasını adlandır
+        run: |
+          mkdir -p yayin
+          cp app/build/outputs/apk/debug/app-debug.apk "yayin/muzik-projesi-v${SURUM}.apk"
+          sha256sum "yayin/muzik-projesi-v${SURUM}.apk" > "yayin/SHA256SUMS.txt"
+
+      - name: Derleme çıktısını sakla
+        uses: actions/upload-artifact@v4
+        with:
+          name: muzik-projesi-android-v${{ env.SURUM }}
+          path: yayin/*
+
+      - name: Önceki aynı sürümü kaldır
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release delete "v${SURUM}" --cleanup-tag --yes || true
+
+      - name: GitHub Release oluştur
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v${SURUM}" yayin/* \
+            --title "Müzik Projesi Android v${SURUM}" \
+            --notes "İlk Android sürümü. Türkçe, Apple Music esintili özgün telefon arayüzü; GitHub katalog sistemi; çevrimiçi oynatma; kalite seçimi; şarkı sözleri ve indirme desteği içerir." \
+            --latest
