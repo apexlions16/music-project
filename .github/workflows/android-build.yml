@@ -40,13 +40,13 @@ jobs:
       - name: Android SDK kur
         uses: android-actions/setup-android@v3
 
-      - name: Android 35 paketlerini kur
-        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      - name: Android 36 paketlerini kur
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
 
-      - name: Gradle 8.9 kur
+      - name: Gradle 8.11.1 kur
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: "8.9"
+          gradle-version: "8.11.1"
 
       - name: APK derle ve logu kaydet
         id: build
