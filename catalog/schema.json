@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/aurora-catalog.schema.json",
+  "title": "Aurora Music Catalog",
+  "type": "object",
+  "required": ["schemaVersion", "updatedAt", "brand", "artists", "tracks", "releases", "featuredReleaseIds"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "minimum": 1 },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "brand": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "subtitle": { "type": "string" },
+        "logoText": { "type": "string" }
+      }
+    },
+    "featuredReleaseIds": { "type": "array", "items": { "type": "string" } },
+    "artists": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "slug", "name", "image"],
+        "properties": {
+          "id": { "type": "string" }, "slug": { "type": "string" }, "name": { "type": "string" },
+          "image": { "type": "string", "format": "uri" }, "heroImage": { "type": "string", "format": "uri" }, "bio": { "type": "string" }
+        }
+      }
+    },
+    "tracks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "slug", "title", "artistIds", "durationSeconds", "sources"],
+        "properties": {
+          "id": { "type": "string" }, "slug": { "type": "string" }, "title": { "type": "string" },
+          "artistIds": { "type": "array", "items": { "type": "string" } },
+          "durationSeconds": { "type": "integer", "minimum": 0 }, "lyrics": { "type": "string" }, "isrc": { "type": "string" },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "kind", "label", "codec", "url"],
+              "properties": {
+                "id": { "type": "string" },
+                "kind": { "enum": ["standard", "high", "lossless", "hires", "dolby_atmos"] },
+                "label": { "type": "string" }, "codec": { "type": "string" }, "url": { "type": "string" },
+                "downloadUrl": { "type": "string" }, "downloadable": { "type": "boolean" },
+                "bitrateKbps": { "type": "number" }, "sampleRateKhz": { "type": "number" }, "bitDepth": { "type": "integer" },
+                "channels": { "type": "string" }, "spatial": { "type": "boolean" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "releases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "slug", "title", "type", "artistIds", "releaseDate", "cover", "tracks"],
+        "properties": {
+          "id": { "type": "string" }, "slug": { "type": "string" }, "title": { "type": "string" },
+          "type": { "enum": ["single", "ep", "album"] }, "artistIds": { "type": "array", "items": { "type": "string" } },
+          "releaseDate": { "type": "string", "format": "date" }, "cover": { "type": "string", "format": "uri" },
+          "tracks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["trackId", "disc", "position"],
+              "properties": { "trackId": { "type": "string" }, "disc": { "type": "integer", "minimum": 1 }, "position": { "type": "integer", "minimum": 1 } }
+            }
+          }
+        }
+      }
+    }
+  }
+}
