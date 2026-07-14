@@ -44,7 +44,7 @@ Bir Hugging Face dosyasının herkese açık `/resolve/main/...` bağlantısı, 
 
 ## Android derleme
 
-Yerel olarak Android Studio ile açabilir veya Gradle 8.9 kullanabilirsin:
+Proje Android API 36, Android Gradle Plugin 8.10.1, Gradle 8.11.1 ve Java 17 ile derlenir.
 
 ```bash
 gradle assembleDebug
