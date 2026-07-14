@@ -25,15 +25,30 @@ jobs:
           fetch-depth: 0
 
       - name: Yükleme düzeltmesini uygula
+        shell: bash
         run: |
-          set -euo pipefail
-          python tools/apply_v022_upload_fix.py
-          python -m py_compile pc/AuroraStudio.py
-          grep -q 'APP_VERSION = "0.2.2"' pc/AuroraStudio.py
-          grep -q 'def _hf_upload_process_worker' pc/AuroraStudio.py
-          grep -q 'preupload_lfs_files' pc/AuroraStudio.py
-          grep -q 'multiprocessing.freeze_support' pc/AuroraStudio.py
-          grep -q 'Callable\[\[str, int\]' pc/AuroraStudio.py
+          set +e
+          {
+            set -x
+            python tools/apply_v022_upload_fix.py
+            CODE=$?
+            if [ "$CODE" -eq 0 ]; then python -m py_compile pc/AuroraStudio.py; CODE=$?; fi
+            if [ "$CODE" -eq 0 ]; then grep -q 'APP_VERSION = "0.2.2"' pc/AuroraStudio.py; CODE=$?; fi
+            if [ "$CODE" -eq 0 ]; then grep -q 'def _hf_upload_process_worker' pc/AuroraStudio.py; CODE=$?; fi
+            if [ "$CODE" -eq 0 ]; then grep -q 'preupload_lfs_files' pc/AuroraStudio.py; CODE=$?; fi
+            if [ "$CODE" -eq 0 ]; then grep -q 'multiprocessing.freeze_support' pc/AuroraStudio.py; CODE=$?; fi
+            if [ "$CODE" -eq 0 ]; then grep -q 'Callable\[\[str, int\]' pc/AuroraStudio.py; CODE=$?; fi
+            exit "$CODE"
+          } 2>&1 | tee V022_PATCH.log
+          exit ${PIPESTATUS[0]}
+
+      - name: Yama logu
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aurora-v022-patch-log-${{ github.run_id }}
+          path: V022_PATCH.log
+          if-no-files-found: warn
 
       - name: Kaynakları dala yaz
         run: |
