@@ -1,0 +1,5 @@
+PySide6>=6.8,<7
+requests>=2.32,<3
+huggingface_hub>=0.29,<2
+pywin32>=306
+pyinstaller>=6.12,<7

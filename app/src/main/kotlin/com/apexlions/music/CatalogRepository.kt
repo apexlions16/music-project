@@ -13,24 +13,27 @@ object CatalogRepository {
     suspend fun load(context: Context, forceRemote: Boolean = false): Catalog = withContext(Dispatchers.IO) {
         val cache = context.getFileStreamPath(CACHE_FILE)
         val bundled = context.assets.open("catalog.json").bufferedReader().use { it.readText() }
-        if (!forceRemote && cache.exists()) {
-            runCatching { return@withContext CatalogParser.parse(cache.readText()) }
-        }
-        val remote = runCatching { downloadText(RAW_CATALOG_URL) }.getOrNull()
+
+        // Uygulama her açılışta uzaktaki kataloğu kontrol eder. GitHub ulaşılamazsa güvenli biçimde önbelleğe düşer.
+        val remote = runCatching { downloadText("$RAW_CATALOG_URL?aurora=${System.currentTimeMillis()}") }.getOrNull()
         if (!remote.isNullOrBlank()) {
             runCatching { cache.writeText(remote) }
             return@withContext CatalogParser.parse(remote)
         }
-        if (cache.exists()) runCatching { return@withContext CatalogParser.parse(cache.readText()) }
+        if (cache.exists()) {
+            runCatching { return@withContext CatalogParser.parse(cache.readText()) }
+        }
         CatalogParser.parse(bundled)
     }
 
     private fun downloadText(url: String): String {
         val connection = URL(url).openConnection() as HttpURLConnection
+        connection.instanceFollowRedirects = true
         connection.connectTimeout = 12_000
-        connection.readTimeout = 18_000
+        connection.readTimeout = 20_000
         connection.setRequestProperty("Accept", "application/json")
-        connection.setRequestProperty("Cache-Control", "no-cache")
+        connection.setRequestProperty("Cache-Control", "no-cache, no-store")
+        connection.setRequestProperty("User-Agent", "AuroraMusic/0.3.0")
         connection.inputStream.bufferedReader().use { return it.readText() }
     }
 }
