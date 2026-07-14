@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-14T12:01:10.848Z",
+  "updatedAt": "2026-07-14T12:01:47.841Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -16,8 +16,8 @@
   "artists": [
     {
       "id": "artist_822dc26094744478816b01dbbbf9b6c7",
-      "slug": "manifest",
-      "name": "manifest",
+      "slug": "Manifest",
+      "name": "Manifest",
       "image": "",
       "heroImage": "",
       "backgroundImage": "",
