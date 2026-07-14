@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.apexlions.music"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.apexlions.music"
