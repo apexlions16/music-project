@@ -52,7 +52,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          grep -qx "part_count=12" V030_DIAGNOSTICS.txt
+          grep -qx "part_count=13" V030_DIAGNOSTICS.txt
           grep -qx "base64_bytes=55944" V030_DIAGNOSTICS.txt
           grep -qx "bundle_sha256=ca1fb6cdf5ef097da16cdaf7bfbef750b67f50eecfd5cc132013cc85c933596e" V030_DIAGNOSTICS.txt
           tar -xzf /tmp/aurora-v030-update.tar.gz
