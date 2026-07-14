@@ -101,16 +101,28 @@ jobs:
           } 2>&1 | tee HF_SHARD_COMMIT.log
           exit ${PIPESTATUS[0]}
 
+      - name: Commit hata loglarını artifact olarak sakla
+        if: failure() && steps.trigger.outputs.enabled == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: hf-shard-commit-log-${{ github.run_id }}
+          path: |
+            HF_SHARD_COMMIT.log
+            HF_SHARD_PATCH.log
+          if-no-files-found: warn
+
       - name: Commit hata kaydını dala yaz
         if: failure() && steps.trigger.outputs.enabled == 'true'
         shell: bash
         run: |
-          cp HF_SHARD_COMMIT.log /tmp/HF_SHARD_COMMIT.log
+          if [ -f HF_SHARD_COMMIT.log ]; then cp HF_SHARD_COMMIT.log /tmp/HF_SHARD_COMMIT.log; fi
           git reset --hard HEAD
           git clean -fd
-          cp /tmp/HF_SHARD_COMMIT.log HF_SHARD_COMMIT.log
+          if [ -f /tmp/HF_SHARD_COMMIT.log ]; then cp /tmp/HF_SHARD_COMMIT.log HF_SHARD_COMMIT.log; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add HF_SHARD_COMMIT.log
-          git commit -m "HF shard commit hata kaydını ekle" || true
-          git push origin HEAD:agent/hf-folder-sharding || true
+          if [ -f HF_SHARD_COMMIT.log ]; then
+            git add HF_SHARD_COMMIT.log
+            git commit -m "HF shard commit hata kaydını ekle" || true
+            git push origin HEAD:agent/hf-folder-sharding || true
+          fi
