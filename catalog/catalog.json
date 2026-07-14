@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-07-14T17:03:27.910Z",
+  "updatedAt": "2026-07-14T17:06:56.449Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_133ce2564a904a45ab2449996627ffe1",
     "release_58341a6ee2d745948147909941632958",
     "release_1ae10cb8f4cf465a8f1683f45069ca42",
     "release_41a8f051b2634f37895c2a903c9b0df6",
@@ -1480,6 +1481,80 @@
           "bitDepth": 24
         }
       ]
+    },
+    {
+      "id": "track_f7139ed0a6154cbfa5fb7eff9f86ecaf",
+      "slug": "amator",
+      "title": "Amatör",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "featuredArtistIds": [],
+      "durationSeconds": 189,
+      "isrc": "Amatör",
+      "explicit": false,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "lyrics": "intro\nma-ma-manifest, ya\n\nverse\nSanıyo' ki herkes ona hayran (yeah, yeah)\nAynada kendine hodri meydan (ah)\n\npre-chorus\nAma bu sefer nakavt, hisler yalan\nYine yazmış kendine rol falan\nHiç acıman yok mu kendine?\nSus ve dinle\n\nchorus\nKafamın içinde böyle\nOynuyo' sanki hislerimle\nHep aynı şov, hep aynı dans\nGördüm bu filmi son defa\nSana bu gidişle kimse\nKanmaz kopya sözlerinle\nZorlama, buydu son rövanş\nSen anca boş laf\n\nhook\nAma- (ama-ama-)\nTör-tör-tör-tör-tör\nAmatör-tör-tör-tör-tör-tör\nAmatör-tör-tör-tör-tör-tör\n(Amatör) hey\nverse\nDur, sıkılmadım reddetmekten\nSeni çok üzdüysem devam edice'm\nYine bozdum oyunu\nYokmuş rakiplerin\nHiç yokmuş yanlışların\nO âşık sandıkların\nGülmeden zor duruyo'\npre-chorus\nAma bu sefer nakavt, hisler yalan\nYine yazmış kendine rol falan\nHiç acıman yok mu kendine?\nSus ve dinle\nchorus\nKafamın içinde böyle\nOynuyo' sanki hislerimle\nHep aynı şov, hep aynı dans\nGördüm bu filmi son defa\nSana bu gidişle kimse\nKanmaz kopya sözlerinle\nZorlama buydu son rövanş\nSen anca boş laf\nhook\nAma- (ama-ama-)\nTör-tör-tör-tör-tör\nAmatör-tör-tör-tör-tör-tör\nAmatör-tör-tör-tör-tör-tör\n(Amatör)\nverse\nTaktik maktik işlemez, yok\nBaşta inandım, bi' kere yandım çok\nİstedim ben, istemedim değil\nKalbimin ortası tuttu buz, yeni değil\npre-chorus\nKurdun tuzaklar, düştün inatla\nYenildin bana, amatör\nchorus\nKafamın içinde böyle\nOynuyo' sanki hislerimle\nHep aynı şov, hep aynı dans\nGördüm bu filmi son defa\nSana bu gidişle kimse\nKanmaz kopya sözlerinle\nZorlama, buydu son rövanş\nSen anca boş laf\nhook\nAma- (ama-ama-)\nTör-tör-tör-tör-tör\nAmatör-tör-tör-tör-tör-tör\nAmatör-tör-tör-tör-tör-tör\n(Amatör)\nWriter(s): Ates Atilla, Aleyna Korkmaz, Elber Tutkus",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_7353fece512140598ff48082baa3818a",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/84b77a0991bd424f8a9ca6401a09e06e.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/84b77a0991bd424f8a9ca6401a09e06e.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_092e533e31844f38816f974a7c5f3aab",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/317162d3e095409595ac0785c3ce625a.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/317162d3e095409595ac0785c3ce625a.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_4092b58918ce4e268c20bd4441c9f635",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/29d52cebc5b1453b97a8a6d4cf5c8f75.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/29d52cebc5b1453b97a8a6d4cf5c8f75.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_6172b63645614ede9d0feceebf94df4b",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0b2fd61bc15d4547bda4062fab816cbe.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0b2fd61bc15d4547bda4062fab816cbe.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
     }
   ],
   "releases": [
@@ -1774,6 +1849,34 @@
       "tracks": [
         {
           "trackId": "track_14a06ca8ff454b8fa8adec28031a53cb",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "release_133ce2564a904a45ab2449996627ffe1",
+      "slug": "amator",
+      "title": "Amatör",
+      "type": "single",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "releaseDate": "2025-12-05",
+      "cover": "https://images.genius.com/3dc11ea6014ad51be5269122e1e4c1e0.1000x1000x1.png",
+      "heroImage": "https://images.genius.com/3dc11ea6014ad51be5269122e1e4c1e0.1000x1000x1.png",
+      "animatedCoverUrl": "",
+      "label": "© 2025 Hypers Music",
+      "copyright": "© 2025 Hypers Music",
+      "description": "",
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "tracks": [
+        {
+          "trackId": "track_f7139ed0a6154cbfa5fb7eff9f86ecaf",
           "disc": 1,
           "position": 1
         }
