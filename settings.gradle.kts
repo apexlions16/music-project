@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MuzikProjesi"
 include(":app")
+include(":studioapp")
