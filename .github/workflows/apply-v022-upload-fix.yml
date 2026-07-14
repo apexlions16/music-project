@@ -30,6 +30,22 @@ jobs:
           set +e
           {
             set -x
+            python - <<'PY'
+            from pathlib import Path
+            path = Path('tools/apply_v022_upload_fix.py')
+            text = path.read_text(encoding='utf-8')
+            text = text.replace(
+                "old_main = '''if __name__ == \"__main__\":\n    main()\n'''",
+                "old_main = '''if __name__ == \"__main__\":\n    raise SystemExit(main())\n'''",
+                1,
+            )
+            text = text.replace(
+                "    main()\n'''\nif old_main not in source:",
+                "    raise SystemExit(main())\n'''\nif old_main not in source:",
+                1,
+            )
+            path.write_text(text, encoding='utf-8')
+            PY
             python tools/apply_v022_upload_fix.py
             CODE=$?
             if [ "$CODE" -eq 0 ]; then python -m py_compile pc/AuroraStudio.py; CODE=$?; fi
@@ -53,6 +69,7 @@ jobs:
       - name: Kaynakları dala yaz
         run: |
           set -euo pipefail
+          git restore tools/apply_v022_upload_fix.py
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add pc/AuroraStudio.py pc/README.md
