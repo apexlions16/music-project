@@ -1,0 +1,128 @@
+name: Android APK Son Derleme
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "app/**"
+      - "build.gradle.kts"
+      - "settings.gradle.kts"
+      - "gradle.properties"
+      - ".github/workflows/android-build-final.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: android-release-final
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+env:
+  SURUM: "0.1.0"
+
+jobs:
+  android:
+    name: Android APK son derleme
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kaynak kodu al
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Java 17 kur
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Android SDK kur
+        uses: android-actions/setup-android@v3
+
+      - name: Android 35 paketlerini kur
+        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Gradle 8.9 kur
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: APK derle ve logu kaydet
+        id: build
+        shell: bash
+        run: |
+          set -o pipefail
+          gradle --no-daemon --stacktrace --console=plain assembleDebug 2>&1 | tee build-full.log
+
+      - name: APK dosyasını hazırla
+        if: success()
+        run: |
+          mkdir -p yayin
+          cp app/build/outputs/apk/debug/app-debug.apk "yayin/muzik-projesi-v${SURUM}.apk"
+          sha256sum "yayin/muzik-projesi-v${SURUM}.apk" > "yayin/SHA256SUMS.txt"
+
+      - name: Derleme çıktısını sakla
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: muzik-projesi-android-v${{ env.SURUM }}
+          path: yayin/*
+
+      - name: Önceki aynı sürümü kaldır
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release delete "v${SURUM}" --cleanup-tag --yes || true
+
+      - name: GitHub Release oluştur
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v${SURUM}" yayin/* \
+            --title "Müzik Projesi Android v${SURUM}" \
+            --notes "İlk Android sürümü. Tamamen Türkçe, Apple Music esintili özgün telefon arayüzü; GitHub katalog sistemi; çevrimiçi oynatma; kalite seçimi; şarkı sözleri ve cihaz indirme desteği içerir." \
+            --latest
+
+      - name: Sonucu ve hata logunu repoya kaydet
+        if: always()
+        env:
+          DURUM: ${{ job.status }}
+        shell: bash
+        run: |
+          if [ "$DURUM" = "success" ]; then
+            MESAJ="APK başarıyla derlendi ve GitHub Release olarak yayımlandı."
+            RELEASE_URL="https://github.com/${GITHUB_REPOSITORY}/releases/tag/v${SURUM}"
+            rm -f BUILD_LOG.txt
+          else
+            MESAJ="Android derlemesi veya yayınlama işlemi başarısız oldu. BUILD_LOG.txt dosyasına bakın."
+            RELEASE_URL=""
+            if [ -f build-full.log ]; then
+              tail -n 500 build-full.log > BUILD_LOG.txt
+            else
+              echo "Gradle log dosyası üretilemedi." > BUILD_LOG.txt
+            fi
+          fi
+          export MESAJ RELEASE_URL
+          python - <<'PY'
+          import json, os
+          data = {
+              "durum": os.environ["DURUM"],
+              "mesaj": os.environ["MESAJ"],
+              "surum": os.environ["SURUM"],
+              "commit": os.environ["GITHUB_SHA"],
+              "actionsUrl": f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
+              "releaseUrl": os.environ.get("RELEASE_URL", "")
+          }
+          with open("BUILD_STATUS.json", "w", encoding="utf-8") as f:
+              json.dump(data, f, ensure_ascii=False, indent=2)
+              f.write("\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
+          git add BUILD_STATUS.json
+          if [ -f BUILD_LOG.txt ]; then git add BUILD_LOG.txt; else git rm --ignore-unmatch BUILD_LOG.txt; fi
+          git commit -m "Android son derleme sonucunu kaydet [skip ci]" || true
+          git push origin HEAD:main
