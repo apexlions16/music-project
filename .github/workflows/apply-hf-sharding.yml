@@ -5,13 +5,19 @@ on:
     branches: [agent/hf-folder-sharding]
     paths:
       - "HF_SHARD_TRIGGER.txt"
+  pull_request:
+    branches: [main]
+    paths:
+      - "HF_SHARD_TRIGGER.txt"
+      - "tools/apply_hf_sharding_patch.py"
+      - ".github/workflows/apply-hf-sharding.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: aurora-hf-shard-patch
+  group: aurora-hf-shard-patch-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -24,7 +30,19 @@ jobs:
           ref: agent/hf-folder-sharding
           fetch-depth: 0
 
+      - name: Tetik dosyasını kontrol et
+        id: trigger
+        shell: bash
+        run: |
+          if [ -f HF_SHARD_TRIGGER.txt ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "Yama daha önce uygulanmış; işlem yapılmayacak."
+          fi
+
       - name: Yamayı uygula ve Python sözdizimini doğrula
+        if: steps.trigger.outputs.enabled == 'true'
         run: |
           set -euo pipefail
           python tools/apply_hf_sharding_patch.py
@@ -35,6 +53,7 @@ jobs:
           grep -q 'allocate_remote("audio"' pc/AuroraStudio.py
 
       - name: Değişiklikleri dala yaz
+        if: steps.trigger.outputs.enabled == 'true'
         run: |
           set -euo pipefail
           rm -f HF_SHARD_TRIGGER.txt
