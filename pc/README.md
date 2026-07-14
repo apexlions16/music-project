@@ -1,4 +1,4 @@
-# Aurora Studio v0.2.1
+# Aurora Studio v0.2.2
 
 Aurora Music kataloğunu yöneten Windows masaüstü uygulamasıdır.
 
@@ -27,3 +27,12 @@ Spotify albüm sanatçıları ana sanatçı, parçadaki ek sanatçılar feat ola
 - Aurora yerel olarak son bir saatteki commitleri takip eder ve 128 commit/saat platform sınırından önce, 120 committe yeni yüklemeyi güvenli biçimde durdurur.
 - Xet varsayılan olarak kapalıdır; Windows'ta daha kararlı Git LFS yükleme yolu kullanılır.
 - Yükleme sırasında her 15 saniyede bir geçen süre gösterilir. Geçici ağ hatası bir kez yeniden denenir; belirsiz sonsuz bekleme kaldırılmıştır.
+
+
+## v0.2.2 Hugging Face yükleme düzeltmesi
+
+- Xet teknolojisi açık ve otomatik seçimde kalır.
+- Yalnızca yükleme görünürlüğü ve kararlılığı değiştirilmiştir.
+- Her dosyanın adı, boyutu, sırası, geçen süresi ve tamamlanan toplam boyut gösterilir.
+- Finalde yayın başına tek Hugging Face commit oluşturulur.
+- Shard klasörleri ve 120/128 commit güvenlik koruması aynen korunur.

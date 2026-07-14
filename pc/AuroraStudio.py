@@ -19,10 +19,8 @@ from pathlib import Path
 from typing import Any, Callable
 from urllib.parse import quote
 
-# Xet bazı Windows kurulumlarında yüklemeyi cevapsız bırakabildiği için Aurora Studio
-# varsayılan olarak daha öngörülebilir Git LFS yolunu kullanır. Kullanıcı ortam
-# değişkenini önceden ayarladıysa mevcut tercih korunur.
-os.environ.setdefault("HF_HUB_DISABLE_XET", "1")
+# Hugging Face'in Xet/LFS seçimi otomatik bırakılır. Aurora Studio Xet'i kapatmaz.
+# Yalnızca indirme zaman aşımı için güvenli bir varsayılan kullanılır.
 os.environ.setdefault("HF_HUB_DOWNLOAD_TIMEOUT", "120")
 
 import requests
@@ -68,7 +66,7 @@ from PySide6.QtWidgets import (
 )
 
 APP_NAME = "Aurora Studio"
-APP_VERSION = "0.2.1"
+APP_VERSION = "0.2.2"
 DEFAULT_REPO = "apexlions16/music-project"
 DEFAULT_BRANCH = "main"
 DEFAULT_CATALOG_PATH = "catalog/catalog.json"
@@ -80,6 +78,8 @@ HF_SHARD_FILE_LIMIT = 9000
 HF_COMMIT_HOURLY_LIMIT = 128
 HF_COMMIT_SOFT_LIMIT = 120
 HF_UPLOAD_TIMEOUT_SECONDS = 90 * 60
+HF_FILE_UPLOAD_TIMEOUT_SECONDS = 60 * 60
+HF_COMMIT_FINALIZE_TIMEOUT_SECONDS = 15 * 60
 
 
 def now_iso() -> str:
@@ -577,70 +577,194 @@ class HuggingFaceStorage:
             future._aurora_executor = executor  # type: ignore[attr-defined]
             return future
 
+    @staticmethod
+    def _human_size(size: int) -> str:
+        value = float(max(0, size))
+        units = ["B", "KB", "MB", "GB", "TB"]
+        unit = units[0]
+        for unit in units:
+            if value < 1024 or unit == units[-1]:
+                break
+            value /= 1024
+        return f"{value:.1f} {unit}" if unit != "B" else f"{int(value)} B"
+
     def create_commit(
         self,
         files: list[tuple[Path, str]],
         message: str,
-        progress: Callable[[str], None] | None = None,
+        progress: Callable[[str, int], None] | None = None,
     ) -> None:
         self.ensure_repo()
         index_operation = self._index_operation()
-        operations = [CommitOperationAdd(path_in_repo=remote, path_or_fileobj=str(local)) for local, remote in files]
-        if index_operation:
-            operations.append(index_operation)
-        if not operations:
+        if not files and index_operation is None:
             return
         self._check_commit_budget()
+
+        total_bytes = sum(local.stat().st_size for local, _remote in files)
+        completed_bytes = 0
+        operations: list[CommitOperationAdd] = []
+        upload_started = time.monotonic()
+
         if progress:
-            progress(f"{len(files)} medya dosyası tek Hugging Face commit'inde yükleniyor…")
+            progress(
+                f"Hugging Face Xet yüklemesi hazırlanıyor: {len(files)} dosya • "
+                f"toplam {self._human_size(total_bytes)} • finalde tek commit",
+                0,
+            )
+
+        for file_index, (local, remote) in enumerate(files, start=1):
+            file_size = local.stat().st_size
+            operation: CommitOperationAdd | None = None
+            last_error: Exception | None = None
+
+            for attempt in range(1, 3):
+                operation = CommitOperationAdd(path_in_repo=remote, path_or_fileobj=str(local))
+                if progress:
+                    progress(
+                        f"Dosya {file_index}/{len(files)}: {local.name} "
+                        f"({self._human_size(file_size)}) Xet ile yükleniyor • deneme {attempt}/2 • "
+                        f"tamamlanan {self._human_size(completed_bytes)}/{self._human_size(total_bytes)}",
+                        int((completed_bytes / max(total_bytes, 1)) * 92),
+                    )
+
+                executor = concurrent.futures.ThreadPoolExecutor(
+                    max_workers=1,
+                    thread_name_prefix="aurora-hf-xet-upload",
+                )
+                future = executor.submit(
+                    self.api.preupload_lfs_files,
+                    repo_id=self.settings.hf_repo,
+                    repo_type=self.settings.hf_repo_type,
+                    additions=[operation],
+                    token=self.settings.hf_token,
+                    num_threads=1,
+                    free_memory=True,
+                )
+                file_started = time.monotonic()
+                last_heartbeat = -1
+                try:
+                    while not future.done():
+                        elapsed_file = int(time.monotonic() - file_started)
+                        elapsed_total = int(time.monotonic() - upload_started)
+                        if elapsed_file >= HF_FILE_UPLOAD_TIMEOUT_SECONDS:
+                            future.cancel()
+                            raise TimeoutError(
+                                f"{local.name} dosyası 60 dakika boyunca tamamlanamadı. "
+                                "Xet yüklemesi durduruldu; bağlantıyı kontrol edip yeniden deneyin."
+                            )
+                        if elapsed_total >= HF_UPLOAD_TIMEOUT_SECONDS:
+                            future.cancel()
+                            raise TimeoutError(
+                                "Hugging Face yüklemesi 90 dakikalık toplam güvenlik süresini aştı."
+                            )
+                        heartbeat = elapsed_file // 5
+                        if progress and heartbeat != last_heartbeat:
+                            last_heartbeat = heartbeat
+                            progress(
+                                f"Dosya {file_index}/{len(files)}: {local.name} "
+                                f"({self._human_size(file_size)}) Xet ile işleniyor/yükleniyor • "
+                                f"{elapsed_file // 60:02d}:{elapsed_file % 60:02d} • "
+                                f"tamamlanan {self._human_size(completed_bytes)}/{self._human_size(total_bytes)}",
+                                int((completed_bytes / max(total_bytes, 1)) * 92),
+                            )
+                        time.sleep(1)
+                    future.result()
+                    last_error = None
+                    break
+                except Exception as exc:
+                    last_error = exc
+                    text = str(exc).lower()
+                    transient = any(
+                        marker in text
+                        for marker in (
+                            "429", "500", "502", "503", "504", "connection",
+                            "temporarily", "timeout", "timed out",
+                        )
+                    )
+                    if not transient or attempt >= 2:
+                        raise
+                    if progress:
+                        progress(
+                            f"{local.name} geçici Hugging Face hatası verdi. "
+                            f"8 saniye sonra Xet ile son kez denenecek: {exc}",
+                            int((completed_bytes / max(total_bytes, 1)) * 92),
+                        )
+                    time.sleep(8)
+                finally:
+                    executor.shutdown(wait=False, cancel_futures=True)
+
+            if last_error is not None or operation is None:
+                raise RuntimeError(f"{local.name} yüklenemedi: {last_error}")
+
+            operations.append(operation)
+            completed_bytes += file_size
+            if progress:
+                progress(
+                    f"Dosya {file_index}/{len(files)} tamamlandı: {local.name} • "
+                    f"{self._human_size(completed_bytes)}/{self._human_size(total_bytes)}",
+                    int((completed_bytes / max(total_bytes, 1)) * 92),
+                )
+
+        if index_operation:
+            operations.append(index_operation)
 
         last_error: Exception | None = None
         for attempt in range(1, 3):
             future = self._start_commit(operations, message)
-            started = time.monotonic()
+            commit_started = time.monotonic()
             last_heartbeat = -1
             try:
                 while not future.done():
-                    elapsed = int(time.monotonic() - started)
-                    if elapsed >= HF_UPLOAD_TIMEOUT_SECONDS:
+                    elapsed = int(time.monotonic() - commit_started)
+                    if elapsed >= HF_COMMIT_FINALIZE_TIMEOUT_SECONDS:
                         future.cancel()
                         raise TimeoutError(
-                            "Hugging Face yüklemesi 90 dakikalık güvenlik süresini aştı. "
-                            "Depoda commit oluşup oluşmadığını kontrol ettikten sonra yeniden deneyin."
+                            "Medya verileri gönderildi ancak Hugging Face final commit işlemi "
+                            "15 dakika içinde tamamlanamadı."
                         )
-                    heartbeat = elapsed // 15
+                    heartbeat = elapsed // 5
                     if progress and heartbeat != last_heartbeat:
                         last_heartbeat = heartbeat
                         progress(
-                            f"Hugging Face yüklemesi sürüyor… {elapsed // 60:02d}:{elapsed % 60:02d} geçti "
-                            f"(deneme {attempt}/2)"
+                            f"Tüm dosyalar Xet ile gönderildi; tek Hugging Face commit'i oluşturuluyor • "
+                            f"{elapsed // 60:02d}:{elapsed % 60:02d} • deneme {attempt}/2",
+                            96,
                         )
-                    time.sleep(2)
+                    time.sleep(1)
                 future.result()
                 self._record_commit()
                 self._storage_index_dirty = False
                 if progress:
-                    progress("Hugging Face commit'i tamamlandı.")
+                    progress("Hugging Face Xet yüklemesi ve tek commit tamamlandı.", 100)
                 return
-            except TimeoutError:
-                raise
             except Exception as exc:
                 last_error = exc
                 text = str(exc).lower()
-                transient = any(code in text for code in ("429", "502", "503", "504", "connection", "temporarily", "timeout"))
+                transient = any(
+                    marker in text
+                    for marker in (
+                        "429", "500", "502", "503", "504", "connection",
+                        "temporarily", "timeout", "timed out",
+                    )
+                )
                 if not transient or attempt >= 2:
                     if "429" in text:
                         raise RuntimeError(
-                            "Hugging Face saatlik commit veya hız sınırına ulaştı. Bir süre bekleyip yeniden deneyin."
+                            "Hugging Face saatlik commit veya hız sınırına ulaştı. "
+                            "Bir süre bekleyip yeniden deneyin."
                         ) from exc
                     raise RuntimeError(f"Hugging Face yüklemesi başarısız: {exc}") from exc
                 if progress:
-                    progress(f"Geçici Hugging Face hatası: {exc}. 8 saniye sonra tek kez yeniden deneniyor…")
+                    progress(
+                        f"Final commit geçici hata verdi. 8 saniye sonra son kez deneniyor: {exc}",
+                        96,
+                    )
                 time.sleep(8)
             finally:
                 executor = getattr(future, "_aurora_executor", None)
                 if executor:
                     executor.shutdown(wait=False, cancel_futures=True)
+
         if last_error:
             raise last_error
 
@@ -649,7 +773,7 @@ class HuggingFaceStorage:
         local_path: Path,
         remote_path: str,
         message: str,
-        progress: Callable[[str], None] | None = None,
+        progress: Callable[[str, int], None] | None = None,
     ) -> str:
         self.create_commit([(local_path, remote_path)], message, progress=progress)
         return self.resolve_url(remote_path)
@@ -2207,7 +2331,7 @@ class AuroraStudio(QMainWindow):
 
                 if upload_files:
                     progress("Yeni dosyalar Hugging Face'e sıralı toplu commit ediliyor…", 72)
-                    storage.create_commit(upload_files, f"Aurora Music: {request.release_title}", progress=lambda status: progress(status, 76))
+                    storage.create_commit(upload_files, f"Aurora Music: {request.release_title}", progress=lambda status, percent: progress(status, 72 + int(percent * 0.18)))
                 else:
                     progress("Tüm şarkılar mevcut ISRC kayıtlarından kullanıldı; medya yüklenmedi", 72)
                 release = {
@@ -2269,7 +2393,7 @@ class AuroraStudio(QMainWindow):
             progress("Dosya Hugging Face'e yükleniyor…", 40)
             storage = HuggingFaceStorage(settings)
             remote = storage.allocate_remote(category, path.suffix.lower(), lambda status: progress(status, 25))
-            url = storage.upload_one(path, remote, f"Aurora asset: {category}", progress=lambda status: progress(status, 60))
+            url = storage.upload_one(path, remote, f"Aurora asset: {category}", progress=lambda status, percent: progress(status, 25 + int(percent * 0.70)))
             progress("Yükleme tamamlandı", 100)
             return url
 
