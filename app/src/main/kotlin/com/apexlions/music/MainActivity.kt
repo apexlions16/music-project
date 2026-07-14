@@ -794,124 +794,192 @@ private fun NowPlayingScreen(controller: PlayerController, animatedCoversEnabled
     var qualityMenu by remember { mutableStateOf(false) }
     val sources = track.sources.sortedByDescending { qualityRank(it.kind) }
 
-    Column(
-        Modifier.fillMaxWidth().fillMaxHeight(.94f).background(
-            Brush.verticalGradient(listOf(SurfaceLight, AppBackground)),
-        ).padding(horizontal = 24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
+    Box(
+        Modifier
+            .fillMaxWidth()
+            .fillMaxHeight(.94f)
+            .background(AppBackground),
     ) {
-        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-            Text(if (lyricsMode) "Şarkı Sözleri" else "Şu An Çalıyor", modifier = Modifier.weight(1f), fontWeight = FontWeight.SemiBold)
-            IconButton(onClick = { lyricsMode = !lyricsMode }) {
-                Icon(if (lyricsMode) Icons.Rounded.Album else Icons.Rounded.Lyrics, null)
-            }
-        }
-        controller.playbackError?.let { message ->
-            Surface(shape = RoundedCornerShape(14.dp), color = ErrorColor.copy(alpha = .15f), modifier = Modifier.fillMaxWidth()) {
-                Text(message, color = ErrorColor, modifier = Modifier.padding(14.dp))
-            }
-            Spacer(Modifier.height(10.dp))
-        }
-        if (lyricsMode) {
-            LazyColumn(Modifier.fillMaxWidth().weight(1f), contentPadding = PaddingValues(vertical = 24.dp)) {
-                item {
-                    Text(
-                        track.lyrics.ifBlank { "Bu şarkı için henüz söz eklenmemiş." },
-                        fontSize = 27.sp,
-                        lineHeight = 38.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        color = if (track.lyrics.isBlank()) Muted else Color.White,
-                    )
-                    if (track.credits.isNotEmpty()) {
-                        Spacer(Modifier.height(32.dp))
-                        Text("Künye", color = Accent, fontWeight = FontWeight.Bold)
-                        track.credits.forEach { Text("${it.role}: ${it.names.joinToString(", ")}", color = Muted) }
-                    }
-                }
-            }
-        } else {
-            Spacer(Modifier.height(12.dp))
-            AnimatedNowPlayingArtwork(
-                videoUrl = controller.currentRelease?.animatedCoverUrl.orEmpty(),
-                coverUrl = controller.currentCover,
-                enabled = animatedCoversEnabled,
-                playing = controller.isPlaying,
-                huggingFaceToken = AppSettings.huggingFaceToken(context),
-                modifier = Modifier.fillMaxWidth().aspectRatio(1f),
-            )
-            Spacer(Modifier.height(24.dp))
-            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                Column(Modifier.weight(1f)) {
-                    Text(track.title, fontSize = 24.sp, fontWeight = FontWeight.Bold, maxLines = 1)
-                    Text(controller.currentArtistLine, color = Muted, fontSize = 16.sp, maxLines = 1)
-                }
-                IconButton(onClick = controller::downloadCurrent) { Icon(Icons.Rounded.Download, "İndir", tint = Accent) }
-            }
-            Slider(
-                value = controller.positionMs.toFloat().coerceAtLeast(0f),
-                onValueChange = { controller.positionMs = it.toLong() },
-                onValueChangeFinished = { controller.seekTo(controller.positionMs) },
-                valueRange = 0f..controller.durationMs.coerceAtLeast(1).toFloat(),
-                colors = SliderDefaults.colors(
-                    thumbColor = Color.White,
-                    activeTrackColor = Color.White,
-                    inactiveTrackColor = Color.White.copy(alpha = .2f),
+        AnimatedNowPlayingBackground(
+            videoUrl = controller.currentRelease?.animatedCoverUrl.orEmpty(),
+            coverUrl = controller.currentCover,
+            enabled = animatedCoversEnabled,
+            playing = controller.isPlaying,
+            huggingFaceToken = AppSettings.huggingFaceToken(context),
+            modifier = Modifier.fillMaxSize(),
+        )
+        Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = if (lyricsMode) .70f else .50f)))
+        Box(
+            Modifier.fillMaxSize().background(
+                Brush.verticalGradient(
+                    listOf(
+                        Color.Black.copy(alpha = .26f),
+                        Color.Transparent,
+                        Color.Black.copy(alpha = .78f),
+                    ),
                 ),
-            )
-            Row(Modifier.fillMaxWidth()) {
-                Text(formatMillis(controller.positionMs), color = Muted, fontSize = 12.sp)
-                Spacer(Modifier.weight(1f))
-                Text(formatMillis(controller.durationMs), color = Muted, fontSize = 12.sp)
+            ),
+        )
+
+        Column(
+            Modifier.fillMaxSize().padding(horizontal = 24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    if (lyricsMode) "Şarkı Sözleri" else "Şu An Çalıyor",
+                    modifier = Modifier.weight(1f),
+                    fontWeight = FontWeight.SemiBold,
+                )
+                IconButton(onClick = { lyricsMode = !lyricsMode }) {
+                    Icon(if (lyricsMode) Icons.Rounded.Album else Icons.Rounded.Lyrics, null)
+                }
             }
-            Row(
-                Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                IconButton(onClick = { controller.setShuffle(!controller.shuffle) }) {
-                    Icon(Icons.Rounded.Shuffle, null, tint = if (controller.shuffle) Accent else Color.White)
-                }
-                IconButton(onClick = { controller.seekBy(-10_000) }) { Icon(Icons.Rounded.FastRewind, "10 saniye geri") }
-                IconButton(onClick = controller::previous) { Icon(Icons.Rounded.SkipPrevious, null, modifier = Modifier.size(36.dp)) }
-                FilledIconButton(
-                    onClick = controller::toggle,
-                    modifier = Modifier.size(70.dp),
-                    colors = IconButtonDefaults.filledIconButtonColors(containerColor = Color.White, contentColor = Color.Black),
+
+            controller.playbackError?.let { message ->
+                Surface(
+                    shape = RoundedCornerShape(14.dp),
+                    color = ErrorColor.copy(alpha = .22f),
+                    modifier = Modifier.fillMaxWidth(),
                 ) {
-                    Icon(if (controller.isPlaying) Icons.Rounded.Pause else Icons.Rounded.PlayArrow, null, modifier = Modifier.size(42.dp))
+                    Text(message, color = Color.White, modifier = Modifier.padding(14.dp))
                 }
-                IconButton(onClick = controller::next) { Icon(Icons.Rounded.SkipNext, null, modifier = Modifier.size(36.dp)) }
-                IconButton(onClick = { controller.seekBy(10_000) }) { Icon(Icons.Rounded.FastForward, "10 saniye ileri") }
-                Box {
-                    IconButton(onClick = { qualityMenu = true }) { Icon(Icons.Rounded.HighQuality, null, tint = Accent) }
-                    DropdownMenu(expanded = qualityMenu, onDismissRequest = { qualityMenu = false }) {
-                        sources.forEach { source ->
-                            DropdownMenuItem(
-                                text = {
-                                    Column {
-                                        Text(source.label)
-                                        Text(source.codec, color = Muted, fontSize = 12.sp)
-                                    }
-                                },
-                                trailingIcon = {
-                                    if (controller.currentSource?.id == source.id) Icon(Icons.Rounded.Check, null, tint = Accent)
-                                },
-                                onClick = {
-                                    controller.setQuality(source.kind)
-                                    qualityMenu = false
-                                },
-                            )
+                Spacer(Modifier.height(10.dp))
+            }
+
+            if (lyricsMode) {
+                LazyColumn(
+                    Modifier.fillMaxWidth().weight(1f),
+                    contentPadding = PaddingValues(vertical = 24.dp),
+                ) {
+                    item {
+                        Text(
+                            track.lyrics.ifBlank { "Bu şarkı için henüz söz eklenmemiş." },
+                            fontSize = 27.sp,
+                            lineHeight = 38.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            color = if (track.lyrics.isBlank()) Color.White.copy(alpha = .65f) else Color.White,
+                        )
+                        if (track.credits.isNotEmpty()) {
+                            Spacer(Modifier.height(32.dp))
+                            Text("Künye", color = Accent, fontWeight = FontWeight.Bold)
+                            track.credits.forEach {
+                                Text("${it.role}: ${it.names.joinToString(", ")}", color = Color.White.copy(alpha = .72f))
+                            }
                         }
                     }
                 }
+            } else {
+                Spacer(Modifier.weight(1f))
+                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                    Column(Modifier.weight(1f)) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(track.title, fontSize = 27.sp, fontWeight = FontWeight.Bold, maxLines = 1)
+                            if (track.explicit) {
+                                Spacer(Modifier.width(7.dp))
+                                Surface(
+                                    shape = RoundedCornerShape(4.dp),
+                                    color = Color.White.copy(alpha = .88f),
+                                ) {
+                                    Text(
+                                        "E",
+                                        color = Color.Black,
+                                        fontSize = 10.sp,
+                                        fontWeight = FontWeight.ExtraBold,
+                                        modifier = Modifier.padding(horizontal = 5.dp, vertical = 2.dp),
+                                    )
+                                }
+                            }
+                        }
+                        Text(controller.currentArtistLine, color = Color.White.copy(alpha = .76f), fontSize = 16.sp, maxLines = 1)
+                    }
+                    IconButton(onClick = controller::downloadCurrent) {
+                        Icon(Icons.Rounded.Download, "İndir", tint = Color.White)
+                    }
+                }
+                Spacer(Modifier.height(12.dp))
+                Slider(
+                    value = controller.positionMs.toFloat().coerceAtLeast(0f),
+                    onValueChange = { controller.positionMs = it.toLong() },
+                    onValueChangeFinished = { controller.seekTo(controller.positionMs) },
+                    valueRange = 0f..controller.durationMs.coerceAtLeast(1).toFloat(),
+                    colors = SliderDefaults.colors(
+                        thumbColor = Color.White,
+                        activeTrackColor = Color.White,
+                        inactiveTrackColor = Color.White.copy(alpha = .28f),
+                    ),
+                )
+                Row(Modifier.fillMaxWidth()) {
+                    Text(formatMillis(controller.positionMs), color = Color.White.copy(alpha = .70f), fontSize = 12.sp)
+                    Spacer(Modifier.weight(1f))
+                    Text(formatMillis(controller.durationMs), color = Color.White.copy(alpha = .70f), fontSize = 12.sp)
+                }
+                Row(
+                    Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    IconButton(onClick = { controller.setShuffle(!controller.shuffle) }) {
+                        Icon(Icons.Rounded.Shuffle, null, tint = if (controller.shuffle) Accent else Color.White)
+                    }
+                    IconButton(onClick = { controller.seekBy(-10_000) }) {
+                        Icon(Icons.Rounded.FastRewind, "10 saniye geri")
+                    }
+                    IconButton(onClick = controller::previous) {
+                        Icon(Icons.Rounded.SkipPrevious, null, modifier = Modifier.size(36.dp))
+                    }
+                    FilledIconButton(
+                        onClick = controller::toggle,
+                        modifier = Modifier.size(70.dp),
+                        colors = IconButtonDefaults.filledIconButtonColors(containerColor = Color.White, contentColor = Color.Black),
+                    ) {
+                        Icon(
+                            if (controller.isPlaying) Icons.Rounded.Pause else Icons.Rounded.PlayArrow,
+                            null,
+                            modifier = Modifier.size(42.dp),
+                        )
+                    }
+                    IconButton(onClick = controller::next) {
+                        Icon(Icons.Rounded.SkipNext, null, modifier = Modifier.size(36.dp))
+                    }
+                    IconButton(onClick = { controller.seekBy(10_000) }) {
+                        Icon(Icons.Rounded.FastForward, "10 saniye ileri")
+                    }
+                    Box {
+                        IconButton(onClick = { qualityMenu = true }) {
+                            Icon(Icons.Rounded.HighQuality, null, tint = Color.White)
+                        }
+                        DropdownMenu(expanded = qualityMenu, onDismissRequest = { qualityMenu = false }) {
+                            sources.forEach { source ->
+                                DropdownMenuItem(
+                                    text = {
+                                        Column {
+                                            Text(source.label)
+                                            Text(source.codec, color = Muted, fontSize = 12.sp)
+                                        }
+                                    },
+                                    trailingIcon = {
+                                        if (controller.currentSource?.id == source.id) {
+                                            Icon(Icons.Rounded.Check, null, tint = Accent)
+                                        }
+                                    },
+                                    onClick = {
+                                        controller.setQuality(source.kind)
+                                        qualityMenu = false
+                                    },
+                                )
+                            }
+                        }
+                    }
+                }
+                Spacer(Modifier.height(18.dp))
             }
         }
     }
 }
 
-
 @Composable
-private fun AnimatedNowPlayingArtwork(
+private fun AnimatedNowPlayingBackground(
     videoUrl: String,
     coverUrl: String,
     enabled: Boolean,
@@ -924,11 +992,7 @@ private fun AnimatedNowPlayingArtwork(
     var videoFailed by remember(cleanVideoUrl) { mutableStateOf(false) }
     val showVideo = enabled && cleanVideoUrl.isNotBlank() && !videoFailed
 
-    Box(
-        modifier = modifier
-            .clip(RoundedCornerShape(24.dp))
-            .background(SurfaceDark),
-    ) {
+    Box(modifier = modifier.background(AppBackground)) {
         AsyncImage(
             model = coverUrl,
             contentDescription = null,
@@ -951,11 +1015,10 @@ private fun AnimatedNowPlayingArtwork(
                     emptyMap()
                 }
                 val httpFactory = DefaultHttpDataSource.Factory()
-                    .setUserAgent("AuroraMusic/0.3.1")
+                    .setUserAgent("AuroraMusic/0.3.2")
                     .setAllowCrossProtocolRedirects(true)
                     .setDefaultRequestProperties(headers)
-                val mediaSourceFactory = DefaultMediaSourceFactory(context)
-                    .setDataSourceFactory(httpFactory)
+                val mediaSourceFactory = DefaultMediaSourceFactory(context).setDataSourceFactory(httpFactory)
 
                 ExoPlayer.Builder(context)
                     .setMediaSourceFactory(mediaSourceFactory)
@@ -982,11 +1045,7 @@ private fun AnimatedNowPlayingArtwork(
             }
 
             LaunchedEffect(videoPlayer, playing) {
-                if (playing) {
-                    videoPlayer.play()
-                } else {
-                    videoPlayer.pause()
-                }
+                if (playing) videoPlayer.play() else videoPlayer.pause()
             }
 
             AndroidView(
@@ -1002,9 +1061,7 @@ private fun AnimatedNowPlayingArtwork(
                         player = videoPlayer
                     }
                 },
-                update = { view ->
-                    view.player = videoPlayer
-                },
+                update = { it.player = videoPlayer },
                 modifier = Modifier.fillMaxSize(),
             )
         }

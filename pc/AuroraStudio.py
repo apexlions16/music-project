@@ -22,6 +22,7 @@ from urllib.parse import quote
 # Hugging Face'in Xet/LFS seçimi otomatik bırakılır. Aurora Studio Xet'i kapatmaz.
 # Yalnızca indirme zaman aşımı için güvenli bir varsayılan kullanılır.
 os.environ.setdefault("HF_HUB_DOWNLOAD_TIMEOUT", "120")
+os.environ.setdefault("HF_HUB_DISABLE_PROGRESS_BARS", "1")
 
 import requests
 from huggingface_hub import CommitOperationAdd, HfApi
@@ -66,7 +67,7 @@ from PySide6.QtWidgets import (
 )
 
 APP_NAME = "Aurora Studio"
-APP_VERSION = "0.2.2"
+APP_VERSION = "0.2.3"
 DEFAULT_REPO = "apexlions16/music-project"
 DEFAULT_BRANCH = "main"
 DEFAULT_CATALOG_PATH = "catalog/catalog.json"
@@ -897,6 +898,7 @@ class ImportTrack:
     isrc: str = ""
     primary_artist_ids: list[str] = field(default_factory=list)
     featured_artist_ids: list[str] = field(default_factory=list)
+    featured_artist_names: list[str] = field(default_factory=list)
     spotify_id: str = ""
     spotify_url: str = ""
     duration_seconds: int = 0
@@ -967,10 +969,16 @@ class LyricsDialog(QDialog):
         artists_form = QFormLayout(artists_page)
         self.primary_artists = QLineEdit(", ".join(track.primary_artist_ids))
         self.featured_artists = QLineEdit(", ".join(track.featured_artist_ids))
+        self.featured_artist_names = QLineEdit(", ".join(track.featured_artist_names))
+        self.explicit = QCheckBox("Explicit içerik • uygulamada E göster")
+        self.explicit.setChecked(track.explicit)
         self.primary_artists.setPlaceholderText("artist_id, artist_id")
         self.featured_artists.setPlaceholderText("feat artist_id, feat artist_id")
+        self.featured_artist_names.setPlaceholderText("Profil gerektirmeyen feat isimleri, virgülle")
         artists_form.addRow("Ana sanatçı ID'leri", self.primary_artists)
         artists_form.addRow("Feat sanatçı ID'leri", self.featured_artists)
+        artists_form.addRow("Serbest feat isimleri", self.featured_artist_names)
+        artists_form.addRow("", self.explicit)
         tabs.addTab(artists_page, "Sanatçılar / Feat")
         tabs.addTab(self.plain, "Normal Sözler")
         tabs.addTab(self.synced, "Senkronize LRC")
@@ -988,6 +996,8 @@ class LyricsDialog(QDialog):
                 raise ValueError("Künye JSON dizisi olmalıdır.")
             self.track.primary_artist_ids = ordered_unique([value.strip() for value in self.primary_artists.text().split(",") if value.strip()])
             self.track.featured_artist_ids = [value for value in ordered_unique([value.strip() for value in self.featured_artists.text().split(",") if value.strip()]) if value not in self.track.primary_artist_ids]
+            self.track.featured_artist_names = ordered_unique([value.strip() for value in self.featured_artist_names.text().split(",") if value.strip()])
+            self.track.explicit = self.explicit.isChecked()
             self.track.lyrics = self.plain.toPlainText()
             self.track.synced_lyrics = self.synced.toPlainText()
             self.track.credits = credits
@@ -1428,6 +1438,8 @@ class AuroraStudio(QMainWindow):
         self.track_slug = QLineEdit()
         self.track_artists = QLineEdit()
         self.track_featured_artists = QLineEdit()
+        self.track_featured_names = QLineEdit()
+        self.track_explicit = QCheckBox("Explicit • E rozeti")
         self.track_duration = QSpinBox(); self.track_duration.setRange(0, 60 * 60 * 10)
         self.track_isrc = QLineEdit()
         self.track_lyrics = QPlainTextEdit()
@@ -1439,6 +1451,8 @@ class AuroraStudio(QMainWindow):
         form.addRow("Slug", self.track_slug)
         form.addRow("Ana sanatçı ID'leri (virgül)", self.track_artists)
         form.addRow("Feat sanatçı ID'leri (virgül)", self.track_featured_artists)
+        form.addRow("Serbest feat isimleri (virgül)", self.track_featured_names)
+        form.addRow("", self.track_explicit)
         form.addRow("Süre (saniye)", self.track_duration)
         form.addRow("ISRC", self.track_isrc)
         form.addRow("Normal sözler", self.track_lyrics)
@@ -1852,6 +1866,8 @@ class AuroraStudio(QMainWindow):
         featured_ids = track.get("featuredArtistIds", [])
         self.track_artists.setText(", ".join(primary_ids))
         self.track_featured_artists.setText(", ".join(featured_ids))
+        self.track_featured_names.setText(", ".join(track.get("featuredArtistNames", [])))
+        self.track_explicit.setChecked(bool(track.get("explicit", False)))
         self.track_duration.setValue(int(track.get("durationSeconds", 0)))
         self.track_isrc.setText(track.get("isrc", ""))
         self.track_lyrics.setPlainText(track.get("lyrics", ""))
@@ -1874,8 +1890,10 @@ class AuroraStudio(QMainWindow):
                 "slug": self.track_slug.text().strip() or slugify(self.track_title.text()),
                 "primaryArtistIds": ordered_unique([x.strip() for x in self.track_artists.text().split(",") if x.strip()]),
                 "featuredArtistIds": [x for x in ordered_unique([x.strip() for x in self.track_featured_artists.text().split(",") if x.strip()]) if x not in [y.strip() for y in self.track_artists.text().split(",") if y.strip()]],
+                "featuredArtistNames": ordered_unique([x.strip() for x in self.track_featured_names.text().split(",") if x.strip()]),
                 "artistIds": ordered_unique([x.strip() for x in self.track_artists.text().split(",") if x.strip()] + [x.strip() for x in self.track_featured_artists.text().split(",") if x.strip()]),
                 "durationSeconds": self.track_duration.value(),
+                "explicit": self.track_explicit.isChecked(),
                 "isrc": self.track_isrc.text().strip(),
                 "lyrics": self.track_lyrics.toPlainText(),
                 "syncedLyrics": self.track_synced.toPlainText(),
@@ -2100,7 +2118,7 @@ class AuroraStudio(QMainWindow):
                 track.path.name if track.has_master else "—",
                 track.title,
                 ", ".join(self.artist_name_for_id(value) for value in track.primary_artist_ids) or "—",
-                ", ".join(self.artist_name_for_id(value) for value in track.featured_artist_ids) or "—",
+                ", ".join([self.artist_name_for_id(value) for value in track.featured_artist_ids] + track.featured_artist_names) or "—",
                 track.isrc,
                 status,
                 "Var" if track.lyrics or track.synced_lyrics else "—",
@@ -2220,7 +2238,7 @@ class AuroraStudio(QMainWindow):
             new_tracks: list[dict[str, Any]] = []
             release_rows: list[dict[str, Any]] = []
             reused_count = 0
-            snapshot["schemaVersion"] = max(3, int(snapshot.get("schemaVersion", 1)))
+            snapshot["schemaVersion"] = max(4, int(snapshot.get("schemaVersion", 1)))
             existing_by_isrc = {
                 normalize_isrc(row.get("isrc", "")): row
                 for row in snapshot.get("tracks", [])
@@ -2310,6 +2328,7 @@ class AuroraStudio(QMainWindow):
                         "artistIds": ordered_unique(primary_ids + featured_ids),
                         "primaryArtistIds": primary_ids,
                         "featuredArtistIds": featured_ids,
+                        "featuredArtistNames": ordered_unique(row.featured_artist_names),
                         "durationSeconds": info["duration"] or row.duration_seconds,
                         "isrc": row.isrc,
                         "explicit": row.explicit,
