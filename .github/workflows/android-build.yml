@@ -5,8 +5,6 @@ on:
     branches: [main]
     paths:
       - "app/**"
-      - "catalog/**"
-      - "admin/**"
       - "build.gradle.kts"
       - "settings.gradle.kts"
       - "gradle.properties"
@@ -50,27 +48,57 @@ jobs:
         with:
           gradle-version: "8.9"
 
-      - name: APK derle
-        run: gradle --no-daemon assembleDebug
+      - name: APK derle ve logu kaydet
+        id: build
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          gradle --no-daemon --stacktrace --console=plain assembleDebug 2>&1 | tee BUILD_FULL.log
+
+      - name: Hata logunu repoya yaz
+        if: steps.build.outcome == 'failure'
+        run: |
+          tail -n 500 BUILD_FULL.log > BUILD_LOG.txt
+          cat > BUILD_STATUS.json <<EOF
+          {
+            "durum": "failure",
+            "mesaj": "Android derlemesi başarısız oldu. BUILD_LOG.txt dosyasına bakın.",
+            "surum": "${SURUM}",
+            "commit": "${GITHUB_SHA}",
+            "actionsUrl": "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}",
+            "releaseUrl": ""
+          }
+          EOF
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
+          git add BUILD_LOG.txt BUILD_STATUS.json
+          git commit -m "Android derleme hatasını kaydet [skip ci]" || true
+          git push origin HEAD:main
 
       - name: APK dosyasını hazırla
+        if: steps.build.outcome == 'success'
         run: |
           mkdir -p yayin
           cp app/build/outputs/apk/debug/app-debug.apk "yayin/muzik-projesi-v${SURUM}.apk"
           sha256sum "yayin/muzik-projesi-v${SURUM}.apk" > "yayin/SHA256SUMS.txt"
 
       - name: Derleme çıktısını sakla
+        if: steps.build.outcome == 'success'
         uses: actions/upload-artifact@v4
         with:
           name: muzik-projesi-android-v${{ env.SURUM }}
           path: yayin/*
 
       - name: Önceki aynı sürümü kaldır
+        if: steps.build.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh release delete "v${SURUM}" --cleanup-tag --yes || true
 
       - name: GitHub Release oluştur
+        if: steps.build.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -79,58 +107,28 @@ jobs:
             --notes "İlk Android sürümü. Tamamen Türkçe, Apple Music esintili özgün telefon arayüzü; GitHub katalog sistemi; çevrimiçi oynatma; kalite seçimi; şarkı sözleri ve cihaz indirme desteği içerir." \
             --latest
 
-      - name: Başarılı derleme durumunu kaydet
-        if: success()
-        env:
-          DURUM: success
-          MESAJ: APK başarıyla derlendi ve GitHub Release olarak yayımlandı.
-          RELEASE_URL: https://github.com/${{ github.repository }}/releases/tag/v${{ env.SURUM }}
+      - name: Başarı durumunu repoya yaz
+        if: steps.build.outcome == 'success'
         run: |
-          python - <<'PY'
-          import json, os
-          data = {
-              "durum": os.environ["DURUM"],
-              "mesaj": os.environ["MESAJ"],
-              "surum": os.environ["SURUM"],
-              "commit": os.environ["GITHUB_SHA"],
-              "actionsUrl": f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
-              "releaseUrl": os.environ["RELEASE_URL"]
+          rm -f BUILD_LOG.txt
+          cat > BUILD_STATUS.json <<EOF
+          {
+            "durum": "success",
+            "mesaj": "APK başarıyla derlendi ve GitHub Release olarak yayımlandı.",
+            "surum": "${SURUM}",
+            "commit": "${GITHUB_SHA}",
+            "actionsUrl": "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}",
+            "releaseUrl": "https://github.com/${GITHUB_REPOSITORY}/releases/tag/v${SURUM}"
           }
-          with open("BUILD_STATUS.json", "w", encoding="utf-8") as f:
-              json.dump(data, f, ensure_ascii=False, indent=2)
-              f.write("\n")
-          PY
+          EOF
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin main
           git add BUILD_STATUS.json
+          git rm --ignore-unmatch BUILD_LOG.txt
           git commit -m "Başarılı Android derlemesini kaydet [skip ci]" || true
           git push origin HEAD:main
 
-      - name: Başarısız derleme durumunu kaydet
-        if: failure()
-        env:
-          DURUM: failure
-          MESAJ: Android derlemesi veya yayınlama işlemi başarısız oldu. Ayrıntı için Actions bağlantısını açın.
-          RELEASE_URL: ""
-        run: |
-          python - <<'PY'
-          import json, os
-          data = {
-              "durum": os.environ["DURUM"],
-              "mesaj": os.environ["MESAJ"],
-              "surum": os.environ["SURUM"],
-              "commit": os.environ["GITHUB_SHA"],
-              "actionsUrl": f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
-              "releaseUrl": ""
-          }
-          with open("BUILD_STATUS.json", "w", encoding="utf-8") as f:
-              json.dump(data, f, ensure_ascii=False, indent=2)
-              f.write("\n")
-          PY
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
-          git add BUILD_STATUS.json
-          git commit -m "Başarısız Android derlemesini kaydet [skip ci]" || true
-          git push origin HEAD:main
+      - name: Derlemeyi başarısız olarak işaretle
+        if: steps.build.outcome == 'failure'
+        run: exit 1
