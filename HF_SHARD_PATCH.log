@@ -1,6 +1,0 @@
-Aurora Studio v0.2.1 Hugging Face shard yaması uygulandı.
-  File "pc/AuroraStudio.py", line 559
-    json.dumps(self._storage_index, ensure_ascii=False, indent=2) + "
-                                                                    ^
-SyntaxError: unterminated string literal (detected at line 559)
-exit_code=1
