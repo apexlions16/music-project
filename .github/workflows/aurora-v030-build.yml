@@ -75,7 +75,7 @@ jobs:
             --notes "Dikey mobil tasarım, sanatçı sayfasında az göster/tümünü gör ve sıralama, mobil yönetim panelinin kaldırılması, feat sanatçı gösterimi, şifreli Hugging Face gated token desteği ve anlaşılır oynatma hataları."
 
   windows:
-    name: Aurora Studio Windows v0.2.0
+    name: Aurora Studio Windows v0.2.1
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -124,14 +124,14 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force yayin | Out-Null
-          Compress-Archive -Path dist\AuroraStudio\* -DestinationPath yayin\Aurora-Studio-Windows-x64-v0.2.0.zip -Force
-          $hash = (Get-FileHash yayin\Aurora-Studio-Windows-x64-v0.2.0.zip -Algorithm SHA256).Hash.ToLower()
-          "$hash  Aurora-Studio-Windows-x64-v0.2.0.zip" | Set-Content yayin\SHA256SUMS-Aurora-Studio.txt
+          Compress-Archive -Path dist\AuroraStudio\* -DestinationPath yayin\Aurora-Studio-Windows-x64-v0.2.1.zip -Force
+          $hash = (Get-FileHash yayin\Aurora-Studio-Windows-x64-v0.2.1.zip -Algorithm SHA256).Hash.ToLower()
+          "$hash  Aurora-Studio-Windows-x64-v0.2.1.zip" | Set-Content yayin\SHA256SUMS-Aurora-Studio.txt
 
       - name: Windows artifact
         uses: actions/upload-artifact@v4
         with:
-          name: aurora-studio-windows-v0.2.0
+          name: aurora-studio-windows-v0.2.1
           path: yayin/*
 
       - name: Windows Release
@@ -140,7 +140,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         shell: pwsh
         run: |
-          gh release delete aurora-studio-v0.2.0 --cleanup-tag --yes 2>$null
-          gh release create aurora-studio-v0.2.0 yayin/* `
-            --title "Aurora Studio Windows v0.2.0" `
-            --notes "ISRC tekrar engeli, sıralı toplu master eşleştirme, Spotify metadata/ana sanatçı/feat sanatçı aktarımı, isteğe bağlı LRCLIB söz araması ve GitHub-Hugging Face yayın akışı."
+          gh release delete aurora-studio-v0.2.1 --cleanup-tag --yes 2>$null
+          gh release create aurora-studio-v0.2.1 yayin/* `
+            --title "Aurora Studio Windows v0.2.1" `
+            --notes "9.000 öğelik otomatik Hugging Face klasör shard sistemi, tek-commit yayın akışı, 128 commit/saat koruması, yükleme zaman aşımı ve durum göstergesi, ISRC tekrar engeli ve Spotify metadata aktarımı."
