@@ -105,12 +105,12 @@ jobs:
         if: failure() && steps.trigger.outputs.enabled == 'true'
         shell: bash
         run: |
+          cp HF_SHARD_COMMIT.log /tmp/HF_SHARD_COMMIT.log
           git reset --hard HEAD
           git clean -fd
+          cp /tmp/HF_SHARD_COMMIT.log HF_SHARD_COMMIT.log
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ -f HF_SHARD_COMMIT.log ]; then
-            git add HF_SHARD_COMMIT.log
-            git commit -m "HF shard commit hata kaydını ekle" || true
-            git push origin HEAD:agent/hf-folder-sharding || true
-          fi
+          git add HF_SHARD_COMMIT.log
+          git commit -m "HF shard commit hata kaydını ekle" || true
+          git push origin HEAD:agent/hf-folder-sharding || true
