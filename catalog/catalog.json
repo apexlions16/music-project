@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-07-14T17:12:34.893Z",
+  "updatedAt": "2026-07-14T17:16:03.122Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_60b3cb8f030a4ac48c56d34adc9e6080",
     "release_e22656de64b540748b54c4848bc80cc6",
     "release_133ce2564a904a45ab2449996627ffe1",
     "release_58341a6ee2d745948147909941632958",
@@ -1630,6 +1631,67 @@
           "bitDepth": 24
         }
       ]
+    },
+    {
+      "id": "track_a2e795dd6af547759b90d081728b713e",
+      "slug": "basrol-sensin-1-yil-ozel",
+      "title": "Başrol Sensin - 1. Yıl Özel",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "featuredArtistIds": [],
+      "durationSeconds": 211,
+      "isrc": "Başrol Sensin - 1. Yıl Özel",
+      "explicit": false,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "lyrics": "(manifest, ya)\n\nBen bu anı yaşayıp gördüm\nKalbim deliye döndü\nArtık, artık tutamam içimde\nDünya tersine dönse bile\nKıvılcım alev alır, doğar küllerinden\nCesur adımlarım herkesin dilinde\nKorku yok, yok çıkan sesimde\n\nDert değil düşmek (oh-oh-oh), deneme vazgeçirmeye (oh-oh-oh)\nTitrese bile omuzlarım durmam (ah-ah)\nKaybolduğum anda (oh-oh-oh) onlar hep yanımda (oh-oh-oh)\nAldım rüzgârı ardıma, bakmam asla\n\nBi' hayalle geldik biz bu günlere\nArtık korkmak, kaçmak yok bundan böyle\nBizimle gel sen de, kır zincirleri, düşünme\nFark edersin, başrol sensin bu filmde, vazgeçme\nBi' hayalle geldik biz bu günlere\nArtık korkmak, kaçmak yok bundan böyle\nBizimle gel sen de, kır zincirleri, düşünme\n\nHerhangi bi' akşamdı\nÇıkasım vardı yokuşlardan\nKamera ve şöhrete aldırmam\nHedefim çok, daha yolum va-a-a-ar\nDeniyorum, 7-24 peşindeyim\nGecemi sabah eden gençliğime yemin ederim\nKanma güldüğüme, buz kadar sert durabilirim\nKovalama, benim gibisini göremedin hiç\n\nDert değil düşmek (ah-ah), deneme vazgeçirmeye (ah-ah)\nTitrese bile omuzlarım, durmam (ah-ah)\nKaybolduğum anda (oh-oh-oh) onlar hep yanımda (oh-oh-oh)\nAldım rüzgârı ardıma, bakmam asla\n\nBi' hayalle geldik biz bu günlere\nArtık korkmak, kaçmak yok bundan böyle\nBizimle gel sen de, kır zincirleri, düşünme\nFark edersin, başrol sensin bu filmde, vazgeçme\nBi' hayalle geldik biz bu günlere\nArtık korkmak, kaçmak yok bundan böyle\nBizimle gel sen de, kır zincirleri, düşünme\nFark edersin, başrol sensin bu filmde, vazgeçme\n\nZor geldi belki başta, savaştım şeytanlarla\nEn çok da zamanla, tam kaybetmişken\nSizi buldum, çıktık dipten\nOmzuma yüklenmişken hayat\nÜzmedi ilk defa\n\nBi' hayalle geldik biz bu günlere\nArtık korkmak, kaçmak yok bundan böyle\nBizimle gel sen de, kır zincirleri, düşünme\nFark edersin, başrol sensin bu filmde, vazgeçme\n\n\nWriter(s): Esin Bahat, Hilal Yelekçi, Lidya Pınar, Mina Solak, Sueda Uluca, Zeynep Sude Oktay",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_fe9f284c4d6949dc92b0ea8d37d02a11",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ba0cca43e7ac4340b52d26dd3fef9582.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ba0cca43e7ac4340b52d26dd3fef9582.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_8fad4a21cf7c4f27812ef65d48c28500",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/1d2df76ecfe54ee7b8e77b0fb0ed82ec.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/1d2df76ecfe54ee7b8e77b0fb0ed82ec.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_dbfa9a1a7d514ef58d181645659ef7d8",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/353a06cbc6f94d8ca713d978136421df.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/353a06cbc6f94d8ca713d978136421df.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ]
     }
   ],
   "releases": [
@@ -1980,6 +2042,34 @@
       "tracks": [
         {
           "trackId": "track_b164e4ad9ea54d8b9e2246a1b6c2306d",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "release_60b3cb8f030a4ac48c56d34adc9e6080",
+      "slug": "basrol-sensin-1-yil-ozel",
+      "title": "Başrol Sensin (1. Yıl Özel)",
+      "type": "single",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "primaryArtistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "releaseDate": "2026-02-13",
+      "cover": "https://images.genius.com/0473be2fafdf43f38d6abf6b6014ff2c.1000x1000x1.png",
+      "heroImage": "https://images.genius.com/0473be2fafdf43f38d6abf6b6014ff2c.1000x1000x1.png",
+      "animatedCoverUrl": "",
+      "label": "© 2026 Hypers Music",
+      "copyright": "© 2026 Hypers Music",
+      "description": "",
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "tracks": [
+        {
+          "trackId": "track_a2e795dd6af547759b90d081728b713e",
           "disc": 1,
           "position": 1
         }
