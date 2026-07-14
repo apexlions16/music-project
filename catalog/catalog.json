@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-07-14T18:10:40.558Z",
+  "updatedAt": "2026-07-14T18:17:29.107Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -41,6 +41,16 @@
       "id": "artist_129c0c6ffc4045708536e2d644aee035",
       "slug": "ajda-pekkan",
       "name": "Ajda Pekkan",
+      "image": "",
+      "heroImage": "",
+      "backgroundImage": "",
+      "backgroundVideoUrl": "",
+      "bio": ""
+    },
+    {
+      "id": "artist_9b0f4443c13b4dd69982a5226eca018f",
+      "slug": "dshame",
+      "name": "D-Shame",
       "image": "",
       "heroImage": "",
       "backgroundImage": "",
