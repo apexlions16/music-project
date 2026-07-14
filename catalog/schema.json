@@ -1,30 +1,39 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.local/aurora-catalog.schema.json",
-  "title": "Aurora Music Catalog",
+  "$id": "https://github.com/apexlions16/music-project/catalog/schema.json",
+  "title": "Aurora Music Catalog v3",
   "type": "object",
-  "required": ["schemaVersion", "updatedAt", "brand", "artists", "tracks", "releases", "featuredReleaseIds"],
+  "required": ["schemaVersion", "brand", "artists", "tracks", "releases"],
   "properties": {
-    "schemaVersion": { "type": "integer", "minimum": 1 },
-    "updatedAt": { "type": "string", "format": "date-time" },
+    "schemaVersion": { "type": "integer", "minimum": 3 },
+    "updatedAt": { "type": "string" },
     "brand": {
       "type": "object",
       "required": ["name"],
       "properties": {
-        "name": { "type": "string", "minLength": 1 },
+        "name": { "type": "string" },
         "subtitle": { "type": "string" },
         "logoText": { "type": "string" }
       }
     },
+    "features": { "type": "object" },
     "featuredReleaseIds": { "type": "array", "items": { "type": "string" } },
     "artists": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "slug", "name", "image"],
+        "required": ["id", "name"],
         "properties": {
-          "id": { "type": "string" }, "slug": { "type": "string" }, "name": { "type": "string" },
-          "image": { "type": "string", "format": "uri" }, "heroImage": { "type": "string", "format": "uri" }, "bio": { "type": "string" }
+          "id": { "type": "string" },
+          "slug": { "type": "string" },
+          "name": { "type": "string" },
+          "image": { "type": "string" },
+          "heroImage": { "type": "string" },
+          "backgroundImage": { "type": "string" },
+          "backgroundVideoUrl": { "type": "string" },
+          "bio": { "type": "string" },
+          "spotifyId": { "type": "string" },
+          "spotifyUrl": { "type": "string" }
         }
       }
     },
@@ -32,23 +41,35 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "slug", "title", "artistIds", "durationSeconds", "sources"],
+        "required": ["id", "title", "sources"],
         "properties": {
-          "id": { "type": "string" }, "slug": { "type": "string" }, "title": { "type": "string" },
+          "id": { "type": "string" },
+          "slug": { "type": "string" },
+          "title": { "type": "string" },
           "artistIds": { "type": "array", "items": { "type": "string" } },
-          "durationSeconds": { "type": "integer", "minimum": 0 }, "lyrics": { "type": "string" }, "isrc": { "type": "string" },
+          "primaryArtistIds": { "type": "array", "items": { "type": "string" } },
+          "featuredArtistIds": { "type": "array", "items": { "type": "string" } },
+          "durationSeconds": { "type": "integer", "minimum": 0 },
+          "isrc": { "type": "string" },
+          "explicit": { "type": "boolean" },
+          "spotifyId": { "type": "string" },
+          "spotifyUrl": { "type": "string" },
+          "lyrics": { "type": "string" },
+          "syncedLyrics": { "type": "string" },
+          "credits": { "type": "array" },
           "sources": {
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["id", "kind", "label", "codec", "url"],
+              "required": ["id", "kind", "url"],
               "properties": {
                 "id": { "type": "string" },
                 "kind": { "enum": ["standard", "high", "lossless", "hires", "dolby_atmos"] },
-                "label": { "type": "string" }, "codec": { "type": "string" }, "url": { "type": "string" },
-                "downloadUrl": { "type": "string" }, "downloadable": { "type": "boolean" },
-                "bitrateKbps": { "type": "number" }, "sampleRateKhz": { "type": "number" }, "bitDepth": { "type": "integer" },
-                "channels": { "type": "string" }, "spatial": { "type": "boolean" }
+                "label": { "type": "string" },
+                "codec": { "type": "string" },
+                "url": { "type": "string" },
+                "downloadUrl": { "type": "string" },
+                "downloadable": { "type": "boolean" }
               }
             }
           }
@@ -59,17 +80,30 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "slug", "title", "type", "artistIds", "releaseDate", "cover", "tracks"],
+        "required": ["id", "title", "type", "tracks"],
         "properties": {
-          "id": { "type": "string" }, "slug": { "type": "string" }, "title": { "type": "string" },
-          "type": { "enum": ["single", "ep", "album"] }, "artistIds": { "type": "array", "items": { "type": "string" } },
-          "releaseDate": { "type": "string", "format": "date" }, "cover": { "type": "string", "format": "uri" },
+          "id": { "type": "string" },
+          "slug": { "type": "string" },
+          "title": { "type": "string" },
+          "type": { "enum": ["single", "maxi_single", "ep", "album"] },
+          "artistIds": { "type": "array", "items": { "type": "string" } },
+          "primaryArtistIds": { "type": "array", "items": { "type": "string" } },
+          "releaseDate": { "type": "string" },
+          "cover": { "type": "string" },
+          "heroImage": { "type": "string" },
+          "animatedCoverUrl": { "type": "string" },
+          "spotifyId": { "type": "string" },
+          "spotifyUrl": { "type": "string" },
           "tracks": {
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["trackId", "disc", "position"],
-              "properties": { "trackId": { "type": "string" }, "disc": { "type": "integer", "minimum": 1 }, "position": { "type": "integer", "minimum": 1 } }
+              "required": ["trackId", "position"],
+              "properties": {
+                "trackId": { "type": "string" },
+                "disc": { "type": "integer", "minimum": 1 },
+                "position": { "type": "integer", "minimum": 1 }
+              }
             }
           }
         }

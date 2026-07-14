@@ -1,7 +1,5 @@
 package com.apexlions.music
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
@@ -11,17 +9,90 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material.icons.rounded.Album
+import androidx.compose.material.icons.rounded.ArrowBack
+import androidx.compose.material.icons.rounded.Check
+import androidx.compose.material.icons.rounded.CloudOff
+import androidx.compose.material.icons.rounded.Download
+import androidx.compose.material.icons.rounded.FastForward
+import androidx.compose.material.icons.rounded.FastRewind
+import androidx.compose.material.icons.rounded.GraphicEq
+import androidx.compose.material.icons.rounded.Groups
+import androidx.compose.material.icons.rounded.HighQuality
+import androidx.compose.material.icons.rounded.Home
+import androidx.compose.material.icons.rounded.KeyboardArrowDown
+import androidx.compose.material.icons.rounded.KeyboardArrowUp
+import androidx.compose.material.icons.rounded.Lyrics
+import androidx.compose.material.icons.rounded.Pause
+import androidx.compose.material.icons.rounded.PlayArrow
+import androidx.compose.material.icons.rounded.Refresh
+import androidx.compose.material.icons.rounded.Search
+import androidx.compose.material.icons.rounded.Settings
+import androidx.compose.material.icons.rounded.Shuffle
+import androidx.compose.material.icons.rounded.SkipNext
+import androidx.compose.material.icons.rounded.SkipPrevious
+import androidx.compose.material3.BottomSheetDefaults
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilledIconButton
+import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
+import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.Typography
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.rememberModalBottomSheetState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -30,6 +101,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -40,19 +112,20 @@ import kotlinx.coroutines.launch
 private val AppBackground = Color(0xFF09090B)
 private val SurfaceDark = Color(0xFF17171A)
 private val SurfaceLight = Color(0xFF242428)
-private val Accent = Color(0xFFFF375F)
+private val Accent = Color(0xFF9C5CFF)
 private val Muted = Color(0xFFA5A5AD)
+private val ErrorColor = Color(0xFFFF6B7D)
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent { MusicProjectTheme { MusicProjectApp() } }
+        setContent { AuroraTheme { AuroraMusicApp() } }
     }
 }
 
 @Composable
-private fun MusicProjectTheme(content: @Composable () -> Unit) {
+private fun AuroraTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colorScheme = darkColorScheme(
             primary = Accent,
@@ -61,36 +134,46 @@ private fun MusicProjectTheme(content: @Composable () -> Unit) {
             surfaceVariant = SurfaceLight,
             onBackground = Color.White,
             onSurface = Color.White,
-            onSurfaceVariant = Muted
+            onSurfaceVariant = Muted,
+            error = ErrorColor,
         ),
         typography = Typography(
             headlineLarge = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Bold, letterSpacing = (-1).sp),
             headlineMedium = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
             titleLarge = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
-            titleMedium = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold)
+            titleMedium = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
         ),
-        content = content
+        content = content,
     )
 }
 
-private enum class RootTab(val label: String) { ANA_SAYFA("Ana Sayfa"), GOZ_AT("Göz At"), SANATCILAR("Sanatçılar"), ARA("Ara") }
+private enum class RootTab(val label: String) {
+    HOME("Ana Sayfa"),
+    RELEASES("Yayınlar"),
+    ARTISTS("Sanatçılar"),
+    SEARCH("Ara"),
+}
+
+private enum class ArtistSort(val label: String) {
+    NEWEST("Yeni → Eski"),
+    OLDEST("Eski → Yeni"),
+    TITLE("A → Z"),
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun MusicProjectApp() {
+private fun AuroraMusicApp() {
     val context = LocalContext.current
-    val scope = rememberCoroutineScope()
     val controller = remember { PlayerController(context) }
     var catalog by remember { mutableStateOf<Catalog?>(null) }
     var loading by remember { mutableStateOf(true) }
     var error by remember { mutableStateOf<String?>(null) }
     var refreshKey by remember { mutableIntStateOf(0) }
-    var selectedTab by remember { mutableStateOf(RootTab.ANA_SAYFA) }
+    var selectedTab by remember { mutableStateOf(RootTab.HOME) }
     var selectedReleaseId by remember { mutableStateOf<String?>(null) }
     var selectedArtistId by remember { mutableStateOf<String?>(null) }
     var showPlayer by remember { mutableStateOf(false) }
-    var showAdmin by remember { mutableStateOf(false) }
-    var menuOpen by remember { mutableStateOf(false) }
+    var showSettings by remember { mutableStateOf(false) }
 
     LaunchedEffect(refreshKey) {
         loading = true
@@ -100,21 +183,27 @@ private fun MusicProjectApp() {
             .onFailure { error = it.message ?: "Katalog yüklenemedi." }
         loading = false
     }
+
     LaunchedEffect(controller.player) {
         while (true) {
             controller.positionMs = controller.player.currentPosition.coerceAtLeast(0)
-            controller.durationMs = controller.player.duration.coerceAtLeast(0)
-            delay(500)
+            val duration = controller.player.duration.takeIf { it > 0 }
+                ?: controller.currentTrack?.durationSeconds?.times(1000L)
+                ?: 0L
+            controller.durationMs = duration
+            delay(400)
         }
     }
-    DisposableEffect(Unit) { onDispose { controller.release() } }
 
-    val goHome: () -> Unit = {
+    DisposableEffect(Unit) {
+        onDispose { controller.release() }
+    }
+
+    val goBack: () -> Unit = {
         selectedReleaseId = null
         selectedArtistId = null
-        showAdmin = false
     }
-    BackHandler(selectedReleaseId != null || selectedArtistId != null || showAdmin) { goHome() }
+    BackHandler(selectedReleaseId != null || selectedArtistId != null) { goBack() }
 
     Scaffold(
         containerColor = AppBackground,
@@ -122,46 +211,28 @@ private fun MusicProjectApp() {
             TopAppBar(
                 title = {
                     Column {
-                        Text(catalog?.brand?.name ?: "Müzik Projesi", fontWeight = FontWeight.Bold)
+                        Text(catalog?.brand?.name ?: "Aurora Music", fontWeight = FontWeight.Bold)
                         Text(
                             when {
-                                showAdmin -> "Yönetim Paneli"
                                 selectedReleaseId != null -> "Yayın"
                                 selectedArtistId != null -> "Sanatçı"
                                 else -> selectedTab.label
                             },
                             style = MaterialTheme.typography.labelSmall,
-                            color = Muted
+                            color = Muted,
                         )
                     }
                 },
                 navigationIcon = {
-                    if (selectedReleaseId != null || selectedArtistId != null || showAdmin) {
-                        IconButton(onClick = goHome) { Icon(Icons.Rounded.ArrowBack, "Geri") }
+                    if (selectedReleaseId != null || selectedArtistId != null) {
+                        IconButton(onClick = goBack) { Icon(Icons.Rounded.ArrowBack, "Geri") }
                     }
                 },
                 actions = {
                     IconButton(onClick = { refreshKey++ }) { Icon(Icons.Rounded.Refresh, "Kataloğu yenile") }
-                    Box {
-                        IconButton(onClick = { menuOpen = true }) { Icon(Icons.Rounded.MoreVert, "Menü") }
-                        DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
-                            DropdownMenuItem(
-                                text = { Text("Yönetim Paneli") },
-                                leadingIcon = { Icon(Icons.Rounded.AdminPanelSettings, null) },
-                                onClick = { menuOpen = false; showAdmin = true; selectedReleaseId = null; selectedArtistId = null }
-                            )
-                            DropdownMenuItem(
-                                text = { Text("GitHub deposunu aç") },
-                                leadingIcon = { Icon(Icons.Rounded.OpenInNew, null) },
-                                onClick = {
-                                    menuOpen = false
-                                    context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/apexlions16/music-project")))
-                                }
-                            )
-                        }
-                    }
+                    IconButton(onClick = { showSettings = true }) { Icon(Icons.Rounded.Settings, "Ayarlar") }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = AppBackground.copy(alpha = .96f))
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = AppBackground.copy(alpha = .97f)),
             )
         },
         bottomBar = {
@@ -172,22 +243,29 @@ private fun MusicProjectApp() {
                 NavigationBar(containerColor = SurfaceDark.copy(alpha = .98f), tonalElevation = 0.dp) {
                     RootTab.entries.forEach { tab ->
                         val icon = when (tab) {
-                            RootTab.ANA_SAYFA -> Icons.Rounded.Home
-                            RootTab.GOZ_AT -> Icons.Rounded.Album
-                            RootTab.SANATCILAR -> Icons.Rounded.Groups
-                            RootTab.ARA -> Icons.Rounded.Search
+                            RootTab.HOME -> Icons.Rounded.Home
+                            RootTab.RELEASES -> Icons.Rounded.Album
+                            RootTab.ARTISTS -> Icons.Rounded.Groups
+                            RootTab.SEARCH -> Icons.Rounded.Search
                         }
                         NavigationBarItem(
-                            selected = selectedTab == tab && selectedReleaseId == null && selectedArtistId == null && !showAdmin,
-                            onClick = { selectedTab = tab; goHome() },
+                            selected = selectedTab == tab && selectedReleaseId == null && selectedArtistId == null,
+                            onClick = {
+                                selectedTab = tab
+                                goBack()
+                            },
                             icon = { Icon(icon, null) },
                             label = { Text(tab.label, maxLines = 1) },
-                            colors = NavigationBarItemDefaults.colors(indicatorColor = Accent.copy(alpha = .18f), selectedIconColor = Accent, selectedTextColor = Accent)
+                            colors = NavigationBarItemDefaults.colors(
+                                indicatorColor = Accent.copy(alpha = .18f),
+                                selectedIconColor = Accent,
+                                selectedTextColor = Accent,
+                            ),
                         )
                     }
                 }
             }
-        }
+        },
     ) { padding ->
         Box(Modifier.fillMaxSize().padding(padding)) {
             when {
@@ -196,17 +274,36 @@ private fun MusicProjectApp() {
                 catalog != null -> {
                     val data = catalog!!
                     when {
-                        showAdmin -> AdminScreen(data)
                         selectedReleaseId != null -> data.release(selectedReleaseId!!)?.let { release ->
-                            ReleaseDetailScreen(data, release, controller, onArtist = { selectedArtistId = it; selectedReleaseId = null })
+                            ReleaseDetailScreen(
+                                catalog = data,
+                                release = release,
+                                controller = controller,
+                                onArtist = { artistId ->
+                                    selectedArtistId = artistId
+                                    selectedReleaseId = null
+                                },
+                            )
                         }
                         selectedArtistId != null -> data.artist(selectedArtistId!!)?.let { artist ->
-                            ArtistDetailScreen(data, artist, onRelease = { selectedReleaseId = it; selectedArtistId = null })
+                            ArtistDetailScreen(
+                                catalog = data,
+                                artist = artist,
+                                onRelease = { selectedReleaseId = it },
+                            )
                         }
-                        selectedTab == RootTab.ANA_SAYFA -> HomeScreen(data, onRelease = { selectedReleaseId = it }, onArtist = { selectedArtistId = it })
-                        selectedTab == RootTab.GOZ_AT -> BrowseScreen(data, onRelease = { selectedReleaseId = it })
-                        selectedTab == RootTab.SANATCILAR -> ArtistsScreen(data, onArtist = { selectedArtistId = it })
-                        else -> SearchScreen(data, onRelease = { selectedReleaseId = it }, onArtist = { selectedArtistId = it })
+                        selectedTab == RootTab.HOME -> HomeScreen(
+                            catalog = data,
+                            onRelease = { selectedReleaseId = it },
+                            onArtist = { selectedArtistId = it },
+                        )
+                        selectedTab == RootTab.RELEASES -> ReleasesScreen(data) { selectedReleaseId = it }
+                        selectedTab == RootTab.ARTISTS -> ArtistsScreen(data) { selectedArtistId = it }
+                        else -> SearchScreen(
+                            catalog = data,
+                            onRelease = { selectedReleaseId = it },
+                            onArtist = { selectedArtistId = it },
+                        )
                     }
                 }
             }
@@ -218,10 +315,17 @@ private fun MusicProjectApp() {
             onDismissRequest = { showPlayer = false },
             sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
             containerColor = AppBackground,
-            dragHandle = { BottomSheetDefaults.DragHandle(color = Color.White.copy(alpha = .4f)) }
+            dragHandle = { BottomSheetDefaults.DragHandle(color = Color.White.copy(alpha = .4f)) },
         ) {
             NowPlayingScreen(controller)
         }
+    }
+
+    if (showSettings) {
+        SettingsSheet(
+            controller = controller,
+            onDismiss = { showSettings = false },
+        )
     }
 }
 
@@ -235,7 +339,10 @@ private fun LoadingState() = Box(Modifier.fillMaxSize(), contentAlignment = Alig
 }
 
 @Composable
-private fun ErrorState(message: String, retry: () -> Unit) = Box(Modifier.fillMaxSize().padding(24.dp), contentAlignment = Alignment.Center) {
+private fun ErrorState(message: String, retry: () -> Unit) = Box(
+    Modifier.fillMaxSize().padding(24.dp),
+    contentAlignment = Alignment.Center,
+) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Icon(Icons.Rounded.CloudOff, null, tint = Accent, modifier = Modifier.size(52.dp))
         Spacer(Modifier.height(12.dp))
@@ -248,26 +355,27 @@ private fun ErrorState(message: String, retry: () -> Unit) = Box(Modifier.fillMa
 
 @Composable
 private fun HomeScreen(catalog: Catalog, onRelease: (String) -> Unit, onArtist: (String) -> Unit) {
-    val featured = catalog.featuredReleaseIds.mapNotNull { catalog.release(it) }.ifEmpty { catalog.releases.take(1) }
-    LazyColumn(contentPadding = PaddingValues(bottom = 28.dp), verticalArrangement = Arrangement.spacedBy(26.dp)) {
+    val featured = catalog.featuredReleaseIds.mapNotNull { catalog.release(it) }.firstOrNull()
+        ?: catalog.releases.maxByOrNull { it.releaseDate }
+    val recent = catalog.releases.sortedByDescending { it.releaseDate }.take(6)
+    val artists = catalog.artists.sortedBy { it.name }.take(5)
+
+    LazyColumn(
+        contentPadding = PaddingValues(18.dp, 8.dp, 18.dp, 30.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
         item {
-            Column(Modifier.padding(horizontal = 18.dp)) {
-                Text("Şimdi Dinle", style = MaterialTheme.typography.headlineLarge)
-                Text(catalog.brand.subtitle, color = Muted)
-            }
+            Text("Şimdi Dinle", style = MaterialTheme.typography.headlineLarge)
+            Text(catalog.brand.subtitle, color = Muted)
         }
-        featured.firstOrNull()?.let { release -> item { HeroRelease(catalog, release) { onRelease(release.id) } } }
-        item { SectionTitle("Yeni Çıkanlar", "Tümünü Gör") }
-        item {
-            LazyRow(contentPadding = PaddingValues(horizontal = 18.dp), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                items(catalog.releases.sortedByDescending { it.releaseDate }) { ReleaseCard(catalog, it) { onRelease(it.id) } }
-            }
+        featured?.let { release -> item { HeroRelease(catalog, release) { onRelease(release.id) } } }
+        item { SectionTitle("Yeni Çıkanlar") }
+        items(recent, key = { it.id }) { release ->
+            VerticalReleaseCard(catalog, release) { onRelease(release.id) }
         }
-        item { SectionTitle("Sanatçılar") }
-        item {
-            LazyRow(contentPadding = PaddingValues(horizontal = 18.dp), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                items(catalog.artists) { ArtistCard(it) { onArtist(it.id) } }
-            }
+        if (artists.isNotEmpty()) item { SectionTitle("Sanatçılar") }
+        items(artists, key = { it.id }) { artist ->
+            VerticalArtistCard(artist) { onArtist(artist.id) }
         }
     }
 }
@@ -275,142 +383,266 @@ private fun HomeScreen(catalog: Catalog, onRelease: (String) -> Unit, onArtist: 
 @Composable
 private fun HeroRelease(catalog: Catalog, release: Release, open: () -> Unit) {
     Box(
-        Modifier.fillMaxWidth().height(430.dp).padding(horizontal = 18.dp).clip(RoundedCornerShape(28.dp)).clickable(onClick = open)
+        Modifier
+            .fillMaxWidth()
+            .height(420.dp)
+            .clip(RoundedCornerShape(28.dp))
+            .clickable(onClick = open),
     ) {
-        AsyncImage(release.heroImage.ifBlank { release.cover }, null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
-        Box(Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Color.Transparent, Color.Black.copy(alpha = .15f), Color.Black.copy(alpha = .92f)))))
+        AsyncImage(
+            model = release.heroImage.ifBlank { release.cover },
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop,
+        )
+        Box(
+            Modifier.fillMaxSize().background(
+                Brush.verticalGradient(listOf(Color.Transparent, Color.Black.copy(alpha = .15f), Color.Black.copy(alpha = .94f))),
+            ),
+        )
         Column(Modifier.align(Alignment.BottomStart).padding(22.dp)) {
-            Text("ÖNE ÇIKAN ${releaseTypeLabel(release.type).uppercase()}", color = Accent, style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.Bold)
+            Text("ÖNE ÇIKAN ${releaseTypeLabel(release.type).uppercase()}", color = Accent, fontWeight = FontWeight.Bold)
             Text(release.title, fontSize = 34.sp, fontWeight = FontWeight.Bold, maxLines = 2)
-            Text(catalog.artistNames(release.artistIds), color = Color.White.copy(alpha = .8f), fontSize = 17.sp)
+            Text(catalog.releaseArtistLine(release), color = Color.White.copy(alpha = .82f), fontSize = 17.sp)
             Spacer(Modifier.height(12.dp))
-            FilledTonalButton(onClick = open, colors = ButtonDefaults.filledTonalButtonColors(containerColor = Color.White, contentColor = Color.Black)) {
-                Icon(Icons.Rounded.PlayArrow, null); Spacer(Modifier.width(6.dp)); Text("Dinle")
+            FilledTonalButton(
+                onClick = open,
+                colors = ButtonDefaults.filledTonalButtonColors(containerColor = Color.White, contentColor = Color.Black),
+            ) {
+                Icon(Icons.Rounded.PlayArrow, null)
+                Spacer(Modifier.width(6.dp))
+                Text("Dinle")
             }
         }
     }
 }
 
 @Composable
-private fun SectionTitle(title: String, action: String? = null) {
-    Row(Modifier.fillMaxWidth().padding(horizontal = 18.dp), verticalAlignment = Alignment.CenterVertically) {
-        Text(title, style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f))
-        action?.let { Text(it, color = Accent, style = MaterialTheme.typography.labelLarge) }
-    }
+private fun SectionTitle(title: String) {
+    Text(title, style = MaterialTheme.typography.titleLarge, modifier = Modifier.padding(top = 8.dp))
 }
 
 @Composable
-private fun ReleaseCard(catalog: Catalog, release: Release, open: () -> Unit) {
-    Column(Modifier.width(170.dp).clickable(onClick = open)) {
-        AsyncImage(release.cover, release.title, Modifier.size(170.dp).clip(RoundedCornerShape(18.dp)).background(SurfaceLight), contentScale = ContentScale.Crop)
-        Spacer(Modifier.height(10.dp))
-        Text(release.title, fontWeight = FontWeight.SemiBold, maxLines = 1, overflow = TextOverflow.Ellipsis)
-        Text("${releaseTypeLabel(release.type)} • ${catalog.artistNames(release.artistIds)}", color = Muted, fontSize = 13.sp, maxLines = 1, overflow = TextOverflow.Ellipsis)
-    }
-}
-
-@Composable
-private fun ArtistCard(artist: Artist, open: () -> Unit) {
-    Column(Modifier.width(128.dp).clickable(onClick = open), horizontalAlignment = Alignment.CenterHorizontally) {
-        AsyncImage(artist.image, artist.name, Modifier.size(128.dp).clip(CircleShape).background(SurfaceLight), contentScale = ContentScale.Crop)
-        Spacer(Modifier.height(9.dp)); Text(artist.name, fontWeight = FontWeight.SemiBold, maxLines = 1)
-    }
-}
-
-@Composable
-private fun BrowseScreen(catalog: Catalog, onRelease: (String) -> Unit) {
-    LazyColumn(contentPadding = PaddingValues(18.dp, 8.dp, 18.dp, 28.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
-        item { Text("Katalog", style = MaterialTheme.typography.headlineLarge); Text("Albüm, EP ve single yayınları", color = Muted) }
-        items(catalog.releases.sortedByDescending { it.releaseDate }) { release ->
-            Row(
-                Modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp)).background(SurfaceDark).clickable { onRelease(release.id) }.padding(12.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                AsyncImage(release.cover, null, Modifier.size(82.dp).clip(RoundedCornerShape(13.dp)), contentScale = ContentScale.Crop)
-                Spacer(Modifier.width(14.dp))
-                Column(Modifier.weight(1f)) {
-                    Text(release.title, style = MaterialTheme.typography.titleMedium)
-                    Text(catalog.artistNames(release.artistIds), color = Muted)
-                    Text("${releaseTypeLabel(release.type)} • ${release.releaseDate.take(4)}", color = Accent, fontSize = 12.sp)
-                }
-                Icon(Icons.Rounded.ChevronRight, null, tint = Muted)
+private fun VerticalReleaseCard(catalog: Catalog, release: Release, open: () -> Unit) {
+    Surface(
+        shape = RoundedCornerShape(20.dp),
+        color = SurfaceDark,
+        modifier = Modifier.fillMaxWidth().clickable(onClick = open),
+    ) {
+        Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
+            AsyncImage(
+                model = release.cover,
+                contentDescription = release.title,
+                modifier = Modifier.size(104.dp).clip(RoundedCornerShape(16.dp)).background(SurfaceLight),
+                contentScale = ContentScale.Crop,
+            )
+            Spacer(Modifier.width(14.dp))
+            Column(Modifier.weight(1f)) {
+                Text(release.title, style = MaterialTheme.typography.titleMedium, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                Text(catalog.releaseArtistLine(release), color = Muted, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                Spacer(Modifier.height(6.dp))
+                Text("${releaseTypeLabel(release.type)} • ${release.releaseDate.take(4)}", color = Accent, fontSize = 12.sp)
             }
+        }
+    }
+}
+
+@Composable
+private fun VerticalArtistCard(artist: Artist, open: () -> Unit) {
+    Row(
+        Modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp)).background(SurfaceDark).clickable(onClick = open).padding(12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        AsyncImage(
+            model = artist.image,
+            contentDescription = artist.name,
+            modifier = Modifier.size(76.dp).clip(CircleShape).background(SurfaceLight),
+            contentScale = ContentScale.Crop,
+        )
+        Spacer(Modifier.width(15.dp))
+        Column(Modifier.weight(1f)) {
+            Text(artist.name, style = MaterialTheme.typography.titleMedium)
+            if (artist.bio.isNotBlank()) Text(artist.bio, color = Muted, maxLines = 2, overflow = TextOverflow.Ellipsis)
+        }
+    }
+}
+
+@Composable
+private fun ReleasesScreen(catalog: Catalog, onRelease: (String) -> Unit) {
+    LazyColumn(
+        contentPadding = PaddingValues(18.dp, 8.dp, 18.dp, 30.dp),
+        verticalArrangement = Arrangement.spacedBy(13.dp),
+    ) {
+        item {
+            Text("Tüm Yayınlar", style = MaterialTheme.typography.headlineLarge)
+            Text("Single, EP ve albümler dikey listede", color = Muted)
+        }
+        items(catalog.releases.sortedByDescending { it.releaseDate }, key = { it.id }) { release ->
+            VerticalReleaseCard(catalog, release) { onRelease(release.id) }
         }
     }
 }
 
 @Composable
 private fun ArtistsScreen(catalog: Catalog, onArtist: (String) -> Unit) {
-    LazyColumn(contentPadding = PaddingValues(18.dp, 8.dp, 18.dp, 28.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        item { Text("Sanatçılar", style = MaterialTheme.typography.headlineLarge) }
-        items(catalog.artists) { artist ->
-            Row(Modifier.fillMaxWidth().clickable { onArtist(artist.id) }.padding(vertical = 5.dp), verticalAlignment = Alignment.CenterVertically) {
-                AsyncImage(artist.image, null, Modifier.size(70.dp).clip(CircleShape), contentScale = ContentScale.Crop)
-                Spacer(Modifier.width(15.dp)); Column(Modifier.weight(1f)) { Text(artist.name, style = MaterialTheme.typography.titleMedium); Text(artist.bio, color = Muted, maxLines = 2, overflow = TextOverflow.Ellipsis) }
-                Icon(Icons.Rounded.ChevronRight, null, tint = Muted)
-            }
-            HorizontalDivider(color = Color.White.copy(alpha = .08f))
-        }
-    }
-}
-
-@Composable
-private fun SearchScreen(catalog: Catalog, onRelease: (String) -> Unit, onArtist: (String) -> Unit) {
-    var query by remember { mutableStateOf("") }
-    val releases = catalog.releases.filter { it.title.contains(query, true) || catalog.artistNames(it.artistIds).contains(query, true) }
-    val artists = catalog.artists.filter { it.name.contains(query, true) }
-    val tracks = catalog.tracks.filter { it.title.contains(query, true) || catalog.artistNames(it.artistIds).contains(query, true) }
-    LazyColumn(contentPadding = PaddingValues(18.dp, 8.dp, 18.dp, 28.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+    LazyColumn(
+        contentPadding = PaddingValues(18.dp, 8.dp, 18.dp, 30.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
         item {
-            Text("Ara", style = MaterialTheme.typography.headlineLarge)
-            Spacer(Modifier.height(12.dp))
-            OutlinedTextField(
-                value = query, onValueChange = { query = it }, modifier = Modifier.fillMaxWidth(), singleLine = true,
-                placeholder = { Text("Şarkı, albüm veya sanatçı") }, leadingIcon = { Icon(Icons.Rounded.Search, null) },
-                shape = RoundedCornerShape(18.dp)
-            )
+            Text("Sanatçılar", style = MaterialTheme.typography.headlineLarge)
+            Text("Tüm sanatçılar alt alta", color = Muted)
         }
-        if (query.isNotBlank()) {
-            if (artists.isNotEmpty()) item { Text("Sanatçılar", style = MaterialTheme.typography.titleLarge) }
-            items(artists) { artist -> ListResult(artist.name, "Sanatçı", artist.image) { onArtist(artist.id) } }
-            if (releases.isNotEmpty()) item { Text("Yayınlar", style = MaterialTheme.typography.titleLarge) }
-            items(releases) { release -> ListResult(release.title, "${releaseTypeLabel(release.type)} • ${catalog.artistNames(release.artistIds)}", release.cover) { onRelease(release.id) } }
-            if (tracks.isNotEmpty()) item { Text("Şarkılar", style = MaterialTheme.typography.titleLarge) }
-            items(tracks) { track -> ListResult(track.title, catalog.artistNames(track.artistIds), catalog.releases.firstOrNull { row -> row.tracks.any { it.trackId == track.id } }?.cover.orEmpty(), null) }
+        items(catalog.artists.sortedBy { it.name }, key = { it.id }) { artist ->
+            VerticalArtistCard(artist) { onArtist(artist.id) }
         }
     }
 }
 
 @Composable
-private fun ListResult(title: String, subtitle: String, image: String, click: (() -> Unit)?) {
-    Row(Modifier.fillMaxWidth().then(if (click != null) Modifier.clickable(onClick = click) else Modifier).padding(vertical = 5.dp), verticalAlignment = Alignment.CenterVertically) {
-        AsyncImage(image, null, Modifier.size(58.dp).clip(RoundedCornerShape(10.dp)).background(SurfaceLight), contentScale = ContentScale.Crop)
-        Spacer(Modifier.width(12.dp)); Column { Text(title, fontWeight = FontWeight.SemiBold); Text(subtitle, color = Muted, maxLines = 1) }
+private fun ArtistDetailScreen(catalog: Catalog, artist: Artist, onRelease: (String) -> Unit) {
+    var showAll by remember(artist.id) { mutableStateOf(false) }
+    var sort by remember(artist.id) { mutableStateOf(ArtistSort.NEWEST) }
+    val releases = catalog.releases.filter { artist.id in (it.primaryArtistIds.ifEmpty { it.artistIds }) }
+    val sorted = when (sort) {
+        ArtistSort.NEWEST -> releases.sortedByDescending { it.releaseDate }
+        ArtistSort.OLDEST -> releases.sortedBy { it.releaseDate }
+        ArtistSort.TITLE -> releases.sortedBy { it.title.lowercase() }
     }
-}
+    val visible = if (showAll) sorted else sorted.take(3)
 
-@Composable
-private fun ReleaseDetailScreen(catalog: Catalog, release: Release, controller: PlayerController, onArtist: (String) -> Unit) {
-    val tracks = catalog.releaseTracks(release)
-    val qualities = tracks.flatMap { it.sources }.distinctBy { it.kind }.sortedByDescending { qualityRank(it.kind) }
-    LazyColumn(contentPadding = PaddingValues(18.dp, 12.dp, 18.dp, 34.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+    LazyColumn(
+        contentPadding = PaddingValues(bottom = 34.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
         item {
-            Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
-                AsyncImage(release.cover, release.title, Modifier.fillMaxWidth(.82f).aspectRatio(1f).clip(RoundedCornerShape(24.dp)).background(SurfaceLight), contentScale = ContentScale.Crop)
-                Spacer(Modifier.height(20.dp)); Text(release.title, style = MaterialTheme.typography.headlineMedium)
-                Text(catalog.artistNames(release.artistIds), color = Accent, fontSize = 18.sp, modifier = Modifier.clickable { release.artistIds.firstOrNull()?.let(onArtist) })
-                Text("${releaseTypeLabel(release.type)} • ${release.releaseDate.take(4)}", color = Muted)
-                Spacer(Modifier.height(12.dp)); QualityBadges(qualities)
-                Spacer(Modifier.height(16.dp))
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    Button(onClick = { tracks.firstOrNull()?.let { controller.play(it, release, release.cover, tracks) } }, modifier = Modifier.weight(1f)) { Icon(Icons.Rounded.PlayArrow, null); Text("Çal") }
-                    FilledTonalButton(onClick = { controller.setShuffle(true); tracks.randomOrNull()?.let { controller.play(it, release, release.cover, tracks) } }, modifier = Modifier.weight(1f)) { Icon(Icons.Rounded.Shuffle, null); Text("Karıştır") }
+            Box(Modifier.fillMaxWidth().height(340.dp)) {
+                AsyncImage(
+                    model = artist.backgroundImage.ifBlank { artist.heroImage.ifBlank { artist.image } },
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop,
+                )
+                Box(Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Color.Transparent, AppBackground))))
+                Column(Modifier.align(Alignment.BottomStart).padding(18.dp)) {
+                    Text(artist.name, fontSize = 40.sp, fontWeight = FontWeight.Bold)
+                    if (artist.bio.isNotBlank()) Text(artist.bio, color = Color.White.copy(alpha = .8f), maxLines = 4)
                 }
             }
         }
-        itemsIndexed(tracks) { index, track ->
-            TrackRow(catalog, track, index + 1, controller.currentTrack?.id == track.id, controller.isPlaying) {
-                controller.play(track, release, release.cover, tracks)
+        item {
+            Column(Modifier.padding(horizontal = 18.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text("Yayınlar", style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f))
+                    Text("${releases.size} yayın", color = Muted)
+                }
+                if (showAll && releases.size > 1) {
+                    Spacer(Modifier.height(12.dp))
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        ArtistSort.entries.forEach { option ->
+                            FilterChip(
+                                selected = sort == option,
+                                onClick = { sort = option },
+                                label = { Text(option.label, fontSize = 11.sp) },
+                                leadingIcon = if (sort == option) ({ Icon(Icons.Rounded.Check, null, modifier = Modifier.size(16.dp)) }) else null,
+                            )
+                        }
+                    }
+                }
+            }
+        }
+        items(visible, key = { it.id }) { release ->
+            Box(Modifier.padding(horizontal = 18.dp)) {
+                VerticalReleaseCard(catalog, release) { onRelease(release.id) }
+            }
+        }
+        if (releases.size > 3) {
+            item {
+                TextButton(
+                    onClick = { showAll = !showAll },
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 18.dp),
+                ) {
+                    Icon(if (showAll) Icons.Rounded.KeyboardArrowUp else Icons.Rounded.KeyboardArrowDown, null)
+                    Spacer(Modifier.width(6.dp))
+                    Text(if (showAll) "Daha Az Göster" else "Tümünü Gör ve Sırala")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ReleaseDetailScreen(
+    catalog: Catalog,
+    release: Release,
+    controller: PlayerController,
+    onArtist: (String) -> Unit,
+) {
+    val tracks = catalog.releaseTracks(release)
+    val qualities = tracks.flatMap { it.sources }.distinctBy { it.kind }.sortedByDescending { qualityRank(it.kind) }
+
+    LazyColumn(
+        contentPadding = PaddingValues(18.dp, 12.dp, 18.dp, 34.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+        item {
+            Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
+                AsyncImage(
+                    model = release.cover,
+                    contentDescription = release.title,
+                    modifier = Modifier.fillMaxWidth(.82f).aspectRatio(1f).clip(RoundedCornerShape(24.dp)).background(SurfaceLight),
+                    contentScale = ContentScale.Crop,
+                )
+                Spacer(Modifier.height(20.dp))
+                Text(release.title, style = MaterialTheme.typography.headlineMedium)
+                Text(
+                    catalog.releaseArtistLine(release),
+                    color = Accent,
+                    fontSize = 18.sp,
+                    modifier = Modifier.clickable { release.primaryArtistIds.ifEmpty { release.artistIds }.firstOrNull()?.let(onArtist) },
+                )
+                Text("${releaseTypeLabel(release.type)} • ${release.releaseDate.take(4)}", color = Muted)
+                if (qualities.isNotEmpty()) {
+                    Spacer(Modifier.height(12.dp))
+                    Text(qualities.joinToString("  •  ") { it.label }, color = Color.White.copy(alpha = .72f), fontSize = 11.sp)
+                }
+                Spacer(Modifier.height(16.dp))
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Button(
+                        onClick = {
+                            tracks.firstOrNull()?.let {
+                                controller.play(it, release, release.cover, tracks, catalog::trackArtistLine)
+                            }
+                        },
+                        modifier = Modifier.weight(1f),
+                    ) {
+                        Icon(Icons.Rounded.PlayArrow, null)
+                        Text("Çal")
+                    }
+                    FilledTonalButton(
+                        onClick = {
+                            controller.setShuffle(true)
+                            tracks.randomOrNull()?.let {
+                                controller.play(it, release, release.cover, tracks, catalog::trackArtistLine)
+                            }
+                        },
+                        modifier = Modifier.weight(1f),
+                    ) {
+                        Icon(Icons.Rounded.Shuffle, null)
+                        Text("Karıştır")
+                    }
+                }
+            }
+        }
+        itemsIndexed(tracks, key = { _, track -> track.id }) { index, track ->
+            TrackRow(
+                catalog = catalog,
+                track = track,
+                number = index + 1,
+                active = controller.currentTrack?.id == track.id,
+                playing = controller.isPlaying,
+            ) {
+                controller.play(track, release, release.cover, tracks, catalog::trackArtistLine)
             }
         }
         if (release.description.isNotBlank()) item { Text(release.description, color = Muted, lineHeight = 21.sp) }
@@ -424,50 +656,81 @@ private fun ReleaseDetailScreen(catalog: Catalog, release: Release, controller: 
 }
 
 @Composable
-private fun TrackRow(catalog: Catalog, track: Track, number: Int, active: Boolean, playing: Boolean, click: () -> Unit) {
-    Row(Modifier.fillMaxWidth().clickable(onClick = click).padding(vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
-        Box(Modifier.width(32.dp), contentAlignment = Alignment.Center) {
-            if (active) Icon(if (playing) Icons.Rounded.GraphicEq else Icons.Rounded.Pause, null, tint = Accent) else Text(number.toString(), color = Muted)
+private fun TrackRow(
+    catalog: Catalog,
+    track: Track,
+    number: Int,
+    active: Boolean,
+    playing: Boolean,
+    click: () -> Unit,
+) {
+    Row(
+        Modifier.fillMaxWidth().clickable(onClick = click).padding(vertical = 7.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Box(Modifier.width(34.dp), contentAlignment = Alignment.Center) {
+            if (active) {
+                Icon(if (playing) Icons.Rounded.GraphicEq else Icons.Rounded.Pause, null, tint = Accent)
+            } else {
+                Text(number.toString(), color = Muted)
+            }
         }
         Column(Modifier.weight(1f)) {
-            Text(track.title, color = if (active) Accent else Color.White, fontWeight = FontWeight.Medium)
-            Text(catalog.artistNames(track.artistIds), color = Muted, fontSize = 13.sp)
-        }
-        Text(formatDuration(track.durationSeconds), color = Muted, fontSize = 13.sp)
-        Icon(Icons.Rounded.MoreHoriz, null, tint = Muted, modifier = Modifier.padding(start = 8.dp))
-    }
-    HorizontalDivider(color = Color.White.copy(alpha = .07f), modifier = Modifier.padding(start = 32.dp))
-}
-
-@Composable
-private fun QualityBadges(sources: List<AudioSource>) {
-    LazyRow(horizontalArrangement = Arrangement.spacedBy(7.dp)) {
-        items(sources) { source ->
-            Surface(shape = RoundedCornerShape(7.dp), color = Color.White.copy(alpha = .09f), border = androidx.compose.foundation.BorderStroke(1.dp, Color.White.copy(alpha = .15f))) {
-                Text(source.label.uppercase(), fontSize = 10.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(horizontal = 8.dp, vertical = 5.dp))
-            }
-        }
-    }
-}
-
-@Composable
-private fun ArtistDetailScreen(catalog: Catalog, artist: Artist, onRelease: (String) -> Unit) {
-    val releases = catalog.releases.filter { artist.id in it.artistIds }
-    LazyColumn(contentPadding = PaddingValues(bottom = 34.dp), verticalArrangement = Arrangement.spacedBy(20.dp)) {
-        item {
-            Box(Modifier.fillMaxWidth().height(330.dp)) {
-                AsyncImage(artist.heroImage, null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
-                Box(Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Color.Transparent, AppBackground))))
-                Column(Modifier.align(Alignment.BottomStart).padding(18.dp)) {
-                    Text(artist.name, fontSize = 38.sp, fontWeight = FontWeight.Bold)
-                    Text(artist.bio, color = Color.White.copy(alpha = .78f), maxLines = 3)
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(track.title, color = if (active) Accent else Color.White, fontWeight = FontWeight.Medium, maxLines = 1)
+                if (track.explicit) {
+                    Spacer(Modifier.width(5.dp))
+                    Text("E", color = Muted, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                 }
             }
+            Text(catalog.trackArtistLine(track), color = Muted, fontSize = 13.sp, maxLines = 1, overflow = TextOverflow.Ellipsis)
         }
-        item { SectionTitle("Yayınlar") }
+        Text(formatDuration(track.durationSeconds), color = Muted, fontSize = 13.sp)
+    }
+    HorizontalDivider(color = Color.White.copy(alpha = .07f), modifier = Modifier.padding(start = 34.dp))
+}
+
+@Composable
+private fun SearchScreen(catalog: Catalog, onRelease: (String) -> Unit, onArtist: (String) -> Unit) {
+    var query by remember { mutableStateOf("") }
+    val releases = catalog.releases.filter {
+        it.title.contains(query, true) || catalog.releaseArtistLine(it).contains(query, true)
+    }
+    val artists = catalog.artists.filter { it.name.contains(query, true) }
+    val tracks = catalog.tracks.filter {
+        it.title.contains(query, true) || catalog.trackArtistLine(it).contains(query, true)
+    }
+
+    LazyColumn(
+        contentPadding = PaddingValues(18.dp, 8.dp, 18.dp, 30.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
         item {
-            LazyRow(contentPadding = PaddingValues(horizontal = 18.dp), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                items(releases) { ReleaseCard(catalog, it) { onRelease(it.id) } }
+            Text("Ara", style = MaterialTheme.typography.headlineLarge)
+            Spacer(Modifier.height(12.dp))
+            OutlinedTextField(
+                value = query,
+                onValueChange = { query = it },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+                placeholder = { Text("Şarkı, albüm veya sanatçı") },
+                leadingIcon = { Icon(Icons.Rounded.Search, null) },
+                shape = RoundedCornerShape(18.dp),
+            )
+        }
+        if (query.isNotBlank()) {
+            if (artists.isNotEmpty()) item { SectionTitle("Sanatçılar") }
+            items(artists, key = { it.id }) { artist -> VerticalArtistCard(artist) { onArtist(artist.id) } }
+            if (releases.isNotEmpty()) item { SectionTitle("Yayınlar") }
+            items(releases, key = { it.id }) { release -> VerticalReleaseCard(catalog, release) { onRelease(release.id) } }
+            if (tracks.isNotEmpty()) item { SectionTitle("Şarkılar") }
+            items(tracks, key = { it.id }) { track ->
+                Surface(shape = RoundedCornerShape(16.dp), color = SurfaceDark) {
+                    Column(Modifier.fillMaxWidth().padding(14.dp)) {
+                        Text(track.title, fontWeight = FontWeight.SemiBold)
+                        Text(catalog.trackArtistLine(track), color = Muted)
+                    }
+                }
             }
         }
     }
@@ -478,17 +741,35 @@ private fun MiniPlayer(controller: PlayerController, onOpen: () -> Unit) {
     val track = controller.currentTrack ?: return
     Column {
         Row(
-            Modifier.fillMaxWidth().height(68.dp).background(SurfaceLight.copy(alpha = .96f)).clickable(onClick = onOpen).padding(horizontal = 12.dp),
-            verticalAlignment = Alignment.CenterVertically
+            Modifier.fillMaxWidth().height(70.dp).background(SurfaceLight.copy(alpha = .97f)).clickable(onClick = onOpen).padding(horizontal = 12.dp),
+            verticalAlignment = Alignment.CenterVertically,
         ) {
-            AsyncImage(controller.currentCover, null, Modifier.size(50.dp).clip(RoundedCornerShape(9.dp)).background(SurfaceDark), contentScale = ContentScale.Crop)
+            AsyncImage(
+                model = controller.currentCover,
+                contentDescription = null,
+                modifier = Modifier.size(52.dp).clip(RoundedCornerShape(10.dp)).background(SurfaceDark),
+                contentScale = ContentScale.Crop,
+            )
             Spacer(Modifier.width(12.dp))
-            Column(Modifier.weight(1f)) { Text(track.title, fontWeight = FontWeight.SemiBold, maxLines = 1); Text(controller.currentSource?.label.orEmpty(), color = Muted, fontSize = 12.sp) }
-            IconButton(onClick = { controller.toggle() }) { Icon(if (controller.isPlaying) Icons.Rounded.Pause else Icons.Rounded.PlayArrow, null, modifier = Modifier.size(30.dp)) }
-            IconButton(onClick = { controller.next() }) { Icon(Icons.Rounded.SkipNext, null) }
+            Column(Modifier.weight(1f)) {
+                Text(track.title, fontWeight = FontWeight.SemiBold, maxLines = 1)
+                Text(controller.currentArtistLine, color = Muted, fontSize = 12.sp, maxLines = 1)
+            }
+            IconButton(onClick = controller::toggle) {
+                Icon(if (controller.isPlaying) Icons.Rounded.Pause else Icons.Rounded.PlayArrow, null, modifier = Modifier.size(30.dp))
+            }
+            IconButton(onClick = controller::next) { Icon(Icons.Rounded.SkipNext, null) }
         }
-        val progress by animateFloatAsState(if (controller.durationMs > 0) controller.positionMs.toFloat() / controller.durationMs else 0f, label = "mini-progress")
-        LinearProgressIndicator(progress = { progress.coerceIn(0f, 1f) }, modifier = Modifier.fillMaxWidth().height(2.dp), color = Accent, trackColor = SurfaceLight)
+        val progress by animateFloatAsState(
+            targetValue = if (controller.durationMs > 0) controller.positionMs.toFloat() / controller.durationMs else 0f,
+            label = "mini-progress",
+        )
+        LinearProgressIndicator(
+            progress = { progress.coerceIn(0f, 1f) },
+            modifier = Modifier.fillMaxWidth().height(2.dp),
+            color = Accent,
+            trackColor = SurfaceLight,
+        )
     }
 }
 
@@ -498,107 +779,193 @@ private fun NowPlayingScreen(controller: PlayerController) {
     var lyricsMode by remember { mutableStateOf(false) }
     var qualityMenu by remember { mutableStateOf(false) }
     val sources = track.sources.sortedByDescending { qualityRank(it.kind) }
+
     Column(
-        Modifier.fillMaxWidth().fillMaxHeight(.94f).background(Brush.verticalGradient(listOf(SurfaceLight, AppBackground))).padding(horizontal = 24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        Modifier.fillMaxWidth().fillMaxHeight(.94f).background(
+            Brush.verticalGradient(listOf(SurfaceLight, AppBackground)),
+        ).padding(horizontal = 24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             Text(if (lyricsMode) "Şarkı Sözleri" else "Şu An Çalıyor", modifier = Modifier.weight(1f), fontWeight = FontWeight.SemiBold)
-            IconButton(onClick = { lyricsMode = !lyricsMode }) { Icon(if (lyricsMode) Icons.Rounded.Album else Icons.Rounded.Lyrics, null) }
+            IconButton(onClick = { lyricsMode = !lyricsMode }) {
+                Icon(if (lyricsMode) Icons.Rounded.Album else Icons.Rounded.Lyrics, null)
+            }
+        }
+        controller.playbackError?.let { message ->
+            Surface(shape = RoundedCornerShape(14.dp), color = ErrorColor.copy(alpha = .15f), modifier = Modifier.fillMaxWidth()) {
+                Text(message, color = ErrorColor, modifier = Modifier.padding(14.dp))
+            }
+            Spacer(Modifier.height(10.dp))
         }
         if (lyricsMode) {
             LazyColumn(Modifier.fillMaxWidth().weight(1f), contentPadding = PaddingValues(vertical = 24.dp)) {
                 item {
-                    Text(track.lyrics.ifBlank { "Bu şarkı için henüz söz eklenmemiş." }, fontSize = 28.sp, lineHeight = 39.sp, fontWeight = FontWeight.SemiBold, color = if (track.lyrics.isBlank()) Muted else Color.White)
+                    Text(
+                        track.lyrics.ifBlank { "Bu şarkı için henüz söz eklenmemiş." },
+                        fontSize = 27.sp,
+                        lineHeight = 38.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        color = if (track.lyrics.isBlank()) Muted else Color.White,
+                    )
                     if (track.credits.isNotEmpty()) {
-                        Spacer(Modifier.height(32.dp)); Text("Künye", color = Accent, fontWeight = FontWeight.Bold)
+                        Spacer(Modifier.height(32.dp))
+                        Text("Künye", color = Accent, fontWeight = FontWeight.Bold)
                         track.credits.forEach { Text("${it.role}: ${it.names.joinToString(", ")}", color = Muted) }
                     }
                 }
             }
         } else {
-            Spacer(Modifier.height(16.dp))
-            AsyncImage(controller.currentCover, null, Modifier.fillMaxWidth().aspectRatio(1f).clip(RoundedCornerShape(24.dp)).background(SurfaceDark), contentScale = ContentScale.Crop)
-            Spacer(Modifier.height(26.dp))
+            Spacer(Modifier.height(12.dp))
+            AsyncImage(
+                model = controller.currentCover,
+                contentDescription = null,
+                modifier = Modifier.fillMaxWidth().aspectRatio(1f).clip(RoundedCornerShape(24.dp)).background(SurfaceDark),
+                contentScale = ContentScale.Crop,
+            )
+            Spacer(Modifier.height(24.dp))
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                 Column(Modifier.weight(1f)) {
                     Text(track.title, fontSize = 24.sp, fontWeight = FontWeight.Bold, maxLines = 1)
-                    Text(controller.currentRelease?.title.orEmpty(), color = Muted, fontSize = 16.sp, maxLines = 1)
+                    Text(controller.currentArtistLine, color = Muted, fontSize = 16.sp, maxLines = 1)
                 }
-                IconButton(onClick = { controller.downloadCurrent() }) { Icon(Icons.Rounded.Download, "İndir", tint = Accent) }
+                IconButton(onClick = controller::downloadCurrent) { Icon(Icons.Rounded.Download, "İndir", tint = Accent) }
             }
             Slider(
                 value = controller.positionMs.toFloat().coerceAtLeast(0f),
                 onValueChange = { controller.positionMs = it.toLong() },
                 onValueChangeFinished = { controller.seekTo(controller.positionMs) },
                 valueRange = 0f..controller.durationMs.coerceAtLeast(1).toFloat(),
-                colors = SliderDefaults.colors(thumbColor = Color.White, activeTrackColor = Color.White, inactiveTrackColor = Color.White.copy(alpha = .2f))
+                colors = SliderDefaults.colors(
+                    thumbColor = Color.White,
+                    activeTrackColor = Color.White,
+                    inactiveTrackColor = Color.White.copy(alpha = .2f),
+                ),
             )
-            Row(Modifier.fillMaxWidth()) { Text(formatMillis(controller.positionMs), color = Muted, fontSize = 12.sp); Spacer(Modifier.weight(1f)); Text("-${formatMillis((controller.durationMs - controller.positionMs).coerceAtLeast(0))}", color = Muted, fontSize = 12.sp) }
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.CenterVertically) {
-                IconButton(onClick = { controller.setShuffle(!controller.shuffle) }) { Icon(Icons.Rounded.Shuffle, null, tint = if (controller.shuffle) Accent else Color.White) }
-                IconButton(onClick = { controller.previous() }, modifier = Modifier.size(62.dp)) { Icon(Icons.Rounded.SkipPrevious, null, modifier = Modifier.size(42.dp)) }
-                FilledIconButton(onClick = { controller.toggle() }, modifier = Modifier.size(76.dp), colors = IconButtonDefaults.filledIconButtonColors(containerColor = Color.White, contentColor = Color.Black)) {
-                    Icon(if (controller.isPlaying) Icons.Rounded.Pause else Icons.Rounded.PlayArrow, null, modifier = Modifier.size(45.dp))
+            Row(Modifier.fillMaxWidth()) {
+                Text(formatMillis(controller.positionMs), color = Muted, fontSize = 12.sp)
+                Spacer(Modifier.weight(1f))
+                Text(formatMillis(controller.durationMs), color = Muted, fontSize = 12.sp)
+            }
+            Row(
+                Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                IconButton(onClick = { controller.setShuffle(!controller.shuffle) }) {
+                    Icon(Icons.Rounded.Shuffle, null, tint = if (controller.shuffle) Accent else Color.White)
                 }
-                IconButton(onClick = { controller.next() }, modifier = Modifier.size(62.dp)) { Icon(Icons.Rounded.SkipNext, null, modifier = Modifier.size(42.dp)) }
+                IconButton(onClick = { controller.seekBy(-10_000) }) { Icon(Icons.Rounded.FastRewind, "10 saniye geri") }
+                IconButton(onClick = controller::previous) { Icon(Icons.Rounded.SkipPrevious, null, modifier = Modifier.size(36.dp)) }
+                FilledIconButton(
+                    onClick = controller::toggle,
+                    modifier = Modifier.size(70.dp),
+                    colors = IconButtonDefaults.filledIconButtonColors(containerColor = Color.White, contentColor = Color.Black),
+                ) {
+                    Icon(if (controller.isPlaying) Icons.Rounded.Pause else Icons.Rounded.PlayArrow, null, modifier = Modifier.size(42.dp))
+                }
+                IconButton(onClick = controller::next) { Icon(Icons.Rounded.SkipNext, null, modifier = Modifier.size(36.dp)) }
+                IconButton(onClick = { controller.seekBy(10_000) }) { Icon(Icons.Rounded.FastForward, "10 saniye ileri") }
                 Box {
                     IconButton(onClick = { qualityMenu = true }) { Icon(Icons.Rounded.HighQuality, null, tint = Accent) }
                     DropdownMenu(expanded = qualityMenu, onDismissRequest = { qualityMenu = false }) {
                         sources.forEach { source ->
                             DropdownMenuItem(
-                                text = { Column { Text(source.label); Text(source.codec, color = Muted, fontSize = 12.sp) } },
-                                trailingIcon = { if (controller.currentSource?.id == source.id) Icon(Icons.Rounded.Check, null, tint = Accent) },
-                                onClick = { controller.setQuality(source.kind); qualityMenu = false }
+                                text = {
+                                    Column {
+                                        Text(source.label)
+                                        Text(source.codec, color = Muted, fontSize = 12.sp)
+                                    }
+                                },
+                                trailingIcon = {
+                                    if (controller.currentSource?.id == source.id) Icon(Icons.Rounded.Check, null, tint = Accent)
+                                },
+                                onClick = {
+                                    controller.setQuality(source.kind)
+                                    qualityMenu = false
+                                },
                             )
                         }
                     }
-                }
-            }
-            Surface(shape = RoundedCornerShape(14.dp), color = Color.White.copy(alpha = .07f), modifier = Modifier.fillMaxWidth().padding(top = 10.dp)) {
-                Row(Modifier.padding(13.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Icon(Icons.Rounded.GraphicEq, null, tint = Accent); Spacer(Modifier.width(10.dp))
-                    Column { Text(controller.currentSource?.label.orEmpty(), fontWeight = FontWeight.SemiBold); Text(controller.currentSource?.codec.orEmpty(), color = Muted, fontSize = 12.sp) }
                 }
             }
         }
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun AdminScreen(catalog: Catalog) {
+private fun SettingsSheet(controller: PlayerController, onDismiss: () -> Unit) {
     val context = LocalContext.current
-    val actions = listOf(
-        Triple("Katalogu Düzenle", "Sanatçı, şarkı, albüm ve EP kayıtlarını GitHub üzerinde düzenle.", "https://github.com/apexlions16/music-project/edit/main/catalog/catalog.json"),
-        Triple("Katalog Dosyasını Gör", "Uygulamanın canlı okuduğu JSON verisini aç.", CatalogRepository.RAW_CATALOG_URL),
-        Triple("Yeni Ses Bağlantısı Ekle", "Hugging Face dosya bağlantısını şarkının sources alanına ekle.", "https://github.com/apexlions16/music-project/blob/main/README.md"),
-        Triple("Şema ve Kurallar", "Single, EP, albüm ve kalite alanlarının yapısını incele.", "https://github.com/apexlions16/music-project/blob/main/catalog/schema.json")
-    )
-    LazyColumn(contentPadding = PaddingValues(18.dp, 8.dp, 18.dp, 32.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
-        item {
-            Surface(shape = RoundedCornerShape(24.dp), color = Accent.copy(alpha = .13f), border = androidx.compose.foundation.BorderStroke(1.dp, Accent.copy(alpha = .35f))) {
-                Column(Modifier.padding(20.dp)) {
-                    Icon(Icons.Rounded.AdminPanelSettings, null, tint = Accent, modifier = Modifier.size(42.dp))
-                    Spacer(Modifier.height(10.dp)); Text("GitHub Katalog Yönetimi", style = MaterialTheme.typography.titleLarge)
-                    Text("Kullanıcı hesabı yoktur. Katalog doğrudan bu repoda tutulur ve uygulama her açılışta güncel sürümü kontrol eder.", color = Muted)
-                    Spacer(Modifier.height(8.dp)); Text("${catalog.artists.size} sanatçı • ${catalog.releases.size} yayın • ${catalog.tracks.size} şarkı", color = Accent, fontWeight = FontWeight.SemiBold)
+    val scope = rememberCoroutineScope()
+    var token by remember { mutableStateOf(AppSettings.huggingFaceToken(context)) }
+    var animated by remember { mutableStateOf(AppSettings.animatedCovers(context)) }
+    var saved by remember { mutableStateOf(false) }
+
+    ModalBottomSheet(
+        onDismissRequest = onDismiss,
+        sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
+        containerColor = AppBackground,
+        dragHandle = { BottomSheetDefaults.DragHandle(color = Color.White.copy(alpha = .4f)) },
+    ) {
+        LazyColumn(
+            contentPadding = PaddingValues(24.dp, 8.dp, 24.dp, 42.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            item {
+                Text("Ayarlar", style = MaterialTheme.typography.headlineMedium)
+                Text("Yönetim paneli mobil uygulamadan tamamen kaldırılmıştır.", color = Muted)
+            }
+            item {
+                Surface(shape = RoundedCornerShape(18.dp), color = SurfaceDark) {
+                    Column(Modifier.padding(16.dp)) {
+                        Text("Hugging Face Gated Erişim", fontWeight = FontWeight.Bold)
+                        Text(
+                            "Yalnızca hcywashere/m-project deposunu okuyabilen fine-grained Read token girin. Token cihazda şifreli saklanır.",
+                            color = Muted,
+                            fontSize = 13.sp,
+                        )
+                        Spacer(Modifier.height(12.dp))
+                        OutlinedTextField(
+                            value = token,
+                            onValueChange = { token = it; saved = false },
+                            label = { Text("hf_… Read token") },
+                            visualTransformation = PasswordVisualTransformation(),
+                            modifier = Modifier.fillMaxWidth(),
+                            singleLine = true,
+                        )
+                    }
                 }
             }
-        }
-        items(actions) { (title, description, url) ->
-            Surface(
-                shape = RoundedCornerShape(18.dp), color = SurfaceDark,
-                modifier = Modifier.fillMaxWidth().clickable { context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url))) }
-            ) {
-                Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Column(Modifier.weight(1f)) { Text(title, fontWeight = FontWeight.SemiBold); Text(description, color = Muted, fontSize = 13.sp) }
-                    Icon(Icons.Rounded.OpenInNew, null, tint = Accent)
+            item {
+                Surface(shape = RoundedCornerShape(18.dp), color = SurfaceDark) {
+                    Row(Modifier.fillMaxWidth().padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Column(Modifier.weight(1f)) {
+                            Text("Hareketli kapaklar", fontWeight = FontWeight.Bold)
+                            Text("Desteklenen yayınlarda animasyonu etkinleştirir.", color = Muted, fontSize = 13.sp)
+                        }
+                        Switch(checked = animated, onCheckedChange = { animated = it; saved = false })
+                    }
                 }
             }
-        }
-        item {
-            Text("Güvenlik", color = Accent, fontWeight = FontWeight.Bold)
-            Text("GitHub veya Hugging Face erişim anahtarları APK içine gömülmez. Yönetim işlemleri GitHub oturumun üzerinden yapılır.", color = Muted)
+            item {
+                Button(
+                    onClick = {
+                        controller.setHuggingFaceToken(token)
+                        AppSettings.setAnimatedCovers(context, animated)
+                        saved = true
+                        scope.launch {
+                            delay(700)
+                            onDismiss()
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    if (saved) Icon(Icons.Rounded.Check, null) else Icon(Icons.Rounded.Settings, null)
+                    Spacer(Modifier.width(6.dp))
+                    Text(if (saved) "Kaydedildi" else "Güvenli Kaydet")
+                }
+            }
         }
     }
 }
