@@ -20,8 +20,10 @@ from typing import Any, Callable
 from urllib.parse import quote
 
 # Hugging Face'in Xet/LFS seçimi otomatik bırakılır. Aurora Studio Xet'i kapatmaz.
-# Yalnızca indirme zaman aşımı için güvenli bir varsayılan kullanılır.
+# PyInstaller --windowed uygulamasında stdout/stderr bulunmadığı için Hugging Face'in
+# terminal tabanlı tqdm çubuğu kapatılır; ilerleme Aurora arayüzünde gösterilir.
 os.environ.setdefault("HF_HUB_DOWNLOAD_TIMEOUT", "120")
+os.environ.setdefault("HF_HUB_DISABLE_PROGRESS_BARS", "1")
 
 import requests
 from huggingface_hub import CommitOperationAdd, HfApi
@@ -66,7 +68,7 @@ from PySide6.QtWidgets import (
 )
 
 APP_NAME = "Aurora Studio"
-APP_VERSION = "0.2.2"
+APP_VERSION = "0.2.3"
 DEFAULT_REPO = "apexlions16/music-project"
 DEFAULT_BRANCH = "main"
 DEFAULT_CATALOG_PATH = "catalog/catalog.json"
