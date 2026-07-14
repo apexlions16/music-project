@@ -1,0 +1,45 @@
+name: Aurora HF Shard Yamasını Uygula
+
+on:
+  push:
+    branches: [agent/hf-folder-sharding]
+    paths:
+      - "HF_SHARD_TRIGGER.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aurora-hf-shard-patch
+  cancel-in-progress: true
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dalı al
+        uses: actions/checkout@v4
+        with:
+          ref: agent/hf-folder-sharding
+          fetch-depth: 0
+
+      - name: Yamayı uygula ve Python sözdizimini doğrula
+        run: |
+          set -euo pipefail
+          python tools/apply_hf_sharding_patch.py
+          python -m py_compile pc/AuroraStudio.py
+          grep -q 'APP_VERSION = "0.2.1"' pc/AuroraStudio.py
+          grep -q 'HF_SHARD_FILE_LIMIT = 9000' pc/AuroraStudio.py
+          grep -q 'HF_COMMIT_SOFT_LIMIT = 120' pc/AuroraStudio.py
+          grep -q 'allocate_remote("audio"' pc/AuroraStudio.py
+
+      - name: Değişiklikleri dala yaz
+        run: |
+          set -euo pipefail
+          rm -f HF_SHARD_TRIGGER.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pc/AuroraStudio.py pc/README.md .github/workflows/aurora-v030-build.yml HF_SHARD_TRIGGER.txt
+          git commit -m "Aurora Studio HF shard ve yükleme koruması"
+          git push origin HEAD:agent/hf-folder-sharding
