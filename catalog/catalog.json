@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-14T12:39:13.318Z",
+  "updatedAt": "2026-07-14T12:43:18.466Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -12,7 +12,9 @@
     "artistBackgrounds": true,
     "offlineDownloads": true
   },
-  "featuredReleaseIds": [],
+  "featuredReleaseIds": [
+    "release_4d0bb3da649642f7b8c69a66e7ff6c51"
+  ],
   "artists": [
     {
       "id": "artist_69a7219681e54025b7c9db28b1b6fd0b",
@@ -25,6 +27,98 @@
       "bio": "Manifest is a six-member girl group under Hypers Music, formed by Esin, Hilal, Lidya, Mina, Sueda and Zeynep.\nThey broke out with their debut run of singles, leading into Manifestival, one of the most streamed girl group albums globally in its release year and the most pre-saved album in Türkiye.\nThey brought the album to life with Manifestival, the country’s first artist-led music festival, selling out and reaching over 250,000 ticketed attendees across headline shows.\nFollowing the album, the group released Manifestival (Deluxe) with five remixes. Singles like “Amatör” and “Daha İyi” delivered the biggest global Spotify debuts of their release weeks, while “Rüya” with Winx Club pushed their reach beyond Türkiye."
     }
   ],
-  "tracks": [],
-  "releases": []
+  "tracks": [
+    {
+      "id": "track_5a5000b2a2874ee783fa47147d5aaf93",
+      "slug": "zamansizdik",
+      "title": "Zamansızdık",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "durationSeconds": 172,
+      "isrc": "TRAUR2500009",
+      "lyrics": "[Giriş: Hilal]\nAh-oh-oh, oh-oh-ah\nOh-oh-ah, oh-oh-oh\n\n[Nakarat: Lidya, Sueda]\nZamansızdık ilk başta, sandım hep iyi kal'ca'z\nYetmiyo' hiçbi' iltifat hissettirmiyo'san\nBoşa dökülen yaşlar, artık üzülmem asla\nHoşsun, başkasını bulursun, kafana takma\n\n[Bölüm 1: Zeynep, Esin]\nSabrettim, tuttum kendimi gitmemek için\nÜzmek istemem inan seni (Oh-oh-ah)\nAma kaybettin, ısrarla saklasan da gerçeği\nHer temasın daha mesafeli (Mesafeli)\n\n[Ön Nakarat: Sueda, Hilal]\nHer şey güzel de geçmiyo' geçmişin izleri\nUykumdan eder soğukluğun, yanım kabullenir\nBakarsan gözlerime, dikkat, düşme en derine\nSöyle, severler mi benim gibi?\n\n[Nakarat: Mina, Sueda]\nZamansızdık ilk başta, sandım hep iyi kal'ca'z\nYetmiyo' hiçbi' iltifat hissettirmiyo'san\nBoşa dökülen yaşlar, artık üzülmem asla\nHoşsun, başkasını bulursun, kafana takma\nYou might also like\nToz Pembe\nmanifest\nSnap\nmanifest\nHileli\nmanifest & Ajda Pekkan\n[Arka Nakarat]\n(Kafana takma, ah, ah-ah)\n(Ah-ah-ah, ah-ah-ah, ah-ah-ah)\n\n[Bölüm 2: Zeynep, Hilal]\nYanında kayboldum, aklım çok karışık\nBulurum yolumu, alıştım\nSabrımı çoktandır aşmıştın hâlâ\n(Şş) Konuşma, bitsin en başından\nArtık düşsene yakamdan\nGüm güm atsa da hat'rına\nŞu kalbim ağlatır bi' anda (Ağlatır bi' anda)\n\n[Ön Nakarat: Mina, Lidya]\nHer şey güzel de geçmiyo' geçmişin izleri\nUykumdan eder soğukluğun, yanım kabullenir\nBakarsan gözlerime, dikkat, düşme en derine\nSöyle, severler mi benim gibi?\n\n[Nakarat: Hilal, Lidya, Sueda]\nZamansızdık ilk başta, sandım hep iyi kal'ca'z (Ah-ah)\nYetmiyo' hiçbi' iltifat hissettirmiyo'san (Uh, ah)\nBoşa dökülen yaşlar ('Lar), artık üzülmem asla ('La)\nHoşsun, başkasını bulursun, kafana takma\n\n[Çıkış: Sueda]\n(Kafana takma, kafana takma)\n(Oh-o-oh-oh-oh, oh)",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_723cca26dde54e1bb954162f233d3947",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/908033f2af90402eadeba72d0abab231.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/908033f2af90402eadeba72d0abab231.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_7a70e5a6be524fe4b70a05ffdaad6576",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/1fe8f4a578da483e8bbddd42fb99a3cf.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/1fe8f4a578da483e8bbddd42fb99a3cf.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_3a1e6ed296cc4887a856476292820648",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/0b0d5f3fefe346feb282305aab83f2ef.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/0b0d5f3fefe346feb282305aab83f2ef.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_0229f1eb2f914123a436ded6495fdfb9",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/be95a496fa254d2dbb32157e0c9adb0b.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/be95a496fa254d2dbb32157e0c9adb0b.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    }
+  ],
+  "releases": [
+    {
+      "id": "release_4d0bb3da649642f7b8c69a66e7ff6c51",
+      "slug": "zamansizdik",
+      "title": "Zamansızdık",
+      "type": "single",
+      "artistIds": [
+        "artist_69a7219681e54025b7c9db28b1b6fd0b"
+      ],
+      "releaseDate": "2025-02-07",
+      "cover": "https://i.scdn.co/image/ab67616d0000e1a3d0cf2103ac54600a13bf8a38",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000e1a3d0cf2103ac54600a13bf8a38",
+      "animatedCoverUrl": "",
+      "label": "© 2025 Hypers Music",
+      "copyright": "© 2025 Hypers Music",
+      "description": "",
+      "tracks": [
+        {
+          "trackId": "track_5a5000b2a2874ee783fa47147d5aaf93",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    }
+  ]
 }
