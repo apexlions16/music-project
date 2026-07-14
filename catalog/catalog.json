@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-14T11:56:02.827Z",
+  "updatedAt": "2026-07-14T11:57:00.772Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,7 +13,18 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [],
-  "artists": [],
+  "artists": [
+    {
+      "id": "artist_822dc26094744478816b01dbbbf9b6c7",
+      "slug": "manifest",
+      "name": "manifest",
+      "image": "",
+      "heroImage": "",
+      "backgroundImage": "",
+      "backgroundVideoUrl": "",
+      "bio": ""
+    }
+  ],
   "tracks": [],
   "releases": []
 }
