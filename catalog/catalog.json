@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-07-14T18:21:44.402Z",
+  "updatedAt": "2026-07-14T18:21:50.744Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -36,16 +36,6 @@
       "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-background/050a30a94e184f0082e15b4cd39ef706.jpg",
       "backgroundVideoUrl": "",
       "bio": "Manifest is a six-member girl group under Hypers Music, formed by Esin, Hilal, Lidya, Mina, Sueda and Zeynep.\nThey broke out with their debut run of singles, leading into Manifestival, one of the most streamed girl group albums globally in its release year and the most pre-saved album in Türkiye.\nThey brought the album to life with Manifestival, the country’s first artist-led music festival, selling out and reaching over 250,000 ticketed attendees across headline shows.\nFollowing the album, the group released Manifestival (Deluxe) with five remixes. Singles like “Amatör” and “Daha İyi” delivered the biggest global Spotify debuts of their release weeks, while “Rüya” with Winx Club pushed their reach beyond Türkiye."
-    },
-    {
-      "id": "artist_129c0c6ffc4045708536e2d644aee035",
-      "slug": "ajda-pekkan",
-      "name": "Ajda Pekkan",
-      "image": "",
-      "heroImage": "",
-      "backgroundImage": "",
-      "backgroundVideoUrl": "",
-      "bio": ""
     }
   ],
   "tracks": [
