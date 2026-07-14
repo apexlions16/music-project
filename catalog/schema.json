@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/apexlions16/music-project/catalog/schema.json",
-  "title": "Aurora Music Catalog v3",
+  "title": "Aurora Music Catalog v4",
   "type": "object",
   "required": ["schemaVersion", "brand", "artists", "tracks", "releases"],
   "properties": {
@@ -49,6 +49,7 @@
           "artistIds": { "type": "array", "items": { "type": "string" } },
           "primaryArtistIds": { "type": "array", "items": { "type": "string" } },
           "featuredArtistIds": { "type": "array", "items": { "type": "string" } },
+          "featuredArtistNames": { "type": "array", "items": { "type": "string" } },
           "durationSeconds": { "type": "integer", "minimum": 0 },
           "isrc": { "type": "string" },
           "explicit": { "type": "boolean" },
