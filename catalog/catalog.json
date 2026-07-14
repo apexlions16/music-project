@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-14T12:18:45.898Z",
+  "updatedAt": "2026-07-14T12:20:43.701Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_5f9b0e3855e0420894227e44997cad19",
     "release_6a589894bd5a491a9b9bd2da104c9b67",
     "release_ca533964d66844c3ad10337a14a8ad70"
   ],
@@ -110,6 +111,47 @@
           "sampleRateKhz": 48.0
         }
       ]
+    },
+    {
+      "id": "track_beffac9946ba47c688010510d3a84fda",
+      "slug": "ruya",
+      "title": "RÜYA",
+      "artistIds": [
+        "artist_822dc26094744478816b01dbbbf9b6c7"
+      ],
+      "durationSeconds": 195,
+      "isrc": "3",
+      "lyrics": "Sensiz bak ne mutluydum\nYapamıyorum, çok zor\nBıraktım senin gibi\nGeri gelme, son bulsun\nTekrar (tekrar) bak istersen\nNası' mutlu ol'caksan ol yeter\nSessizce\nKaybol, uzaklaş, biz çoktan göklerde\nYoksun\nHayallerin hep senin olsun\nGözlerine hâkim ol, hâlâ ister gibi bakıyorsun\nArtık yoksun (yoksun)\nHayallerin hep senin olsun (olsun)\nGözlerine hâkim ol, hâlâ ister gibi bakıyorsun\nRüyasında beni arıyormuş\nGüçlüyüz ve bunu biliyorsun\nSen vazgeçtin bizden\nTek sen kaybettin cidden (cidden, ey)\nRüyasında beni arıyormuş\nGüçlüyüz ve bunu biliyorsun\nSen vazgeçtin bizden\nTek sen kaybettin cidden (cidden)\nİstedim seni yanımda başlarda\nArtık hiç önemi yok (yok, yok, yok)\nBakıyorum da zor olmuş unutmak\nYüzümü görmen bile zor (çok zor, ey)\nTekrar (tekrar) bak istersen\nNası' mutlu ol'caksan ol yeter\nSessizce (sessizce)\nKaybol, uzaklaş, biz çoktan göklerde\nYoksun\nHayallerin hep senin olsun\nGözlerine hâkim ol, hâlâ ister gibi bakıyorsun\nArtık yoksun\nHayallerin hep senin olsun\nGözlerine hâkim ol, hâlâ ister gibi bakıyorsun\nRüyasında beni arıyormuş\nGüçlüyüz ve bunu biliyorsun\nSen vazgeçtin bizden\nTek sen kaybettin cidden (cidden, ey)\nRüyasında beni arıyormuş\nGüçlüyüz ve bunu biliyorsun\nSen vazgeçtin bizden\nTek sen kaybettin cidden (cidden, ey)\nRüyasında beni arıyormuş\nGüçlüyüz ve bunu biliyorsun\nSen vazgeçtin bizden\nTek sen kaybettin cidden\nRüyasında beni arıyormuş\nGüçlüyüz ve bunu biliyorsun\nSen vazgeçtin bizden\nTek sen kaybettin cidden",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_07b89ee780834abcbc8daf904265f556",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/c089f87347ca41579c98411f31ccb6c9.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/c089f87347ca41579c98411f31ccb6c9.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_3c9a7019c3d14993ba06c56485099216",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/825dd338d6b04e38b54501b17a4cbbcf.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/825dd338d6b04e38b54501b17a4cbbcf.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
     }
   ],
   "releases": [
@@ -154,6 +196,29 @@
       "tracks": [
         {
           "trackId": "track_db20b8def5f947bab96244d2440e5b63",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "release_5f9b0e3855e0420894227e44997cad19",
+      "slug": "ruya",
+      "title": "RÜYA",
+      "type": "single",
+      "artistIds": [
+        "artist_822dc26094744478816b01dbbbf9b6c7"
+      ],
+      "releaseDate": "2025-10-03",
+      "cover": "https://images.genius.com/6fad46aab3c163c0e4823de6e0ba4dc9.1000x1000x1.png",
+      "heroImage": "https://images.genius.com/6fad46aab3c163c0e4823de6e0ba4dc9.1000x1000x1.png",
+      "animatedCoverUrl": "",
+      "label": "© 2025 Hypers Music",
+      "copyright": "© 2025 Hypers Music",
+      "description": "",
+      "tracks": [
+        {
+          "trackId": "track_beffac9946ba47c688010510d3a84fda",
           "disc": 1,
           "position": 1
         }
