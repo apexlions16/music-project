@@ -1,4 +1,5 @@
 name: CI Tanılama
+# Android API 36 derlemesi sonrası ikinci durum sorgusu
 
 on:
   push:
