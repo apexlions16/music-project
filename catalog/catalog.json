@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-14T12:02:38.193Z",
+  "updatedAt": "2026-07-14T12:05:24.949Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -12,7 +12,9 @@
     "artistBackgrounds": true,
     "offlineDownloads": true
   },
-  "featuredReleaseIds": [],
+  "featuredReleaseIds": [
+    "release_ca533964d66844c3ad10337a14a8ad70"
+  ],
   "artists": [
     {
       "id": "artist_822dc26094744478816b01dbbbf9b6c7",
@@ -25,6 +27,72 @@
       "bio": ""
     }
   ],
-  "tracks": [],
-  "releases": []
+  "tracks": [
+    {
+      "id": "track_efd02c59c6184c6cbabb5974d73c5650",
+      "slug": "12321",
+      "title": "12321",
+      "artistIds": [
+        "artist_822dc26094744478816b01dbbbf9b6c7"
+      ],
+      "durationSeconds": 170,
+      "isrc": "",
+      "lyrics": "Ah-oh-oh\nOh-oh-oh\nAh-oh-oh\nOh-oh-oh\nZamansızdık ilk başta\nSandım hep iyi kal'ca'z\nYetmiyo' hiçbi' iltifat\nHissettirmiyo'san\nBoşa dökülen yaşlar\nArtık üzülmem asla\nHoşsun, başkasını bulursun\nKafana takma\nSabrettim, tuttum kendimi gitmemek için\nÜzmek istemem inan seni (ah, ah, ah)\nAma kaybettin, ısrarla saklasan da gerçeği\nHer temasın daha mesafeli (mesafeli)\nHer şey güzel de geçmiyo' geçmişin izleri\nUykumdan eder soğukluğun, yanım kabullenir\nBakarsan gözlerime, dikkat, düşme en derine\nSöyle, severler mi benim gibi?\nZamansızdık ilk başta\nSandım hep iyi kal'ca'z\nYetmiyo' hiçbi' iltifat\nHissettirmiyo'san\nBoşa dökülen yaşlar\nArtık üzülmem asla\nHoşsun, başkasını bulursun\nKafana takma\nYanında kayboldum, aklım çok karışık\nBulurum yolumu, alıştım\nSabrımı çoktandır aşmıştın hâlâ\nKonuşma, bitsin en başından\nArtık düşsene yakamdan\nGüm güm atsa da hat'rına\nŞu kalbim ağlatır bi' anda (ağlatır bi' anda)\nHer şey güzel de geçmiyo' geçmişin izleri\nUykumdan eder soğukluğun, yanım kabullenir\nBakarsan gözlerime, dikkat, düşme en derine\nSöyle, severler mi benim gibi?\nZamansızdık ilk başta (a-ah)\nSandım hep iyi kal'ca'z\nYetmiyo' hiçbi' (uh) iltifat\nHissettirmiyorsan (ah)\nBoşa dökülen yaşlar (ah)\nArtık üzülmem asla (a-ah)\nHoşsun, başkasını bulursun\nKafana takma",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_2cab572a8dbc4cfaa4983efe485ca328",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/d7fc60ffff8442179e3fb7083c86005c.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/d7fc60ffff8442179e3fb7083c86005c.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_694739e244fd447aa753f51563f54ebe",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/53ce27c8bfac4878b9be606dfda27dfd.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio/53ce27c8bfac4878b9be606dfda27dfd.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    }
+  ],
+  "releases": [
+    {
+      "id": "release_ca533964d66844c3ad10337a14a8ad70",
+      "slug": "zamansizdik",
+      "title": "Zamansızdık",
+      "type": "single",
+      "artistIds": [
+        "artist_822dc26094744478816b01dbbbf9b6c7"
+      ],
+      "releaseDate": "2025-02-07",
+      "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d4/e5/c7/d4e5c75b-62c9-40d6-7ed3-afbc91222777/cover.jpg/600x600bb.webp",
+      "heroImage": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d4/e5/c7/d4e5c75b-62c9-40d6-7ed3-afbc91222777/cover.jpg/600x600bb.webp",
+      "animatedCoverUrl": "",
+      "label": "© 2025 Hypers Music",
+      "copyright": "© 2025 Hypers Music",
+      "description": "",
+      "tracks": [
+        {
+          "trackId": "track_efd02c59c6184c6cbabb5974d73c5650",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    }
+  ]
 }
