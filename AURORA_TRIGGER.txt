@@ -1,1 +1,1 @@
-Aurora PR tabanlı gerçek Android ve Windows derlemesini başlat.
+Aurora PR derlemesini eksik seg-01 ve seg-07 tamamlandıktan sonra yeniden başlat.
