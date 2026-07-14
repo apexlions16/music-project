@@ -1,4 +1,4 @@
-name: Aurora 0.3.0 Build
+name: Aurora Android 0.3.1 / Studio 0.2.2 Build
 # PR üzerindeki Android ve Windows doğrulama derlemesi.
 
 on:
@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   android:
-    name: Aurora Music Android v0.3.0
+    name: Aurora Music Android v0.3.1
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -55,13 +55,13 @@ jobs:
       - name: APK paketle
         run: |
           mkdir -p yayin
-          cp app/build/outputs/apk/debug/app-debug.apk yayin/aurora-music-v0.3.0.apk
-          sha256sum yayin/aurora-music-v0.3.0.apk > yayin/SHA256SUMS-Aurora-Music.txt
+          cp app/build/outputs/apk/debug/app-debug.apk yayin/aurora-music-v0.3.1.apk
+          sha256sum yayin/aurora-music-v0.3.1.apk > yayin/SHA256SUMS-Aurora-Music.txt
 
       - name: Android artifact
         uses: actions/upload-artifact@v4
         with:
-          name: aurora-music-android-v0.3.0
+          name: aurora-music-android-v0.3.1
           path: yayin/*
 
       - name: Android Release
@@ -69,10 +69,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release delete v0.3.0 --cleanup-tag --yes || true
-          gh release create v0.3.0 yayin/* \
-            --title "Aurora Music Android v0.3.0" \
-            --notes "Dikey mobil tasarım, sanatçı sayfasında az göster/tümünü gör ve sıralama, mobil yönetim panelinin kaldırılması, feat sanatçı gösterimi, şifreli Hugging Face gated token desteği ve anlaşılır oynatma hataları."
+          gh release delete v0.3.1 --cleanup-tag --yes || true
+          gh release create v0.3.1 yayin/* \
+            --title "Aurora Music Android v0.3.1" \
+            --notes "Oynatma ekranında ayarla açılıp kapatılabilen sessiz ve döngülü hareketli kapak desteği. Gated Hugging Face videolarında cihazdaki Read token yalnızca Hugging Face alan adlarına gönderilir; video açılamazsa normal kapak kullanılır."
 
   windows:
     name: Aurora Studio Windows v0.2.2

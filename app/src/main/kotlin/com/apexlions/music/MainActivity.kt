@@ -1,6 +1,7 @@
 package com.apexlions.music
 
 import android.os.Bundle
+import android.view.ViewGroup
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
@@ -105,6 +106,15 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.media3.common.MediaItem
+import androidx.media3.common.PlaybackException
+import androidx.media3.common.Player
+import androidx.media3.datasource.DefaultHttpDataSource
+import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
+import androidx.media3.ui.AspectRatioFrameLayout
+import androidx.media3.ui.PlayerView
 import coil.compose.AsyncImage
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -174,6 +184,7 @@ private fun AuroraMusicApp() {
     var selectedArtistId by remember { mutableStateOf<String?>(null) }
     var showPlayer by remember { mutableStateOf(false) }
     var showSettings by remember { mutableStateOf(false) }
+    var animatedCoversEnabled by remember { mutableStateOf(AppSettings.animatedCovers(context)) }
 
     LaunchedEffect(refreshKey) {
         loading = true
@@ -317,13 +328,15 @@ private fun AuroraMusicApp() {
             containerColor = AppBackground,
             dragHandle = { BottomSheetDefaults.DragHandle(color = Color.White.copy(alpha = .4f)) },
         ) {
-            NowPlayingScreen(controller)
+            NowPlayingScreen(controller, animatedCoversEnabled)
         }
     }
 
     if (showSettings) {
         SettingsSheet(
             controller = controller,
+            animatedCoversEnabled = animatedCoversEnabled,
+            onAnimatedCoversChanged = { animatedCoversEnabled = it },
             onDismiss = { showSettings = false },
         )
     }
@@ -774,8 +787,9 @@ private fun MiniPlayer(controller: PlayerController, onOpen: () -> Unit) {
 }
 
 @Composable
-private fun NowPlayingScreen(controller: PlayerController) {
+private fun NowPlayingScreen(controller: PlayerController, animatedCoversEnabled: Boolean) {
     val track = controller.currentTrack ?: return
+    val context = LocalContext.current
     var lyricsMode by remember { mutableStateOf(false) }
     var qualityMenu by remember { mutableStateOf(false) }
     val sources = track.sources.sortedByDescending { qualityRank(it.kind) }
@@ -817,11 +831,13 @@ private fun NowPlayingScreen(controller: PlayerController) {
             }
         } else {
             Spacer(Modifier.height(12.dp))
-            AsyncImage(
-                model = controller.currentCover,
-                contentDescription = null,
-                modifier = Modifier.fillMaxWidth().aspectRatio(1f).clip(RoundedCornerShape(24.dp)).background(SurfaceDark),
-                contentScale = ContentScale.Crop,
+            AnimatedNowPlayingArtwork(
+                videoUrl = controller.currentRelease?.animatedCoverUrl.orEmpty(),
+                coverUrl = controller.currentCover,
+                enabled = animatedCoversEnabled,
+                playing = controller.isPlaying,
+                huggingFaceToken = AppSettings.huggingFaceToken(context),
+                modifier = Modifier.fillMaxWidth().aspectRatio(1f),
             )
             Spacer(Modifier.height(24.dp))
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
@@ -893,13 +909,120 @@ private fun NowPlayingScreen(controller: PlayerController) {
     }
 }
 
+
+@Composable
+private fun AnimatedNowPlayingArtwork(
+    videoUrl: String,
+    coverUrl: String,
+    enabled: Boolean,
+    playing: Boolean,
+    huggingFaceToken: String,
+    modifier: Modifier = Modifier,
+) {
+    val context = LocalContext.current
+    val cleanVideoUrl = remember(videoUrl) { videoUrl.substringBefore("#").trim() }
+    var videoFailed by remember(cleanVideoUrl) { mutableStateOf(false) }
+    val showVideo = enabled && cleanVideoUrl.isNotBlank() && !videoFailed
+
+    Box(
+        modifier = modifier
+            .clip(RoundedCornerShape(24.dp))
+            .background(SurfaceDark),
+    ) {
+        AsyncImage(
+            model = coverUrl,
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop,
+        )
+
+        if (showVideo) {
+            val videoPlayer = remember(cleanVideoUrl, huggingFaceToken) {
+                val host = runCatching {
+                    android.net.Uri.parse(cleanVideoUrl).host.orEmpty().lowercase()
+                }.getOrDefault("")
+                val isHuggingFace = host == "huggingface.co" ||
+                    host.endsWith(".huggingface.co") ||
+                    host == "hf.co" ||
+                    host.endsWith(".hf.co")
+                val headers = if (isHuggingFace && huggingFaceToken.isNotBlank()) {
+                    mapOf("Authorization" to "Bearer ${huggingFaceToken.trim()}")
+                } else {
+                    emptyMap()
+                }
+                val httpFactory = DefaultHttpDataSource.Factory()
+                    .setUserAgent("AuroraMusic/0.3.1")
+                    .setAllowCrossProtocolRedirects(true)
+                    .setDefaultRequestProperties(headers)
+                val mediaSourceFactory = DefaultMediaSourceFactory(context)
+                    .setDataSourceFactory(httpFactory)
+
+                ExoPlayer.Builder(context)
+                    .setMediaSourceFactory(mediaSourceFactory)
+                    .build()
+                    .apply {
+                        volume = 0f
+                        repeatMode = Player.REPEAT_MODE_ONE
+                        setMediaItem(MediaItem.fromUri(cleanVideoUrl))
+                        prepare()
+                    }
+            }
+
+            DisposableEffect(videoPlayer) {
+                val listener = object : Player.Listener {
+                    override fun onPlayerError(error: PlaybackException) {
+                        videoFailed = true
+                    }
+                }
+                videoPlayer.addListener(listener)
+                onDispose {
+                    videoPlayer.removeListener(listener)
+                    videoPlayer.release()
+                }
+            }
+
+            LaunchedEffect(videoPlayer, playing) {
+                if (playing) {
+                    videoPlayer.play()
+                } else {
+                    videoPlayer.pause()
+                }
+            }
+
+            AndroidView(
+                factory = { viewContext ->
+                    PlayerView(viewContext).apply {
+                        useController = false
+                        resizeMode = AspectRatioFrameLayout.RESIZE_MODE_ZOOM
+                        setShutterBackgroundColor(android.graphics.Color.TRANSPARENT)
+                        layoutParams = ViewGroup.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                        )
+                        player = videoPlayer
+                    }
+                },
+                update = { view ->
+                    view.player = videoPlayer
+                },
+                modifier = Modifier.fillMaxSize(),
+            )
+        }
+    }
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun SettingsSheet(controller: PlayerController, onDismiss: () -> Unit) {
+private fun SettingsSheet(
+    controller: PlayerController,
+    animatedCoversEnabled: Boolean,
+    onAnimatedCoversChanged: (Boolean) -> Unit,
+    onDismiss: () -> Unit,
+) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     var token by remember { mutableStateOf(AppSettings.huggingFaceToken(context)) }
-    var animated by remember { mutableStateOf(AppSettings.animatedCovers(context)) }
+    var animated by remember(animatedCoversEnabled) { mutableStateOf(animatedCoversEnabled) }
     var saved by remember { mutableStateOf(false) }
 
     ModalBottomSheet(
@@ -953,6 +1076,7 @@ private fun SettingsSheet(controller: PlayerController, onDismiss: () -> Unit) {
                     onClick = {
                         controller.setHuggingFaceToken(token)
                         AppSettings.setAnimatedCovers(context, animated)
+                        onAnimatedCoversChanged(animated)
                         saved = true
                         scope.launch {
                             delay(700)
