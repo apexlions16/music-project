@@ -1,4 +1,5 @@
 name: Aurora 0.3.0 Build
+# PR üzerindeki Android ve Windows doğrulama derlemesi.
 
 on:
   pull_request:
