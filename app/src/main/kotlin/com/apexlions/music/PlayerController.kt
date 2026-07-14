@@ -78,6 +78,8 @@ class PlayerController(private val context: Context) {
     fun previous() {
         if (player.currentPosition > 4_000) player.seekTo(0) else if (player.hasPreviousMediaItem()) player.seekToPreviousMediaItem()
     }
+
+    @JvmName("setShufflePlayback")
     fun setShuffle(enabled: Boolean) {
         shuffle = enabled
         player.shuffleModeEnabled = enabled
