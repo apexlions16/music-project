@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T18:11:26.908Z",
+  "updatedAt": "2026-07-15T18:20:30.532Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -3049,6 +3049,74 @@
       "playable": true,
       "availability": "available",
       "qualityState": "ready"
+    },
+    {
+      "id": "track_9cf1f8fa0c2f49c9945b8e3b0c306d16",
+      "slug": "tehlikeli",
+      "title": "Tehlikeli",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 165,
+      "isrc": "GBSMU2463455",
+      "explicit": false,
+      "spotifyId": "2TrZB8YuZKGxKIZPVLAMHY",
+      "spotifyUrl": "https://open.spotify.com/track/2TrZB8YuZKGxKIZPVLAMHY",
+      "lyrics": "[Verse 1]\nDestelenir bestelerim\nAma Seth gibiyim, bad trip'im\nSevme beni sevgili dinleyicim\nGelişimin açısından tehlikeliyim\nHep derim \"Herkes beni dinlemesin\"\nYep, kimi dinlediğine karışmam\nBen hiç demem \"Şu şekil iyi, bu şekil iyi\"\nRap kültürü temsili wack'leri gibi\nTek gelirim, tek giderim\nNe Twitter'ı? Fake hepsi\nEpey bi' içip beslediğim egoma ters Twitter\nO boka izin vermez insane trip'im\nO kadar iyiyim ki cash iki bin verir iğrenç klibim\nRap manken bi' piliçtir, ben de yanındaki kel herifim\nHerkes arzularken ben siker geçerim\nHep bu kertedeyim, mekruh her dediğim\nEfsun eklediğim en süper besteler güzel beyinleri düzerken\nBi' nesil bitti, yenisi gelsin hadi\n[Nakarat]\nSes, bir iki, eko, uçuşta süper ego\nDesteğe gerek yok, o yüzden derler bana\n\"Bay hayvan\" ya da \"Geronimo\", oh-oh-oh\nHer gün bayram bana, o yüzden derler bana\n\"Bay hayvan\" ya da \"Geronimo\", oh-oh-oh\nTüm sözlerim \"Tü, kaka\"\nFakat \"Hepsi bi' şaka\" dersem inanma bana, aman ha\nGelmemen için benimle alevlerin oraya (Haha)\nDönmemek üzere bir daha, oh-oh-oh-oh\n\nBenden öte bi' şey bu, bi' nevi label\nDeğilmiş sesim hiç tipime uygun\nİbnetor musun, bro?\nİlgi alanın müziğim değil tipimse git bi' gey bul\nBen homofobiğim sanırım hâkim bey\nKapitalisti, yobazı, satanisti\nHepsini anlayabilirim de bu başka\nHey, Murat da ney varken Hadise?\nTek enteresan olan bu değil, daha var, bu sadece biri\nBakma, bilmez müzik eleştirmeni \"Bay pussy\"\nRap'ten daha tehlikeli halk müziği, niye mi?\nÇünkü \"Yatırdım, yatırdım çam dibine\"\n\"Batırdım, batırdım tam dibine\"\nBiri de demiyo' \"Bu da ney lan, ibine?\"\nBize laf yapma, önce bak geriye\n\n[Nakarat]\nSes, bir iki, eko, uçuşta süper ego\nDesteğe gerek yok, o yüzden derler bana\n\"Bay hayvan\" ya da \"Geronimo\", oh-oh-oh\nHer gün bayram bana, o yüzden derler bana\n\"Bay hayvan\" ya da \"Geronimo\", oh-oh-oh\nTüm sözlerim \"Tü, kaka\"\nFakat \"Hepsi bi' şaka\" dersem inanma bana, aman ha\nGelmemen için benimle alevlerin oraya (Haha)\nDönmemek üzere bir daha, oh-oh-oh-oh",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_bb8ed4ccf57d46a085b3a030c70bb1a1",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9e9bb09662634098a97c77001861bec3.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9e9bb09662634098a97c77001861bec3.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_977a6c63883c458bb7d14dc0ebfe949c",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/db608f5d6b5645c0b918fc61383aa0c5.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/db608f5d6b5645c0b918fc61383aa0c5.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_630508a9784244c6825b78036fcf9f12",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0a5dac26a9e1434db7802e18109ab875.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0a5dac26a9e1434db7802e18109ab875.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     }
   ],
   "releases": [
@@ -3780,6 +3848,37 @@
       "tracks": [
         {
           "trackId": "track_87497c4ad1404e80ab1d38fcc9d330ad",
+          "disc": 1,
+          "position": 1
+        }
+      ],
+      "status": "published",
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
+    },
+    {
+      "id": "release_eb90f29e19704f62829666a1ecc614af",
+      "slug": "tehlikeli",
+      "title": "Tehlikeli",
+      "type": "single",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2015-05-01",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/24f9249435be4e04897f32b2dba98b80.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b273b6e573f131b6e11a717a5c69",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2015 ContravoltaMusic",
+      "description": "",
+      "spotifyId": "17N7sGSadcZ2K6EIdG5dLw",
+      "spotifyUrl": "https://open.spotify.com/album/17N7sGSadcZ2K6EIdG5dLw",
+      "tracks": [
+        {
+          "trackId": "track_9cf1f8fa0c2f49c9945b8e3b0c306d16",
           "disc": 1,
           "position": 1
         }
