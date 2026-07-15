@@ -177,7 +177,7 @@ private fun CurationApp(back: () -> Unit, openSettings: () -> Unit) {
                 title = {
                     Column {
                         Text("Sunum ve Listeler", fontWeight = FontWeight.Bold)
-                        Text("Studio Mobile v0.3.0 • ${screen.title}", color = CurationMuted, fontSize = 11.sp)
+                        Text("Studio Mobile v0.4.0 • ${screen.title}", color = CurationMuted, fontSize = 11.sp)
                     }
                 },
                 navigationIcon = { IconButton(onClick = back) { Icon(Icons.Rounded.ArrowBack, "Geri") } },

@@ -95,7 +95,7 @@ private fun StudioHub(openPublishing: () -> Unit, openCuration: () -> Unit) {
             }
             Spacer(Modifier.height(18.dp))
             Text("Aurora Studio", fontSize = 38.sp, fontWeight = FontWeight.ExtraBold)
-            Text("Mobile v0.3.0", color = HubAccent, fontWeight = FontWeight.Bold)
+            Text("Mobile v0.4.0", color = HubAccent, fontWeight = FontWeight.Bold)
             Text(
                 "Yayınları, şarkıları ve müzik uygulamasındaki sunum düzenini aynı güvenli ayarlarla yönetin.",
                 color = HubMuted,
