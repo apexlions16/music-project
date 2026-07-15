@@ -1,4 +1,4 @@
-name: Report Aurora Final Workflow
+name: Report Aurora Final Workflow v2
 
 on:
   push:
@@ -22,6 +22,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          sleep 45
           mkdir -p release-status
           gh run list \
             --repo "$GITHUB_REPOSITORY" \
@@ -34,6 +35,6 @@ jobs:
           git config user.name "Aurora Workflow Reporter"
           git config user.email "actions@users.noreply.github.com"
           git add release-status/aurora-final-runs.json
-          git commit -m "Aurora final workflow durumunu raporla"
+          git commit -m "Aurora final workflow durumunu yenile"
           git pull --rebase origin main
           git push origin HEAD:main
