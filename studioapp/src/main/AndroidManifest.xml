@@ -9,6 +9,9 @@
         android:theme="@android:style/Theme.Material.NoActionBar">
         <activity
             android:name=".StudioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StudioV2Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
