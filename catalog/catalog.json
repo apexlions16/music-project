@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T12:46:12.102Z",
+  "updatedAt": "2026-07-15T12:47:11.454Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -40,6 +40,20 @@
         "artist_list_e6580e061a8d480da75f9df6ece2258c"
       ],
       "popularTrackIds": []
+    },
+    {
+      "id": "artist_34728a73863e4cc2b5d73278f6911436",
+      "slug": "contra",
+      "name": "Contra",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/34c51f34f0a6424e9593c782bc938eea.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/34c51f34f0a6424e9593c782bc938eea.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/34c51f34f0a6424e9593c782bc938eea.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "3tJELJoPZ4VTKmL0vppqLj",
+      "spotifyUrl": "https://open.spotify.com/artist/3tJELJoPZ4VTKmL0vppqLj",
+      "popularTrackIds": [],
+      "listIds": []
     }
   ],
   "tracks": [
