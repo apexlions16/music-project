@@ -1,0 +1,146 @@
+X-        missing = [row.title for row in self.import_tracks if not row.has_master and normalize_isrc(row.isrc) not in existing_isrc]
+-        if missing:
+-            raise ValueError("Bu yeni şarkılar için master dosyası gerekli\n" + "\n".join(missing[:20]))
+         for row in self.import_tracks:
+             if not row.primary_artist_ids:
+                 row.primary_artist_ids = release_artist_ids.copy()
+@@ -2205,7 +2268,7 @@
+             cover_url=self.cover_url.text().strip(),
+             cover_path=Path(self.cover_path.text()) if self.cover_path.text() else None,
+             hero_url=self.hero_url.text().strip(),
+-            animated_cover_path=Path(self.animated_path.text()) if self.animated_path.text() else None,
++            animated_cover_url=self.animated_path.text().strip(),
+             tracks=copy.deepcopy(self.import_tracks),
+             featured=self.import_featured.isChecked(),
+             spotify_id=self.import_spotify_id,
+@@ -2238,7 +2301,7 @@
+             new_tracks: list[dict[str, Any]] = []
+             release_rows: list[dict[str, Any]] = []
+             reused_count = 0
+-            snapshot["schemaVersion"] = max(4, int(snapshot.get("schemaVersion", 1)))
++            snapshot["schemaVersion"] = max(5, int(snapshot.get("schemaVersion", 1)))
+             existing_by_isrc = {
+                 normalize_isrc(row.get("isrc", "")): row
+                 for row in snapshot.get("tracks", [])
+@@ -2251,12 +2314,7 @@
+                     remote = storage.allocate_remote("artwork", ext, lambda status: progress(status, 4))
+                     upload_files.append((request.cover_path, remote))
+                     cover_url = storage.resolve_url(remote)
+-                animated_url = ""
+-                if request.animated_cover_path:
+-                    ext = request.animated_cover_path.suffix.lower() or ".mp4"
+-                    remote = storage.allocate_remote("animated", ext, lambda status: progress(status, 4))
+-                    upload_files.append((request.animated_cover_path, remote))
+-                    animated_url = storage.resolve_url(remote)
++                animated_url = request.animated_cover_url
+                 if not cover_url:
+                     raise RuntimeError("Kapak URL'si veya kapak dosyası gerekli.")
+ 
+@@ -2265,7 +2323,7 @@
+                     base = 5 + int((index / max(total, 1)) * 65)
+                     normalized = normalize_isrc(row.isrc)
+                     existing = existing_by_isrc.get(normalized) if normalized else None
+-                    if existing:
++                    if existing and (existing.get("sources") or not row.has_master):
+                         reused_count += 1
+                         progress(f"{row.title}: aynı ISRC bulundu, mevcut kayıt kullanılıyor", base)
+                         release_rows.append({
+@@ -2274,16 +2332,20 @@
+                             "position": row.position or index + 1,
+                         })
+                         continue
+-                    if not row.has_master:
+-                        raise RuntimeError(f"{row.title} için master dosyası yok.")
+-                    progress(f"{row.title}: ses analiz ediliyor", base)
+-                    track_id = opaque_id("track")
+-                    media_folder = temp_root / track_id
+-                    info, variants = processor.process(row.path, media_folder, settings)
++                    filling_existing = existing if existing and row.has_master else None
++                    track_id = filling_existing.get("id") if filling_existing else opaque_id("track")
+                     sources: list[dict[str, Any]] = []
+-                    if settings.upload_master:
+-                        master_remote = storage.allocate_remote("masters", row.path.suffix.lower(), lambda status: progress(status, base))
+-                        upload_files.append((row.path, master_remote))
++                    info = {"duration": row.duration_seconds, "channels": 0}
++                    variants: list[dict[str, Any]] = []
++                    if row.has_master:
++                        progress(f"{row.title}: ses analiz ediliyor", base)
++                        media_folder = temp_root / track_id
++                        info, variants = processor.process(row.path, media_folder, settings)
++                        if settings.upload_master:
++                            master_remote = storage.allocate_remote("masters", row.path.suffix.lower(), lambda status: progress(status, base))
++                            upload_files.append((row.path, master_remote))
++                    else:
++                        progress(f"{row.title}: metadata kaydı oluşturuluyor; ses daha sonra eklenecek", base)
+                     for variant in variants:
+                         ext = variant["path"].suffix.lower()
+                         remote = storage.allocate_remote("audio", ext, lambda status: progress(status, base))
+@@ -2337,11 +2399,18 @@
+                         "lyrics": row.lyrics,
+                         "syncedLyrics": row.synced_lyrics,
+                         "credits": row.credits,
++                        "availability": "available" if sources else "pending",
+                         "sources": sources,
+                     }
+-                    new_tracks.append(track_data)
++                    if filling_existing:
++                        filling_existing.update(track_data)
++                        filling_existing["id"] = track_id
++                        filling_existing["availability"] = "available" if sources else "pending"
++                        reused_count += 1
++                    else:
++                        new_tracks.append(track_data)
+                     if normalized:
+-                        existing_by_isrc[normalized] = track_data
++                        existing_by_isrc[normalized] = filling_existing or track_data
+                     release_rows.append({
+                         "trackId": track_id,
+                         "disc": row.disc or 1,
+@@ -2369,6 +2438,9 @@
+                     "description": request.description,
+                     "spotifyId": request.spotify_id,
+                     "spotifyUrl": request.spotify_url,
++                    "spotifyCoverUrl": request.cover_url,
++                    "status": "published" if all(any(t.get("id") == r.get("trackId") and t.get("sources") for t in snapshot.get("tracks", []) + new_tracks) for r in release_rows) and request.release_date <= datetime.now().strftime("%Y-%m-%d") else ("partial" if any(any(t.get("id") == r.get("trackId") and t.get("sources") for t in snapshot.get("tracks", []) + new_tracks) for r in release_rows) else "upcoming"),
++                    "publishAt": request.release_date,
+                     "tracks": sorted(release_rows, key=lambda item: (item.get("disc", 1), item.get("position", 1))),
+                 }
+                 snapshot.setdefault("tracks", []).extend(new_tracks)
+@@ -2401,6 +2473,37 @@
+ 
+         self.run_task(task, done, "Yeni yayın işleme başladı")
+ 
++    def fetch_cover_to_hf(self) -> None:
++        url = self.cover_url.text().strip()
++        if not url:
++            QMessageBox.warning(self, APP_NAME, "Önce Spotify kapak URL'sini çekin.")
++            return
++        settings = copy.deepcopy(self.settings)
++
++        def task(progress: Callable[[str, int], None]) -> str:
++            progress("Spotify kapak görseli indiriliyor…", 12)
++            response = requests.get(url, timeout=60, headers={"User-Agent": f"AuroraStudio/{APP_VERSION}"})
++            response.raise_for_status()
++            content_type = response.headers.get("Content-Type", "")
++            ext = ".png" if "png" in content_type else (".webp" if "webp" in content_type else ".jpg")
++            temp = Path(tempfile.mkdtemp(prefix="aurora-cover-")) / f"cover{ext}"
++            temp.write_bytes(response.content)
++            storage = HuggingFaceStorage(settings)
++            remote = storage.allocate_remote("artwork", ext, lambda status: progress(status, 25))
++            permanent = storage.upload_one(temp, remote, "Aurora Spotify kapağını kalıcılaştır", progress=lambda status, percent: progress(status, 25 + int(percent * .7)))
++            shutil.rmtree(temp.parent, ignore_errors=True)
++            return permanent
++
++        def done(permanent: str) -> None:
++            self.cover_url.setText(permanent)
++            if not self.hero_url.text().strip():
++                self.hero_url.setText(permanent)
++            self.publish_status.setText("Kapak Hugging Face'e kalıcılaştırıldı")
++            self.publish_progress.setValue(100)
++            self.append_log(f"Spotify kapağı kalıcı URL'ye çevrildi: {permanent}")
++
++        self.run_task(task, done, "Kapak kalıcılaştırma başladı")
++
+     def upload_asset_to_field(self, field: QLineEdit, category: str) -> None:
+         file, _ = QFileDialog.getOpenFileName(self, "Dosya Seç", "", "Medya (*.jpg *.jpeg *.png *.webp *.mp4 *.webm *.mov)")
+         if not file:
