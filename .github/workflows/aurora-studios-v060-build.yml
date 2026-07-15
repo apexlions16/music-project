@@ -8,7 +8,9 @@ on:
       - "pc/**"
       - ".github/workflows/aurora-studios-v060-build.yml"
   push:
-    branches: [main]
+    branches:
+      - main
+      - feature/aurora-upcoming-audio-matcher
     paths:
       - "studioapp/**"
       - "pc/**"
@@ -55,6 +57,9 @@ jobs:
           grep -q 'attachAudioBatch' studioapp/src/main/kotlin/com/apexlions/aurorastudio/AudioCompletionManager.kt
           grep -q 'deleteTrackCompletely' studioapp/src/main/kotlin/com/apexlions/aurorastudio/StudioLibraryManager.kt
           grep -q 'Yayın Kütüphanesi' studioapp/src/main/kotlin/com/apexlions/aurorastudio/StudioHubActivity.kt
+          grep -q 'bulkAudioPicker' studioapp/src/main/kotlin/com/apexlions/aurorastudio/StudioV2Activity.kt
+          grep -q 'Ses dosyalarını toplu seç ve eşleştir' studioapp/src/main/kotlin/com/apexlions/aurorastudio/StudioV2Activity.kt
+          ! grep -q 'Görsel Fetch' studioapp/src/main/kotlin/com/apexlions/aurorastudio/StudioV2Activity.kt
       - name: Studio Mobile APK derle
         run: gradle --no-daemon --stacktrace --console=plain :studioapp:assembleDebug
       - name: Paketle
@@ -74,7 +79,7 @@ jobs:
           gh release delete aurora-studio-mobile-v0.6.0 --cleanup-tag --yes || true
           gh release create aurora-studio-mobile-v0.6.0 yayin/* \
             --title "Aurora Studio Mobile v0.6.0" \
-            --notes "Birleşik Yayın Kütüphanesi; albüm/single ve şarkıları tek yerde düzenleme, yalnız yayından çıkarma veya tamamen silme. Yakında yayınlara yeni release oluşturmadan toplu ses ekleme; otomatik isim benzerliği, albüm sırası fallback ve elle eşleştirme. TXT/LRC toplu söz eşleştirme. Spotify kapağı yayın sırasında otomatik Hugging Face'e taşınır; hareketli kapak isteğe bağlıdır."
+            --notes "Birleşik Yayın Kütüphanesi; albüm/single ve şarkıları tek yerde düzenleme, yalnız yayından çıkarma veya tamamen silme. Yakında yayınlara yeni release oluşturmadan toplu ses ekleme; otomatik isim benzerliği, albüm sırası fallback ve elle eşleştirme. Yeni yayın ekranında da toplu ses seçimi. TXT/LRC toplu söz eşleştirme. Spotify kapağı yayın sırasında otomatik Hugging Face'e taşınır; hareketli kapak isteğe bağlıdır."
 
   studio_windows:
     name: Aurora Studio Windows v0.6.0
@@ -91,7 +96,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r pc/requirements.txt
-          python -m py_compile pc/AuroraStudio.py pc/AuroraStudioV3.py pc/AuroraStudioV3Entry.py pc/AuroraStudioV4Entry.py pc/AuroraStudioV6Entry.py
+          python -m py_compile pc/AuroraStudio.py pc/AuroraStudioV3.py pc/AuroraStudioV3Entry.py pc/AuroraStudioV4Entry.py pc/AuroraStudioV6Entry.py pc/AuroraStudioV6Final.py
           if (-not (Select-String -Path pc/AuroraStudioV6Entry.py -Pattern 'APP_VERSION = "0.6.0"' -Quiet)) { throw 'Windows Studio sürümü yanlış' }
           if (-not (Select-String -Path pc/AuroraStudioV6Entry.py -Pattern 'Yayın Kütüphanesi' -Quiet)) { throw 'Birleşik yayın kütüphanesi eksik' }
           if (-not (Select-String -Path pc/AuroraStudioV6Entry.py -Pattern 'match_media' -Quiet)) { throw 'Toplu isim eşleştirme eksik' }
@@ -100,7 +105,7 @@ jobs:
         shell: pwsh
         run: |
           $env:QT_QPA_PLATFORM = "offscreen"
-          python -c "import sys; sys.path.insert(0,'pc'); from PySide6.QtWidgets import QApplication; import AuroraStudioV6Entry as entry; app=QApplication([]); w=entry.AuroraStudioV6(); assert entry.APP_VERSION=='0.6.0'; assert w.nav.count()==8; assert w.pages.count()==8; assert w.cover_fetch_btn_v3.isHidden(); w.close(); print('Aurora Studio Windows v0.6 smoke test OK')"
+          python -c "import sys; sys.path.insert(0,'pc'); from PySide6.QtWidgets import QApplication; import AuroraStudioV6Final as entry; app=QApplication([]); w=entry.AuroraStudioV6Final(); assert entry.APP_VERSION=='0.6.0'; assert w.nav.count()==8; assert w.pages.count()==8; assert w.cover_fetch_btn_v3.isHidden(); w.close(); print('Aurora Studio Windows v0.6 smoke test OK')"
       - name: Eşleştirme birim kontrolü
         shell: pwsh
         run: |
@@ -128,8 +133,9 @@ jobs:
             --hidden-import AuroraStudioV3 `
             --hidden-import AuroraStudioV3Entry `
             --hidden-import AuroraStudioV4Entry `
+            --hidden-import AuroraStudioV6Entry `
             --hidden-import win32timezone `
-            pc/AuroraStudioV6Entry.py
+            pc/AuroraStudioV6Final.py
           New-Item -ItemType Directory -Force dist\AuroraStudio\tools | Out-Null
           Copy-Item pc\bundled-tools\ffmpeg.exe dist\AuroraStudio\tools\ffmpeg.exe
           Copy-Item pc\bundled-tools\ffprobe.exe dist\AuroraStudio\tools\ffprobe.exe
