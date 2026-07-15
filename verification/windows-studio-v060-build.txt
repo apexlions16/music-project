@@ -1,0 +1,2 @@
+FAILURE
+Qt final UI testi başarısız
