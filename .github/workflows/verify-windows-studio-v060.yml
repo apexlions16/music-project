@@ -1,4 +1,4 @@
-name: Verify Windows Studio v0.6
+name: Verify Windows Studio v0.6 Final
 
 on:
   push:
@@ -44,7 +44,7 @@ jobs:
           try {
             python -m py_compile pc/AuroraStudio.py pc/AuroraStudioV3.py pc/AuroraStudioV3Entry.py pc/AuroraStudioV4Entry.py pc/AuroraStudioV6Entry.py pc/AuroraStudioV6Final.py
             if ($LASTEXITCODE -ne 0) { throw "Python derleme başarısız" }
-            python -c "import sys; sys.path.insert(0,'pc'); from PySide6.QtWidgets import QApplication; import AuroraStudioV6Final as entry; app=QApplication([]); w=entry.AuroraStudioV6Final(); titles=[w.nav.item(i).text() for i in range(w.nav.count())]; assert w.nav.count()==8,titles; assert w.pages.count()==8,w.pages.count(); assert 'Yayın Kütüphanesi' in titles; assert 'Yakında Tamamlama' in titles; assert 'Yayınlar' not in titles; assert 'Şarkılar' not in titles; assert w.cover_fetch_btn_v3.isHidden(); print('UI_OK',titles); w.close()"
+            python -c "import sys; sys.path.insert(0,'pc'); from PySide6.QtWidgets import QApplication; import AuroraStudioV6Final as entry; app=QApplication([]); w=entry.AuroraStudioV6Final(); titles=[w.nav.item(i).text() for i in range(w.nav.count())]; assert w.nav.count()==8,titles; assert w.pages.count()==8,w.pages.count(); assert len(w._legacy_pages_v6)>=2,len(w._legacy_pages_v6); assert 'Yayın Kütüphanesi' in titles; assert 'Yakında Tamamlama' in titles; assert 'Yayınlar' not in titles; assert 'Şarkılar' not in titles; assert w.cover_fetch_btn_v3.isHidden(); w.refresh_all_views(); print('UI_OK',titles,'LEGACY',len(w._legacy_pages_v6)); w.close()"
             if ($LASTEXITCODE -ne 0) { throw "Qt final UI testi başarısız" }
             python -c "import sys; sys.path.insert(0,'pc'); from pathlib import Path; from AuroraStudioV6Entry import match_media; r=match_media(['Birinci Şarkı','İkinci Şarkı'],[Path('02 - Ikinci Sarki.flac'),Path('01 Birinci Sarki (Official Audio).flac')]); assert r=={0:1,1:0},r; print('MATCH_OK',r)"
             if ($LASTEXITCODE -ne 0) { throw "Dosya eşleştirme testi başarısız" }
@@ -55,6 +55,7 @@ jobs:
           version=0.6.0
           nav_count=8
           page_count=8
+          legacy_pages_alive=true
           unified_library=true
           upcoming_completion=true
           media_match=true
