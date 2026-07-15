@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T14:14:46.332Z",
+  "updatedAt": "2026-07-15T14:29:36.343Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_adedeabdcc2c4aa39c2ec9e533753b65",
     "release_b635fc602dd142ffa74b708ad4f7ad04",
     "release_33e34f716ba243e6b5a9d398935bbaee",
     "release_51335f8beda841efb52c9e205ea55170",
@@ -3106,6 +3107,82 @@
       "releaseDate": "2026-07-10",
       "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/c4cc85b44bf34589a78894a725ea549a.jpg",
       "heroImage": "https://i.scdn.co/image/ab67616d0000b2733118ffe1402357c00ed5cc7a",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2026 667 • (P) 2026 667",
+      "description": "",
+      "spotifyId": "6IZR62yPHHItn0chIzH9YO",
+      "spotifyUrl": "https://open.spotify.com/album/6IZR62yPHHItn0chIzH9YO",
+      "tracks": [
+        {
+          "trackId": "track_534ac1eccaad45bda3a5d6af24b3ba7e",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_0661660d414143418ff9f4d31b4778fd",
+          "disc": 1,
+          "position": 2
+        },
+        {
+          "trackId": "track_6ab3ab200340477bbf6d9a768fa935de",
+          "disc": 1,
+          "position": 3
+        },
+        {
+          "trackId": "track_13e518d2221f4110bec4d35905db5bfe",
+          "disc": 1,
+          "position": 4
+        },
+        {
+          "trackId": "track_bb7c000f46024a6a8f2633133473c729",
+          "disc": 1,
+          "position": 5
+        },
+        {
+          "trackId": "track_c6be5a1cf19842b6b04b34d1e33b0eec",
+          "disc": 1,
+          "position": 6
+        },
+        {
+          "trackId": "track_60c51e2c43524c95b0f83eaba2fc3744",
+          "disc": 1,
+          "position": 7
+        },
+        {
+          "trackId": "track_559e5597eff243f9a89f284f11700fe4",
+          "disc": 1,
+          "position": 8
+        },
+        {
+          "trackId": "track_252c21eedf6040599358bdac4e172324",
+          "disc": 1,
+          "position": 9
+        },
+        {
+          "trackId": "track_ea1c77faf0db42e3ac7d80b5d5e5c8e7",
+          "disc": 1,
+          "position": 10
+        }
+      ],
+      "status": "upcoming",
+      "availableTrackCount": 0,
+      "totalTrackCount": 10
+    },
+    {
+      "id": "release_adedeabdcc2c4aa39c2ec9e533753b65",
+      "slug": "love-hate-2-late",
+      "title": "LOVE:HATE:2:LATE",
+      "type": "album",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2026-07-10",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/a99ec3cc47be472993e806157595cb90.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/a99ec3cc47be472993e806157595cb90.jpg",
       "animatedCoverUrl": "",
       "label": "",
       "copyright": "(C) 2026 667 • (P) 2026 667",
