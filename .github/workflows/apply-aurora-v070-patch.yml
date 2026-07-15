@@ -1,0 +1,34 @@
+name: Apply Aurora v0.7 Source Patch
+
+on:
+  push:
+    branches:
+      - feature/aurora-lrc-search-v070
+    paths:
+      - "tools/apply_aurora_v070_patch.py"
+      - ".github/workflows/apply-aurora-v070-patch.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/aurora-lrc-search-v070
+          fetch-depth: 0
+      - name: Kaynak yamasını uygula
+        run: python tools/apply_aurora_v070_patch.py
+      - name: Değişiklikleri dala kaydet
+        run: |
+          if git diff --quiet; then
+            echo "Kaynaklar zaten güncel."
+            exit 0
+          fi
+          git config user.name "Aurora v0.7 Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add app studioapp
+          git commit -m "Aurora v0.7 senkron söz ve Studio eşitliği kaynaklarını bağla"
+          git push origin HEAD:feature/aurora-lrc-search-v070
