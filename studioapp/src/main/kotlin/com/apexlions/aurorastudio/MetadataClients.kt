@@ -6,188 +6,287 @@ import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.Request
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.Locale
+
+internal object SpotifyMetadataCache {
+    private val artistImages = linkedMapOf<String, String>()
+
+    @Synchronized
+    fun rememberArtist(name: String, imageUrl: String) {
+        if (name.isBlank() || imageUrl.isBlank()) return
+        artistImages[name.trim().lowercase(Locale.ROOT)] = imageUrl.trim()
+    }
+
+    @Synchronized
+    fun artistImageUrl(name: String): String = artistImages[name.trim().lowercase(Locale.ROOT)].orEmpty()
+}
 
 internal class UnifiedMetadataClient(
     private val providers: ProviderConfig,
 ) {
     private val http = AuroraHttp().client
+    private var accessToken: String = ""
 
     fun importRelease(
         rawQuery: String,
         includeLyrics: Boolean = true,
         progress: (String) -> Unit = {},
     ): ImportedRelease {
-        require(rawQuery.isNotBlank()) { "Albüm veya single adı gerekli." }
-        progress("Metadata eşleşmesi aranıyor…")
-        val spotifyHint = runCatching { spotifyAlbumHint(rawQuery) }.getOrNull()
-        val titleHint = spotifyHint?.first ?: rawQuery.trim()
-        val artistHint = spotifyHint?.second.orEmpty()
-
-        val releaseId = searchMusicBrainzRelease(titleHint, artistHint)
-            ?: error("MusicBrainz üzerinde uygun yayın bulunamadı.")
-        progress("MusicBrainz yayın bilgileri alınıyor…")
-        val release = getJson(
-            "https://musicbrainz.org/ws/2/release/$releaseId".toHttpUrl().newBuilder()
-                .addQueryParameter("inc", "recordings+artist-credits+labels+isrcs+release-groups")
-                .addQueryParameter("fmt", "json")
-                .build().toString(),
-            musicBrainzUserAgent(),
-        )
-
-        val title = release.optString("title", titleHint)
-        val mainArtist = artistCreditName(release.optJSONArray("artist-credit")).ifBlank { artistHint }
-        val releaseDate = release.optString("date")
-        val labelInfo = release.optJSONArray("label-info")
-        val label = labelInfo?.optJSONObject(0)?.optJSONObject("label")?.optString("name").orEmpty()
-        val group = release.optJSONObject("release-group")
-        val type = when (group?.optString("primary-type")?.lowercase()) {
-            "single" -> "single"
-            "ep" -> "ep"
-            "album" -> "album"
-            else -> if (release.optJSONArray("media")?.let(::trackCount) == 1) "single" else "album"
+        require(rawQuery.isNotBlank()) { "Spotify albüm/şarkı bağlantısı veya arama metni gerekli." }
+        require(providers.spotifyClientId.isNotBlank() && providers.spotifyClientSecret.isNotBlank()) {
+            "Spotify Client ID ve Client Secret ayarlanmamış."
         }
-        val coverUrl = "https://coverartarchive.org/release/$releaseId/front-1200"
-        val trackRows = mutableListOf<V2TrackDraft>()
-        val media = release.optJSONArray("media") ?: JSONArray()
-        for (m in 0 until media.length()) {
-            val medium = media.optJSONObject(m) ?: continue
-            val tracks = medium.optJSONArray("tracks") ?: JSONArray()
-            for (i in 0 until tracks.length()) {
-                val row = tracks.optJSONObject(i) ?: continue
-                val recording = row.optJSONObject("recording") ?: JSONObject()
-                val trackTitle = row.optString("title", recording.optString("title"))
-                val credits = recording.optJSONArray("artist-credit") ?: row.optJSONArray("artist-credit")
-                val names = artistCreditNames(credits)
-                val primary = names.firstOrNull().orEmpty().ifBlank { mainArtist }
-                val featured = names.drop(1).joinToString(", ")
-                val isrcs = recording.optJSONArray("isrcs")
-                val isrc = isrcs?.optString(0).orEmpty()
-                val lyric = if (includeLyrics) {
-                    progress("Sözler aranıyor: $trackTitle")
-                    runCatching { lookupLyrics(trackTitle, primary, title) }.getOrDefault("" to "")
-                } else "" to ""
-                trackRows += V2TrackDraft(
-                    title = trackTitle,
-                    isrc = isrc,
-                    primaryArtist = primary,
-                    featuredArtists = featured,
-                    lyrics = lyric.first,
-                    syncedLyrics = lyric.second,
-                    creditsText = names.takeIf { it.isNotEmpty() }?.let { "Sanatçılar: ${it.joinToString(", ")}" }.orEmpty(),
-                )
+
+        progress("Spotify erişim anahtarı alınıyor…")
+        token()
+        progress("Spotify üzerinde yayın eşleştiriliyor…")
+        val resource = resolveResource(rawQuery.trim())
+        val album = spotifyJson("/albums/${resource.albumId}")
+        val albumArtists = album.optJSONArray("artists") ?: JSONArray()
+        val albumArtistIds = buildList {
+            for (index in 0 until albumArtists.length()) {
+                albumArtists.optJSONObject(index)?.optString("id")?.takeIf(String::isNotBlank)?.let(::add)
             }
         }
-        if (trackRows.isEmpty()) error("Yayında parça listesi bulunamadı.")
+        val artistDetails = fetchArtists(albumArtistIds)
+        artistDetails.values.forEach { artist ->
+            SpotifyMetadataCache.rememberArtist(
+                artist.optString("name"),
+                largestImage(artist.optJSONArray("images")),
+            )
+        }
 
-        val source = if (spotifyHint != null) "spotify-match+musicbrainz+coverartarchive+lrclib" else "musicbrainz+coverartarchive+lrclib"
+        progress("Spotify parça metadata bilgileri alınıyor…")
+        val fullTracks = if (resource.trackId != null) {
+            listOf(spotifyJson("/tracks/${resource.trackId}"))
+        } else {
+            hydrateAlbumTracks(album)
+        }
+        if (fullTracks.isEmpty()) error("Spotify yayınında kullanılabilir parça bulunamadı.")
+
+        val title = album.optString("name").ifBlank { rawQuery.trim() }
+        val mainArtist = albumArtists.optJSONObject(0)?.optString("name").orEmpty().ifBlank {
+            fullTracks.firstOrNull()?.optJSONArray("artists")?.optJSONObject(0)?.optString("name").orEmpty()
+        }
+        val coverUrl = largestImage(album.optJSONArray("images"))
+        if (coverUrl.isBlank()) error("Spotify bu yayın için kapak görseli döndürmedi.")
+
+        val tracks = fullTracks
+            .sortedWith(compareBy<JSONObject> { it.optInt("disc_number", 1) }.thenBy { it.optInt("track_number", 1) })
+            .mapIndexed { index, track ->
+                val names = artistNames(track.optJSONArray("artists"))
+                val primary = names.firstOrNull().orEmpty().ifBlank { mainArtist }
+                val featured = names.drop(1).joinToString(", ")
+                V2TrackDraft(
+                    title = track.optString("name").ifBlank { "Şarkı ${index + 1}" },
+                    isrc = track.optJSONObject("external_ids")?.optString("isrc").orEmpty(),
+                    primaryArtist = primary,
+                    featuredArtists = featured,
+                    explicit = track.optBoolean("explicit", false),
+                    lyrics = "",
+                    syncedLyrics = "",
+                    creditsText = names.takeIf(List<String>::isNotEmpty)
+                        ?.let { "Sanatçılar: ${it.joinToString(", ")}" }
+                        .orEmpty(),
+                )
+            }
+
+        val albumType = album.optString("album_type", "album").lowercase(Locale.ROOT)
+        val type = when (albumType) {
+            "single" -> if (tracks.size > 1) "ep" else "single"
+            "compilation" -> "album"
+            else -> "album"
+        }
+        val copyrights = album.optJSONArray("copyrights") ?: JSONArray()
+        val copyright = buildList {
+            for (index in 0 until copyrights.length()) {
+                copyrights.optJSONObject(index)?.optString("text")?.takeIf(String::isNotBlank)?.let(::add)
+            }
+        }.distinct().joinToString(" • ")
+
+        @Suppress("UNUSED_VARIABLE")
+        val spotifyDoesNotProvideLyrics = includeLyrics
         return ImportedRelease(
             title = title,
             type = type,
-            releaseDate = releaseDate,
+            releaseDate = album.optString("release_date"),
             mainArtist = mainArtist,
-            label = label,
-            copyright = "",
+            label = album.optString("label"),
+            copyright = copyright,
             coverUrl = coverUrl,
-            tracks = trackRows,
-            source = source,
-            sourceId = releaseId,
+            tracks = tracks,
+            source = "spotify",
+            sourceId = album.optString("id", resource.albumId),
         )
     }
 
-    private fun searchMusicBrainzRelease(title: String, artist: String): String? {
-        val query = buildString {
-            append("release:\"").append(title.replace("\"", "")).append("\"")
-            if (artist.isNotBlank()) append(" AND artist:\"").append(artist.replace("\"", "")).append("\"")
+    private data class SpotifyResource(val albumId: String, val trackId: String? = null)
+
+    private fun resolveResource(value: String): SpotifyResource {
+        parseSpotifyResource(value)?.let { (kind, id) ->
+            return if (kind == "album") {
+                SpotifyResource(albumId = id)
+            } else {
+                val track = spotifyJson("/tracks/$id")
+                val albumId = track.optJSONObject("album")?.optString("id").orEmpty()
+                if (albumId.isBlank()) error("Spotify şarkısının albüm bilgisi alınamadı.")
+                SpotifyResource(albumId = albumId, trackId = id)
+            }
         }
-        val url = "https://musicbrainz.org/ws/2/release/".toHttpUrl().newBuilder()
-            .addQueryParameter("query", query)
-            .addQueryParameter("limit", "10")
-            .addQueryParameter("fmt", "json")
-            .build().toString()
-        val rows = getJson(url, musicBrainzUserAgent()).optJSONArray("releases") ?: JSONArray()
-        var bestId: String? = null
-        var bestScore = -1
-        for (i in 0 until rows.length()) {
-            val row = rows.optJSONObject(i) ?: continue
-            val score = row.optInt("score", 0)
-            if (score > bestScore) {
+
+        val search = spotifyJson(
+            "/search",
+            mapOf(
+                "q" to value,
+                "type" to "album,track",
+                "limit" to "10",
+                "market" to "TR",
+            ),
+        )
+        val album = bestSearchItem(search.optJSONObject("albums")?.optJSONArray("items"), value)
+        if (album != null) return SpotifyResource(album.optString("id"))
+        val track = bestSearchItem(search.optJSONObject("tracks")?.optJSONArray("items"), value)
+            ?: error("Spotify üzerinde uygun albüm veya şarkı bulunamadı.")
+        val albumId = track.optJSONObject("album")?.optString("id").orEmpty()
+        if (albumId.isBlank()) error("Spotify arama sonucunun albüm bilgisi bulunamadı.")
+        return SpotifyResource(albumId = albumId, trackId = track.optString("id").takeIf(String::isNotBlank))
+    }
+
+    private fun parseSpotifyResource(value: String): Pair<String, String>? {
+        val direct = Regex("(?:open\\.spotify\\.com/(?:intl-[a-z]{2}/)?|spotify:)(album|track)[/:]([A-Za-z0-9]+)", RegexOption.IGNORE_CASE)
+            .find(value)
+        return direct?.let { it.groupValues[1].lowercase(Locale.ROOT) to it.groupValues[2] }
+    }
+
+    private fun bestSearchItem(items: JSONArray?, query: String): JSONObject? {
+        if (items == null || items.length() == 0) return null
+        val normalized = query.trim().lowercase(Locale.ROOT)
+        var best: JSONObject? = null
+        var bestScore = Int.MIN_VALUE
+        for (index in 0 until items.length()) {
+            val row = items.optJSONObject(index) ?: continue
+            val name = row.optString("name").lowercase(Locale.ROOT)
+            val score = when {
+                name == normalized -> 1000
+                name.startsWith(normalized) -> 700
+                name.contains(normalized) -> 500
+                else -> 100 - index
+            } + row.optInt("popularity", 0)
+            if (score > bestScore && row.optString("id").isNotBlank()) {
+                best = row
                 bestScore = score
-                bestId = row.optString("id").takeIf(String::isNotBlank)
             }
         }
-        return bestId
+        return best
     }
 
-    private fun spotifyAlbumHint(query: String): Pair<String, String>? {
-        if (providers.spotifyClientId.isBlank() || providers.spotifyClientSecret.isBlank()) return null
-        val tokenBody = FormBody.Builder().add("grant_type", "client_credentials").build()
-        val tokenRequest = Request.Builder()
-            .url("https://accounts.spotify.com/api/token")
-            .header("Authorization", Credentials.basic(providers.spotifyClientId.trim(), providers.spotifyClientSecret.trim()))
-            .post(tokenBody)
-            .build()
-        val token = http.newCall(tokenRequest).execute().use { response ->
-            if (!response.isSuccessful) return null
-            JSONObject(response.body?.string().orEmpty()).optString("access_token").takeIf(String::isNotBlank)
-        } ?: return null
-        val url = "https://api.spotify.com/v1/search".toHttpUrl().newBuilder()
-            .addQueryParameter("q", query)
-            .addQueryParameter("type", "album")
-            .addQueryParameter("limit", "5")
-            .build()
-        val request = Request.Builder().url(url).header("Authorization", "Bearer $token").get().build()
-        return http.newCall(request).execute().use { response ->
-            if (!response.isSuccessful) return null
-            val item = JSONObject(response.body?.string().orEmpty())
-                .optJSONObject("albums")?.optJSONArray("items")?.optJSONObject(0) ?: return null
-            val artist = item.optJSONArray("artists")?.optJSONObject(0)?.optString("name").orEmpty()
-            item.optString("name").takeIf(String::isNotBlank)?.let { it to artist }
+    private fun hydrateAlbumTracks(album: JSONObject): List<JSONObject> {
+        val simplified = mutableListOf<JSONObject>()
+        var page: JSONObject? = album.optJSONObject("tracks")
+        while (page != null) {
+            val items = page.optJSONArray("items") ?: JSONArray()
+            for (index in 0 until items.length()) items.optJSONObject(index)?.let(simplified::add)
+            val next = page.optString("next").takeIf(String::isNotBlank) ?: break
+            page = spotifyAbsoluteJson(next)
         }
+
+        val result = mutableListOf<JSONObject>()
+        simplified.mapNotNull { it.optString("id").takeIf(String::isNotBlank) }
+            .chunked(50)
+            .forEach { ids ->
+                val payload = spotifyJson("/tracks", mapOf("ids" to ids.joinToString(","), "market" to "TR"))
+                val tracks = payload.optJSONArray("tracks") ?: JSONArray()
+                for (index in 0 until tracks.length()) tracks.optJSONObject(index)?.let(result::add)
+            }
+        return result
     }
 
-    private fun lookupLyrics(track: String, artist: String, album: String): Pair<String, String> {
-        val url = "https://lrclib.net/api/get".toHttpUrl().newBuilder()
-            .addQueryParameter("track_name", track)
-            .addQueryParameter("artist_name", artist)
-            .addQueryParameter("album_name", album)
-            .build()
-        val request = Request.Builder().url(url).header("User-Agent", "AuroraStudioMobile/0.2.0").get().build()
-        return http.newCall(request).execute().use { response ->
-            if (!response.isSuccessful) return "" to ""
-            val json = JSONObject(response.body?.string().orEmpty())
-            json.optString("plainLyrics") to json.optString("syncedLyrics")
+    private fun fetchArtists(ids: List<String>): Map<String, JSONObject> {
+        val result = linkedMapOf<String, JSONObject>()
+        ids.distinct().filter(String::isNotBlank).chunked(50).forEach { chunk ->
+            val payload = spotifyJson("/artists", mapOf("ids" to chunk.joinToString(",")))
+            val rows = payload.optJSONArray("artists") ?: JSONArray()
+            for (index in 0 until rows.length()) {
+                val row = rows.optJSONObject(index) ?: continue
+                row.optString("id").takeIf(String::isNotBlank)?.let { result[it] = row }
+            }
         }
+        return result
     }
 
-    private fun getJson(url: String, userAgent: String): JSONObject {
-        val request = Request.Builder().url(url).header("Accept", "application/json").header("User-Agent", userAgent).get().build()
-        return http.newCall(request).execute().use { response ->
-            if (!response.isSuccessful) error("Metadata isteği başarısız: HTTP ${response.code}")
-            JSONObject(response.body?.string().orEmpty())
-        }
-    }
-
-    private fun musicBrainzUserAgent(): String {
-        val contact = providers.musicBrainzContact.trim().ifBlank { "https://github.com/apexlions16/music-project" }
-        return "AuroraStudioMobile/0.2.0 ($contact)"
-    }
-
-    private fun artistCreditNames(value: JSONArray?): List<String> = buildList {
+    private fun artistNames(value: JSONArray?): List<String> = buildList {
         if (value == null) return@buildList
-        for (i in 0 until value.length()) {
-            val item = value.opt(i)
-            if (item is JSONObject) {
-                val name = item.optString("name").ifBlank { item.optJSONObject("artist")?.optString("name").orEmpty() }
-                if (name.isNotBlank()) add(name)
+        for (index in 0 until value.length()) {
+            value.optJSONObject(index)?.optString("name")?.takeIf(String::isNotBlank)?.let(::add)
+        }
+    }.distinctBy { it.lowercase(Locale.ROOT) }
+
+    private fun largestImage(value: JSONArray?): String {
+        if (value == null) return ""
+        var selected = ""
+        var selectedArea = -1L
+        for (index in 0 until value.length()) {
+            val image = value.optJSONObject(index) ?: continue
+            val area = image.optLong("width", 0L) * image.optLong("height", 0L)
+            if (image.optString("url").isNotBlank() && area >= selectedArea) {
+                selected = image.optString("url")
+                selectedArea = area
             }
         }
-    }.distinctBy(String::lowercase)
+        return selected
+    }
 
-    private fun artistCreditName(value: JSONArray?): String = artistCreditNames(value).joinToString(" & ")
+    private fun token(): String {
+        if (accessToken.isNotBlank()) return accessToken
+        val request = Request.Builder()
+            .url("https://accounts.spotify.com/api/token")
+            .header(
+                "Authorization",
+                Credentials.basic(providers.spotifyClientId.trim(), providers.spotifyClientSecret.trim()),
+            )
+            .post(FormBody.Builder().add("grant_type", "client_credentials").build())
+            .build()
+        accessToken = http.newCall(request).execute().use { response ->
+            val body = response.body?.string().orEmpty()
+            if (!response.isSuccessful) {
+                val detail = runCatching { JSONObject(body).optString("error_description") }.getOrDefault("")
+                error("Spotify yetkilendirmesi başarısız: HTTP ${response.code}${detail.takeIf(String::isNotBlank)?.let { " • $it" }.orEmpty()}")
+            }
+            JSONObject(body).optString("access_token").takeIf(String::isNotBlank)
+                ?: error("Spotify erişim anahtarı boş döndü.")
+        }
+        return accessToken
+    }
 
-    private fun trackCount(media: JSONArray): Int {
-        var count = 0
-        for (i in 0 until media.length()) count += media.optJSONObject(i)?.optJSONArray("tracks")?.length() ?: 0
-        return count
+    private fun spotifyJson(path: String, params: Map<String, String> = emptyMap()): JSONObject {
+        val url = "https://api.spotify.com/v1$path".toHttpUrl().newBuilder().apply {
+            params.forEach { (name, value) -> addQueryParameter(name, value) }
+        }.build()
+        return spotifyRequest(url.toString())
+    }
+
+    private fun spotifyAbsoluteJson(url: String): JSONObject = spotifyRequest(url)
+
+    private fun spotifyRequest(url: String): JSONObject {
+        val request = Request.Builder()
+            .url(url)
+            .header("Accept", "application/json")
+            .header("Authorization", "Bearer ${token()}")
+            .header("User-Agent", "AuroraStudioMobile/0.3.0")
+            .get()
+            .build()
+        return http.newCall(request).execute().use { response ->
+            val body = response.body?.string().orEmpty()
+            when {
+                response.code == 429 -> error("Spotify hız sınırı. ${response.header("Retry-After", "birkaç")} saniye sonra tekrar deneyin.")
+                !response.isSuccessful -> {
+                    val message = runCatching {
+                        JSONObject(body).optJSONObject("error")?.optString("message")
+                    }.getOrNull().orEmpty()
+                    error("Spotify isteği başarısız: HTTP ${response.code}${message.takeIf(String::isNotBlank)?.let { " • $it" }.orEmpty()}")
+                }
+            }
+            JSONObject(body)
+        }
     }
 }
