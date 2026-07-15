@@ -32,16 +32,29 @@ if start >= 0 and end > start:
     text = text[:start] + "\n" + text[end:]
 
 text = text.replace("                    fetchCover = ::fetchCover,\n", "")
-text = text.replace(
-    "                    pickTrackAudio = { index -> audioTarget = AudioTarget.NewTrack(index); audioPicker.launch(arrayOf(\"audio/*\", \"application/octet-stream\")) },\n",
-    "                    pickBulkAudio = { bulkAudioPicker.launch(arrayOf(\"audio/*\", \"application/octet-stream\")) },\n"
-    "                    pickTrackAudio = { index -> audioTarget = AudioTarget.NewTrack(index); audioPicker.launch(arrayOf(\"audio/*\", \"application/octet-stream\")) },\n",
-)
+if "                    pickBulkAudio = {" not in text:
+    text = text.replace(
+        "                    pickTrackAudio = { index -> audioTarget = AudioTarget.NewTrack(index); audioPicker.launch(arrayOf(\"audio/*\", \"application/octet-stream\")) },\n",
+        "                    pickBulkAudio = { bulkAudioPicker.launch(arrayOf(\"audio/*\", \"application/octet-stream\")) },\n"
+        "                    pickTrackAudio = { index -> audioTarget = AudioTarget.NewTrack(index); audioPicker.launch(arrayOf(\"audio/*\", \"application/octet-stream\")) },\n",
+        1,
+    )
 text = text.replace("    fetchCover: () -> Unit,\n", "")
-text = text.replace(
-    "    tracks: List<V2TrackDraft>,\n    addTrack: () -> Unit,\n",
-    "    tracks: List<V2TrackDraft>,\n    addTrack: () -> Unit,\n    pickBulkAudio: () -> Unit,\n",
-)
+if "    pickBulkAudio: () -> Unit," not in text:
+    text = text.replace(
+        "    tracks: List<V2TrackDraft>,\n    addTrack: () -> Unit,\n",
+        "    tracks: List<V2TrackDraft>,\n    addTrack: () -> Unit,\n    pickBulkAudio: () -> Unit,\n",
+        1,
+    )
+
+# Önceki yama birden fazla kez çalıştıysa tekrarları tek satıra indir.
+call_line = '                    pickBulkAudio = { bulkAudioPicker.launch(arrayOf("audio/*", "application/octet-stream")) },\n'
+while call_line + call_line in text:
+    text = text.replace(call_line + call_line, call_line)
+param_line = "    pickBulkAudio: () -> Unit,\n"
+while param_line + param_line in text:
+    text = text.replace(param_line + param_line, param_line)
+
 old_cover = '''                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     OutlinedButton(onClick = pickCover, modifier = Modifier.weight(1f)) { Icon(Icons.Rounded.Image, null); Text(" Dosya seç") }
                     OutlinedButton(onClick = fetchCover, enabled = coverUrl.isNotBlank() && !busy, modifier = Modifier.weight(1f)) { Text("Görsel Fetch") }
@@ -90,8 +103,12 @@ text = text.replace(catalog_branch, "")
 
 if "Görsel Fetch" in text:
     raise SystemExit("Görsel Fetch metni kaynakta kaldı")
-if "pickBulkAudio" not in text or "bulkAudioPicker" not in text:
-    raise SystemExit("Toplu ses eşleştirme eklenemedi")
+if text.count("                    pickBulkAudio = {") != 1:
+    raise SystemExit("Toplu ses çağrısı birden fazla veya eksik")
+if text.count("    pickBulkAudio: () -> Unit,") != 1:
+    raise SystemExit("Toplu ses parametresi birden fazla veya eksik")
+if "bulkAudioPicker" not in text:
+    raise SystemExit("Toplu ses seçici eklenemedi")
 if "V2Screen.CATALOG" in text:
     raise SystemExit("Eski katalog sekmesi kaynakta kaldı")
 
