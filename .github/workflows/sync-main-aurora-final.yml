@@ -1,4 +1,4 @@
-name: Sync Main Into Aurora Final Retry
+name: Sync Main Into Aurora Final Debug
 
 on:
   push:
@@ -18,28 +18,29 @@ jobs:
         with:
           ref: agent/aurora-studios-v030
           fetch-depth: 0
-      - name: main değişikliklerini en son dal durumuna birleştir
+      - name: main değişikliklerini birleştir ve sonucu kaydet
         run: |
           git config user.name "Aurora Sync Bot"
           git config user.email "actions@users.noreply.github.com"
-          for attempt in 1 2 3 4; do
-            git fetch origin main agent/aurora-studios-v030
-            git reset --hard origin/agent/aurora-studios-v030
-            git merge --no-edit -X ours origin/main
-            mkdir -p verification
-            {
-              echo "feature_head_before_sync=${GITHUB_SHA}"
-              echo "main_head=$(git rev-parse origin/main)"
-              echo "merged_head=$(git rev-parse HEAD)"
-              echo "attempt=${attempt}"
-              echo "synced_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-            } > verification/main-sync.txt
-            git add verification/main-sync.txt
-            git commit -m "main katalog değişikliklerini Aurora final dalına eşitle"
-            if git push origin HEAD:agent/aurora-studios-v030; then
-              exit 0
-            fi
-            sleep 5
-          done
-          echo "main eşitlemesi dört denemede tamamlanamadı" >&2
-          exit 1
+          git fetch origin main agent/aurora-studios-v030
+          git reset --hard origin/agent/aurora-studios-v030
+          set +e
+          git merge --no-edit -X ours origin/main > main-sync.log 2>&1
+          merge_code=$?
+          set -e
+          if [ "$merge_code" -ne 0 ]; then
+            git merge --abort || true
+          fi
+          mkdir -p verification
+          cp main-sync.log verification/main-sync.log
+          {
+            echo "feature_head_before_sync=${GITHUB_SHA}"
+            echo "main_head=$(git rev-parse origin/main)"
+            echo "merge_code=${merge_code}"
+            echo "head_after_attempt=$(git rev-parse HEAD)"
+            echo "synced_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } > verification/main-sync.txt
+          git add verification/main-sync.log verification/main-sync.txt
+          git commit -m "main eşitleme sonucunu kaydet"
+          git pull --rebase origin agent/aurora-studios-v030
+          git push origin HEAD:agent/aurora-studios-v030
