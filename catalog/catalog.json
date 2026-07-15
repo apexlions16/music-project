@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T14:12:45.245Z",
+  "updatedAt": "2026-07-15T14:14:46.332Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_b635fc602dd142ffa74b708ad4f7ad04",
     "release_33e34f716ba243e6b5a9d398935bbaee",
     "release_51335f8beda841efb52c9e205ea55170",
     "release_fbacac7a895e49b1820041a25ea04ac2",
@@ -54,6 +55,34 @@
       "bio": "",
       "spotifyId": "3tJELJoPZ4VTKmL0vppqLj",
       "spotifyUrl": "https://open.spotify.com/artist/3tJELJoPZ4VTKmL0vppqLj",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_0bb29ef3f4d748df96e64887c697448b",
+      "slug": "efey4hya",
+      "name": "efey4hya",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/566770cf39584c918044ffb89589c9a3.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/566770cf39584c918044ffb89589c9a3.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/566770cf39584c918044ffb89589c9a3.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "51VMWTqR5Y6pC2y30m3kqM",
+      "spotifyUrl": "https://open.spotify.com/artist/51VMWTqR5Y6pC2y30m3kqM",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_62dd59ad937442f297c04ff0188d7df0",
+      "slug": "sancak",
+      "name": "Sancak",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/ad3eb192d6d549348d93142c7d31f98a.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/ad3eb192d6d549348d93142c7d31f98a.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/ad3eb192d6d549348d93142c7d31f98a.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "3IiSjfHNSsynS08uC6w9u3",
+      "spotifyUrl": "https://open.spotify.com/artist/3IiSjfHNSsynS08uC6w9u3",
       "popularTrackIds": [],
       "listIds": []
     }
@@ -2208,6 +2237,262 @@
       "playable": false,
       "availability": "upcoming",
       "qualityState": "waiting_for_audio"
+    },
+    {
+      "id": "track_534ac1eccaad45bda3a5d6af24b3ba7e",
+      "slug": "99",
+      "title": "99",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 52,
+      "isrc": "QMBZ92684667",
+      "explicit": true,
+      "spotifyId": "6tZqpCz5lBpXMbqv0GX52X",
+      "spotifyUrl": "https://open.spotify.com/track/6tZqpCz5lBpXMbqv0GX52X",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [],
+      "playable": false,
+      "availability": "upcoming",
+      "qualityState": "waiting_for_audio"
+    },
+    {
+      "id": "track_0661660d414143418ff9f4d31b4778fd",
+      "slug": "kova",
+      "title": "KOVA",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 78,
+      "isrc": "QMBZ92684522",
+      "explicit": false,
+      "spotifyId": "2Q3a5vBWzYZ1JExS9lKK9b",
+      "spotifyUrl": "https://open.spotify.com/track/2Q3a5vBWzYZ1JExS9lKK9b",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [],
+      "playable": false,
+      "availability": "upcoming",
+      "qualityState": "waiting_for_audio"
+    },
+    {
+      "id": "track_6ab3ab200340477bbf6d9a768fa935de",
+      "slug": "feristah",
+      "title": "FERİŞTAH",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436",
+        "artist_0bb29ef3f4d748df96e64887c697448b"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [
+        "artist_0bb29ef3f4d748df96e64887c697448b"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 94,
+      "isrc": "QMBZ92684658",
+      "explicit": false,
+      "spotifyId": "4prHaRyn4ufqCrT0B5RT9T",
+      "spotifyUrl": "https://open.spotify.com/track/4prHaRyn4ufqCrT0B5RT9T",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [],
+      "playable": false,
+      "availability": "upcoming",
+      "qualityState": "waiting_for_audio"
+    },
+    {
+      "id": "track_13e518d2221f4110bec4d35905db5bfe",
+      "slug": "sezar",
+      "title": "SEZAR",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 132,
+      "isrc": "QMBZ92684675",
+      "explicit": true,
+      "spotifyId": "55NZjXtKbHmdQnYltSXyJc",
+      "spotifyUrl": "https://open.spotify.com/track/55NZjXtKbHmdQnYltSXyJc",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [],
+      "playable": false,
+      "availability": "upcoming",
+      "qualityState": "waiting_for_audio"
+    },
+    {
+      "id": "track_bb7c000f46024a6a8f2633133473c729",
+      "slug": "eski-ev",
+      "title": "ESKİ EV",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436",
+        "artist_62dd59ad937442f297c04ff0188d7df0"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [
+        "artist_62dd59ad937442f297c04ff0188d7df0"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 133,
+      "isrc": "QMBZ92684677",
+      "explicit": false,
+      "spotifyId": "7H8nFxMHELhrd2rxdzYsNL",
+      "spotifyUrl": "https://open.spotify.com/track/7H8nFxMHELhrd2rxdzYsNL",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [],
+      "playable": false,
+      "availability": "upcoming",
+      "qualityState": "waiting_for_audio"
+    },
+    {
+      "id": "track_c6be5a1cf19842b6b04b34d1e33b0eec",
+      "slug": "imissthe",
+      "title": "IMISSTHE...",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 84,
+      "isrc": "QMBZ92684654",
+      "explicit": true,
+      "spotifyId": "69rFeNCWCfDSugB1Gk3Rfs",
+      "spotifyUrl": "https://open.spotify.com/track/69rFeNCWCfDSugB1Gk3Rfs",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [],
+      "playable": false,
+      "availability": "upcoming",
+      "qualityState": "waiting_for_audio"
+    },
+    {
+      "id": "track_60c51e2c43524c95b0f83eaba2fc3744",
+      "slug": "valla-iftira",
+      "title": "VALLA İFTİRA",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 98,
+      "isrc": "QMBZ92684702",
+      "explicit": true,
+      "spotifyId": "76qZJBOJparCJhtW3UYA5b",
+      "spotifyUrl": "https://open.spotify.com/track/76qZJBOJparCJhtW3UYA5b",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [],
+      "playable": false,
+      "availability": "upcoming",
+      "qualityState": "waiting_for_audio"
+    },
+    {
+      "id": "track_559e5597eff243f9a89f284f11700fe4",
+      "slug": "canparem",
+      "title": "CANPAREM",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 90,
+      "isrc": "QMBZ92684705",
+      "explicit": true,
+      "spotifyId": "45LBfjs0Nr61HmAUw5Y6ij",
+      "spotifyUrl": "https://open.spotify.com/track/45LBfjs0Nr61HmAUw5Y6ij",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [],
+      "playable": false,
+      "availability": "upcoming",
+      "qualityState": "waiting_for_audio"
+    },
+    {
+      "id": "track_252c21eedf6040599358bdac4e172324",
+      "slug": "allah-a-emanet",
+      "title": "ALLAH'A EMANET",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 122,
+      "isrc": "QMBZ92684710",
+      "explicit": false,
+      "spotifyId": "20wjMXVGzC25BvZFvyik4t",
+      "spotifyUrl": "https://open.spotify.com/track/20wjMXVGzC25BvZFvyik4t",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [],
+      "playable": false,
+      "availability": "upcoming",
+      "qualityState": "waiting_for_audio"
+    },
+    {
+      "id": "track_ea1c77faf0db42e3ac7d80b5d5e5c8e7",
+      "slug": "tampon",
+      "title": "TAMPON",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 68,
+      "isrc": "QMBZ92684765",
+      "explicit": false,
+      "spotifyId": "0dl4lxML66oUNu0Rp105KM",
+      "spotifyUrl": "https://open.spotify.com/track/0dl4lxML66oUNu0Rp105KM",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [],
+      "playable": false,
+      "availability": "upcoming",
+      "qualityState": "waiting_for_audio"
     }
   ],
   "releases": [
@@ -2806,6 +3091,82 @@
       "status": "upcoming",
       "availableTrackCount": 0,
       "totalTrackCount": 1
+    },
+    {
+      "id": "release_b635fc602dd142ffa74b708ad4f7ad04",
+      "slug": "love-hate-2-late",
+      "title": "LOVE:HATE:2:LATE",
+      "type": "album",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2026-07-10",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/c4cc85b44bf34589a78894a725ea549a.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b2733118ffe1402357c00ed5cc7a",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2026 667 • (P) 2026 667",
+      "description": "",
+      "spotifyId": "6IZR62yPHHItn0chIzH9YO",
+      "spotifyUrl": "https://open.spotify.com/album/6IZR62yPHHItn0chIzH9YO",
+      "tracks": [
+        {
+          "trackId": "track_534ac1eccaad45bda3a5d6af24b3ba7e",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_0661660d414143418ff9f4d31b4778fd",
+          "disc": 1,
+          "position": 2
+        },
+        {
+          "trackId": "track_6ab3ab200340477bbf6d9a768fa935de",
+          "disc": 1,
+          "position": 3
+        },
+        {
+          "trackId": "track_13e518d2221f4110bec4d35905db5bfe",
+          "disc": 1,
+          "position": 4
+        },
+        {
+          "trackId": "track_bb7c000f46024a6a8f2633133473c729",
+          "disc": 1,
+          "position": 5
+        },
+        {
+          "trackId": "track_c6be5a1cf19842b6b04b34d1e33b0eec",
+          "disc": 1,
+          "position": 6
+        },
+        {
+          "trackId": "track_60c51e2c43524c95b0f83eaba2fc3744",
+          "disc": 1,
+          "position": 7
+        },
+        {
+          "trackId": "track_559e5597eff243f9a89f284f11700fe4",
+          "disc": 1,
+          "position": 8
+        },
+        {
+          "trackId": "track_252c21eedf6040599358bdac4e172324",
+          "disc": 1,
+          "position": 9
+        },
+        {
+          "trackId": "track_ea1c77faf0db42e3ac7d80b5d5e5c8e7",
+          "disc": 1,
+          "position": 10
+        }
+      ],
+      "status": "upcoming",
+      "availableTrackCount": 0,
+      "totalTrackCount": 10
     }
   ],
   "qualityJobs": [],
