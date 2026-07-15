@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T17:14:17.019Z",
+  "updatedAt": "2026-07-15T18:08:46.650Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -2272,10 +2272,53 @@
       "lyrics": "",
       "syncedLyrics": "",
       "credits": [],
-      "sources": [],
-      "playable": false,
-      "availability": "upcoming",
-      "qualityState": "waiting_for_audio"
+      "sources": [
+        {
+          "id": "audio_7b3fe1a8d66c45d7973765fff60d3f7d",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/504b81cf52404c7e88252f7004c74ad6.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/504b81cf52404c7e88252f7004c74ad6.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_f79b05b70da940439f31db923be93b9c",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/13852274193c4a2ea135d00875e6ec94.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/13852274193c4a2ea135d00875e6ec94.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_27d7c4da1e554b4999dbe1c3eff60795",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/de50ba85729e42ee9303087d3c44b10b.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/de50ba85729e42ee9303087d3c44b10b.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     },
     {
       "id": "track_0661660d414143418ff9f4d31b4778fd",
@@ -2297,10 +2340,53 @@
       "lyrics": "",
       "syncedLyrics": "",
       "credits": [],
-      "sources": [],
-      "playable": false,
-      "availability": "upcoming",
-      "qualityState": "waiting_for_audio"
+      "sources": [
+        {
+          "id": "audio_94c0e18149764b19821706dc3e06a8c5",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d74da55d6de0437f963b9c2843778b4e.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d74da55d6de0437f963b9c2843778b4e.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_65166c5b4e2e4d15b8012a6e6dd2cbce",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/82b428cbbe1f49e699dedabe321d9a8a.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/82b428cbbe1f49e699dedabe321d9a8a.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_117ad9c91b764ee5beea97e1067f7767",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/4ba739b21da94cb7a0143e52eba1fcbb.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/4ba739b21da94cb7a0143e52eba1fcbb.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     },
     {
       "id": "track_6ab3ab200340477bbf6d9a768fa935de",
@@ -2325,10 +2411,53 @@
       "lyrics": "",
       "syncedLyrics": "",
       "credits": [],
-      "sources": [],
-      "playable": false,
-      "availability": "upcoming",
-      "qualityState": "waiting_for_audio"
+      "sources": [
+        {
+          "id": "audio_cdf89503629f4ce29ed8513f2d34c69a",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/3688a6f3ea16446b918c39f832668e55.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/3688a6f3ea16446b918c39f832668e55.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_d46329e8d5794f089fefa4acd779fb65",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/43ac37a019c045e8931d039f1e920225.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/43ac37a019c045e8931d039f1e920225.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_0a2d330bd0624ec2a2e45fc7b787b297",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/faa95df4a6b74cc695e3070b0eeac3c1.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/faa95df4a6b74cc695e3070b0eeac3c1.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     },
     {
       "id": "track_13e518d2221f4110bec4d35905db5bfe",
@@ -2350,10 +2479,53 @@
       "lyrics": "",
       "syncedLyrics": "",
       "credits": [],
-      "sources": [],
-      "playable": false,
-      "availability": "upcoming",
-      "qualityState": "waiting_for_audio"
+      "sources": [
+        {
+          "id": "audio_6e8db207479e4daeb7036843ae510c5e",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/167a66e5ccce4f79898acdefd4f0d44f.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/167a66e5ccce4f79898acdefd4f0d44f.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_5f72ac88b4c54d0295820c8e073132d5",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/473cf95684cf44cbb958153c21918568.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/473cf95684cf44cbb958153c21918568.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_ba5fc2e6947f4b2689fc788361fbeee5",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d691192ff34f403ab1508a2655fd1b91.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d691192ff34f403ab1508a2655fd1b91.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     },
     {
       "id": "track_bb7c000f46024a6a8f2633133473c729",
@@ -2378,10 +2550,53 @@
       "lyrics": "",
       "syncedLyrics": "",
       "credits": [],
-      "sources": [],
-      "playable": false,
-      "availability": "upcoming",
-      "qualityState": "waiting_for_audio"
+      "sources": [
+        {
+          "id": "audio_3e60e3727d7b449b8f49e4bdbea3223d",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0e498f92401e4b268c42b83756816d8d.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0e498f92401e4b268c42b83756816d8d.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_d95c3529bba3423b8487674328f551bd",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c32128ac44ac48d9b01dde57144c45a8.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c32128ac44ac48d9b01dde57144c45a8.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_a1d8473110fc4585800dba83269ad6f7",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/327fa96935dd4b00a036d9fc66a3a79b.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/327fa96935dd4b00a036d9fc66a3a79b.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     },
     {
       "id": "track_c6be5a1cf19842b6b04b34d1e33b0eec",
@@ -2403,10 +2618,53 @@
       "lyrics": "",
       "syncedLyrics": "",
       "credits": [],
-      "sources": [],
-      "playable": false,
-      "availability": "upcoming",
-      "qualityState": "waiting_for_audio"
+      "sources": [
+        {
+          "id": "audio_448c56f862014165b1519ad8ec063c65",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/814f06e0ebde41fd9d31a572b1a64052.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/814f06e0ebde41fd9d31a572b1a64052.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_2d045a7a8d144abcb6f61a7cf677f752",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/6684aae84fd3401b999698f2c7f49789.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/6684aae84fd3401b999698f2c7f49789.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_c9633827d3034212892434ac2d1b6b70",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/df0ac678df2f4ede9a274d5b93b46127.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/df0ac678df2f4ede9a274d5b93b46127.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     },
     {
       "id": "track_60c51e2c43524c95b0f83eaba2fc3744",
@@ -2428,10 +2686,53 @@
       "lyrics": "",
       "syncedLyrics": "",
       "credits": [],
-      "sources": [],
-      "playable": false,
-      "availability": "upcoming",
-      "qualityState": "waiting_for_audio"
+      "sources": [
+        {
+          "id": "audio_74478ad16a47487bbf6b294a817c81f8",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/50c2c4bd1b524878a7421bb29f1d6c19.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/50c2c4bd1b524878a7421bb29f1d6c19.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_3fb2d3e1731f4a4f9ce792e77b267119",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/3e716a0b0395434c845579b0cb9c6d5c.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/3e716a0b0395434c845579b0cb9c6d5c.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_226c84d2cb064a13878dbda01579e25b",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/25d7e2cd907b4f5aa10df7bbd4841390.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/25d7e2cd907b4f5aa10df7bbd4841390.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     },
     {
       "id": "track_559e5597eff243f9a89f284f11700fe4",
@@ -2453,10 +2754,53 @@
       "lyrics": "",
       "syncedLyrics": "",
       "credits": [],
-      "sources": [],
-      "playable": false,
-      "availability": "upcoming",
-      "qualityState": "waiting_for_audio"
+      "sources": [
+        {
+          "id": "audio_fef236f916ce48c4b33bd584867a634f",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/50238cb280454d31b40acef452dbb259.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/50238cb280454d31b40acef452dbb259.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_d9d2be029192406f967af211e2b7fc11",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9a81073c34e94576bdc8e5385200c552.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9a81073c34e94576bdc8e5385200c552.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_98c1cca6903544e7976945b845ed35a1",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/aca6f909b12f4febb7c9f96722f90f8d.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/aca6f909b12f4febb7c9f96722f90f8d.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     },
     {
       "id": "track_252c21eedf6040599358bdac4e172324",
@@ -2478,10 +2822,53 @@
       "lyrics": "",
       "syncedLyrics": "",
       "credits": [],
-      "sources": [],
-      "playable": false,
-      "availability": "upcoming",
-      "qualityState": "waiting_for_audio"
+      "sources": [
+        {
+          "id": "audio_80bd1ea6c3ea411384c623d04b776bb9",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5bb06889160142cf984728d3d566e05f.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5bb06889160142cf984728d3d566e05f.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_5a6c6af9b1ee4e6eae004b81547881e7",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/25fad03e574b4d5e9de546151c6f5212.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/25fad03e574b4d5e9de546151c6f5212.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_9b6f172f4f71440bb512e5e33f2e4644",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ba4bbc0380b94e16a3ae9dc9850f03be.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ba4bbc0380b94e16a3ae9dc9850f03be.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     },
     {
       "id": "track_ea1c77faf0db42e3ac7d80b5d5e5c8e7",
@@ -2503,10 +2890,53 @@
       "lyrics": "",
       "syncedLyrics": "",
       "credits": [],
-      "sources": [],
-      "playable": false,
-      "availability": "upcoming",
-      "qualityState": "waiting_for_audio"
+      "sources": [
+        {
+          "id": "audio_891ea110327e452d9f7606f240d46238",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/2840117b0e704be6815d83cf615714fe.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/2840117b0e704be6815d83cf615714fe.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_88f243ca9d7744e28e267a53c257b752",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d1c5a0d934b140aa8fcefde9bf40d702.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d1c5a0d934b140aa8fcefde9bf40d702.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_2c5f92985f4c4fff8c7b6a86e3c8db1c",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/87dfcd76e46a4d87acd30c5f925992f8.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/87dfcd76e46a4d87acd30c5f925992f8.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     },
     {
       "id": "track_7a4ab324f20549179a0a69343ace627a",
@@ -3290,8 +3720,8 @@
           "position": 10
         }
       ],
-      "status": "upcoming",
-      "availableTrackCount": 0,
+      "status": "published",
+      "availableTrackCount": 10,
       "totalTrackCount": 10
     },
     {
