@@ -29,6 +29,7 @@ internal object ProviderSettings {
         return ProviderConfig(
             spotifyClientId = p.getString("spotify_client_id", "").orEmpty(),
             spotifyClientSecret = p.getString("spotify_client_secret", "").orEmpty(),
+            spotifyMarket = p.getString("spotify_market", "TR").orEmpty().ifBlank { "TR" },
             musicBrainzContact = p.getString("musicbrainz_contact", "").orEmpty(),
         )
     }
@@ -37,6 +38,7 @@ internal object ProviderSettings {
         prefs(context).edit()
             .putString("spotify_client_id", value.spotifyClientId.trim())
             .putString("spotify_client_secret", value.spotifyClientSecret.trim())
+            .putString("spotify_market", value.spotifyMarket.trim().uppercase().ifBlank { "TR" })
             .putString("musicbrainz_contact", value.musicBrainzContact.trim())
             .apply()
     }
