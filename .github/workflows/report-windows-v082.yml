@@ -1,0 +1,71 @@
+name: Report Windows Studio v0.8.2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/report-windows-v082.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Windows v0.8.2 sonucunu bekle ve doğrula
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p verification
+          run_id=""
+          status=""
+          for attempt in $(seq 1 80); do
+            run_id=$(gh run list --workflow aurora-studio-windows-v082-build.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId // empty')
+            status=$(gh run list --workflow aurora-studio-windows-v082-build.yml --branch main --limit 1 --json status --jq '.[0].status // empty')
+            if [ -n "$run_id" ] && [ "$status" = "completed" ]; then break; fi
+            sleep 15
+          done
+          conclusion="unknown"
+          if [ -n "$run_id" ]; then
+            conclusion=$(gh run view "$run_id" --json conclusion --jq '.conclusion')
+          fi
+          asset=""
+          if [ "$conclusion" = "success" ]; then
+            for attempt in $(seq 1 30); do
+              asset=$(gh release view aurora-studio-v0.8.2 --json assets --jq '.assets[].name' 2>/dev/null | grep -Fx 'Aurora-Studio-Windows-x64-v0.8.2.zip' || true)
+              if [ -n "$asset" ]; then break; fi
+              sleep 10
+            done
+          fi
+          {
+            echo '# Aurora Studio Windows v0.8.2 final doğrulaması'
+            echo
+            echo "conclusion=$conclusion"
+            echo "run_id=$run_id"
+            echo "run_url=https://github.com/${GITHUB_REPOSITORY}/actions/runs/$run_id"
+            echo "release=https://github.com/${GITHUB_REPOSITORY}/releases/tag/aurora-studio-v0.8.2"
+            echo "asset=$asset"
+            if [ "$conclusion" != "success" ]; then
+              echo
+              echo '```text'
+              gh run view "$run_id" --log-failed || true
+              echo '```'
+            fi
+          } > verification/WINDOWS_V082_FINAL.md
+          test "$conclusion" = "success"
+          test "$asset" = "Aurora-Studio-Windows-x64-v0.8.2.zip"
+      - name: Sonucu main dalına kaydet
+        if: always()
+        run: |
+          git config user.name "Aurora Windows Release Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add verification/WINDOWS_V082_FINAL.md
+          git commit -m "Windows Studio v0.8.2 final release sonucunu kaydet" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
