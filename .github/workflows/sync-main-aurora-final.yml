@@ -1,4 +1,4 @@
-name: Sync Main Into Aurora Final Debug
+name: Sync Main Into Aurora Final Resolve Conflicts
 
 on:
   push:
@@ -18,29 +18,59 @@ jobs:
         with:
           ref: agent/aurora-studios-v030
           fetch-depth: 0
-      - name: main değişikliklerini birleştir ve sonucu kaydet
+      - name: main değişikliklerini kesin çatışma çözümüyle birleştir
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name "Aurora Sync Bot"
           git config user.email "actions@users.noreply.github.com"
           git fetch origin main agent/aurora-studios-v030
           git reset --hard origin/agent/aurora-studios-v030
+
           set +e
-          git merge --no-edit -X ours origin/main > main-sync.log 2>&1
+          git merge --no-commit --no-ff origin/main > main-sync.log 2>&1
           merge_code=$?
           set -e
+
           if [ "$merge_code" -ne 0 ]; then
-            git merge --abort || true
+            mapfile -t conflicts < <(git diff --name-only --diff-filter=U)
+            printf 'Çatışan dosyalar:\n' >> main-sync.log
+            printf '%s\n' "${conflicts[@]}" >> main-sync.log
+            for path in "${conflicts[@]}"; do
+              if [ "$path" = "catalog/catalog.json" ]; then
+                if git cat-file -e ":3:$path" 2>/dev/null; then
+                  git checkout --theirs -- "$path"
+                  git add "$path"
+                else
+                  git rm -f -- "$path"
+                fi
+              else
+                if git cat-file -e ":2:$path" 2>/dev/null; then
+                  git checkout --ours -- "$path"
+                  git add "$path"
+                else
+                  git rm -f -- "$path"
+                fi
+              fi
+            done
           fi
+
+          if git diff --name-only --diff-filter=U | grep -q .; then
+            echo "Çözülemeyen merge çatışması kaldı" >> main-sync.log
+            cat main-sync.log
+            exit 1
+          fi
+
+          git commit -m "main değişikliklerini Aurora final dalına birleştir"
           mkdir -p verification
           cp main-sync.log verification/main-sync.log
           {
             echo "feature_head_before_sync=${GITHUB_SHA}"
             echo "main_head=$(git rev-parse origin/main)"
             echo "merge_code=${merge_code}"
-            echo "head_after_attempt=$(git rev-parse HEAD)"
+            echo "merged_head=$(git rev-parse HEAD)"
             echo "synced_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           } > verification/main-sync.txt
           git add verification/main-sync.log verification/main-sync.txt
           git commit -m "main eşitleme sonucunu kaydet"
-          git pull --rebase origin agent/aurora-studios-v030
           git push origin HEAD:agent/aurora-studios-v030
