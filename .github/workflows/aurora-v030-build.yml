@@ -1,4 +1,4 @@
-name: Aurora Music 0.4.0 / Studio Mobile 0.2.0 / Studio Windows 0.3.0 Build
+name: Aurora Music 0.4.0 / Studio Mobile 0.3.0 / Studio Windows 0.3.0 Build
 
 on:
   pull_request:
@@ -90,7 +90,7 @@ jobs:
             --notes "Spotify benzeri dinamik ana sayfa bölümleri, sanatçı popülerleri, sanatçı seçkileri, üç yayınlık diskografi önizlemesi, iki sütun Tüm Diskografi ekranı, metadata-only Yakında ve kısmi yayın desteği, kilitli parçalar ve yalnızca hazır parçaları oynatma. Kalıcı Android imzası sayesinde uygulama ayarları ve şifreli token güncellemede korunur."
 
   android_studio:
-    name: Aurora Studio Mobile v0.2.0
+    name: Aurora Studio Mobile v0.3.0
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -124,19 +124,28 @@ jobs:
         with:
           gradle-version: "8.11.1"
 
+      - name: Spotify-only kaynak doğrulaması
+        run: |
+          grep -q 'source = "spotify"' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          grep -q 'SpotifyMetadataCache' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          grep -q 'Spotify kapağı indiriliyor' studioapp/src/main/kotlin/com/apexlions/aurorastudio/CatalogV2Manager.kt
+          ! grep -q 'musicbrainz.org' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          ! grep -q 'coverartarchive.org' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          ! grep -q 'lrclib.net' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+
       - name: Studio Mobile APK derle
         run: gradle --no-daemon --stacktrace --console=plain :studioapp:assembleDebug
 
       - name: Studio Mobile paketle
         run: |
           mkdir -p yayin
-          cp studioapp/build/outputs/apk/debug/studioapp-debug.apk yayin/Aurora-Studio-Mobile-v0.2.0.apk
-          sha256sum yayin/Aurora-Studio-Mobile-v0.2.0.apk > yayin/SHA256SUMS-Aurora-Studio-Mobile.txt
+          cp studioapp/build/outputs/apk/debug/studioapp-debug.apk yayin/Aurora-Studio-Mobile-v0.3.0.apk
+          sha256sum yayin/Aurora-Studio-Mobile-v0.3.0.apk > yayin/SHA256SUMS-Aurora-Studio-Mobile.txt
 
       - name: Studio Mobile artifact
         uses: actions/upload-artifact@v4
         with:
-          name: aurora-studio-mobile-v0.2.0
+          name: aurora-studio-mobile-v0.3.0
           path: yayin/*
 
       - name: Studio Mobile Release
@@ -144,8 +153,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release delete aurora-studio-mobile-v0.2.0 --cleanup-tag --yes || true
-          gh release create aurora-studio-mobile-v0.2.0 yayin/* --title "Aurora Studio Mobile v0.2.0" --notes "Mevcut şarkı düzenleme, metadata-only ve kısmi yayın, MusicBrainz/Cover Art Archive/LRCLIB içe aktarma, Spotify destekli eşleme, ISRC tekrar kullanımı, Görsel Fetch ve otomatik çoklu kalite kuyruğu. Tokenlar şifreli saklanır ve kalıcı imzalı güncellemede korunur."
+          gh release delete aurora-studio-mobile-v0.3.0 --cleanup-tag --yes || true
+          gh release create aurora-studio-mobile-v0.3.0 yayin/* \
+            --title "Aurora Studio Mobile v0.3.0" \
+            --notes "Yalnızca Spotify metadata kaynağı; bağlantı veya düz metin araması; Spotify kapak ve sanatçı görsellerini indirip Hugging Face'e taşıma; GitHub kataloğuna yalnız HF görsel adresleri yazma; mevcut şarkı düzenleme, metadata-only/kısmi yayın, ISRC tekrar kullanımı, otomatik çoklu kalite kuyruğu, sanatçı popülerleri, sanatçı listeleri ve ana sayfa bölüm yönetimi. Tokenlar şifreli saklanır ve kalıcı imzalı güncellemede korunur."
 
   windows:
     name: Aurora Studio Windows v0.3.0
@@ -160,7 +171,7 @@ jobs:
           cache: pip
           cache-dependency-path: pc/requirements.txt
 
-      - name: Bağımlılıklar ve v0.3 doğrulaması
+      - name: Bağımlılıklar ve Spotify-only doğrulaması
         shell: pwsh
         run: |
           python -m pip install --upgrade pip
@@ -172,13 +183,15 @@ jobs:
           if (-not (Select-String -Path pc/AuroraStudioV3.py -Pattern 'APP_VERSION = "0.3.0"' -Quiet)) { throw 'Studio v0.3 sürümü yanlış' }
           if (-not (Select-String -Path pc/AuroraStudioV3.py -Pattern 'homeSections' -Quiet)) { throw 'Ana sayfa bölüm yönetimi eksik' }
           if (-not (Select-String -Path pc/AuroraStudioV3.py -Pattern 'artistLists' -Quiet)) { throw 'Sanatçı listesi yönetimi eksik' }
-          if (-not (Select-String -Path pc/AuroraStudioV3.py -Pattern 'MusicBrainz' -Quiet)) { throw 'Ücretsiz metadata içe aktarma eksik' }
+          if (-not (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern 'SpotifyOnlyMetadataClient' -Quiet)) { throw 'Spotify-only istemci eksik' }
+          if (-not (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern 'include_lyrics=False' -Quiet)) { throw 'Harici söz servisi kapatılmamış' }
+          if (-not (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern '_download_spotify_image' -Quiet)) { throw 'Spotify görsel yerelleştirmesi eksik' }
 
       - name: Qt arayüzünü ekransız başlat
         shell: pwsh
         run: |
           $env:QT_QPA_PLATFORM = "offscreen"
-          python -c "import sys; sys.path.insert(0, 'pc'); from PySide6.QtWidgets import QApplication; import AuroraStudioV3Entry as entry; app=QApplication([]); window=entry.AuroraStudioV3Final(); assert window.pages.count() == 9; assert window.catalog['schemaVersion'] >= 5; window.close(); print('Aurora Studio v0.3 UI smoke test OK')"
+          python -c "import sys; sys.path.insert(0, 'pc'); from PySide6.QtWidgets import QApplication; import AuroraStudioV3Entry as entry; app=QApplication([]); window=entry.AuroraStudioV3Final(); assert window.pages.count() == 8; assert window.catalog['schemaVersion'] >= 5; assert window.spotify_auto_lyrics.isEnabled() is False; window.close(); print('Aurora Studio Spotify-only v0.3 UI smoke test OK')"
 
       - name: FFmpeg indir
         shell: pwsh
@@ -232,4 +245,4 @@ jobs:
           gh release delete aurora-studio-v0.3.0 --cleanup-tag --yes 2>$null
           gh release create aurora-studio-v0.3.0 yayin/* `
             --title "Aurora Studio Windows v0.3.0" `
-            --notes "Ücretsiz MusicBrainz/Cover Art Archive/LRCLIB metadata içe aktarma, metadata-only ve kısmi yayın, ISRC tekrar kullanımı, Görsel Fetch, hareketli medya URL alanı, sanatçı popüler sıralaması, sanatçı listeleri ve dinamik ana sayfa bölüm yönetimi. Tokenlar Windows DPAPI ile korunur."
+            --notes "Yalnızca Spotify metadata kaynağı; Spotify bağlantısı veya düz metin araması; kapak ve sanatçı görsellerini indirip Hugging Face'e taşıma; GitHub kataloğunda yalnız HF görsel adresleri; metadata-only/kısmi yayın, ISRC tekrar kullanımı, hareketli medya URL alanı, sanatçı popüler sıralaması, sanatçı listeleri ve dinamik ana sayfa bölüm yönetimi. Tokenlar Windows DPAPI ile korunur."
