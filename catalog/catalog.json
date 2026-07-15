@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T13:48:32.508Z",
+  "updatedAt": "2026-07-15T13:48:40.172Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -2099,31 +2099,6 @@
       "playable": true,
       "availability": "available",
       "qualityState": "ready"
-    },
-    {
-      "id": "track_e213c3e90dae4e7cbe675d2d88aab9f1",
-      "slug": "olu",
-      "title": "Ölü",
-      "artistIds": [
-        "artist_34728a73863e4cc2b5d73278f6911436"
-      ],
-      "primaryArtistIds": [
-        "artist_34728a73863e4cc2b5d73278f6911436"
-      ],
-      "featuredArtistIds": [],
-      "featuredArtistNames": [],
-      "durationSeconds": 148,
-      "isrc": "GBSMU2663252",
-      "explicit": true,
-      "spotifyId": "4HbJLNbqtZI5AHKg12VtNr",
-      "spotifyUrl": "https://open.spotify.com/track/4HbJLNbqtZI5AHKg12VtNr",
-      "lyrics": "",
-      "syncedLyrics": "",
-      "credits": [],
-      "sources": [],
-      "playable": false,
-      "availability": "upcoming",
-      "qualityState": "waiting_for_audio"
     }
   ],
   "releases": [
