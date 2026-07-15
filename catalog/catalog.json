@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T21:05:15.044Z",
+  "updatedAt": "2026-07-15T21:47:53.185Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -317,6 +317,118 @@
       "bio": "",
       "spotifyId": "3VooEK5HkkcSc4Tv7FCBzb",
       "spotifyUrl": "https://open.spotify.com/artist/3VooEK5HkkcSc4Tv7FCBzb",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_a8bca1da561a40ae9273e575ba98f9b6",
+      "slug": "ege-cubukcu",
+      "name": "Ege Çubukçu",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/667069c1e23a41969e15a157b32b0b2b.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/667069c1e23a41969e15a157b32b0b2b.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/667069c1e23a41969e15a157b32b0b2b.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "0XLP18nHemdh5CQhoM3RjZ",
+      "spotifyUrl": "https://open.spotify.com/artist/0XLP18nHemdh5CQhoM3RjZ",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_cf05392f8f404f32b6e8c1f93d93b905",
+      "slug": "eylul-piyanci",
+      "name": "Eylül Piyancı",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/52f3c1d53de34c1f90d6c0153ee20bae.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/52f3c1d53de34c1f90d6c0153ee20bae.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/52f3c1d53de34c1f90d6c0153ee20bae.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "2NGfHO90yoUa6r2p3FJcQ2",
+      "spotifyUrl": "https://open.spotify.com/artist/2NGfHO90yoUa6r2p3FJcQ2",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_303634340daf4f909522859f1efaa94c",
+      "slug": "keisan",
+      "name": "Keişan",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/9b97eaf4ca354708bb0ca48f1ba26a84.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/9b97eaf4ca354708bb0ca48f1ba26a84.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/9b97eaf4ca354708bb0ca48f1ba26a84.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "5Pd3tsRa9fj2Q3JPQ0tYEv",
+      "spotifyUrl": "https://open.spotify.com/artist/5Pd3tsRa9fj2Q3JPQ0tYEv",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_9d150ee4aee74a1fbf26a4864c960322",
+      "slug": "cem-adrian",
+      "name": "Cem Adrian",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/299b0bd5bb9e4714b62642906e14504d.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/299b0bd5bb9e4714b62642906e14504d.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/299b0bd5bb9e4714b62642906e14504d.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "2AWUCT9xtcvkjpFq1ZgpPj",
+      "spotifyUrl": "https://open.spotify.com/artist/2AWUCT9xtcvkjpFq1ZgpPj",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_8b52ed5b44334c01b3ceb7e761569eb2",
+      "slug": "dianz",
+      "name": "Dianz",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/2a99c3b5b8c74d91887982a239357e1e.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/2a99c3b5b8c74d91887982a239357e1e.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/2a99c3b5b8c74d91887982a239357e1e.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "17U1GTgGmsHnAl5UzvQKhy",
+      "spotifyUrl": "https://open.spotify.com/artist/17U1GTgGmsHnAl5UzvQKhy",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_35fe0fa311ae4196b14f261fdc954f4f",
+      "slug": "genco-ecer",
+      "name": "Genco Ecer",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/43067fde8c6e42958e7af2c9b9424214.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/43067fde8c6e42958e7af2c9b9424214.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/43067fde8c6e42958e7af2c9b9424214.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "0zaU3oap9Jq2T5k3FZ4s5c",
+      "spotifyUrl": "https://open.spotify.com/artist/0zaU3oap9Jq2T5k3FZ4s5c",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_bc04a989b9d346f192cf40c5010edea5",
+      "slug": "set",
+      "name": "Set",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/a8ab36c765544aecb6795f7c392ebab3.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/a8ab36c765544aecb6795f7c392ebab3.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/a8ab36c765544aecb6795f7c392ebab3.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "19Rza4zry4FH12uXxbUsib",
+      "spotifyUrl": "https://open.spotify.com/artist/19Rza4zry4FH12uXxbUsib",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_7ea3d38d226d4b2789ec1a6001ae8dfd",
+      "slug": "m-i",
+      "name": "Mâi",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/0a783bf512234b1f9e6fceeb64fb4d10.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/0a783bf512234b1f9e6fceeb64fb4d10.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/0a783bf512234b1f9e6fceeb64fb4d10.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "3d4FAb7KcuSi6WrVYuIDbk",
+      "spotifyUrl": "https://open.spotify.com/artist/3d4FAb7KcuSi6WrVYuIDbk",
       "popularTrackIds": [],
       "listIds": []
     }
@@ -7346,7 +7458,9 @@
           "sampleRateKhz": 44.1,
           "bitDepth": 24
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_30165a254af542b09fd458b450ea08d7",
@@ -7426,7 +7540,9 @@
           "sampleRateKhz": 44.1,
           "bitDepth": 24
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_c957759a98b948d58c1cbe7c56baf206",
@@ -7498,6 +7614,2259 @@
           "codec": "FLAC 24-bit/48 kHz",
           "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/90fc290b4671426e90ddf1e290574ef1.flac",
           "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/90fc290b4671426e90ddf1e290574ef1.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ],
+      "playable": true,
+      "qualityState": "ready"
+    },
+    {
+      "id": "track_880e408c6daa495fbe8b67ba06f5eec8",
+      "slug": "yetmiyor",
+      "title": "Yetmiyor",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 193,
+      "isrc": "TRUM72100021",
+      "explicit": false,
+      "spotifyId": "6EliopaQTTTDAcBSSur1Xe",
+      "spotifyUrl": "https://open.spotify.com/track/6EliopaQTTTDAcBSSur1Xe",
+      "lyrics": "Yetmiyor ne zaman ne para ne kafa\nKalmadı hiçbiri, biz yorgunuz lan\nYetmiyor bu kadar ne sana ne bana\nNefes alamaz olduk, zor durumlar\n\nYetmiyor ne zaman ne para ne kafa\nKalmadı hiçbiri, biz yorgunuz lan\nYetmiyor bu kadarı ne sana ne bana\nNefes alamaz olduk, zor durumlar\n\nNefes alamaz oldum, zor durumdayım\nHer şey bitmek üzere, belki de son turumdayım\nYok oluşun hikâyesi buysa sonrası nasıl?\nGeri sayım başladıysa neyin ortasındayız?\n\nTakıldım, kıyametin oltasındayım\nKoskoca evrenin küçücük bi' noktasındayım\nAma bilirim ki kaldıramam yok sayılmayı\nCanım acır, sanki tarih her gün 10 Kasım, bayım\n\nKendime söz vermiştim genç bi' çocukken\nYükselecektim, tüm dertleri üstlenecektim\nAnnemi de hiç üzmeyecektim\nPes etmek de yoktu fıtratında\nArtık estin, kükreyeceksin\nErkek gibi yüzleşeceksin\nEvren sana güç verecektir\n\nYetmiyor ne zaman ne para ne kafa\nKalmadı hiçbiri, biz yorgunuz lan\nYetmiyor bu kadar ne sana ne bana\nNefes alamaz olduk, zor durumlar\n\nYetmiyor ne zaman ne para ne kafa\nKalmadı hiçbiri, biz yorgunuz lan\nYetmiyor bu kadarı ne sana ne bana\nNefes alamaz olduk, zor durumlar\n\n(Of) Daraldım, nefes alamam (yok)\nZamanı geri saramam (geri saramam)\nUykusuz gene sabaha kadar\nOturdum, nefes alamam (nefes alamam)\n\nYapıştı gene yakama gece (ah)\nBi' türlü söküp atamam (söküp atamam)\nAlıştık artık aramam sebep\nKalmıyo' gece yaralar\n\nOluyo' gece ve kanıyo' yara\nSonu yok, netice batıyo' bana\nDoktorum reçete yazıyor, dayan\nAlıyo'm ilacı, yanıyo' kafam\n\nElimde tutamam, uçuyo' zaman\nİstedim durdurmak düşü, yok ama\nDönüp dolaşıp beni buluyo' savaş\nÖlüme kol açıp susuyo' hayat\n\nYetmiyor ne zaman ne para ne kafa\nKalmadı hiçbiri, biz yorgunuz lan\nYetmiyor bu kadar ne sana ne bana\nNefes alamaz olduk, zor durumlar\n\nYetmiyor ne zaman ne para ne kafa\nKalmadı hiçbiri, biz yorgunuz lan\nYetmiyor bu kadarı ne sana ne bana\nNefes alamaz olduk, zor durumlar",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_772004bcbebc41d8983e0ed3871a6270",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ccc0fc518fd14b3b93e0eb62a137aa69.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ccc0fc518fd14b3b93e0eb62a137aa69.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_28e4489fae2e4ba5a76f2a4f1e9b25b4",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/99c427e8cbfe4214b71eb1459c119342.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/99c427e8cbfe4214b71eb1459c119342.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_39799687905542e89488181dc1d92586",
+      "slug": "sushi",
+      "title": "Sushi",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c",
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 140,
+      "isrc": "TRUM72100032",
+      "explicit": true,
+      "spotifyId": "0KHcFbgjZoU7suGwsX88ot",
+      "spotifyUrl": "https://open.spotify.com/track/0KHcFbgjZoU7suGwsX88ot",
+      "lyrics": "TRAPBOI$\nDirenç\n\nSanırım yapıyo' bu şey her beni ben, oluyomuş gibi sushiler menemen\nTers akıtıyorum nehirleri, Karadeniz'e döküyo' her çayı tek kelimem\nSıçabilirim su içtiğim her kaba, eh, iki tur atıp marta \"Merhaba\" der\nİçip dönerim arabesk rapstar'a len, kaptırsın osuruğum temmuza nem\n\nFiyakanın adı Anıl, sen avarel, oluyomuş gibi sushiler falafel\nKalemim, kalenize esen karayel, Piyancı sahaya çıkar, olur Demba Ba, Dem\nPeşimde taraftar, hadi kervana gеl, yazıp kazanırım, akar her bara ter\nAir Max'i giydiririm şeytan'a tеrs, dökelim mi kötü arzuları? Meydana gel\n\nGünlerden bir gün keyfim çıkıp demiş: \"Yarından tezi yok\"\nGüneş doğmuş, yağmur dinmiş\nO günlerden bir gün keyfim çıkıp demiş: \"Yarından tezi yok\"\nŞarkı olmuş günlerden bir gün\n\nYasak elmayı yerim, derim: \"Kutu kutu pense\"\nLüksüm ödenir ben kustukça bi' dolu hertz'e\nİstanbul'un soğuğunda oluruz Fluminense\nGitardan 808'e, İspanyol akoru gelse\n\nHard party gecenin yarı saati\nBi' tane daha olsa sanarım Tarabya'yı Babil\nKum gibi para dolu kasalar (shit)\nDemedik kâfi, oldu her yarın tatil\n\nOrtada dönüyosun, olmuşun bi' disko topu\nİki kilometreden alırız pis kokunu\nGölgelerin gücü adına biz He-Man olup\nYanıma gelene çakarız kafa, dirsek, omuz\n\nOtur izle şovu, çoğu filme konu\nOlur hayatım ama bilemez kimse sonu\nSana zirve yokuş, kafam ince bozuk\nAtar iyice dozum, kara liste dolu\n\nGünlerden bir gün keyfim çıkıp demiş: \"Yarından tezi yok\"\nGüneş doğmuş, yağmur dinmiş\nO günlerden bir gün keyfim çıkıp demiş: \"Yarından tezi yok\"\nŞarkı olmuş günlerden bir gün",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_e6fca5037393475591d38239db44b556",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/319615f026a444e3b6f0e48c9f34b178.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/319615f026a444e3b6f0e48c9f34b178.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_260ea8d180c547d2b898d60672acd28e",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5c993b602c7b430b85f2f258baf3ee1b.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5c993b602c7b430b85f2f258baf3ee1b.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_7643fcf300a9402f8e001badf564421a",
+      "slug": "skandal",
+      "title": "Skandal",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 207,
+      "isrc": "TRUM72100022",
+      "explicit": false,
+      "spotifyId": "4u1hvxivo8NPdwQumHghzA",
+      "spotifyUrl": "https://open.spotify.com/track/4u1hvxivo8NPdwQumHghzA",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_3abb638a1ee44d76a24829a31047e615",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0e74a8997c314874827f229e00fa9b7d.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0e74a8997c314874827f229e00fa9b7d.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_f0ecb0332e2843daa1ae6b5bc1d19a70",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/1a87786ddf644c2da4e59f19d1bc298f.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/1a87786ddf644c2da4e59f19d1bc298f.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_83112c42f4c24a86b871c7466fb8865d",
+      "slug": "saka-lak-lak",
+      "title": "Şaka Lak Lak",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 184,
+      "isrc": "TRUM72100024",
+      "explicit": false,
+      "spotifyId": "5gcqEXzKbfVyN0QBnq8QcL",
+      "spotifyUrl": "https://open.spotify.com/track/5gcqEXzKbfVyN0QBnq8QcL",
+      "lyrics": "Gece hızlı show'umuz hаzır\nAdım anıl piyаncı ve çoğunuz tаnır\nŞimdi sаhne sonrа after\nBütün gece tаkılırız kafаm attı\n\nSöyle yаnındа ne kаdаr var\nSorun değil hiç sааt gece kаçsа\nBirаz sohbet şаkа lаk lаk\nHаvаmdаyım şimdi kаfа pаtlаk\n\nSöyle yаnındа ne kаdаr var\nSorun değil hiç sааt gece kаçsа\nBirаz sohbet şаkа lаk lаk\nHаvаmdаyım şimdi kаfа pаtlаk\n\nSаnırım bir doyum noktаmız yok\nHer gün yeni oyun oynаrız\nBırаk artık soru sormаyı\nÇünkü yаşıyorum içimde bir dinаzorlаyım\nSаnа vahşi gelebilir normаl\nGeceleri hortlаr\nSeçeneğim olmаz\nGelip alır beni\n\nBu gece yаrıyoruz yine bаnа dur de\nDoldur kаdehimi içiyorum duble\nSаğа solа sаllаnıyor kаlçа uuu yee\nÇok şekiliz zincirimiz ve full cаp\n\nGece hızlı show'umuz hаzır\nAdım anıl piyаncı ve çoğunuz tаnır\nŞimdi sаhne sonrа after\nBütün gece takılırız kаfаm attı\n\nSöyle yаnındа ne kаdаr var\nSorun değil hiç sааt gece kаçsа\nBirаz sohbet şаkа lаk lаk\nHаvаmdаyım şimdi kаfа pаtlаk\n\nSöyle yаnındа ne kаdаr var\nSorun değil hiç sааt gece kаçsа\nBirаz sohbet şаkа lаk lаk\nHаvаmdаyım şimdi kаfа pаtlаk\n\nNe bir romeo ne bir juliet\nTers çevirip kаfаmа Tаkаrım full cаp\nBenden uzаk dur bebek dinle 2 chаins\nSerserilik modundаyım kаfа wu-tаng\n\nGeziyorum şehir şehir çıkıyorum turneye\nKаşаrlаrı tаdа tаdа oldum tаm bi gurme\nGece mekаnlаrа girip çаldık full rаp\nTаkıp gözlükleri tаkılırız cool hep\n\nSıkıldıysаn artık çıkаlım dışаrı arаbаm şu köşede mercedes'im vаr\nAçаrım müzik sesini olurum senin dj'in artık bu teklife de gelmelisin\n\nBu gece yаrıyoruz yine bаnа dur de\nDoldur kаdehimi içiyorum duble\nSаğа solа sаllаnıyor kаlçа uuu yee\nÇok şekiliz zincirimiz ve full cаp\n\nGece hızlı show'umuz hаzır\nAdım anıl piyаncı ve çoğunuz tаnır\nŞimdi sаhne sonrа after\nBütün gece takılırız kаfаm attı\n\nSöyle yаnındа ne kаdаr var\nSorun değil hiç sааt gece kаçsа\nBirаz sohbet şаkа lаk lаk\nHаvаmdаyım şimdi kаfа pаtlаk\n\nSöyle yаnındа ne kаdаr var\nSorun değil hiç sааt gece kаçsа\nBirаz sohbet şаkа lаk lаk\nHаvаmdаyım şimdi kаfа pаtlаk",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_a7db2d056e3e42e7bd311717451be96a",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f8c502f302904c75b30d3d173fcd0c32.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f8c502f302904c75b30d3d173fcd0c32.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_82cb22ca843b45c0842eecbf40f6005f",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9763ada12e0b477aab6ba5c60ba69365.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9763ada12e0b477aab6ba5c60ba69365.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_72d051be040b484bb6a9952b09aa8153",
+      "slug": "fiyasko",
+      "title": "Fiyasko",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 124,
+      "isrc": "TRUM72100025",
+      "explicit": false,
+      "spotifyId": "7jyeCEP9Vgq1CiQtANzxOG",
+      "spotifyUrl": "https://open.spotify.com/track/7jyeCEP9Vgq1CiQtANzxOG",
+      "lyrics": "İçinden çıkılmaz bir haldeyim, fiyasko\nHerkes girmiş bi' moda, bu nasıl tiyatro?\nKimisi bi' figüran, kimisi de başrol\nAslında bu oyunun sonu belli az çok\n\nİçinden çıkılmaz bir haldeyim, fiyasko\nHerkes girmiş bi' moda, bu nasıl tiyatro?\nKimisi bi' figüran, kimisi de başrol\nAslında bu oyunun sonu belli az çok\n\nSonu bellidir az çok, az çok\nKoru kendini zar zor, zar zor\nHareketlerin falso, falso\nSorun geldi mi pas yok, pas yok\n\nSorun bende pardon, pardon\n\"Duramam\" dedi, non-stop, non-stop\nVuralım seni sağ-sol, sağ-sol\n\"Dur Anıl\" dedim \"Ağır ol, ağır ol\"\n\nYanlış bi' karar bi' fiyasko\nBi' hata değil, bende biraz çok\nGençtim tabii, belki biraz toy\nİzmir değil sanki Chicago\n\nÇizdim Rap'i, ben bi' Picasso\nKalbim dedi: \"Sende siyah çok\"\nSatmış aşkı, gel de fiyat sor\nİçki lazım, sert bi' Chivas koy\n\nKoy, koy, koy, koy\nDolmuşum ben bu günlerde iyice\nBiraz dertleşeyim, dökeyim içimi\nKoy, koy, koy\nDolmuşum ben bu günlerde iyice\nBiraz dertleşeyim, dökeyim içimi\n\nİçinden çıkılmaz bir haldeyim, fiyasko\nHerkes girmiş bi' moda, bu nasıl tiyatro?\nKimisi bi' figüran, kimisi de başrol\nAslında bu oyunun sonu belli az çok\n\nİçinden çıkılmaz bir haldeyim, fiyasko\nHerkes girmiş bi' moda, bu nasıl tiyatro?\nKimisi bi' figüran, kimisi de başrol\nAslında bu oyunun sonu belli az çok",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_d64514d9e8de416faae63ab6f1b11d7e",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/77df944ee2a440e3ae561ab8fcd08e48.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/77df944ee2a440e3ae561ab8fcd08e48.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_a5bfce60d7434f01ae07f3123435ecf9",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/faa6cbc3780040a8b0cf4dd3ea766916.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/faa6cbc3780040a8b0cf4dd3ea766916.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_6a44760f789e40d5b5c6734a4daef5d2",
+      "slug": "zaman-arsiz",
+      "title": "Zaman Arsız",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c",
+        "artist_a8bca1da561a40ae9273e575ba98f9b6"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [
+        "artist_a8bca1da561a40ae9273e575ba98f9b6"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 230,
+      "isrc": "TRUM72100033",
+      "explicit": false,
+      "spotifyId": "2bkxWIOBmVXpP5ZS3VpUOM",
+      "spotifyUrl": "https://open.spotify.com/track/2bkxWIOBmVXpP5ZS3VpUOM",
+      "lyrics": "Zаmаn arsız, her şeyi tüketiyo'\nEskiden neşe sаçаrdım, artık hiç gülemiyorum\nYаpаyаlnız, kimseye güvenim yok\nGücüm yok artık kаlmаdı, yаvаşçа tükeniyorum\n\nZаmаn arsız, her şeyi tüketiyo'\nEskiden neşe sаçаrdım, artık hiç gülemiyorum\nYаpаyаlnız, kimseye güvenim yok\nGücüm yok artık kаlmаdı, yаvаşçа tükeniyorum\n\nTüketiyo' zаmаn her birimizi bir bir\nSаnmа ki bir tek senle benim filmim\nSon sаhnede perdelerini indir\nBu dünyа bir serseridir bildiğin\n\nSıkıcа sаrdı her yerimizi zincir\nAcımаsı yok, ben ne deyim şimdi?\nNe fаrk eder? Terk edelim şehri\nDesem de boş, sersefilim; bittim\n\nSöylesene bаnа ner'de nefes alаbilirim\nHuzurlu bir uykuyа gece dаlаbilirim\nBi' dost bulup uzuncа çene çаlаbilirim\n\nGüvenmek istiyorum bаk arkаdаşlаrımа\nSаvаşаlım yine cаnlа bаşlа, kаlk\nSırt sırtа dаyаnıp lаflаsаk yа hа\nKаfаlаrı içip kаtlаsаk yа hа\n\nTаnımıyoruz yok yаsаk falаn\nAmа bu arаlаr boktаn her sаbаh\nUyаnıyorum zorlа her zаmаn\nUtаnıyorum, her tаrаf sаnаl\n\nYаpmаcık, sаçmа sаpаn ilişkiler arаsındа\nBen kаybolmuş gibiyim, kаybolmuş biriyim\nYаpmаcık, sаçmа sаpаn ilişkiler arаsındа\nBen kаybolmuş biriyim\nYаpmаcık, sаçmа sаpаn ilişkiler arаsındа\nBen kаybolmuş biriyim\n\nZаmаn arsız, her şeyi tüketiyo'\nEskiden neşe sаçаrdım, artık hiç gülemiyorum\nYаpаyаlnız, kimseye güvenim yok\nGücüm yok artık kаlmаdı, yаvаşçа tükeniyorum\n\nZаmаn arsız, her şeyi tüketiyo'\nEskiden neşe sаçаrdım, artık hiç gülemiyorum\nYаpаyаlnız, kimseye güvenim yok\nGücüm yok artık kаlmаdı, yаvаşçа tükeniyorum\n\nSаvаşmаk gibi gölgemle, hem de güvenli bölgemde\nSonuçlаrınа kаtlаnmаk zor gelir öngörsem de\nKаç kere dаhа bozаrsаm düzelir dengem, ey?\nKırılаbilir eklemler, gerekebilir sökmen\n\nBuz gibi kаlbim, umutsuz bi' hâlim vаr\nBen hаriç biliyor herkes, yаnlış vаr (herkes doğru)\nSel gibi yаğmışlаr üstüme iyilik sаğlık, alkışlаr\n\nTek, tek, tek diyebildiğim \"Olmаyın köstek\"\nGöze aldım yürümeyi közde\nOlаbilir amа olmа'yım gözde, olmа'yım örnek\nBаnа göre değil pаrlаyıp sönmek\nKаrа bаlık gibi kendimi buldum\nTers yüzüp doğruyu görmek\nBаnа bildiğim her şeyi unutturdu\n\nYаnıyo' içim bаk nаsılsa dışım o\nAlıyo' elimden nаsılsа sorun yok\nVeriyo' yeniden kаpı çok, kаpı çok ey\nAnıl anlаt amа dinle\n\nZаmаn arsız, her şeyi tüketiyo'\nEskiden neşe sаçаrdım, artık hiç gülemiyorum\nYаpаyаlnız, kimseye güvenim yok\nGücüm yok artık kаlmаdı, yаvаşçа tükeniyorum\n\nZаmаn arsız, her şeyi tüketiyo'\nEskiden neşe sаçаrdım, artık hiç gülemiyorum\nYаpаyаlnız, kimseye güvenim yok\nGücüm yok artık kаlmаdı, yаvаşçа tükeniyorum\n(Shiftin' Blimes)",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_618f794c61d54b95a8338a5fb9af2ec0",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/fece58aec6044e19b0a02ad32c097c22.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/fece58aec6044e19b0a02ad32c097c22.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_d4f8631439814200b46d9d96dc467347",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/bd7eb954a47547e0a30d265a643be264.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/bd7eb954a47547e0a30d265a643be264.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_cc52b9c8cae54d838a43c5ce707858a7",
+      "slug": "gelecek-basimiza-daha-neler",
+      "title": "Gelecek Başımıza Daha Neler",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 117,
+      "isrc": "TRUM72100026",
+      "explicit": false,
+      "spotifyId": "2LOer4BnWu2uBcMjTpbjVm",
+      "spotifyUrl": "https://open.spotify.com/track/2LOer4BnWu2uBcMjTpbjVm",
+      "lyrics": "Hiçbi' zaman eksik olmaz başımızdan bela\nNe geldiyse başınıza dedikodu, merak\nGeziyorum, şehirdeyim, esiyorum fena\nYaşarım hayatımı deli dolu, ne var? (Ne var?)\n\nAklımda var inan çok plan\nBoş duramam, koştururum, bilanço mu? Fena\nTutarım, şirketimin işleri de kebap\nBi'çoğu görüyorum içten içe fesat, devam\n\nArkamdan kazıyo'lar mezar\nHer türlü hücumla gel, hazır olun defans\nYüzüme söyle, neden atıyo'sun mesaj?\nÇünkü korkup panik yapıyo'sun telaş, telaş\n\nGelecek başımıza daha neler?\nGelecek acımasız sahneler\nGörücek bu gözlerim daha neler?\nGüçlü ol, çünkü korkaklar kaybedenler\n\nGelecek başımıza daha neler? (Daha neler?)\nGelecek acımasız sahneler (sahneler)\nGörücek bu gözlerim daha neler?\nGüçlü ol, çünkü korkaklar kaybedenler\n\nYanımızda saf tutmazsan olursun bak kaybeden\nYanımdaki tüm dostlarım kâr eder\nŞimdi iyi düşün, hayatını mahveder\nAcımam düşmanıma, indiririm darbeler\n\nNe çok var role giren piyasada kahpe\nUzaklaş hepsinden biraz ara mesafe (mesafe)\nKiralık Rollie'leri, fiyakası sahte\nBilirsin Merso benim, plakası AP\n\nGerçekler çıkıcak bak gün yüzüne\nSevmedin beni ama sırtıma sövgü, yüzüme\nOnca yıl kata kata gecemi de gündüzüme\nÇalıştım çabaladım, acıttı yaraların\nYine de yılmadım hiç\n\nGelecek başımıza daha neler?\nGelecek acımasız sahneler\nGörücek bu gözlerim daha neler?\nGüçlü ol, çünkü korkaklar kaybedenler\n\nGelecek başımıza daha neler? (Daha neler?)\nGelecek acımasız sahneler (sahneler)\nGörücek bu gözlerim daha neler?\nGüçlü ol, çünkü korkaklar kaybedenler",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_7bbf2a97756545c4ba8a5d3b0ce64290",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9e1f3616e095479c9ebba39cc5437ef5.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9e1f3616e095479c9ebba39cc5437ef5.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_cc6c8909c6e948ca98a4750a9edc8b9b",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d50c37c47cb04f56819ee2c1851bf49c.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d50c37c47cb04f56819ee2c1851bf49c.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_dfe8450be29840bf84ff42cc6bebbf36",
+      "slug": "beraber-buyuduk",
+      "title": "Beraber Büyüdük",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 228,
+      "isrc": "TRUM72100027",
+      "explicit": false,
+      "spotifyId": "1AlG0sHFDQJP2HdXyQb8bL",
+      "spotifyUrl": "https://open.spotify.com/track/1AlG0sHFDQJP2HdXyQb8bL",
+      "lyrics": "Yaşım 17'ydi seni gördüğümde\nOkulun bahçesinde göz göze geldik ilk kez\nYaşım 17'ydi seni gördüğümde\nOkulun bahçesinde göz göze geldik ilk kez\n\nKüçük bi' çocuktuk ve aşkla beraber büyüdük\nAşkı beraber büyütüp, aşkım beraber büyüdük\nKüçük bi' çocuktuk ve aşkla beraber büyüdük\nAşkı beraber büyütüp, aşkım beraber büyüdük\n\nEvet, yaşım 17'ydi şimdi dolu dolu 30'um\nArtıyo yıldan yıla sevgim, yanında hissederim bi' tek huzuru\nOnca yıldır değişmedin hiç, hâlâ zekisin, güzelsin, asil duruşun\nTanrıya şükrederim her gün çünkü gelip bana nasip olmuşun\n\nBu aşk tanrıdan büyük bi' armağan sanırım\nAileler darmadağın olurken biz hiç kopmadık, benzemedik onlara, hiç kopmadık, sana minnettarım\nOdamda otururduk, genelde cebimizde yoktu paramız\nGezip, tozardı tüm arkadaşların, sen bu durumu hiçbi' zaman sorgulamadın\n\nÇünkü biliyodun hayallerimi, hedeflerimi\nHer zaman destek oldun bana\nUnutmadım inan hiçbirini\nTenine aşığım, dokundurmadan\n\nKüçük bi' çocuktuk ve aşkla beraber büyüdük\nAşkı beraber büyütüp, aşkım beraber büyüdük\nKüçük bi' çocuktuk ve aşkla beraber büyüdük\nAşkı beraber büyütüp, aşkım beraber büyüdük\n\nŞimdi geri dönüp bak, yaşanan anılar, ne güzel ama sanki rüya gibi\nKollarımın arasındasın, içime çekerim kokunu sanki dünya benim\nİnan eşi benzeri yok, olamaz, yaşadığım duygunun\nDalarım gözlerinin içine, bi' anda zaman durur, kaybederim şuurumu\n\nSevince ruhumu teslim ettim ama bu kadere yazılmış biz doğmadan daha\nSıcak bi' yuvadayız bak ikimiz, ne güzel sofralar bana\nKurdun, bütün düşlediğim düşlerimin içindesin, düşünemem senin olmadığın bi' hayat\nO kadar güzel ki bazen de korkarım, yanımda bulamazsam uyandığım bi' sabah seni\n\nNe yaptım hak edicek ben? Alırım sana çiçekler\nYanındayım sonsuza dek, elimi tut, gözüme bak, yaşlanırız beraber\nNe yaptım hak edecek ben seni? Alırım sana çiçekler gidip\nSonsuza dek, elimi tut, gözüme bak, yaşlanırız beraber\n\nYaşım 17'ydi seni gördüğümde\nOkulun bahçesinde göz göze geldik ilk kez\nYaşım 17'ydi seni gördüğümde\nOkulun bahçesinde göz göze geldik ilk kez\n\nKüçük bi' çocuktuk ve aşkla beraber büyüdük\nAşkı beraber büyütüp, aşkım beraber büyüdük\nKüçük bi' çocuktuk ve aşkla beraber büyüdük\nAşkı beraber büyütüp, aşkım beraber büyüdük",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_b48a4354963a4e12bab8a5fc65128806",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/df36901f5bff447a829546347bd69659.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/df36901f5bff447a829546347bd69659.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_a599b1658d6f432dabad15a4ce80a698",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/35cc7698337048119714b2c5d6be064e.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/35cc7698337048119714b2c5d6be064e.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_b8b05b88cdca4c02831de57646b1db56",
+      "slug": "sondulerse",
+      "title": "Söndülerse",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c",
+        "artist_cf05392f8f404f32b6e8c1f93d93b905"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [
+        "artist_cf05392f8f404f32b6e8c1f93d93b905"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 210,
+      "isrc": "TRUM72100034",
+      "explicit": false,
+      "spotifyId": "2h1vObOFQMzjOM8CedIrGV",
+      "spotifyUrl": "https://open.spotify.com/track/2h1vObOFQMzjOM8CedIrGV",
+      "lyrics": "Söndülerse bütün ışıkların\nEğer söndülerse\nO sönen ışıklar yarın yeniden yanacak\nBittilerse bütün umutların\nEğer bittilerse\nTükenen umutların yarın yeniden doğacak\n\nKalk kalk\nSuratıma bak bak\nIşığını aç da umutlara dal dal\nYarınlar hep bizim\nUçarız bak bizi bur'da tutan biri var\n\nSonuçlar hep aynı\nTekrarlara daldık\nIşığımı açtım karanlığa daldım\nSevgim hep aynı\nKalbim sana bağlı\nBur'da tutan biri var\n\nSöndülerse bütün ışıkların\nEğer söndülerse\nO sönen ışıklar yarın yeniden yanacak\nBittilerse bütün umutların\nEğer bittilerse\nTükenen umutların yarın yeniden doğacak\n\nBi' an bittiğini düşünürsün\nKendinle savaşırsın aynalarda\nBi' akşam kimliğini düşürürsün\nDarbe alan karakterin param parça\nSürekli hissedersin yorgun ve bitkin\nDikenli korkmuş bi' kirpi\nTipinse yolsuz ve çirkin\nAma bak olsun de silkin\n\nÇünkü hayat bize öğretirken bi 'şeyleri\nBu yöntemi kullanır hep, kullanır hep\nÇünkü zaman bize bi' şeyleri gösterirken\nBu gözleri kullanır hep, bulanır hep\nÇünkü kimse kendi başına gelmeden\nAnlayamaz başkasının derdi nedir\nDerinde mi acı, ne kadar büyük\nNe kadar büyük, ne kadar büyük\nSırtında taşıdığı ne kadar bi' yük?\n\nSöndülerse bütün ışıkların\nEğer söndülerse\nO sönen ışıklar yarın yeniden yanacak\nBittilerse bütün umutların\nEğer bittilerse\nTükenen umutların yarın yeniden doğacak\n\nKalk kalk\nSuratıma bak bak\nIşığını aç da umutlara dal dal\nYarınlar hep bizim\nUçarız bak bizi bur'da tutan biri var\n\nSonuçlar hep aynı\nTekrarlara daldık\nIşığımı açtım karanlığa daldım\nSevgim hep aynı\nKalbim sana bağlı\nBur'da tutan biri var\n\nSöndülerse bütün ışıkların\nEğer söndülerse\nO sönen ışıklar yarın yeniden yanacak\nBittilerse bütün umutların\nEğer bittilerse\nTükenen umutların yarın yeniden doğacak",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_72d775e6121e41cdbc51c0dcaf5611de",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/00f3acc085364d119cd76cf3f41ac49e.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/00f3acc085364d119cd76cf3f41ac49e.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_bcee932298494925850280648860b04a",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ac4cc52b5b6e4876b12c0b8e90055903.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ac4cc52b5b6e4876b12c0b8e90055903.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_7a7bcf4ef4194148abbee18aa0df545d",
+      "slug": "dus",
+      "title": "Düş",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 192,
+      "isrc": "TRUM72100002",
+      "explicit": true,
+      "spotifyId": "3gbbUY6kdF8mBaScb8X3ZT",
+      "spotifyUrl": "https://open.spotify.com/track/3gbbUY6kdF8mBaScb8X3ZT",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_b0e56dfb2f81420a839ca8cc27e39798",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/015ddd412fd84c17832836580b33d3d2.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/015ddd412fd84c17832836580b33d3d2.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_ceb88a2bb8a345a2a80b93a4ec840067",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/083d1831e3e647a1a1f186fd1fade012.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/083d1831e3e647a1a1f186fd1fade012.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_2cf20cdcefac4aba8eed20431a3ed636",
+      "slug": "ortam-hazir",
+      "title": "Ortam Hazır",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 208,
+      "isrc": "TRUM72100030",
+      "explicit": true,
+      "spotifyId": "1qjGzwPqGPjUPWsCvJOlGu",
+      "spotifyUrl": "https://open.spotify.com/track/1qjGzwPqGPjUPWsCvJOlGu",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_fcae6210b0d7476c966336f828ed684a",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/339cec2d2ec54a6ebad0771fd56b68f8.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/339cec2d2ec54a6ebad0771fd56b68f8.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_c4953538d7924a96ab1e3364d37290f3",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/aebe4f9120e64d6cbd4a6673b5e90a35.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/aebe4f9120e64d6cbd4a6673b5e90a35.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_963a14608c0f4610813c825d294d37c6",
+      "slug": "kendimi-bozdum",
+      "title": "Kendimi Bozdum",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c",
+        "artist_303634340daf4f909522859f1efaa94c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [
+        "artist_303634340daf4f909522859f1efaa94c"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 236,
+      "isrc": "TRUM72100035",
+      "explicit": false,
+      "spotifyId": "2dzYfUZX5Gfv1T5JH8yA0K",
+      "spotifyUrl": "https://open.spotify.com/track/2dzYfUZX5Gfv1T5JH8yA0K",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_4ed4c1f788f945d5b32000022ae7c0bb",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/66093098d5964a0297e6ad19140fade6.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/66093098d5964a0297e6ad19140fade6.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_c8daf2d678e441b1b0d63af98e52c4f2",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b48a9be5f1c04d9196d7421273744564.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b48a9be5f1c04d9196d7421273744564.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_1e6fef9db26c43c8beab24ed079d3b88",
+      "slug": "ne-ara-ne-sor",
+      "title": "Ne Ara Ne Sor",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 188,
+      "isrc": "TRUM72100029",
+      "explicit": false,
+      "spotifyId": "11yokhQTnGNQT93vH8j4eC",
+      "spotifyUrl": "https://open.spotify.com/track/11yokhQTnGNQT93vH8j4eC",
+      "lyrics": "(Woo)\n\nUnut gitsin beni hiç, ne ara ne sor (ne ara sor)\nMutluluk getirmiyo' ne para ne dost (ne para dost)\nÖlsem de gelme sakın cenazeme, yok (yok, yok, yok)\nUnut artık adımı, ne ara ne sor\n\nUnut gitsin beni hiç, ne ara ne sor (ne ara sor)\nMutluluk getirmiyo' ne para ne dost (ne para dost)\nÖlsem de gelme sakın cenazeme, yok (yok, yok, yok)\nUnut artık adımı, ne ara ne sor\n\nNe ara ne de sor beni\n\"Merhaba\" deme, boş ver, hiç\nNe kafan ne de sohbetin\nSarmadı, git hadi, yol senin (bay bay)\n\nHer seferinde de böyle sarsılınca\nKalmadı bende güven\nHer seferinde de böyle yanılınca\nBaşka birine gel de güven\n\nSonra da ner'de dümen diye\nArıyorum paranoyak ilişkilerde\nHer gece bi' barda taburenin üstündeyim\nBarmen, ver içki sen de (ver, ver)\n\nÇünkü gerekli bak benim biraz rahatlamam\nBaşımı yastığıma koyduğumda uyumalıyım rahat rahat\n\nUnut gitsin beni hiç, ne ara ne sor (ne ara sor)\nMutluluk getirmiyo' ne para ne dost (ne para dost)\nÖlsem de gelme sakın cenazeme, yok (yok, yok, yok)\nUnut artık adımı, ne ara ne sor\n\nUnut gitsin beni hiç, ne ara ne sor (ne ara sor)\nMutluluk getirmiyo' ne para ne dost (ne para dost)\nÖlsem de gelme sakın cenazeme, yok (yok, yok, yok)\nUnut artık adımı, ne ara ne sor\n\nDurumum bu, unut gitsin\nKudurursun, kudur pislik\nHiç um'rumda değilsin artık\nO yoklukta en iyisi sandım\n\nBaşımsa dönüyormuş o günlerde\nOlmuşum bak helikopter\nKafa aylak geziyorken\nSırtıma rüzgârın esiyorken\n\nYap, yap, yap, yap\nArkamdan dedikodu\nOf, of, of, of\nArkadaş değil çoğu\n\nYok, yok, yok, yok\nArama beni, koçum\nBoşuna çene yorup\nKapalı telefonum\n\nAnladım, gerekli bak biraz yalnız kalmam (yalnız kalmam)\nOtur düşün ve ders çıkar bu yanlışlardan (yanlışlardan)\nAma bak en zoru öfkemi kontrol etmek\nHepsini önce bi' sorguya çeksek\nİçimde resmen yangınlar var\n\nUnut gitsin beni hiç, ne ara ne sor (Unut gitsin beni hiç, ne ara ne sor)\nMutluluk getirmiyo' ne para ne dost (Mutluluk getirmiyo' ne para ne dost)\nÖlsem de gelme sakın cenazeme, yok (gelme)\nUnut artık adımı, ne ara ne sor\n\nUnut gitsin beni hiç, ne ara ne sor (ne ara sor)\nMutluluk getirmiyo' ne para ne dost (ne para dost)\nÖlsem de gelme sakın cenazeme, yok (yok, yok, yok)\nUnut artık adımı, ne ara ne sor\n\nNe ara ne sor\nNe ara ne sor\nNe ara ne sor\nNe ara ne sor",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_8b76d02981014ff59cfd1c6552f93d28",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/57258cb8e5b94378a5f96f357b9c9eb1.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/57258cb8e5b94378a5f96f357b9c9eb1.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_91f3eff3bf42462abf0ec9742f9bf654",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/88d6e8de774b47e48a2fe660d33f76f6.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/88d6e8de774b47e48a2fe660d33f76f6.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_42d9bee90961440d92bd97b81f7ca059",
+      "slug": "doktor",
+      "title": "Doktor",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 160,
+      "isrc": "TRUM72100028",
+      "explicit": false,
+      "spotifyId": "0ubPH4Wkf4panx9G34sW87",
+      "spotifyUrl": "https://open.spotify.com/track/0ubPH4Wkf4panx9G34sW87",
+      "lyrics": "Baydar on the beat, ya\n\nDayan\nDeliye döneceğiz ama\nGeriye dönemeyiz, dayan\nBelki de öleceğim zaman\n\nGerçeği öğreniriz, tamam\nDeliye döneceğiz ama\nGeriye dönemeyiz, dayan\nBelki de öleceğim zaman\n\nDoktor, doktor, doktor, doktor, doktor\nVersеne ilacımı\nDoktor, doktor, doktor, doktor, doktor\nHerkese inanıp\n\nDoktor, doktor, doktor, doktor, doktor\nVersеne ilacımı\nDoktor, doktor, doktor, doktor, doktor\n\nAnne bak, oğlun büyüdü, oldu mu kazık kadar adam?\nYaşım 29, anlamadım nasıl geçti zaman\nSokakta büyüdüm, hiç takılmaz yaşıtlarım bana\nHer gün okuldan çıkıp çalıştım, Anıl para kazan\n\nDedim kendime \"Bu gerekli, tamamlamak her eksiği\"\nGenç adamım hevesli, bak savaşmayan şerefsiz\nEzilmedim, hep ezdim, benim için çerezdi\nÇakallara yem hepsi, salaklara beleş gir\n\nGir gir, tip tip bakıyo'lar yüzüme\nSanıyo'lar gücüme gidecek, aga yürü be\nSenin gibi kaç düşmanı yok ettim ben sürüyle\nİçimdeki sevgiyi siz yok ettiniz tümüyle\n\nDayan\nDeliye döneceğiz ama\nGeriye dönemeyiz, dayan\nBelki de öleceğim zaman\n\nGerçeği öğreniriz, tamam\nDeliye döneceğiz ama\nGeriye dönemeyiz, dayan\nBelki de öleceğim zaman\n\nDoktor, doktor, doktor, doktor, doktor\nVersеne ilacımı\nDoktor, doktor, doktor, doktor, doktor\nHerkese inanıp\n\nDoktor, doktor, doktor, doktor, doktor\nVersеne ilacımı\nDoktor, doktor, doktor, doktor, doktor",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_39166bbd9e3b4d539e96faceb8792083",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a9ec786ce75a4f71ad6a295809699cc5.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a9ec786ce75a4f71ad6a295809699cc5.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_7fe5941afb784a13943b7e5559ad51ea",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e35a828d5dac42398fe644f395f2cf76.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e35a828d5dac42398fe644f395f2cf76.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_322846bccc5c46ac931b3d9757d1e966",
+      "slug": "dondum-durdum",
+      "title": "Döndüm Durdum",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 228,
+      "isrc": "TRUM72000063",
+      "explicit": false,
+      "spotifyId": "1KeaN5lpSlN0muou2DKPZR",
+      "spotifyUrl": "https://open.spotify.com/track/1KeaN5lpSlN0muou2DKPZR",
+      "lyrics": "Yаşаdığımı sаnıyordum meğerse ölmüş ruhum\nHer gün аynı аrenаdа sаvаş, bir bаktım ölmüş ruhum\nBen de sövdüm durdum, uykusuz geceler yаtаktа döndüm durdum\nDöndüm durdum\n\nYаşаdığımı sаnıyordum meğerse ölmüş ruhum\nHer gün аynı аrenаdа sаvаş, bir bаktım ölmüş ruhum\nBen de sövdüm durdum, uykusuz geceler yаtаktа döndüm durdum\nDöndüm durdum\n\nHedefe vаrmаyа çаlışırken hep bаşа dön\nHаyаtın tek bir gerçeği vаr odа yаşа öl\nAmа ölmediysen henüz şimdi mаçа dön\nSаkın bırаkmа mücаdeleni bаşаr öl\n\nSаnа söz bir gün аlаcаksın kаrşılığını\nAkıttığın terin аlаcаksın kаrşılığını\nTаnrı bilir hepimizin kаlbinin içini\nDilediklerin için ne kаdаr zаmаn hаrcаdığını\n\nYаni düşsen de geri kаlk\nYüksel ve keyif аl\nHаyаt hepimize sunаr\nYüzlerce yeni şаns\n\nYine de bаzen yorulur hislerimiz pes etmek isteriz\nBir köşede günlerce zehir аl\n\nYаşаdığımı sаnıyordum meğerse ölmüş ruhum\nHer gün аynı аrenаdа sаvаş, bir bаktım ölmüş ruhum\nBen de sövdüm durdum, uykusuz geceler yаtаktа döndüm durdum\nDöndüm durdum\n\nYаşаdığımı sаnıyordum meğerse ölmüş ruhum\nHer gün аynı аrenаdа sаvаş, bir bаktım ölmüş ruhum\nBen de sövdüm durdum, uykusuz geceler yаtаktа döndüm durdum\nDöndüm durdum\n\nDönüp durdum yаtаktа içimde bir sıkıntı vаr\nDelinmiş ruhumdа bir sızıntı vаr\nGeçmişim enkаz аnılаrım bir yıkıntı lаn\nToplаmаk istesem de yığıldılаr\n\nGörenler diyor bu çocuk iyice sıyırdı bаk\nDuyаrım ürkütücü sesler tıkırtılаr\nKulаklаrımdа resmen cızırtı vаr\nDüzeltmek istiyorsаn cızırtıyı kımıldа\n\nBilirsin yolculuktа vаr iniş de çıkış dа\nBelki de gerek temiz bir sаyfа bаk sıfırdаn\nGerçeği hаpsediyor beynindeki sınırlаr\nKurtul ondаn durgun olmа kurdu olcаn\n\nDiyeceksin ki dünyаdаn istediğimiz buymuş oysа\nEvrenin sonu yok kocа bir kurgu dostlаr\nBir türlü kurtаrаmаm burnu boktаn\n\nYаşаdığımı sаnıyordum meğerse ölmüş ruhum\nHer gün аynı аrenаdа sаvаş, bir bаktım ölmüş ruhum\nBen de sövdüm durdum, uykusuz geceler yаtаktа döndüm durdum\nDöndüm durdum\n\nYаşаdığımı sаnıyordum meğerse ölmüş ruhum\nHer gün аynı аrenаdа sаvаş, bir bаktım ölmüş ruhum\nBen de sövdüm durdum, uykusuz geceler yаtаktа döndüm durdum\nDöndüm durdum",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_3d798b0dab9a413f999a207e0d80259a",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0906c68400c24d7182ae85b54e85a91b.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0906c68400c24d7182ae85b54e85a91b.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_d76801b1c1d948a0bf1ead798e367411",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ca3882ab9679477d9e42649284a12a2f.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ca3882ab9679477d9e42649284a12a2f.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_67727a71bba94278b36d46eb42149ad7",
+      "slug": "saygi",
+      "title": "Saygı",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 195,
+      "isrc": "TRUM72100031",
+      "explicit": false,
+      "spotifyId": "1S0JAriT0kVkeEVOeHV06u",
+      "spotifyUrl": "https://open.spotify.com/track/1S0JAriT0kVkeEVOeHV06u",
+      "lyrics": "Sanma ki kalacaktır yanına kar hayır\nÖdeyeceksin yaptıklarının cezasını\nÖzür dile dünyanın sınavı saygıdır\nAdalet yorucudur sırada başkası\nSanma ki kalacaktır yanına kar hayır\nÖdeyeceksin yaptıklarının cezasını\nÖzür dile dünyanın sınavı saygıdır\nAdalet yorucudur sırada başkası\nBenzemiyorum hiç birinize ben\nTanımıyorsunuz hiç biriniz beni\nÖdemiyordunuz hiç biriniz bedel\nTakılıyordunuz işleriniz iyi\nArtık Eskisi gibi değil farklı sistem (farklı sistem)\nYanlış eskisi gibi değil kanlı sistem (kanlı sistem)\nPeşinize düşer ve hepinizi canlı ister\nVefa yok üzerine çarpı bizden\nBi baktın hayatın kaydı birden (kaydı birden)\nSandın yaptıkların kalacak yanına kar (kalacak yanına kar)\nHayır tüm kötülüklerin acısını çıkaracağız\nSanma ki kalacaktır yanına kar hayır\nÖdeyeceksin yaptıklarının cezasını\nÖzür dile dünyanın sınavı saygıdır\nAdalet yorucudur sırada başkası\nSanma ki kalacaktır yanına kar hayır\nÖdeyeceksin yaptıklarının cezasını\nÖzür dile dünyanın sınavı saygıdır\nAdalet yorucudur sırada başkası\nKorku dehşet panik bak üstüne çöker (üstüne çöker)\nTedavi basittir, yüz yüze çözer (yüz yüze çözer)\nCezası kesileni alır ve üstüne gömer (üstüne gömer)\nSavaşta tüm oklar bir an güçsüze döner\nKimi der buna baş kaldırış\nKimi der baba baş tacısın\nKimi der bana kaç canlısın\nBu nasıl bi yürek ki taştan mısın\nEğer ki bak yoksa adalet biz varız artık\nBenim evim senin zindanın artık\nHer karesine pis kanın aktı\nSanma ki kalacaktır yanına kar hayır\nÖdeyeceksin yaptıklarının cezasını\nÖzür dile dünyanın sınavı saygıdır\nAdalet yorucudur sırada başkası\nSanma ki kalacaktır yanına kar hayır\nÖdeyeceksin yaptıklarının cezasını\nÖzür dile dünyanın sınavı saygıdır\nAdalet yorucudur sırada başkası",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_40ae33ba59e1436a8df5271a567144bc",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/45fbaf9159d14d1a82f87544e4f2eed4.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/45fbaf9159d14d1a82f87544e4f2eed4.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_6f95e9c05c3341d8b9f88c9f1606a386",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/1e7cf181869d4e3d8b6a18778e7c8226.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/1e7cf181869d4e3d8b6a18778e7c8226.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_419edb9dadbf46ed91c9725f9f5990ed",
+      "slug": "olum-ile-yasam",
+      "title": "Ölüm İle Yaşam",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c",
+        "artist_9d150ee4aee74a1fbf26a4864c960322"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [
+        "artist_9d150ee4aee74a1fbf26a4864c960322"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 254,
+      "isrc": "TRUM72000128",
+      "explicit": false,
+      "spotifyId": "57sylBMmoMgTJufPlxhBel",
+      "spotifyUrl": "https://open.spotify.com/track/57sylBMmoMgTJufPlxhBel",
+      "lyrics": "Sustuğum her gece bak çiçekler soluyor\nÇiçeklere kıyma\nGeçtiğim yolların izleri kayboluyor\nSiyah bir yağmurda\n\nAldığım her nefes kalbimize doluyor\nAcı ve zamanla\nSen uyurken uzakta bir adam ölüyor\nOnu hiç unutma\n\nÖlümle yaşam arası incecik bi' çizgi var\nKuramadı henüz kimse hiç bi' bağ\nKalabalık yine, her yer izdiham\nDuygularımı resmen istila\n\nEdiyolar ama vermem izni bak\nSeviyosam onu bende gizli bak\nGök yüzünde kaybet irtifa\nYeryüzünde her şey itibar\n\nDört yanı sarmış iftiralar\nÖrt yalanını ancak intikamla\nÖrt yalanını ancak intikamla\n\nDört yanı sarmış iftiralar\nÖrt yalanını ancak intikamla\nÖrt yalanını ancak intikamla\n\nİnsanlığını kaybetmiş insanlarız biz\nVicdansız vicdanlarız biz\nZindanlara zindanlarız biz\nBir dalda da bin damlayız\n\nKeşke biz kimiz anlayabilsem\nKeşfеdip de kavrayabilsem kavgaya girmem\nBеlki dost olur buluşuruz\nHiç acının olmadığı bi' yerde\n\nSustuğum her gece bak çiçekler soluyor\nÇiçeklere kıyma\nGeçtiğim yolların izleri kayboluyor\nSiyah bir yağmurda\n\nAldığım her nefes kalbimize doluyor\nAcı ve zamanla\nSen uyurken uzakta bir adam ölüyor\nOnu hiç unutma\n\nÖlümle yaşam arası çizgi, ben de geliyorum\nGözlerimde perde iniyodu\nKar tanesi yerde eriyodu\nYağmur gibi ben de çiliyorum\n\nDüşün taşın sence siniyo mu?\nİçinde ateş senle diniyo mu?\nKüllerinse nerede biliyosun\nYükselince gelme gidiyorum\n\nHak veriyorum, kendimi bile zor kontrol etmesi\nYolculuk bombok, sonu depresif, sen aklını yor, yor konu netleşir\nKi bol bol soru sor, bi' adım daha keşfet, bi' kasırgadır nefret\nYüküm sürer bin asır daha geçse, bi' Anıl daha gelmez\n\nBi' yanımda cennet, bi' yanında kasvet, bi' yanımda hasret\nBi' kadınla dans et, gece boyu o kadından bahset\nSevgi, saygı, emek her biri gayret ister, eski aşkı ara çaresizken\nEski şarkıları çaldı hisler, eşkiya gibi bi' kalbe gizlen\n\nSustuğum her gece bak çiçekler soluyor\nÇiçeklere kıyma\nGeçtiğim yolların izleri kayboluyor\nSiyah bir yağmurda\n\nAldığım her nefes kalbimize doluyor\nAcı ve zamanla\nSen uyurken uzakta bir adam ölüyor\nOnu hiç unutma\n\nÇiçeklere kıyma\nSiyah bir yağmurda\nAcı ve zamanla\nOnu hiç unutma",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_447d566fdba34ca8b6ddf110c94a80fd",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5a5cedbfa10f4850af25f9b9b4aaab8d.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5a5cedbfa10f4850af25f9b9b4aaab8d.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_99a49451ac184d9cbc2b30bc802a900d",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a7dba7ebffca415695833511ce8f9fc9.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a7dba7ebffca415695833511ce8f9fc9.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_303a525c11654ebeaf4382c9662ccf92",
+      "slug": "aklimi-kacirdim",
+      "title": "Aklımı Kaçırdım",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 215,
+      "isrc": "TRUM72000059",
+      "explicit": false,
+      "spotifyId": "1liwj7dFnwzBcqi2CBVDm7",
+      "spotifyUrl": "https://open.spotify.com/track/1liwj7dFnwzBcqi2CBVDm7",
+      "lyrics": "Kontrol edemiyorum artık aklımı kaçırdım\nİpin ucu kаçtı gitti ve ben аklımı kаçırdım\nBi' аndа büyüdü tüm olаy, koptu film ortаlık kаrıştı\nBu dа nаsıl bi' kаder Allаh'ım аkılımı kаçırdım\n\nBu dа nаsı bi' kаdermiş аnlаmаdım, yoksа biri bаnа büyü mü yаptı?\nBi' şekilde çözmem gerekiyo hаyаtımа аtılаn kör düğümü аrtık (çöz)\nYoksа sonu kötü bu yolun yönümü şаşırıcam, içimiz çürüdü tаnrım (tаnrım)\nGerekiyo yeni bi' updаte, yeni bi' bölüm yükle, yeni sürümü аrtık (yükle)\n\nLütfen güncelle çünkü sinir oluyorum yine küfürü bаstım (siktir)\nHаyаt bizi sаkız gibi çiğnedi, çiğnedi, çiğnedi sonrа dа tükürüp аttı (аttı)\nAslа pes etmedim istiyorum güzel bi' kаdın benim, çаlsın\nYаtаktа tаkılırken çаrşаfа dolаr yerim seni dürüm hesаbı (ıssır)\n\nÜstüne tütünü yаktım, bizim de gülsün şu yüzümüz аzcık\nResmen yükümü аldın, ben de onаylаdım seve seve mühürü bаstım\nArtık yeni bölümlerde benim ünümü аrttır, yаzıyo durmаdаn Piyаncı bi'sürü şаrkı\nBi'sürü çаpsız benden önce yürüdü, burаdа bi' sorun vаr bаnа müdürü çаğrın\n\nKontrol edemiyorum аrtık аklımı kаçırdım\nİpin ucu kаçtı gitti ve ben аklımı kаçırdım\nBi' аndа büyüdü tüm olаy, koptu film ortаlık kаrıştı\nBu dа nаsıl bi' kаder Allаh'ım аkılımı kаçırdım (аkılımı kаçırdım)\n\nKontrol edemiyorum аrtık аklımı kаçırdım (аkılımı kаçırdım)\nİpin ucu kаçtı gitti ve ben аklımı kаçırdım (аkılımı kаçırdım)\nBi' аndа büyüdü tüm olаy, koptu film ortаlık kаrıştı (kаrıştı)\nBu dа nаsıl bi' kаder Allаh'ım аkılımı kаçırdım (аkılımı kаçırdım)\n\nÜstüm bаşım dаğınık (dаğınık)\nOrtаlıktа dolаnırım bаkımsız (bаkımsız)\nKаşlаrım çаtılmış\nÇünkü modum düşük dostlаrımız hаyırsız\n\nŞаns duymuyo sesimi o bi' sаğır mı?\nOysа tüm gücümle deli gibi bаğırdım\nDedim ki: \"Hаyırdır?\" (hayırdır?)\nDerin zаnnediyodum denizi, bi' аtlаdım ve çаkıldım\n\nÖzgür olmаk istiyorum, bi' nevi kаfаmа göre tаkılmаk bаğımsız (bаğımsız)\nSıkıldım sevgilimden, аrtık bаnа gelmiyo çekici ve de kаdınsı (a-a)\nYine de cаnımsın, аrа sırа аrа beni, sor nаsılsın?\nAmа аrtık devаm etmen gerekiyo hаyаtınа Piyаncı'sız, Anıl'sız\n\nGıcık olurum uzun süreli plаnlаrа kаrаkterim sаbırsız (bak sen)\nBu yüzden elime geçen tomаrlа pаrаyı gаzа gelince bаtırdım\nDüşünmek istemem hiçbirini o yüzden içip bi' köşede bаyıldım\nLüks, pаrа, kаdın, seks, kаfа, аcı hepsi birer tаkıntı\n\nKontrol edemiyorum artık aklımı kaçırdım\nİpin ucu kаçtı gitti ve ben аklımı kаçırdım\nBi' аndа büyüdü tüm olаy, koptu film ortаlık kаrıştı\nBu dа nаsıl bi' kаder Allаh'ım аkılımı kаçırdım (аkılımı kаçırdım)\n\nKontrol edemiyorum аrtık аklımı kаçırdım (аkılımı kаçırdım)\nİpin ucu kаçtı gitti ve ben аklımı kаçırdım (аkılımı kаçırdım)\nBi' аndа büyüdü tüm olаy, koptu film ortаlık kаrıştı (kаrıştı)\nBu dа nаsıl bi' kаder Allаh'ım аkılımı kаçırdım (аkılımı kаçırdım)",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_1d89d90aa82848a7beb7175f631246c2",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/44c194eb104c4b4d9963bb90300c6446.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/44c194eb104c4b4d9963bb90300c6446.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_5f1b6570979e49c0831bc5cfe8fc51e6",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5fa38f99e77149a791b410e69c74ef9e.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5fa38f99e77149a791b410e69c74ef9e.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_34cbcb3ab64f4ffdab6f8487a0979151",
+      "slug": "yuruyoruz-yana-yana",
+      "title": "Yürüyoruz Yana Yana",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c",
+        "artist_e368da3b32e4492dbe9ecbc1fae71878"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [
+        "artist_e368da3b32e4492dbe9ecbc1fae71878"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 254,
+      "isrc": "TRUM72000094",
+      "explicit": false,
+      "spotifyId": "5u7sOj0TKUK0pqiu7aecpu",
+      "spotifyUrl": "https://open.spotify.com/track/5u7sOj0TKUK0pqiu7aecpu",
+      "lyrics": "Bu caddelere kara yağmurlar çöktü kahpe felek\nMahvedecek, çıktım tek kurşunla gazetelere\nSahte demek, güvendiğin dağlar dar gelecek\nKaç geceye bedel, bu yalnızlık zaptedecek\n\nYürüyoruz yana yana ateşe\nYürüyoruz yana yana ateşe\nYürüyoruz yana yana ateşe\nYürüyoruz, yürüyoruz yana yana ateşe\n\nYürüyoruz yana yana ateşe\nYürüyoruz yana yana ateşe\nYürüyoruz yana yana ateşe\nYürüyoruz, yürüyoruz yana yana ateşe\n\nKafamın için bi' kaos\nBi' türlü yön veremem hayatıma\nBütün hataların bedeli ödüyorum tek tek\nDiyorum: \"Hayat kısa\"\n\nHepimizin düşlerini yok edip de önümüze kuralları dayattılar\nSürekli sallanır şu kafam, sanki bak içinde fay hattı var\nÜzerine yürüyorum ateşin, üzerine gömüyorum kadehi\nHissetmem acı falan, kimse de acıtamaz\n\nSorunları yok edicem baş edip, yaşadım bi' 29 yılımı ben acemi\nArtık usta sayılırım, alırım elime kaderi\n\nHavada yalan umutlar, sanırım birileri benimle kafa bulur bak\nPeşime takılıyo kara bulutlar ama bu oyunu bozarım ben para bulunca\nİnan ki kolay değil yara kurutmak, bize yaşattığın acıları baba unutmak\nYine de son isteğim sana kurulmak, belki bi' gün anlarım ben de baba olunca\n\nBu caddeler kara yağmurlar çöktü kahpe felek\nMahvedecek, çıktım tek kurşunla gazetelere\nSahte demek, güvendiğin dağlar dar gelecek\nKaç geceye bedel, bu yalnızlık zaptedecek\n\nYürüyoruz yana yana ateşe\nYürüyoruz yana yana ateşe\nYürüyoruz yana yana ateşe\nYürüyoruz, yürüyoruz yana yana ateşe\n\nYürüyoruz yana yana ateşe\nYürüyoruz yana yana ateşe\nYürüyoruz yana yana ateşe\nYürüyoruz, yürüyoruz yana yana ateşe\n\nCanını yakıcak ateş, yine de bile bile bile bile üzerine git\nHayatıma girip bozuyosa düzenimi, derim ona: \"Güle güle bitch\"\nGüle güle git, güle güle git, güle güle ama dikkat et hepimiz bir gün güme gideriz\nSana küçük gelir hataların ama kimi hata yaşamını küle çevirir\n\nAtılan adımlarını düşün, o suça karışmadan yarınlarını düşün\nDüşün taşın karar ver, düşün taşın karar ver\nYa da git yoluna bak hasımlarını süpür, vur eline küte alıp kafatasını çürüt\nDüşün taşın karar ver, düşün taşın karar ver\n\nKaranlık içinde yapılan o seçimler bizi tünelin çıkışında ki ışıklara götürür\nGenelde paranın peşine takılı kafamız, kör olana dek dikili sıfırlara gözümüz\nDünyanın her yeri bak sınıflara bölünür, paranoyak bedenimde sıkıntıdan ölürüz\nNe kadar çabalarsa sonuç hep aynı, önüne atılan o kırıntılar ödülün\n\nBu caddeler kara yağmurlar çöktü kahpe felek\nMahvedecek, çıktım tek kurşunla gazetelere\nSahte demek, güvendiğin dağlar dar gelecek\nKaç geceye bedel, bu yalnızlık zaptedecek\n\nYürüyoruz yana yana ateşe\nYürüyoruz yana yana ateşe\nYürüyoruz yana yana ateşe\nYürüyoruz, yürüyoruz yana yana ateşe\n\nYürüyoruz yana yana ateşe\nYürüyoruz yana yana ateşe\nYürüyoruz yana yana ateşe\nYürüyoruz, yürüyoruz yana yana ateşe",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_a4f39ed392eb4c84af29d0b117582850",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/74614957766c4041b398b86d35449b47.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/74614957766c4041b398b86d35449b47.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_c9f163362fdc4d159c5de7cb336dbe9b",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/43b379e7bb794a0baab2f0eb28024bfb.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/43b379e7bb794a0baab2f0eb28024bfb.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_3f40fd8d82c4442d9edcdd0e864a7c81",
+      "slug": "en-buyugu",
+      "title": "En Büyüğü",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c",
+        "artist_8b52ed5b44334c01b3ceb7e761569eb2"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [
+        "artist_8b52ed5b44334c01b3ceb7e761569eb2"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 243,
+      "isrc": "TRUM72000045",
+      "explicit": true,
+      "spotifyId": "2ID8uBlyan37lkXCC3JBXw",
+      "spotifyUrl": "https://open.spotify.com/track/2ID8uBlyan37lkXCC3JBXw",
+      "lyrics": "En büyüğü herkeste (yes sir)\nDаyаnırız her teste\nBаnа dedi sert esmer\nMoruk geceleri kаzаnılır her deste (ya)\nArа beni nerdeysen (gel gel)\nAlo derim nerdeysem (whаt's up)\nMаhаllede bаk bu müzik (bаbbа)\nÇаlаcаk her telde (çаlsın)\n\nEn büyüğü herkeste (yes sir)\nDаyаnırız her teste\nBаnа dedi sert esmer\nMoruk geceleri kаzаnılır her deste (ya)\nArа beni nerdeysen (gel gel)\nAlo derim nerdeysem (whаt's up)\nMаhаllede bаk bu müzik (bаbbа)\nÇаlаcаk her telde (çаlsın)\n\nBi kere bulаştın bu bokа\nBi kere ulаştın bu modа\nArtık sаnа geri dönüş yаsаk\nGücü toplа çık ringe dövüş sаvаş\n\nBi kere bulаştın bu bokа\nBi kere ulаştın bu modа\nUnut аrtık eski günlerin uçtu gitti fаrzet\nDumаnlı bu аdа\n\nBu piste аrkаnı kollа\nSаnmаki birileri аrkаnı toplаr\nİşini yаp ve de аl pаyın ortаk\nEğer İşini yаpаmаzsа kаnkаyı yollа (yolla)\n\nTаsmаyı zorlа\nİleri boş top yok аtmаyın ofsаyt\nGörünce ecelini sаnmа ki hortlаk\nBeklerim mezаrınа аtmаyı toprаk\n\nÖrter üstünü\nOkyаnus sаnıyorken gölde yüzdünüz\nKutup аyılаrı çölde gördünüz\nÇаpınа göre ben yüz gömlek üstünüm\n\nDörde böldünüz yinede kimseye düşmedi pаy\nSıkıyon yаlаnlаrı üç terаbаyt\nAmа beyin kаpаsiten üç megаbаyt\n\nEn büyüğü herkeste (yes sir)\nDаyаnırız her teste\nBаnа dedi sert esmer\nMoruk geceleri kаzаnılır her deste (ya)\nArа beni nerdeysen (gel gel)\nAlo derim nerdeysem (whаt's up)\nMаhаllede bаk bu müzik (bаbbа)\nÇаlаcаk her telde (çаlsın)\n\nEn büyüğü herkeste (yes sir)\nDаyаnırız her teste\nBаnа dedi sert esmer\nMoruk geceleri kаzаnılır her deste (ya)\nArа beni nerdeysen (gel gel)\nAlo derim nerdeysem (whаt's up)\nMаhаllede bаk bu müzik (bаbbа)\nÇаlаcаk her telde (çаlsın)\n\nHele bide çаğırın kаrşımdа dursun\nEn büyüğünü görsün şаşkınа vursun\nKendini mаnyаk yаptı\nBırаkın mermimi yаngınа tutsun (yes sir)\n\nHerşeyi geç bizi es geçme (es)\nAldım schengeni dert etme (dert)\nBаstığım yerlere gelceklermiş\nAslаn yuvаsını terk etmez (ya)\n\nVerdim kendime tаtil\nTаktım tаkılаrı sааti\nHepside gerçek sаhi\nBir yаnım hаzır mı dаhа değil\nBir yаnım Newyork\nBir yаnım bаbil (bаbil)\n\nDostumа nаzik\nOlucаz düşmаnа kаtil\nAvrupа fаtihi hа gаyret gаri\nDostlаrım pes etmez moruk\nHer şey dаhil (ya)\n\nBeş gün beş gece\nAslını reddeder\nÇıkаrttım hırsımı besteden\nBeni gıcık ettin söylüyorum geleceği\nBаşlıyoruz аrtık yаzsın gаzeteler\n\nGöremez mercekle (yes sir)\nEmin ol gelcekler (ааа)\nDökülür cetveller\nZoru seçtin bro bаk gerçekten\n\nEn büyüğü herkeste (yes sir)\nDаyаnırız her teste\nBаnа dedi sert esmer\nMoruk geceleri kаzаnılır her deste\nArа beni nerdeysen (gel gel)\nAlo derim nerdeysem (whаt's up)\nMаhаllede bаk bu müzik (bаbbа)\nÇаlаcаk her telde (çаlsın)\n\nEn büyüğü herkeste (yes sir)\nDаyаnırız her teste\nBаnа dedi sert esmer\nMoruk geceleri kаzаnılır her deste (ya)\nArа beni nerdeysen (gel gel)\nAlo derim nerdeysem (whаt's up)\nMаhаllede bаk bu müzik (bаbbа)\nÇаlаcаk her telde (çаlsın)",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_ab23113a3d6b47d8915923173ed239ba",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/554d3a27ad4742779df49fe1106faec4.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/554d3a27ad4742779df49fe1106faec4.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_96dba7205e524e5eb140d39a8391799f",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/175628690613452fbd30adce753f42f0.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/175628690613452fbd30adce753f42f0.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        }
+      ]
+    },
+    {
+      "id": "track_f9fecbfe143946298a80f7f9f54eec17",
+      "slug": "izlerim-uzaktan",
+      "title": "İzlerim Uzaktan",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "TRA162300293",
+      "explicit": true,
+      "spotifyId": "6APLJhIS5uRpCvFkzXz3Ux",
+      "spotifyUrl": "https://open.spotify.com/track/6APLJhIS5uRpCvFkzXz3Ux",
+      "lyrics": "(Turn up, NɆG-)\n\nİzlerim uzaktan\nTüm şehri dumanlar\nKaplamış tuzaklar\nÇökmüş kara bulutlar\n\nYok keyfim, uzatma\nBoş beleş suratlar\nHerkes bi' tuhaf bak\nOlmam hiç muhatap\n\nİzlerim uzaktan\nTüm şehri dumanlar\nKaplamış tuzaklar\nÇökmüş kara bulutlar\n\nYok keyfim, uzatma\nBoş beleş suratlar\nHerkes bi' tuhaf bak\nOlmam hiç muhatap\n\nElimde, yok, kalmadı dost elimde\nBenimle, sohbet eden yok benimle\nEvimde, yapayalnızım evimde\nŞehirde keyiflenirler zehirle\n\nZaten işim gücüm başımdan aşkın\nAyrılmazdın eskiden, hep peşimizde dolaştın\nBazen tek bi' cümle tek bi' söz nelere yol açtı\nBenden önce şarkılarım tüm dünyayı dolaştı\n\nUğraş dur bilmeden\nKim ne der siklemem\nVer dedim, NɆG-, ritim\nDans eder kitleler\n\nHaz etmemiş mi bizden?\nHa siktirsin ibneler\nAsit gibi cümleler\nHa siktirin cümleten\n\nİzlerim uzaktan\nTüm şehri dumanlar\nKaplamış tuzaklar\nÇökmüş kara bulutlar\n\nYok keyfim, uzatma\nBoş beleş suratlar\nHerkes bi' tuhaf bak\nOlmam hiç muhatap\n\nİzlerim uzaktan\nTüm şehri dumanlar\nKaplamış tuzaklar\nÇökmüş kara bulutlar\n\nYok keyfim, uzatma\nBoş beleş suratlar\nHerkes bi' tuhaf bak\nOlmam hiç muhatap\n\nBoş muhabbetleri kaldırmıyo' kafam çok\nHâlâ gelecek için hazırda plan çok\nKapattım defterleri, ortada bilanço\nGörüce'z kimin sonu olacak fiyasko\n\nDurup döndüm\nKurup gördüm\nBenim çöplüğümde sen leş bi' çöpsün\n\nBiz tam hak ederken övgü\nİnsanlar genelde sövdü\nBu gözler daha neler de gördü\nBoş ver, bitmez, anlat her gün\n\nUğraş dur bilmeden\nKim ne der siklemem\nVer dedim, NɆG-, ritim\nDans eder kitleler\n\nHaz etmemiş mi bizden?\nHa siktirsin ibneler\nAsit gibi cümleler\nHa siktirin cümleten\n\nİzlerim uzaktan\nTüm şehri dumanlar\nKaplamış tuzaklar\nÇökmüş kara bulutlar\n\nYok keyfim, uzatma\nBoş beleş suratlar\nHerkes bi' tuhaf bak\nOlmam hiç muhatap\n\nİzlerim uzaktan\nTüm şehri dumanlar\nKaplamış tuzaklar\nÇökmüş kara bulutlar\n\nYok keyfim, uzatma\nBoş beleş suratlar\nHerkes bi' tuhaf bak\nOlmam hiç muhatap",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_b3a37bd0bdbf4a468e76587c619f2ba2",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b107ec3c5f6a41fc86d2fed953b2b90d.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b107ec3c5f6a41fc86d2fed953b2b90d.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_4c7c61228e0c41ab8be785376cda0264",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/01ac44978441464384f79f4f2a92ab48.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/01ac44978441464384f79f4f2a92ab48.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_38dbf88d15bf4fa887a30d8c058068fd",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/43ebbdb1bce24a4cb9c3de1741e111e5.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/43ebbdb1bce24a4cb9c3de1741e111e5.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_41da80172bf948a49eb6dde733b9aaeb",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/3dc9234090454036b9884a5fa984ce98.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/3dc9234090454036b9884a5fa984ce98.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_c4155c23af024468a1c62291751b684e",
+      "slug": "ustumde-tutuyo-duman",
+      "title": "Üstümde Tütüyo Duman",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "TRA162300202",
+      "explicit": true,
+      "spotifyId": "5WL3ntdgo66euugUKxEE2V",
+      "spotifyUrl": "https://open.spotify.com/track/5WL3ntdgo66euugUKxEE2V",
+      "lyrics": "Vay anam, vay, ner'den çıktı bu mallar? (Turn up, NɆG-)\n\nÜstümde tütüyo' duman bak, ah\nSinir krizinde suratlar, hah\nKazanmamız gerek muhakkak, ah (huh, huh)\nHayat bi' kumar, ben kumarbaz, ah\n\nÜstümde tütüyo' duman bak (duman, bak), ah\nSinir krizinde suratlar (suratlar), ah\nKazanmamız gerek muhakkak (muhakkak), ah (huh, huh)\nHayat bi' kumar, ben kumarbaz\n\nNası' tip bunlar? Bi' tuhaf, tuhaf\nRitmi tutturamıyo'lar daha\nTadımı kaçırıyo'lar, aga\nTers döndü mezarında bak Tupac\n\nO yüzden döndü kral geri\nEn class star benim\nEn pahalı transferim\nSıkarsa finans edin\n\nSavaşan bi' askerim (yeah)\nKimseden almam emir\nÇılgın ve biraz deliyim (ha-ha-ha-ha)\nÇünkü bu hayat benim\n\nKendimden oldum emin\nOlamam artık sefil\nEskide kaldı devir\nVillada partilerim (huh, huh)\n\nHavuzda serinlerim\nKızlarda benimledir\nKalçalarında elim\nSikerim Superman'i\n\nÇünkü en süper benim\nPiçim, hiç tükenmedim\nKalmamış süren senin\nKovala mükemmeli\n\nKimseye güvenmedim\nO yüzden güvendeyim\nDostlarım gücenmesin\nÇekmiyo', tüneldeyim\n\nÜstümde tütüyo' duman bak, ah\nSinir krizinde suratlar, hah\nKazanmamız gerek muhakkak, ah (huh, huh)\nHayat bi' kumar, ben kumarbaz, ah\n\nÜstümde tütüyo' duman bak (duman, bak), ah\nSinir krizinde suratlar (suratlar), ah\nKazanmamız gerek muhakkak (muhakkak), ah\nHayat bi' kumar, ben kumarbaz (kumarbaz)\n\nBugün Merco, yarın Porsche\nGörenlere olur şok hep\nBütün gün dedim, \"Boş ev\"\nGelen kızlar da hoş hep\n\nAteşleniyo' roket\nAteş edip de yok et (huh, huh)\nŞampanya bugün Moët (gang, gang)\nPatlatıyorum, holey (yeah)\n\n(Oh-oh-oh-oh-oh, holey)\n(Oh-oh-oh-oh-oh, holey)\n(Oh-oh-oh-oh-oh, holey) yeah\nNo (holey), yes\n\nGaza geldim, ataktayım, gidiyorum kaleye\nBuffon, Schumacher farketmiyo' bak, geçin kaleye\nGece kulübünde vermem arabamı valeye\nÇarpma sakın, seni başlatırım koçum baleye\n\nA-Alman üretti, ben aldım (yes)\n\"Fiyat\" dedi, \"Pahalı\"\nDedim, \"Siktir et artık\"\nÇalıştın, çok kazandın (yeah)\n\nPiyasa bitik artık (huh)\nYalandan ihtişamın\nAlıca'm intikamı (yeah)\nVar mı, lan, itirazın?\n\nÜstümde tütüyo' duman bak, ah\nSinir krizinde suratlar, hah\nKazanmamız gerek muhakkak, ah (huh, huh)\nHayat bi' kumar, ben kumarbaz, ah\n\nÜstümde tütüyo' duman bak (duman, bak), ah\nSinir krizinde suratlar (suratlar), ah\nKazanmamız gerek muhakkak (muhakkak), ah (huh, huh)\nHayat bi' kumar, ben kumarbaz (ha-ha-ha-ha-ha-ha)\n\n(Oh-oh-oh-oh-oh, holey)\n(Oh-oh-oh-oh-oh, holey)\n(Oh-oh-oh-oh-oh, holey)\n(Holey)\n\nVay anam, vay\nKonuş, kim öğretiyor size bu Türkçeyi?\nSikerim sizi\nDoğru, abi",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_ebf7c131df6f4523893c1a3b764329d4",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e701bf18768a4b9393d7cb369f49ac5a.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e701bf18768a4b9393d7cb369f49ac5a.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_abc76ed29b2f4a1ebfa895ada501ddee",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a12e74fd0ad34e718dd2f46a5c3f7510.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a12e74fd0ad34e718dd2f46a5c3f7510.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_480494ec50e04abaa3b4701d92dfc161",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c6e4bebdb08d43c3b738e158b83da3b8.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c6e4bebdb08d43c3b738e158b83da3b8.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_d78e20d62ac54b9c94970525b420f47a",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b8a04e95eb9649c8ba83685bb7f5a71e.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b8a04e95eb9649c8ba83685bb7f5a71e.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_0a669773200d4ffb8ad1cc817ee461f1",
+      "slug": "son-gunun-bi-daha",
+      "title": "Son Günün & Bi Daha",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "TRA162300294",
+      "explicit": false,
+      "spotifyId": "1zOOxQ3sUsJzgwbBjvz1tQ",
+      "spotifyUrl": "https://open.spotify.com/track/1zOOxQ3sUsJzgwbBjvz1tQ",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_7ecec6b43fba44bda1d475cf88ab3946",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0b63ea145cef4e64b576955792483a65.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0b63ea145cef4e64b576955792483a65.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_9ddefe6309324047a92b2d165a65a0b7",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/fef143ebd34f44b6a2d8afa5ffa0c428.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/fef143ebd34f44b6a2d8afa5ffa0c428.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_0fd946bfdf02499092bbc57955b46167",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/09a569de62a3488bb609bac82190385c.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/09a569de62a3488bb609bac82190385c.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_9acb1cd6c9604fc3b72857b75afa5c58",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9479058618a14fb589dc2bc8bd81b35e.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9479058618a14fb589dc2bc8bd81b35e.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_951b73fbdd514f1a97d0f14f021d5868",
+      "slug": "zoom",
+      "title": "Zoom",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "TRA162300295",
+      "explicit": true,
+      "spotifyId": "5yvQ7Zveyr7Pk3X0jBhSK1",
+      "spotifyUrl": "https://open.spotify.com/track/5yvQ7Zveyr7Pk3X0jBhSK1",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_3216bbde24c646318d8f3f350faeb25d",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c292cc5c3df343089e15a26cd06c89a2.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c292cc5c3df343089e15a26cd06c89a2.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_f6e87b6896864879b9883803b26f6177",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e5a952e273744aadb41646caf5f8c03d.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e5a952e273744aadb41646caf5f8c03d.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_c6ee2309f3d14995915ac434b59efab9",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/40d6425233c0403da7611485f42c80fe.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/40d6425233c0403da7611485f42c80fe.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_5cf282da077941e68e8bb544175698ad",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/2b5e8ce0705142b1a832b4032c0bb805.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/2b5e8ce0705142b1a832b4032c0bb805.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_2651a5a255894bc0872e6f735a44f8be",
+      "slug": "bir-yolunu-bulurum",
+      "title": "Bir Yolunu Bulurum",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c",
+        "artist_a8bca1da561a40ae9273e575ba98f9b6",
+        "artist_35fe0fa311ae4196b14f261fdc954f4f"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [
+        "artist_a8bca1da561a40ae9273e575ba98f9b6",
+        "artist_35fe0fa311ae4196b14f261fdc954f4f"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "TRA162300296",
+      "explicit": false,
+      "spotifyId": "4asRH32I4Xr3keQakStfAK",
+      "spotifyUrl": "https://open.spotify.com/track/4asRH32I4Xr3keQakStfAK",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_b8e334eb8ff34186b6027e64b9599233",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/7b1dc196534f4bb0b1fa03a862d9b23d.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/7b1dc196534f4bb0b1fa03a862d9b23d.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_c577529c0bde4ea39f2fea70ea6bc00e",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ee5f4ef9d5b44268b78d22ca0b98c9b3.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ee5f4ef9d5b44268b78d22ca0b98c9b3.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_41bf213af2b943bab5f034f0460aa40d",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5075f065b9b24cdfaafb481882ee2e4e.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5075f065b9b24cdfaafb481882ee2e4e.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_a7e6ea4b8cb247118a05676adf885eaf",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/312f8b3fe36e4a839ba56be519146a61.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/312f8b3fe36e4a839ba56be519146a61.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_67e4184682d649dcb5e3058cd9f58cfa",
+      "slug": "rol",
+      "title": "Rol",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c",
+        "artist_bc04a989b9d346f192cf40c5010edea5"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [
+        "artist_bc04a989b9d346f192cf40c5010edea5"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "TRA162300297",
+      "explicit": true,
+      "spotifyId": "5ouX13VSFgp5XGawCTprLW",
+      "spotifyUrl": "https://open.spotify.com/track/5ouX13VSFgp5XGawCTprLW",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_5947125620ae4389ac5d961d0ccc503c",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0150282aec834996a323c68e4d17e32e.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0150282aec834996a323c68e4d17e32e.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_48a68751eecd49dbbda50c09dba1f802",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ee178bd63bae4412804571505b755a43.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ee178bd63bae4412804571505b755a43.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_637a157d9f9147aeacd055558fdd7559",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a727a0cb813b4e3eb8f6158d64e1086f.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a727a0cb813b4e3eb8f6158d64e1086f.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_50edeebe2c9c4bdd8c6d9e95a6a40914",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/7beefcfa50b74405858861d1b73a2e6e.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/7beefcfa50b74405858861d1b73a2e6e.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_86cc02779aca461e80fe2a7bf8a50f2f",
+      "slug": "zehir",
+      "title": "Zehir",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "TRA162300298",
+      "explicit": false,
+      "spotifyId": "5Xt1gvO214M5ZMvywK2OfG",
+      "spotifyUrl": "https://open.spotify.com/track/5Xt1gvO214M5ZMvywK2OfG",
+      "lyrics": "(Turn up, NɆG-)\n\nZehir ağzında (zehir ağzında)\nBeni kandırsan n'olur?\nBeni yalnız bırak (beni yalnız bırak)\nSenin arsız lan ruhun\n\nKeyif aldık tam (keyif aldık tam)\nGelip ardından vurdun\nBeni yalnız bırak (beni yalnız bırak)\nBeni yalnız bırak (beni yalnız bırak)\n\nZehir ağzında (zehir ağzında)\nBeni kandırsan n'olur?\nBeni yalnız bırak (beni yalnız bırak)\nSenin arsız lan ruhun\n\nKeyif aldık tam (keyif aldık tam)\nGelip ardından vurdun\nBeni yalnız bırak (beni yalnız bırak)\nBeni yalnız bırak (beni yalnız bırak)\n\nGözümün bebekleri doldu taştı, bi' dur\nBi' nehir gibiyim, aktı yaşlar bi' su\nKısacık zamanda n'oldu? Yaşlandı ruh\nZehir ediyoruz, oldu aşk bak bi' suç\n\nBize giden yol da doldu taşlarla full\nBi' de diyo'duk ki, \"Sonsuz aşk bak budur\"\nKorkup kaçmaktı bu\nBile bile bekle yorgun aşktan umut\n\nYoksun artık\nTutamam elini, yoksun artık\nYoksun artık\nDokunamıyorum, yoksun artık\n\nYoksun artık\nTutamam elini, yoksun artık\nYoksun artık\nDokunamıyorum, yoksun artık\n\nZehir ağzında (zehir ağzında)\nBeni kandırsan n'olur?\nBeni yalnız bırak (beni yalnız bırak)\nSenin arsız lan ruhun\n\nKeyif aldık tam (keyif aldık tam)\nGelip ardından vurdun\nBeni yalnız bırak (beni yalnız bırak)\nBeni yalnız bırak (beni yalnız bırak)\n\nZehir ağzında (Zehir ağzında)\nBeni kandırsan n'olur?\nBeni yalnız bırak (beni yalnız bırak)\nSenin arsız lan ruhun\n\nKeyif aldık tam (keyif aldık tam)\nGelip ardından vurdun\nBeni yalnız bırak (beni yalnız bırak)\nBeni yalnız bırak (beni yalnız bırak)\n\nZehir ağzında (zehir ağzında)\nBeni kandırsan n'olur?\nBeni yalnız bırak (beni yalnız bırak)\nSenin arsız lan ruhun\n\nKeyif aldık tam (keyif aldık tam)\nGelip ardından vurdun\nBeni yalnız bırak (beni yalnız bırak)\nBeni yalnız bırak (beni yalnız bırak)\n\nZehir ağzında (zehir ağzında)\nBeni kandırsan n'olur?\nBeni yalnız bırak (beni yalnız bırak)\nSenin arsız lan ruhun\n\nKeyif aldık tam (keyif aldık tam)\nGelip ardından vurdun\nBeni yalnız bırak (beni yalnız bırak)\nBeni yalnız bırak (beni yalnız bırak, beni yalnız bırak)",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_2fb0fdab20f14e3cad2d1f7c891ae9e8",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/985c73c67b864dd4aca4f21db912df91.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/985c73c67b864dd4aca4f21db912df91.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_b546c8df7b5f42cd89a1a3cf97632f55",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a056522bf0024d7a897f978c91bd2648.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a056522bf0024d7a897f978c91bd2648.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_0529d8b4e4b84c96923dd412772a7a26",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/3286bfbefae54c5ab48f0632fe40d614.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/3286bfbefae54c5ab48f0632fe40d614.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_f818f12c41d84fee89677946c1e20174",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/87c3adbf29594abd910933b7c173e810.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/87c3adbf29594abd910933b7c173e810.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_1f36112c2bcb462e842647e6609ffe8a",
+      "slug": "bogar-beni-gunduz",
+      "title": "Boğar Beni Gündüz",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c",
+        "artist_7ea3d38d226d4b2789ec1a6001ae8dfd"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [
+        "artist_7ea3d38d226d4b2789ec1a6001ae8dfd"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "TRA162300083",
+      "explicit": false,
+      "spotifyId": "58FxIcSdx7DDq3Vz6mMk1U",
+      "spotifyUrl": "https://open.spotify.com/track/58FxIcSdx7DDq3Vz6mMk1U",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_d44a40b96a424f6c8f1353eb05191feb",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/726f0f3b8f7d40f4aef35ac979f79353.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/726f0f3b8f7d40f4aef35ac979f79353.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_4fa65b2efe734a1badfd7db579e380c4",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/34e5255d79074d7c997dd371cfd3aa93.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/34e5255d79074d7c997dd371cfd3aa93.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_9241fc8ce4524f85bcf50201666052a6",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e3e089ccccba4978bd3839e47b6e910c.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e3e089ccccba4978bd3839e47b6e910c.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_923cc57cbcf0444bb410a0409a9a2112",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e760fcb9a5244fffb697bcca0b69bb40.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e760fcb9a5244fffb697bcca0b69bb40.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_fac3e63bbe264794916799b321efb77b",
+      "slug": "mektup",
+      "title": "Mektup",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "TRA162300299",
+      "explicit": false,
+      "spotifyId": "3LdmeokPdkwGLfQ9TZV4wX",
+      "spotifyUrl": "https://open.spotify.com/track/3LdmeokPdkwGLfQ9TZV4wX",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_78bf0e0e94d744089ef89f50f60314dc",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/7a8d6c63d3ee40d482e74b3fbaef1b4b.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/7a8d6c63d3ee40d482e74b3fbaef1b4b.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_7a84c4181ce64ec7b1667b802364c3bf",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9b26032d02a44c4b87033e4371878799.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9b26032d02a44c4b87033e4371878799.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_8ad030f963c24d4e9603707f36726d77",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/530537e61cfb4056aa46f7f767e7a7a8.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/530537e61cfb4056aa46f7f767e7a7a8.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_ff006b21c03d4ee5ab66a358918e131e",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/889426d9ef9a408ca8f7451ea5ea38da.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/889426d9ef9a408ca8f7451ea5ea38da.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_a84091eefbc7418cac5c78da56e6d8ac",
+      "slug": "s-s-d",
+      "title": "S.S.D",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "QMBZ92277486",
+      "explicit": false,
+      "spotifyId": "3hS2qUSvYViGcaRbUkRLf3",
+      "spotifyUrl": "https://open.spotify.com/track/3hS2qUSvYViGcaRbUkRLf3",
+      "lyrics": "Sürüyorum sana doğru yoldaydım,\nİçiyorum elimde bi' Long Island,\nMesajını bekliyorum online'ım,\nSende beni düşünüyon' ordaydın.\n\nSürüyorum sana doğru yoldaydım,\nİçiyorum elimde bi' Long Island,\nMesajını bekliyorum online'ım,\nSende beni düşünüyon' ordaydın.\n\nÖrgülü saçlarınla Tomb Rider\nGibi havalı seksi her zaman formdaydın,\nSadık ama yırtıcı bi' Rottweiler,\nSakınmadan konuşurdun hep bi' dobraydın.\nKoşuyorum sana doğru Bold Pilot,\nÖyle hızlıyım ki seyirciler şoktaydı,\nNasıl bi' ilişki bu show vibe'ı\nSürekli yükselir hiç düşmüyo' ki bombaydık.\nBize bu ayırlık yakışmadı, biliyosun hislerim aynıdır,\nOysa ki saygımı kaybetmedim sana hiç, istiyorum aynını,\nBoşver geri dön bak çözebiliriz bütün sorunlarını,\nSadece dokunmalısın.\n\nSürüyorum sana doğru yoldaydım,\nİçiyorum elimde bi' Long Island,\nMesajını bekliyorum online'ım,\nSende beni düşünüyon' ordaydın.\n\nSürüyorum sana doğru yoldaydım,\nİçiyorum elimde bi' Long Island,\nMesajını bekliyorum online'ım,\nSende beni düşünüyon' ordaydın.\n\nSürüyorum sana doğru yoldaydım,\nİçiyorum elimde bi' Long Island,\nMesajını bekliyorum online'ım,\nSende beni düşünüyon' ordaydın.\n\nSürüyorum sana doğru yoldaydım,\nİçiyorum elimde bi' Long Island,\nMesajını bekliyorum online'ım,\nSende beni düşünüyon' ordaydın.",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_c4668b6fe4ed42fe9c29ba47ae5cb0c5",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/eb1f32597f6547f7b001eee6ea313b62.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/eb1f32597f6547f7b001eee6ea313b62.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_f710be59d1214ae781d8f720b3a08370",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/4ff81e19d04d4e689145e62dcdec4be8.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/4ff81e19d04d4e689145e62dcdec4be8.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_71bfe0e565de4f0eb0e78ab066b38ea0",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/cc3ebf38fdb946a8ba02d77269918486.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/cc3ebf38fdb946a8ba02d77269918486.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_ea958612be2249a49f2af6f223bba8fb",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/2b34ed2015d5453db79d1a98e96f082c.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/2b34ed2015d5453db79d1a98e96f082c.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_2683ca1dcb68400c9672996d9db954f7",
+      "slug": "vay-be",
+      "title": "Vay Be",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "QM6N22275945",
+      "explicit": true,
+      "spotifyId": "5k1nmgCSIayV8jPbO6gDb0",
+      "spotifyUrl": "https://open.spotify.com/track/5k1nmgCSIayV8jPbO6gDb0",
+      "lyrics": "Vay be\n(You want smoke?)\nKafam uçuyor bir jet (vay be)\nBana yapıyordu jest (vay be)\nO nasıl bakış kızım mest oldum\nKesiyor nefes (vay be)\nSabah olur yine beş (şeş beş)\nKafa düşüyordu leş (leş)\nBenimle geliyordun aşk olsun\nHadı doğuyor güneş (hadı doğuyor güneş)\nDedim Elon bizi marsa ışınla\nYanımda super model arkadaşımla\nBilirim fantaziler fazla kaçık bak\nO yüzden uçup gider bak paracıklar\nİnanki tecrübeler fazla yaşımdan\nHızlı yaşamak hayat anlayışım bak (yes)\nPara ün şöhret benim tam da yaşımda\nGözlerin kamaşıyor parlayışımdan\nNasıl oldu bi star oldum vay be\nYaşamak buna deniyormuş vay be\nParam oldu bir kasa dolu vay be\nVay be, vay be\nGaraj oğlum araba dolu vay be\nEti koydum barbeküme vay be\nŞampanya cin tekila vay be\nVay be, vay be\nKaşı kaldırıp serseri poz\nSır saklayıp ser verıyoz\nYakar ağzını bendeki sos bak\nSana var tabi sertçe bi doz (doz)\nKazanan benim her periyod\nTopu Curry gibi çembere sok\nSakın ağlama ver diye top lan\nAnıl sahada bir Del Piero\nTutuldunuz hepiniz bize bir yoktan\nAnıl getirdi flowu size New York’dan\nNasılda keyifli mı bu müzik ezık poptan\nYinede arayan beni severiz ortam\nGirerim aranıza seviyeli olmam\nEtiket istiyorsan hediyemi yolla (yolla)\nYok öyle yapamam beleşçilere reklam\nSonu yok gereksiz eleştiriler hep var\nNasıl oldu bi star oldum vay be\nYaşamak buna deniyormuş vay be\nParam oldu bir kasa dolu vay be\nVay be, vay be\nGaraj oğlum araba dolu vay be\nEti koydum barbeküme vay be\nŞampanya cin tekila vay be\nVay ve, vay be\nVay be\nVay be\nVay be\nVay be\nVay be\nVay be\nVay be\nVay be\nVay be",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_2527ec78d6a74aa18d63b8dfe212851d",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0bfd575880ae4b35942dc1d1c4916591.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0bfd575880ae4b35942dc1d1c4916591.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_494467e55302429e97e9d2be952f493f",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/58102bca704540bb92fb29101a833d33.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/58102bca704540bb92fb29101a833d33.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_9f87bc1bcd994f5faac4761daf4922ea",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/080a674fd939470ab0c7ed354b63790a.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/080a674fd939470ab0c7ed354b63790a.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_aeb7283428d14da1bb7e63866f0119cb",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a347ba42263d49d093c11d9e9deccaf8.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a347ba42263d49d093c11d9e9deccaf8.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_217aa2c86ee44ae48f7b686c632130b3",
+      "slug": "baba-parasi",
+      "title": "Baba Parası",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "QMBZ92247180",
+      "explicit": false,
+      "spotifyId": "3UYLjn4XFzXX6TLa90poEo",
+      "spotifyUrl": "https://open.spotify.com/track/3UYLjn4XFzXX6TLa90poEo",
+      "lyrics": "(Turn up, NɆG-)\n\nBana diyorlar, \"O para babası\"\nSanıyo'lar hâlâ baba parası\nAtıyo'lar, olsun, bana yarasın\nBana yarasın, bana yarasın\n\nBana diyorlar, \"O para babası\"\nSanıyo'lar hâlâ baba parası\nAtıyo'lar, olsun, bana yarasın\nBana yarasın, bana yarasın\n\nN-nasıl mı başladım? Bi' tavan arasıydı\nKiralık bi' kovanda yaban arısıydık\nBizim için bu şehir savaş adasıydı (pa-pa)\nHer şeyin başladığı yer tavan arasıydı\n\nSanma ki villalarda büyüdük biz, hava atıyo'z (yok, yok, yok, yok)\nGerçekler tam tersi bak, sokak sokak para arıyo'z (koş, koş, koş, koş)\n\"Ne zor günler geçirmişsin, lan Anıl, sana acıyo'm\" (sana acıyo'm)\nHer şeyin bedelini ödemişsin, Rocky, acı yok (Rocky, acı yok)\n\nBana diyorlar, \"O para babası\"\nSanıyo'lar hâlâ baba parası\nAtıyo'lar, olsun, bana yarasın\nBana yarasın, bana yarasın\n\nBana diyorlar, \"O para babası\"\nSanıyo'lar hâlâ baba parası\nAtıyo'lar, olsun, bana yarasın\nBana yarasın, bana yarasın\n\nSana yaramaz, koçum, bırak bari bana yarasın\nYarışa girme Mercedes'imle, lan at arabası\nBak gökyüzünde uçan benim, hâlâ karada mısın?\nBurası Arap adası, sanma ki Kanada'dasın\n\nTakmışlar çakma Rolex'i\nSanal âlemde gördüğün rap'çilerin hepsi bot MC\nMesajı gördüm, kızım, tamam, dedim \"Harbi roketsin\"\nAma bilirim, cevap versem \"Anıl yanlıyo'\" dersin\n\nSanma ki villalarda büyüdük biz, hava atıyo'z (yok, yok, yok, yok)\nGerçekler tam tersi bak, sokak sokak para arıyo'z (koş, koş, koş, koş)\n\"Ne zor günler geçirmişsin lan, Anıl sana acıyo'm\" (sana acıyo'm)\nHer şeyin bedelini ödemişsin, Rocky, acı yok (Rocky, acı yok)\n\nBana diyorlar o para babası\nSanıyo'lar hâlâ baba parası\nAtıyo'lar olsun bana yarasın\nBana yarasın, bana yarasın\n\nBana diyorlar o para babası\nSanıyo'lar hâlâ baba parası\nAtıyo'lar olsun bana yarasın\nBana yarasın, bana yarasın",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_6c5a5f72bb9840c6a0d92dfdcff3334e",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d276b306b2874dcdb7498a25c84efe35.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d276b306b2874dcdb7498a25c84efe35.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_c35b3b75a4554a2b81f56b94494f1a66",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/85bdcbbd83f24167929affc36339150d.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/85bdcbbd83f24167929affc36339150d.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_c0ac4d30f9754a388cc1834236fb2b5a",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/062ad086205b4bf0830b0f85e8a2a6eb.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/062ad086205b4bf0830b0f85e8a2a6eb.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_7a195bc08264449b9fe4812bfe66b648",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e2b06f28738c4852bb026216c1060fcc.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e2b06f28738c4852bb026216c1060fcc.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_b8ae1467a93f4223bcce31311091d984",
+      "slug": "l-o",
+      "title": "L.O",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "QMDA72226122",
+      "explicit": true,
+      "spotifyId": "0vW4vi0DU2oRP1S6n1sIuI",
+      "spotifyUrl": "https://open.spotify.com/track/0vW4vi0DU2oRP1S6n1sIuI",
+      "lyrics": "(You want smoke?)\n(Slong is perfect)\nE-he-he-he\n\nAh, \"Yeter, lanet olsun\" dedim\n\"Bıktım, lanet olsun\", dedim\n\"Lanet olsun\", dedim\n\"Her şey lanet olsun\", dedim (evet)\nHayat acımasız, her gün mokoko (mokoko)\nTersine döner işler, olur mokoko (mokoko)\n\nAh, \"Yeter, lanet olsun\" dedim\n\"Bıktım, lanet olsun\", dedim\n\"Lanet olsun\", dedim\n\"Her şey lanet olsun\", dedim\nHayat acımasız, her gün mokoko (mokoko)\nTersine döner işler, olur mokoko\n\nLanet olsun, bizde mi mokoko?\nHayatım düzelir mi bassam autotone?\nBi' gün Arka Sokaklar, bi' gün Robocop\nDostum, öyle ölmem, atın füze ya da molotof\n\nYanarım ama bak doğarım küllerden tekrаr\nKafanı da güncelle, restart\nHatalı dünlerden ders al\nAtı alan Üsküdar'da pek rahat\n\nÇıkar bi' cümlemden destan\nBugün de günlerden rap bak\nYazıyo'du ülkemde ne varsa\nLütfen gel defansa\n\nGönderdim roketimi Mars'a\nSokarım soketiniz varsa\nEvet bi' çip kontrolündesin, bak aslan\nKapatıca'm seni, alma nefes, boşa masraf\n\nAh, \"Yeter, lanet olsun\" dedim\n\"Bıktım, lanet olsun\", dedim\n\"Lanet olsun\", dedim\n\"Her şey lanet olsun\", dedim\nHayat acımasız, her gün mokoko (mokoko)\nTersine döner işler, olur mokoko (mokoko)\n\nAh, \"Yeter, lanet olsun\" dedim\n\"Bıktım, lanet olsun\", dedim\n\"Lanet olsun\", dedim\n\"Her şey lanet olsun\", dedim\nHayat acımasız, her gün mokoko (mokoko)\nTersine döner işler, olur mokoko\n\nBaşladı çekim bak, \"Bir, iki, motor\"\nInsta'da seksi bi' toto\nKeşfet'e düştü mü foto'n\nArtık ünlüsün sen de, of of\n\nTutturmuş gibisin bi' nevi loto\nİnsanlar bi' çeşit robot\nGözüme gözükme, toz ol\nArtık duygusallık mı? No, no\nNo-no, no-no, no-no, no-no\n\nVitesim ileri, mottom\nKurşunum domuza domdom\nÇıkarım, zirvede yaparım off-road\nDans eder önümde ponpon team'i\nPatladı her biri popcorn gibi\nKeyfimiz yerinde kordonda\nİzmir'de sahilde goygoy var\n\nKaldınız hepiniz ofsaytta\nÜstümde Off White'lar\nGözlüklü online bak\nLüksümse çok fazla\nMümkünse çok kasma\nÜst üste show rhyme'lar\nÜst düzey, oh my God\n\nAh, \"Yeter, lanet olsun\" dedim\n\"Bıktım, lanet olsun\", dedim\n\"Lanet olsun\", dedim\n\"Her şey lanet olsun\", dedim\nHayat acımasız, her gün mokoko (mokoko)\nTersine döner işler, olur mokoko (mokoko)\n\nAh, \"Yeter, lanet olsun\" dedim\n\"Bıktım, lanet olsun\", dedim\n\"Lanet olsun\", dedim\n\"Her şey lanet olsun\", dedim\nHayat acımasız, her gün mokoko (mokoko)\nTersine döner işler, olur mokoko (mokoko)",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_d7d8d06098e84838a82a6e432603dce0",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d91a0f583e6b4698959e5c93703616cf.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d91a0f583e6b4698959e5c93703616cf.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_85c158a502034011b0844d0cd3e01d1f",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/3f9690e8621344a0bb8e1171927a0480.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/3f9690e8621344a0bb8e1171927a0480.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_68a585a5bcbc49fc942d4d4b45f93062",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/2f828688d0e24b2da65c7d2cd94c8457.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/2f828688d0e24b2da65c7d2cd94c8457.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_64b44cd00c58481383a773d0e71eb30b",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d3f983e6ed1b49168e3b2702755e0163.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d3f983e6ed1b49168e3b2702755e0163.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_071e3ac03c5a4d8197825ceed927a631",
+      "slug": "gece-modu",
+      "title": "Gece Modu",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "QMFME2289228",
+      "explicit": false,
+      "spotifyId": "555hxiHh8Re02xDz8vnvEt",
+      "spotifyUrl": "https://open.spotify.com/track/555hxiHh8Re02xDz8vnvEt",
+      "lyrics": "İki bin on yirmi iki\nHer günüm yeni verse\nYazarım seri söz\nDelinin teki çöz\nPiyancı yine first\nBaşarı için öl\nKazanıp alır öc\nSırtımda bile göz\nSınır tanımam öf\nYeni sezon bu bölüm\nYedi düvelde ödül\nAlırım benim önüm\nAçık her zaman gözüm\nKopuyor di mi ödün\nKaçıyor ezik öcü\nGördü sanki bak ölü\nKoşuyo yedi dönüm\nFerahlamışım oh\nNe arkadaş ne dost\nVer havalı bi poz\nTek başıma bu post\nSatın alırım fon\nNe altın ne Euro\nYatırımım Hip Hop\nYükselişte bi ton\nDeğerlenir flow\nDolar gibi net o\nÜstüne yine koy\nKırıyo bir rekor\nRap sanki bi spor\nHer kafiye skor\nKariyer maraton\nDilim imparator\nNe diyorsun alsak gece moduna\nGeliyorum tam gaz seri konum at\nNe diyosun taksam seni koluma\nGetirir bi dans daha beni yoluma\nNe diyorsun alsak gece moduna\nGeliyorum tam gaz seri konum at\nNe diyosun taksam seni koluma\nGetirir bi dans daha beni yoluma\nUçarım hep en önde yerim first class\nBenimle kapışamaz amatör world class\nSeviye meselesi seni dört plus\nAşar olamazsın yerime yeni jön star\nBu parti bitmiyo hiç yedi yirmi dört\nÇalıyordu müzik arıyorum yeni baby flört\nBakıpta gözlerime deniyor blöf\nYapın Alizade gibi bana delice twerk\nHızlanır kalbim bomba gibiyim saatli\nPatlama sakın daha değil çıtı pıtı kız narin\nÇekerim arabayı esiyodu sahil\nDenizi görmeden yaşayamayız abi\nAnıl bir şair hikayeleri sahi\nGece gündüz misali\nKalem elimde sabit\nAklım başımda benim nadir, ah\nAklım başımda benim nadir\nNe diyorsun alsak gece moduna\nGeliyorum tam gaz seri konum at\nNe diyosun taksam seni koluma\nGetirir bi dans daha beni yoluma\nNe diyorsun alsak gece moduna\nGeliyorum tam gaz seri konum at\nNe diyosun taksam seni koluma\nGetirir bi dans daha beni yoluma\nNe diyorsun alsak gece moduna\nGeliyorum tam gaz seri konum at\nNe diyosun taksam seni koluma\nGetirir bi dans daha beni yoluma",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_2efdf859daf146668674e88b414df32d",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/cce7068cafb64814b0552a3e478592ed.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/cce7068cafb64814b0552a3e478592ed.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_472538a64fe147249b93a33f476a4d77",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9edbbc72841746fea2c135294e1060b8.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9edbbc72841746fea2c135294e1060b8.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_1da052791da748949db2928ceb63954e",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/69b7b10eced1432288f2aba924102a28.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/69b7b10eced1432288f2aba924102a28.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_523d1ce64ae14a808e3b44e2e1f76b23",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/413c6b1086e84f12b7a9c262ff660473.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/413c6b1086e84f12b7a9c262ff660473.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_cea90402639d436ab54fd01b6ad988de",
+      "slug": "flas",
+      "title": "Flaş",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "TRA162300300",
+      "explicit": false,
+      "spotifyId": "0JMtOj3gUFEdApgh3bQJRG",
+      "spotifyUrl": "https://open.spotify.com/track/0JMtOj3gUFEdApgh3bQJRG",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_61bc6af67cdb4724a023b6eea823b1fb",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/de61debdaf4d4882b3507d3c3b9ecb93.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/de61debdaf4d4882b3507d3c3b9ecb93.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_05b870f8d74149d989aa499c10fd4b35",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9c67fda1e42246e3a35338dcab3a4e04.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9c67fda1e42246e3a35338dcab3a4e04.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_52f4262fbbe1478d9e3e9fc9e6d7fc7c",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/33efa6d40a4543999bf655efe2301f25.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/33efa6d40a4543999bf655efe2301f25.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_32fdcfebf1de41508c0950b23f52842c",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8dfa36d6c2f64586b3ef709cb1c5227b.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8dfa36d6c2f64586b3ef709cb1c5227b.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_42c7c65342e4424b8ca596aff6324c4f",
+      "slug": "direniyorum",
+      "title": "Direniyorum",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c",
+        "artist_35fe0fa311ae4196b14f261fdc954f4f"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [
+        "artist_35fe0fa311ae4196b14f261fdc954f4f"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 15,
+      "isrc": "TRA162300301",
+      "explicit": true,
+      "spotifyId": "2c1kkCTmaSZjq5euzYmxSa",
+      "spotifyUrl": "https://open.spotify.com/track/2c1kkCTmaSZjq5euzYmxSa",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_1f8f0750ef2d4fef8d455e771bd02185",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a75decc2940141208f859fa05b2f8de0.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a75decc2940141208f859fa05b2f8de0.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_5c0959f98fbe42f784de10c67f72ad21",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/614d7dacf8944aaabeb62bbc32aea46c.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/614d7dacf8944aaabeb62bbc32aea46c.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_06ba00a8aaf1475db36cf616f4b7d069",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d2e0b2188f3142b4a28d1f128555cb8f.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d2e0b2188f3142b4a28d1f128555cb8f.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_58f2413bf233413d86cffeb65d9f0138",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8e8426985dc9445ba1beca4f8c5ff540.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8e8426985dc9445ba1beca4f8c5ff540.flac",
           "downloadable": true,
           "channels": "2 kanal",
           "spatial": false,
@@ -9447,7 +11816,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_e9275bc92db8458d9d96890a3d4677e1",
@@ -9478,7 +11849,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_8ad773d0d0014fa8b625d2b4c48a1dd2",
@@ -9508,6 +11881,240 @@
           "trackId": "track_c957759a98b948d58c1cbe7c56baf206",
           "disc": 1,
           "position": 1
+        }
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
+    },
+    {
+      "id": "release_1e1153ba86594cac904e3b5908a48ebd",
+      "slug": "izmir",
+      "title": "İzmir",
+      "type": "album",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "releaseDate": "2021-03-19",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/7be838f2aec44ead82d794ab4822d8c4.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b2734abb7c98a8ec8a6b9d0b93aa",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "© 2021 Universal Music Türkiye • ℗ 2021 Universal Music Türkiye",
+      "description": "",
+      "spotifyId": "1Kp9rdPxGvrt0QbvrzIGCX",
+      "spotifyUrl": "https://open.spotify.com/album/1Kp9rdPxGvrt0QbvrzIGCX",
+      "spotifyCoverUrl": "",
+      "status": "published",
+      "publishAt": "2021-03-19",
+      "tracks": [
+        {
+          "trackId": "track_880e408c6daa495fbe8b67ba06f5eec8",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_39799687905542e89488181dc1d92586",
+          "disc": 1,
+          "position": 2
+        },
+        {
+          "trackId": "track_7643fcf300a9402f8e001badf564421a",
+          "disc": 1,
+          "position": 3
+        },
+        {
+          "trackId": "track_83112c42f4c24a86b871c7466fb8865d",
+          "disc": 1,
+          "position": 4
+        },
+        {
+          "trackId": "track_72d051be040b484bb6a9952b09aa8153",
+          "disc": 1,
+          "position": 5
+        },
+        {
+          "trackId": "track_6a44760f789e40d5b5c6734a4daef5d2",
+          "disc": 1,
+          "position": 6
+        },
+        {
+          "trackId": "track_cc52b9c8cae54d838a43c5ce707858a7",
+          "disc": 1,
+          "position": 7
+        },
+        {
+          "trackId": "track_dfe8450be29840bf84ff42cc6bebbf36",
+          "disc": 1,
+          "position": 8
+        },
+        {
+          "trackId": "track_b8b05b88cdca4c02831de57646b1db56",
+          "disc": 1,
+          "position": 9
+        },
+        {
+          "trackId": "track_7a7bcf4ef4194148abbee18aa0df545d",
+          "disc": 1,
+          "position": 10
+        },
+        {
+          "trackId": "track_2cf20cdcefac4aba8eed20431a3ed636",
+          "disc": 1,
+          "position": 11
+        },
+        {
+          "trackId": "track_963a14608c0f4610813c825d294d37c6",
+          "disc": 1,
+          "position": 12
+        },
+        {
+          "trackId": "track_1e6fef9db26c43c8beab24ed079d3b88",
+          "disc": 1,
+          "position": 13
+        },
+        {
+          "trackId": "track_42d9bee90961440d92bd97b81f7ca059",
+          "disc": 1,
+          "position": 14
+        },
+        {
+          "trackId": "track_322846bccc5c46ac931b3d9757d1e966",
+          "disc": 1,
+          "position": 15
+        },
+        {
+          "trackId": "track_67727a71bba94278b36d46eb42149ad7",
+          "disc": 1,
+          "position": 16
+        },
+        {
+          "trackId": "track_419edb9dadbf46ed91c9725f9f5990ed",
+          "disc": 1,
+          "position": 17
+        },
+        {
+          "trackId": "track_303a525c11654ebeaf4382c9662ccf92",
+          "disc": 1,
+          "position": 18
+        },
+        {
+          "trackId": "track_34cbcb3ab64f4ffdab6f8487a0979151",
+          "disc": 1,
+          "position": 19
+        },
+        {
+          "trackId": "track_3f40fd8d82c4442d9edcdd0e864a7c81",
+          "disc": 1,
+          "position": 20
+        }
+      ]
+    },
+    {
+      "id": "release_c5084e2f2fab415ca1dc3edf9d65b22d",
+      "slug": "23",
+      "title": "23",
+      "type": "album",
+      "artistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "releaseDate": "2023-04-28",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/067e6f0e8fa04d43b5467fbcf4ea8950.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b273c99b6239f43839c293193d48",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(P) 2023 SONY MUSIC TURKEY",
+      "description": "",
+      "spotifyId": "13NE1E45YnswgHArQL1SrN",
+      "spotifyUrl": "https://open.spotify.com/album/13NE1E45YnswgHArQL1SrN",
+      "spotifyCoverUrl": "",
+      "status": "published",
+      "publishAt": "2023-04-28",
+      "tracks": [
+        {
+          "trackId": "track_f9fecbfe143946298a80f7f9f54eec17",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_c4155c23af024468a1c62291751b684e",
+          "disc": 1,
+          "position": 2
+        },
+        {
+          "trackId": "track_0a669773200d4ffb8ad1cc817ee461f1",
+          "disc": 1,
+          "position": 3
+        },
+        {
+          "trackId": "track_951b73fbdd514f1a97d0f14f021d5868",
+          "disc": 1,
+          "position": 4
+        },
+        {
+          "trackId": "track_2651a5a255894bc0872e6f735a44f8be",
+          "disc": 1,
+          "position": 5
+        },
+        {
+          "trackId": "track_67e4184682d649dcb5e3058cd9f58cfa",
+          "disc": 1,
+          "position": 6
+        },
+        {
+          "trackId": "track_86cc02779aca461e80fe2a7bf8a50f2f",
+          "disc": 1,
+          "position": 7
+        },
+        {
+          "trackId": "track_1f36112c2bcb462e842647e6609ffe8a",
+          "disc": 1,
+          "position": 8
+        },
+        {
+          "trackId": "track_fac3e63bbe264794916799b321efb77b",
+          "disc": 1,
+          "position": 9
+        },
+        {
+          "trackId": "track_a84091eefbc7418cac5c78da56e6d8ac",
+          "disc": 1,
+          "position": 10
+        },
+        {
+          "trackId": "track_2683ca1dcb68400c9672996d9db954f7",
+          "disc": 1,
+          "position": 11
+        },
+        {
+          "trackId": "track_217aa2c86ee44ae48f7b686c632130b3",
+          "disc": 1,
+          "position": 12
+        },
+        {
+          "trackId": "track_b8ae1467a93f4223bcce31311091d984",
+          "disc": 1,
+          "position": 13
+        },
+        {
+          "trackId": "track_071e3ac03c5a4d8197825ceed927a631",
+          "disc": 1,
+          "position": 14
+        },
+        {
+          "trackId": "track_cea90402639d436ab54fd01b6ad988de",
+          "disc": 1,
+          "position": 15
+        },
+        {
+          "trackId": "track_42c7c65342e4424b8ca596aff6324c4f",
+          "disc": 1,
+          "position": 16
         }
       ]
     }
