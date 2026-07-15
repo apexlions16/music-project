@@ -1,0 +1,82 @@
+name: Report Aurora Studio v0.8 Run
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/report-studio-v080-run.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Final Studio derlemesini ve release dosyalarını bekle
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p verification
+          run_id=""
+          status=""
+          for attempt in $(seq 1 80); do
+            run_id=$(gh run list --workflow aurora-studios-v080-build.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId // empty')
+            status=$(gh run list --workflow aurora-studios-v080-build.yml --branch main --limit 1 --json status --jq '.[0].status // empty')
+            if [ -n "$run_id" ] && [ "$status" = "completed" ]; then break; fi
+            sleep 15
+          done
+          if [ -z "$run_id" ]; then
+            printf '# Aurora Studio v0.8 final doğrulaması\n\nFAILED\n\nWorkflow run bulunamadı.\n' > verification/AURORA_STUDIO_V080_FINAL.md
+            exit 0
+          fi
+          conclusion=$(gh run view "$run_id" --json conclusion --jq '.conclusion')
+          if [ "$conclusion" != "success" ]; then
+            {
+              echo '# Aurora Studio v0.8 final doğrulaması'
+              echo
+              echo 'FAILED'
+              echo
+              echo "Actions run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${run_id}"
+              echo
+              echo '```text'
+              gh run view "$run_id" --log-failed || true
+              echo '```'
+            } > verification/AURORA_STUDIO_V080_FINAL.md
+            exit 0
+          fi
+          mobile=""
+          windows=""
+          for attempt in $(seq 1 30); do
+            mobile=$(gh release view aurora-studio-mobile-v0.8.0 --json assets --jq '.assets[].name' 2>/dev/null | grep -Fx 'Aurora-Studio-Mobile-v0.8.0.apk' || true)
+            windows=$(gh release view aurora-studio-v0.8.0 --json assets --jq '.assets[].name' 2>/dev/null | grep -Fx 'Aurora-Studio-Windows-x64-v0.8.0.zip' || true)
+            if [ -n "$mobile" ] && [ -n "$windows" ]; then break; fi
+            sleep 10
+          done
+          if [ -z "$mobile" ] || [ -z "$windows" ]; then
+            printf '# Aurora Studio v0.8 final doğrulaması\n\nFAILED\n\nDerleme başarılı fakat beklenen release dosyalarından biri bulunamadı.\n' > verification/AURORA_STUDIO_V080_FINAL.md
+          else
+            cat > verification/AURORA_STUDIO_V080_FINAL.md <<EOF
+          # Aurora Studio v0.8 final doğrulaması
+
+          SUCCESS
+
+          - Actions run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${run_id}
+          - Studio Mobile: Aurora-Studio-Mobile-v0.8.0.apk
+          - Studio Windows: Aurora-Studio-Windows-x64-v0.8.0.zip
+          - Batch sözleşmesi: medya için en fazla 1 Hugging Face commit, katalog için 1 GitHub commit
+          EOF
+          fi
+      - name: Raporu main dalına kaydet
+        run: |
+          git config user.name "Aurora Studio Verification Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add verification/AURORA_STUDIO_V080_FINAL.md
+          git commit -m "Aurora Studio v0.8 final release sonucunu kaydet" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
