@@ -11,7 +11,7 @@ on:
       - "pc/**"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   android:
@@ -63,3 +63,30 @@ jobs:
           if (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern 'self.get\("/artists", ids=' -Quiet) { throw 'Eski toplu artists endpointi kullanılıyor' }
           if (-not (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern '/tracks/\{spotify_id\}' -Quiet)) { throw 'Tekil track endpointi eksik' }
           if (-not (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern '/artists/\{spotify_id\}' -Quiet)) { throw 'Tekil artist endpointi eksik' }
+
+  report:
+    if: always()
+    needs: [android, windows]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/aurora-studios-v030
+          fetch-depth: 0
+      - name: Sonucu yaz
+        env:
+          ANDROID_RESULT: ${{ needs.android.result }}
+          WINDOWS_RESULT: ${{ needs.windows.result }}
+        run: |
+          mkdir -p verification
+          cat > verification/spotify-playback-v050.txt <<EOF
+          source_commit=${GITHUB_SHA}
+          android=${ANDROID_RESULT}
+          windows=${WINDOWS_RESULT}
+          verified_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          EOF
+          git config user.name "Aurora Verification Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add verification/spotify-playback-v050.txt
+          git commit -m "Spotify 2026 ve arka plan oynatmayı doğrula" || exit 0
+          git push origin HEAD:agent/aurora-studios-v030
