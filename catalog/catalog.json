@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T17:09:22.007Z",
+  "updatedAt": "2026-07-15T17:13:28.710Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_cf0c1e64f61c46628dfa4959f878e4d6",
     "release_8d2723e4832f46948995ce24adb32698",
     "release_adedeabdcc2c4aa39c2ec9e533753b65",
     "release_33e34f716ba243e6b5a9d398935bbaee",
@@ -2550,6 +2551,74 @@
       "playable": true,
       "availability": "available",
       "qualityState": "queued"
+    },
+    {
+      "id": "track_87497c4ad1404e80ab1d38fcc9d330ad",
+      "slug": "zyon",
+      "title": "Zyon",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 144,
+      "isrc": "QZ8LD1781686",
+      "explicit": false,
+      "spotifyId": "1tyt8ftPxhLFdSPjz2rxuN",
+      "spotifyUrl": "https://open.spotify.com/track/1tyt8ftPxhLFdSPjz2rxuN",
+      "lyrics": "Yeni track, yeni araba, yeni bi' kart\nYeni bi' çağ daha açarım gerekirse yeniden\nElimde AK-47, belimde bi' tane daha\nSıkarak giderim diyerek \"hakuna matata\" ta ta, ha ha\nŞahaneyim şu an süperden 1000 kat daha\nİnanılmaz bu mükemmelden fazla, bu yüzden eğil aşağı\nDur dokunma, bokumla oynuyo'm, okuyo'm ben daha\nOkuyo'm ben daha ama bakıyo'm da akıyo' membam\nAkıyo'm bam bam, bakıyo'm camdan\nAtıyo'm bokumu, ortaya kokuyo' etraf\nEtrafınız sarılı piç\nE deneme hiç ki giremiyo kanıma bi' iki son of a rich\nİşine basayım senin, sana değil\nÇünkü derler sana basana \"son of a bitch\"\nAcına cila bu track, açıp bi' anda çek\nBaşın belada Ziya, rica etme, biat et\nBiraz sertim hem biraz bet, biraz Seth\nÇöker içine bi' kasvet\nVelev ki şevkin kırılır dinleyince beni\nYeni meslek edinmeye verirsin kendini\nSenin gibilerin elinden her iş gelir, dene bi' derim\nBen hep deneyin derim ama üfleyip geçerim müziğin suruna\nHey sen, reisi kes\nYeteneksizim, adım MC babyface\nFeat Rap'çisiyim, yemişim emeğimi, geç\nKi detonelikte tek rakibim Meireles'tir\nYine de pek rahatım aga, sebep yok paniğe, fresh ol\nBenim için beleş yol bu\nBeş koldan gel yerse, dene zorla\nAma bu tempomla beni teleskopla görebilirsin anca\nBilirsin amcaoğlu, ben İlhan mansız, sen Sinan Kaloğlu'sun\nOlsun, e o da bi' boktur\nHem siz varken 1000 yapar gücünü Konami Cont'un\nO yüzden işine devam et isterim hep\nAman susma, git mic'a dayan trip yap\nO da olmadı klavyene dadan tweet at\nAma en sonunda bana derler adam king ya\nYeaha si-do-re-la-mi-fa\nAcapella beatbox Hip-Hop, yeah yo aha mu'fucka\nHep rhyme ara, hep sıç\n\"Ama bunlar gibi basma faka.\" diyo' bana şeytan\nDönüyo' devran, onda derman yok bendeyse tezgah\nTıraşı kes lan, Neanderthal'dir şeytan\nOna uymamı bekleyenler de ondan aptal\nBi' subliminal mesaj değil bu pasaj, bi' resital\nDestan yazılır bassline'a her saat\nSeninse dünyan sikik zaten\nAnlatma demiştim bana üçgen, ters haç\nVersace, Burger, Whatsapp, bunlar hep esrar\nAma televizyon kristal\nYine de başlar Zyon'da son isyan\nSonrasında olur her yer Contistan beybi",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_4bb2c7780f7942b4a8fc6b9c9adb7e56",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d71ec5cc50b0454b9b645552dc00f0cb.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d71ec5cc50b0454b9b645552dc00f0cb.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_ba21af8009944515b420e4a22c53ffc4",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/784974b2991d4f3f8e7878218881adb7.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/784974b2991d4f3f8e7878218881adb7.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_dfaaa616a08f485aaaa8c3ea3b5b04be",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/33bd8d854c1d46509e7a47ab95a49882.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/33bd8d854c1d46509e7a47ab95a49882.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     }
   ],
   "releases": [
@@ -3250,6 +3319,37 @@
       "tracks": [
         {
           "trackId": "track_7a4ab324f20549179a0a69343ace627a",
+          "disc": 1,
+          "position": 1
+        }
+      ],
+      "status": "published",
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
+    },
+    {
+      "id": "release_cf0c1e64f61c46628dfa4959f878e4d6",
+      "slug": "zyon",
+      "title": "Zyon",
+      "type": "single",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2015-01-27",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/3c29e00fee56432a975c27095b18d0cb.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b27336b2c038a8ef22ca4c062166",
+      "animatedCoverUrl": "",
+      "label": "667",
+      "copyright": "(C) 2017 ContravoltaMusic",
+      "description": "",
+      "spotifyId": "4zKswNuin2aYquJWoI8CRj",
+      "spotifyUrl": "https://open.spotify.com/album/4zKswNuin2aYquJWoI8CRj",
+      "tracks": [
+        {
+          "trackId": "track_87497c4ad1404e80ab1d38fcc9d330ad",
           "disc": 1,
           "position": 1
         }
