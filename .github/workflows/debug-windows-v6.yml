@@ -1,0 +1,26 @@
+name: Debug Windows v0.6 UI
+
+on:
+  push:
+    branches:
+      - feature/aurora-upcoming-audio-matcher
+    paths:
+      - ".github/workflows/debug-windows-v6.yml"
+
+jobs:
+  debug:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sessiz bağımlılık kurulumu
+        shell: pwsh
+        run: |
+          pip install -q -r pc/requirements.txt *> $null
+      - name: UI başlangıç testi
+        shell: pwsh
+        run: |
+          $env:QT_QPA_PLATFORM = "offscreen"
+          python -c "import sys; sys.path.insert(0,'pc'); from PySide6.QtWidgets import QApplication; import AuroraStudioV6Entry as entry; app=QApplication([]); print('IMPORT_OK'); w=entry.AuroraStudioV6(); print('WINDOW_OK',w.nav.count(),w.pages.count()); w.close()"
