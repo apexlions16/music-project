@@ -5,7 +5,7 @@ import sys
 from typing import Any
 
 from PySide6.QtGui import QColor, QPalette
-from PySide6.QtWidgets import QApplication, QMessageBox
+from PySide6.QtWidgets import QApplication, QMessageBox, QWidget
 
 import AuroraStudio as base
 import AuroraStudioV6Entry as v6
@@ -16,6 +16,8 @@ APP_VERSION = v6.APP_VERSION
 
 class AuroraStudioV6Final(v6.AuroraStudioV6):
     def __init__(self):
+        self._legacy_pages_v6: list[QWidget] = []
+        self._legacy_container_v6: QWidget | None = None
         super().__init__()
         self.ensure_final_navigation_v6()
         if hasattr(self, "cover_fetch_btn_v3"):
@@ -33,16 +35,30 @@ class AuroraStudioV6Final(v6.AuroraStudioV6):
             "Katalog JSON",
             "Ayarlar",
         ]
-        current: dict[str, Any] = {}
+        current: dict[str, QWidget] = {}
+        all_pages: list[QWidget] = []
         count = min(self.nav.count(), self.pages.count())
         for index in range(count):
+            page = self.pages.widget(index)
+            all_pages.append(page)
             title = self.nav.item(index).text()
-            current.setdefault(title, self.pages.widget(index))
-        current.setdefault("Yayın Kütüphanesi", self.make_library_page_v6())
-        current.setdefault("Yakında Tamamlama", self.make_completion_page_v6())
+            current.setdefault(title, page)
+        if "Yayın Kütüphanesi" not in current:
+            current["Yayın Kütüphanesi"] = self.make_library_page_v6()
+        if "Yakında Tamamlama" not in current:
+            current["Yakında Tamamlama"] = self.make_completion_page_v6()
+
+        desired_pages = [current[title] for title in desired_titles if title in current]
+        self._legacy_container_v6 = QWidget(self)
+        self._legacy_container_v6.hide()
+        self._legacy_pages_v6 = [page for page in all_pages if page not in desired_pages]
 
         while self.pages.count():
             self.pages.removeWidget(self.pages.widget(0))
+        for page in self._legacy_pages_v6:
+            page.setParent(self._legacy_container_v6)
+            page.hide()
+
         self.nav.blockSignals(True)
         self.nav.clear()
         for title in desired_titles:
