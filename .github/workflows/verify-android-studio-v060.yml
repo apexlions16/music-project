@@ -57,7 +57,10 @@ jobs:
             {
               echo "FAILURE"
               echo "contract_code=$contract"
-              tail -n 180 /tmp/studio-v060-build.log
+              echo "--- KOTLIN ERRORS ---"
+              grep -E '(^e: |error: |Compilation error|StudioV2Activity|StudioLibrary|AudioCompletion|MediaMatcher)' /tmp/studio-v060-build.log | head -n 160
+              echo "--- BUILD TAIL ---"
+              tail -n 60 /tmp/studio-v060-build.log
             } > verification/android-studio-v060-build.txt
           fi
           cat verification/android-studio-v060-build.txt
