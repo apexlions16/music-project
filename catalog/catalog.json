@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T14:03:14.755Z",
+  "updatedAt": "2026-07-15T14:05:37.561Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_51335f8beda841efb52c9e205ea55170",
     "release_fbacac7a895e49b1820041a25ea04ac2",
     "release_a67a10795be84ba29316d87d8ea32c1b",
     "release_5ff3b93775fe4ca8a5645dd23143822d",
@@ -2101,7 +2102,7 @@
       "qualityState": "ready"
     },
     {
-      "id": "track_9af45afed30749fca2fd9e4877546469",
+      "id": "track_652497c0bd304e35ab573630a38066de",
       "slug": "olu",
       "title": "Ölü",
       "artistIds": [
@@ -2122,12 +2123,12 @@
       "credits": [],
       "sources": [
         {
-          "id": "audio_1972b268e8cd47c293e00c8192f35ef8",
+          "id": "audio_776c2fca1bfa4cafa8341331a5f5e34e",
           "kind": "standard",
           "label": "Standart",
           "codec": "AAC 128 kbps",
-          "url": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/8aab3ad9451e4163ba07da72296e84dd.m4a",
-          "downloadUrl": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/8aab3ad9451e4163ba07da72296e84dd.m4a",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/667023ed71c34c75b6d04f0b0d2676ec.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/667023ed71c34c75b6d04f0b0d2676ec.m4a",
           "downloadable": true,
           "channels": "2 kanal",
           "spatial": false,
@@ -2136,12 +2137,12 @@
           "sampleRateKhz": 44.1
         },
         {
-          "id": "audio_a294007593c042658395fa742d454c48",
+          "id": "audio_38bb894c899745b0b8bf7830b5988f37",
           "kind": "high",
           "label": "Yüksek Kalite",
           "codec": "AAC 256 kbps",
-          "url": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/5f5a60d65903464ab2ef49564f1d65f9.m4a",
-          "downloadUrl": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/5f5a60d65903464ab2ef49564f1d65f9.m4a",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/850759a364c04aa08a762bdd71f73f2a.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/850759a364c04aa08a762bdd71f73f2a.m4a",
           "downloadable": true,
           "channels": "2 kanal",
           "spatial": false,
@@ -2150,12 +2151,12 @@
           "sampleRateKhz": 48.0
         },
         {
-          "id": "audio_3344bf9968124bd9a20098d2c75e0afc",
+          "id": "audio_2ea27798bc7049f1a0dcd17e1f56044b",
           "kind": "lossless",
           "label": "Lossless",
           "codec": "FLAC 16-bit/44.1 kHz",
-          "url": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/f6187c71a260458c8d097969bc5dce30.flac",
-          "downloadUrl": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/f6187c71a260458c8d097969bc5dce30.flac",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ab014a9a2bac482699108e3d3133085b.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ab014a9a2bac482699108e3d3133085b.flac",
           "downloadable": true,
           "channels": "2 kanal",
           "spatial": false,
@@ -2164,12 +2165,12 @@
           "bitDepth": 16
         },
         {
-          "id": "audio_524e95cf1bea43f2aeee3829895cc5df",
+          "id": "audio_92cade69e8d84292982374831a8e7b1a",
           "kind": "hires",
           "label": "Hi-Res Lossless",
           "codec": "FLAC 24-bit/48 kHz",
-          "url": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/40095f0ca61b44c889b092b9062cdfd8.flac",
-          "downloadUrl": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/40095f0ca61b44c889b092b9062cdfd8.flac",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/aedb84ab8da1442b81c2ab7feaeb8c4f.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/aedb84ab8da1442b81c2ab7feaeb8c4f.flac",
           "downloadable": true,
           "channels": "2 kanal",
           "spatial": false,
@@ -2710,6 +2711,37 @@
       "tracks": [
         {
           "trackId": "track_9ad1ef3c8632464493543fffeddfb12c",
+          "disc": 1,
+          "position": 1
+        }
+      ],
+      "status": "published",
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
+    },
+    {
+      "id": "release_51335f8beda841efb52c9e205ea55170",
+      "slug": "olu",
+      "title": "Ölü",
+      "type": "single",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2012-08-30",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/a3c64c08b023443db3d975449b19b9f6.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b2739b6cd365d38496b580026989",
+      "animatedCoverUrl": "",
+      "label": "(P) 2012 ContravoltaMusic",
+      "copyright": "(C) 2012 ContravoltaMusic",
+      "description": "",
+      "spotifyId": "5UvLuIgZ3c29ICGmmQ3SSL",
+      "spotifyUrl": "https://open.spotify.com/album/5UvLuIgZ3c29ICGmmQ3SSL",
+      "tracks": [
+        {
+          "trackId": "track_652497c0bd304e35ab573630a38066de",
           "disc": 1,
           "position": 1
         }
