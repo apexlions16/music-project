@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T18:59:34.437Z",
+  "updatedAt": "2026-07-15T19:01:11.286Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_a040aa1f571e4603a35cf641e7897bca",
     "release_5b8beec1ab91412ab21e1187a9d67294",
     "release_fda7486d05ef4e3aaf56fdd850c21d83",
     "release_fd8d73aa2dec4ee5b4223a83d1d4cd9a",
@@ -4607,6 +4608,74 @@
       "playable": false,
       "availability": "upcoming",
       "qualityState": "waiting_for_audio"
+    },
+    {
+      "id": "track_c195ab071bcd429780818326a9b09602",
+      "slug": "hayirlara-ola",
+      "title": "Hayırlara Ola",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 175,
+      "isrc": "QMBZ91914439",
+      "explicit": true,
+      "spotifyId": "2P7u3rUHzWnRQOmeHoWc9m",
+      "spotifyUrl": "https://open.spotify.com/track/2P7u3rUHzWnRQOmeHoWc9m",
+      "lyrics": "(La-la-la-la-la-la)\n(Uh-uh-uh)\nBenim başım yine belada\nAma tabancamı unutamam helada\n(Uh-uh-uh) hayırlara ola\n(Uh-uh-uh) hayırlara ola\n(Uh-uh-uh) hayırlara ola\n(Uh-uh-uh) hayırlara ola\n(Ah) kaç hadi, cash'ini zulala, kuzular beşere kul ola\nBana Yeditepe pusula, düşerim pusuya şerefim uğruna\nHer şey bundan vallahi, aniden düşsem bari\nGaipten sesler duysam, bunasam olamamışlar gibi\nNe kara, ne hava, ne deniz, ne gehinnom\nYürürüm, uçarım, yüzerim, emin ol\nYanımda duranı, korurum kalanı\nSıraya dizerim, ederim domino\nLa-la-la-la, sikimde değil aga\nTopunun koy amına\nZaten hepsi korkak\nDüşerler peşime topluca\nSöverim, sayarım, gezerim sikimi sallaya sallaya\nHer gecenin sabahı var ise yarınız kaldı sabaha\nGel anlamazdan, kafanı kuma sok\nAnlamazsan korkarım yolunun sonu bok\nUyanıp şehrimi selamla\nSizlere Etiler, Tarabya\nBenim başım yine belada\nAma tabancamı unutamam helada\n(Uh-uh-uh) hayırlara ola\n(Uh-uh-uh) hayırlara ola\n(Uh-uh-uh) hayırlara ola\n(Uh-uh-uh) hayırlara ola\nBu atağa Rıdvan bile dese \"Gol olmaz\"\nSürerim topu kaleye El Fenomeno gibi son gaz\nBana inanmayanlara şimdi yok pas\nÇünkü bütün hayallerime dediler \"Olmaz\"\nTabii ki bunların önemsedikleri boklar\nPara, ev, araba ve üç otuz yosma\n\"Senden adam olmaz\" diyenler\nŞimdi tırmanıyo' bahçemin duvarına\nHelal ama küçük bu piyasa\nHayalarım için olur alayı fade out\nEle inat dönmeden yürüyorum, inadım inat\nBu mallarda varoş edebiyatına\nAm bitisiniz hâlâ, ismimi haykırın anca\nSikişip durun aranızda\nSizinle muhatap olup da\nNe diy'im ki gölgemle savaşana?\nUyanıp şehrimi selamla\nSizlere Etiler, Tarabya\nBenim başım yine belada\nAma tabancamı unutamam helada\n(Uh-uh-uh) hayırlara ola\n(Uh-uh-uh) hayırlara ola\n(Uh-uh-uh) hayırlara ola\n(Uh-uh-uh) hayırlara ola",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_322d52b08e5a49c0b437abeb101f9ff1",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/27d7854250a44b73b7de8363dc81578f.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/27d7854250a44b73b7de8363dc81578f.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_54f62028e3e742bca9a0431b8629965b",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/89ea3c04e5e1419983bfac01306c8c46.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/89ea3c04e5e1419983bfac01306c8c46.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_f48616f1114d489b97252c8653594295",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/bc06b9f53e5a480aa93a2831e0d97fac.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/bc06b9f53e5a480aa93a2831e0d97fac.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     }
   ],
   "releases": [
@@ -5697,6 +5766,37 @@
       ],
       "status": "upcoming",
       "availableTrackCount": 0,
+      "totalTrackCount": 1
+    },
+    {
+      "id": "release_a040aa1f571e4603a35cf641e7897bca",
+      "slug": "hayirlara-ola",
+      "title": "Hayırlara Ola",
+      "type": "single",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2019-10-03",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/fc60ae0251f34c7cb670b73302041717.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b2730cf7a35b17db47de18b6c9b3",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2019 Contravolta Müzik",
+      "description": "",
+      "spotifyId": "1vqGuruBGCDNxdhNuivTyy",
+      "spotifyUrl": "https://open.spotify.com/album/1vqGuruBGCDNxdhNuivTyy",
+      "tracks": [
+        {
+          "trackId": "track_c195ab071bcd429780818326a9b09602",
+          "disc": 1,
+          "position": 1
+        }
+      ],
+      "status": "published",
+      "availableTrackCount": 1,
       "totalTrackCount": 1
     }
   ],
