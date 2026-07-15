@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T11:10:36.843902Z",
+  "updatedAt": "2026-07-15T11:10:57.048324Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -1933,7 +1933,14 @@
       "spotifyUrl": "",
       "lyrics": "Ah-ah, ah-ah, ah\nAh-ah, ah-ah\n\nVerir hep bana bi' mesaj (uh-huh)\nOnu lades ettiğimde\nKarşı koyamaz (ice)\nOna \"Vazgeç\" dediğimde\nAteşe at bizi\nBizim aşkımız zehirli (aşkımız zehirli)\n\nBir olalım isterdim\nAma artık tükendim\n\nBakıyo'sun niye çok toz pembe hislerle? (Yeah-eh)\nKafayı bozdun sen o düşlerle\nKoz bende (huh), acele etme (huh)\nYasak aşkın (huh) emin ellerde\nToz pembe hislerle (yeah-eh)\nKafayı bozdun sen o düşlerle\nKoz bende (huh), acele etme (huh)\nYasak aşkın (huh) emin ellerde\n\nHer şeyi denemeli\nBakışları tehlikeli\nGitgelleri beni geriyo' (oh)\nGittiysen gelme geri (gelme)\nHiç bozma ezberleri (uh-huh)\nBi' ileri bi' de geri, oh (yeah, yeah, yeah, yeah)\n\n(Let's go)\nBeni okudun, eksik sayfa, yırt at onları, uğraştırma (mmh-mmh)\nYine bi' dene, iltifatların hoşuma giderse kanabilirim\nKalabilirim ya da gidebilirim, kafama göre kararım değişebilir\nTam aklıma girdiğin anda fikrimden bile cayabilirim\n\n(Oh) Yıllardır kavuşamıyoruz (kavuşamıyoruz)\nIsrarla alışamıyoruz\n\nBakıyo'sun niye çok toz pembe hislerle? (Yeah-eh)\nKafayı bozdun sen o düşlerle\nKoz bende (huh), acele etme (huh)\nYasak aşkın (huh) emin ellerde\nToz pembe hislerle (yeah-eh)\nKafayı bozdun sen o düşlerle\nKoz bende (huh), acele etme (huh)\nYasak aşkın (huh) emin ellerde\n\nYalnız kal (oh)\nYalnız kal (oh)\nYalnız kal (oh)\nYalnız kal (oh)\n\n(Ark, what do you have, what do you have?)\n(A-a-ark, what do you have?)\n\n\n\n\nWriter(s): Esin Bahat, Lidya Pınar, Mina Solak, Zeki Arkun, Zeynep Sude Oktay",
       "syncedLyrics": "",
-      "credits": [],
+      "credits": [
+        {
+          "role": "Künye",
+          "names": [
+            "Hypers Music"
+          ]
+        }
+      ],
       "sources": [
         {
           "id": "audio_0b6226a4785a49f5a31e04b77b3d80a2",
@@ -1987,7 +1994,8 @@
           "sampleRateKhz": 48,
           "bitDepth": 24
         }
-      ]
+      ],
+      "featuredArtistNames": []
     }
   ],
   "releases": [
