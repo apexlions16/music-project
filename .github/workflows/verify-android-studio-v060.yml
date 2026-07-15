@@ -33,8 +33,14 @@ jobs:
       - name: APK derleme sonucunu kaydet
         run: |
           set +e
+          contract=0
+          grep -q 'bulkAudioPicker' studioapp/src/main/kotlin/com/apexlions/aurorastudio/StudioV2Activity.kt || contract=1
+          grep -q 'Yayın Kütüphanesi' studioapp/src/main/kotlin/com/apexlions/aurorastudio/StudioHubActivity.kt || contract=1
+          ! grep -q 'V2Screen.CATALOG' studioapp/src/main/kotlin/com/apexlions/aurorastudio/StudioV2Activity.kt || contract=1
+          ! grep -q 'Görsel Fetch' studioapp/src/main/kotlin/com/apexlions/aurorastudio/StudioV2Activity.kt || contract=1
           gradle --no-daemon --stacktrace --console=plain :studioapp:assembleDebug > /tmp/studio-v060-build.log 2>&1
           code=$?
+          if [ "$contract" -ne 0 ]; then code=1; fi
           mkdir -p verification
           if [ "$code" -eq 0 ]; then
             {
@@ -43,11 +49,14 @@ jobs:
               echo "version=0.6.0"
               echo "bulk_audio_match=true"
               echo "library=true"
+              echo "legacy_catalog_tab=false"
+              echo "cover_fetch_button=false"
               echo "upcoming_completion=true"
             } > verification/android-studio-v060-build.txt
           else
             {
               echo "FAILURE"
+              echo "contract_code=$contract"
               tail -n 180 /tmp/studio-v060-build.log
             } > verification/android-studio-v060-build.txt
           fi
@@ -57,6 +66,7 @@ jobs:
           git add verification/android-studio-v060-build.txt
           if ! git diff --cached --quiet; then
             git commit -m "Studio Mobile v0.6 Android derleme sonucunu kaydet"
+            git pull --rebase origin feature/aurora-upcoming-audio-matcher
             git push origin HEAD:feature/aurora-upcoming-audio-matcher
           fi
           exit "$code"
