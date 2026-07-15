@@ -24,6 +24,7 @@ import androidx.compose.material.icons.rounded.AutoAwesome
 import androidx.compose.material.icons.rounded.CloudDone
 import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.material.icons.rounded.LibraryMusic
+import androidx.compose.material.icons.rounded.UploadFile
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -61,6 +62,7 @@ class StudioHubActivity : ComponentActivity() {
             ) {
                 StudioHub(
                     openPublishing = { startActivity(Intent(this, StudioV2Activity::class.java)) },
+                    openCompletion = { startActivity(Intent(this, StudioAudioCompletionActivity::class.java)) },
                     openCuration = { startActivity(Intent(this, StudioCurationActivity::class.java)) },
                 )
             }
@@ -69,7 +71,11 @@ class StudioHubActivity : ComponentActivity() {
 }
 
 @Composable
-private fun StudioHub(openPublishing: () -> Unit, openCuration: () -> Unit) {
+private fun StudioHub(
+    openPublishing: () -> Unit,
+    openCompletion: () -> Unit,
+    openCuration: () -> Unit,
+) {
     Box(
         Modifier
             .fillMaxSize()
@@ -95,27 +101,34 @@ private fun StudioHub(openPublishing: () -> Unit, openCuration: () -> Unit) {
             }
             Spacer(Modifier.height(18.dp))
             Text("Aurora Studio", fontSize = 38.sp, fontWeight = FontWeight.ExtraBold)
-            Text("Mobile v0.5.0", color = HubAccent, fontWeight = FontWeight.Bold)
+            Text("Mobile v0.6.0", color = HubAccent, fontWeight = FontWeight.Bold)
             Text(
-                "Yayınları, şarkıları ve müzik uygulamasındaki sunum düzenini aynı güvenli ayarlarla yönetin.",
+                "Yayınları, Yakında şarkıların seslerini ve müzik uygulamasındaki sunum düzenini aynı güvenli ayarlarla yönetin.",
                 color = HubMuted,
                 lineHeight = 21.sp,
-                modifier = Modifier.padding(top = 7.dp, bottom = 28.dp),
+                modifier = Modifier.padding(top = 7.dp, bottom = 24.dp),
             )
             HubCard(
                 title = "Yayın ve Şarkı Yönetimi",
-                description = "Metadata içe aktar, mevcut şarkıyı düzenle, ses yükle, Görsel Fetch yap ve kalite kuyruğu oluştur.",
+                description = "Spotify metadata içe aktar, mevcut şarkıyı düzenle ve kalite kuyruğu oluştur. Kapak otomatik Hugging Face'e taşınır.",
                 icon = Icons.Rounded.Edit,
                 onClick = openPublishing,
             )
-            Spacer(Modifier.height(14.dp))
+            Spacer(Modifier.height(12.dp))
+            HubCard(
+                title = "Yakında Ses Tamamlama",
+                description = "Yeni release oluşturmadan bekleyen şarkılara toplu ses veya TXT/LRC dosyası eşleştir.",
+                icon = Icons.Rounded.UploadFile,
+                onClick = openCompletion,
+            )
+            Spacer(Modifier.height(12.dp))
             HubCard(
                 title = "Sunum ve Listeler",
                 description = "Sanatçı popülerlerini, sanatçı seçkilerini ve dinamik ana sayfa bölümlerini sırala.",
                 icon = Icons.Rounded.LibraryMusic,
                 onClick = openCuration,
             )
-            Spacer(Modifier.height(22.dp))
+            Spacer(Modifier.height(18.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Rounded.CloudDone, null, tint = HubAccent, modifier = Modifier.size(18.dp))
                 Text(
