@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T18:20:30.532Z",
+  "updatedAt": "2026-07-15T18:30:45.823Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -85,6 +85,20 @@
       "bio": "",
       "spotifyId": "3IiSjfHNSsynS08uC6w9u3",
       "spotifyUrl": "https://open.spotify.com/artist/3IiSjfHNSsynS08uC6w9u3",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_092b2fd8612f48a8b24589ab4b096adc",
+      "slug": "itaat",
+      "name": "İtaat",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/0ebb6bafd36049d5a6f3eb56ff2e0072.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/0ebb6bafd36049d5a6f3eb56ff2e0072.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/0ebb6bafd36049d5a6f3eb56ff2e0072.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "2FkbFu8Fw20Y0yRtoorMFY",
+      "spotifyUrl": "https://open.spotify.com/artist/2FkbFu8Fw20Y0yRtoorMFY",
       "popularTrackIds": [],
       "listIds": []
     }
@@ -3117,6 +3131,624 @@
       "playable": true,
       "availability": "available",
       "qualityState": "ready"
+    },
+    {
+      "id": "track_87ad8d498d4b41c2b12a370aacbf7e2e",
+      "slug": "telkin",
+      "title": "Telkin",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 145,
+      "isrc": "GBSMU2464352",
+      "explicit": true,
+      "spotifyId": "71RCN6jfaGLQWASyqOorHf",
+      "spotifyUrl": "https://open.spotify.com/track/71RCN6jfaGLQWASyqOorHf",
+      "lyrics": "[Nakarat]\nBedenim cehennem içinde üzerim yara bere\nBi' gün bile süngümü yere düşüremem ilk günkü gibi savaşırım\nBuna alışırım\nOrdumun en ön safına karışıp\nÇünkü bedenim cehennem içinde üzerim yara bere\nBi' gün bile süngümü yere düşüremem ilk günkü gibi savaşırım\nBuna alışırım\nOrdumun en ön safına karışıp çünkü bedenim cehennem içinde \n\n[Verse]\nŞu an söylediklerim esrar\nNe dinle ne çek ne suç bil\nEminim bu dizelerin hepsi bull shit\nUmrunda değil\nBenim de değil istersen Rap'i Erci-E'yle değil de benimle bil\nYerinde değil beynin sanırım benimki de\nMühim değil bu çünkü aynı durumda bizimle milletin vekili bile\nSanırım doğru yoldayız\nKi zaten öyle olmasaydı benzemezdi\nAkil MC'lerin Rhyme yapış şekilleri benimkine\nÇünkü sığdırdım ödün vermeden karakterimden her beat'e bin leş\nSen istersen itleş\nHaysiyet şeref meselesi\nNe diyelim size biz beş kuruş etmedikçe leşiniz\nSanırım sebebi sistemin kölesiyken sikeyim sistemi demeniz\nAslında haklısınız\nGeçim derdiyle uğraşırken iyi yetiştirememiş sizi ebeveyniniz\nEn iyisi Facebook'ta popi olmak için değil\nOnların yüzlerini güldürmek için telef ol\nÇünkü bankalar döker hep ayaklarına beton\nSana almaya çalışırken akıllı telefon\nSen tek bi gün bile mahcup olma diye\nOrta direk devlet okulundaki tek hücreli zengin züppelerine\nBen de anlatayım banka reklamı tekliflerini\nNeden hep reddettiğimi bizimkilere\nÇünkü aptalım çünkü işlemiyo bana para\nSonuçta değilim ben Mehmet Ali Alabora\nYine de yakınlaşırsın dinledikçe beni sona\nBu yüzden en küçük hücreme kadar; \n\n[Nakarat] (Tekrar) ",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_addf4763c53d4994aa4f9802891b5208",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a3691bbe569e4685a77607c032097bae.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a3691bbe569e4685a77607c032097bae.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_3a1a0067938c4d7c9b4d7ba197f64e65",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8165a6138be94911b517736abebdc13a.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8165a6138be94911b517736abebdc13a.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_25d4565f5d344cb394fdfb9832c4c924",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/bb70f8aba9cb4547af3f28f99b6b4935.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/bb70f8aba9cb4547af3f28f99b6b4935.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
+    },
+    {
+      "id": "track_daa1611d19ca40e69e8f7cfca018754e",
+      "slug": "ucus",
+      "title": "Uçuş",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 135,
+      "isrc": "GBSMU2464353",
+      "explicit": true,
+      "spotifyId": "4B5uxjAtnh8XYDtuqZS8Uv",
+      "spotifyUrl": "https://open.spotify.com/track/4B5uxjAtnh8XYDtuqZS8Uv",
+      "lyrics": "Her zamanki gibi Cont on fire\nLeBron gibi high flyer\nSon parçamı yapıyo gibiyim\nHer parçada ama çok rahatım\nAlmam ben asit ki sigara dinamit yolda\nYine Bomfunk MC's videosu gibi dinamik Contravolta\nBu ara hep offlineım, onlar hep online\nAma Gangnam Style alayı ben Empire State Of Mind'ım, Kamil\nOndandır hep tatavayı sonlandır geç\nUnutma ben ağayım sen marabasın oflanmayı kes\nRapçi bi' meslek bul, bırak hadi geç sonbaharı\nİyisi mi git ol adı hatırlanamayan ünlü gibi Survivor\nDe bay, bay piyasaya yep bye-bye\nYok hayır bu şakadır\nMen hamınızı sevirem balam\nBen zaten hep headlineım\n\"Back to the future\" McFly'ım\nJay-Z'yim, Shady'yim, West Side'ım\nTech-N9ne'ım pek rahatım\nSeninle ne işim olur ben Vinnie Paz\nSen Psy olursun anca, ya da bestami\nYa da ara sıra Esra Balamir'in klibinde oynarsın\nIroni değil bu oyna\nHem seni de bi kere överse biri Twitter'cılık oynarsın\nHemen bi parça yollarsın\nBi kişinin ipinde olmaz\nSonra da sahnede zorla o dinleyiciyi öne toplarsın\nHarbi malsın aptal daha deneme yani boktansın\nGötün başın ayrı oynuyo, karakterin de sanki Lowrider\nHoplarsın hep işin bitik\nYarın geç senin için ahmak\nGidip otlat beynini veni, vidi, vici\nDememişken general Contravolta\nGel her ay bomba yolla der bana Şam Şeytanı\nBak meydanı çok boş sanan var\nHep dedikodu karılar matinesi gibi piyasa\n\"Hele beni sal aga\" Diye bağırıyo\nAma rabbena hep bana benim anlayışım\nAnlamazsın, çünkü yazmak için bana ilham\nOnlara sosyal medyada bi olay lazım\nO attığın boklar eski lan Kazım ne sandın?\nCesaret eksi kırk ama sorsan hepsi Mike Tyson\nBen Bison'ım, ben Guile'ım, Street Fighter'ım, Jet Fadıl'ım\nSen \"Vay baba vay\" Diye gez\nYok paran hayli nanaysın\nHaydi var git ağlama yeter ki\nKolay bize Ünal Aysal'lık olay\nVar benim bankaya de ki \"Say bana five thousand\"\nBayram et ayran lazım sana didaydidaylarsın\nHem ayran iyidir içince oluyo Contra da ray ray Kasım\nBay bay geçmiş, bay bay yarın sayfa kapansın\nSonraki parçam ray malifalitiko bay bayan herkes payla\n(\"Paylaşsın\" Diyecektim di mi, aklını sikeyim senin)",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_3309939d311a4ae8a8beae11cd51d9e2",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f433a1bb6a9143f79879bc5cc005bf06.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f433a1bb6a9143f79879bc5cc005bf06.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_957211a583624bc8b5a148e16468f7ea",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c620ffefcaca476ab64f4f54dc9bd5c6.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c620ffefcaca476ab64f4f54dc9bd5c6.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_0a7acf8bf87446ac8022fb0e6b52f25e",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/93117bff201c44a1b45846b22e76e552.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/93117bff201c44a1b45846b22e76e552.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
+    },
+    {
+      "id": "track_27d7eec7006440dc997cfdf9e42b73a2",
+      "slug": "ates",
+      "title": "Ateş",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 168,
+      "isrc": "GBSMU2477311",
+      "explicit": true,
+      "spotifyId": "1nhSRKms4FXxL8Zt7x8qh7",
+      "spotifyUrl": "https://open.spotify.com/track/1nhSRKms4FXxL8Zt7x8qh7",
+      "lyrics": "Yaktım ve rüyalar gördüm\nEn tepeden düştüm, geri döndüm\nKendimi sarıp, içtim\nSoğuduğu yerden ateşlerken yine öldüm\nYaktım ve rüyalar gördüm\nEn tepeden düştüm, geri döndüm\nAteşimi körüklediğim\nBu cehennemden bi çıkış yok, yine öldüm\nÖldüm ve dirildim\n(Ha-ha)\nTut ki şizofrenim\nFakat şu an yaptığım bok\nHer ne boksa\nMaalesef ki onda bayağı geliştim\nGörevle bütünleştim\nUzun sürdü çünkü melodi\nPerileriyle ilişkim\nYakınındaysam uzaklaş\nHissedersin uzaktan\nDaha bi tehlikeli\nBu gizliliğim onlarca tuzaktan\nBu yüzden uyarmadın deme\nŞu ana kadar eğer sen hiç farkında\nOlmadıysan iblisim muhakkak\nÇıkarmak için görevli o\nElinde orak\nMerak etme ondan ıraksın\nBu yüzden hep rahatsın\nÖlümü hayra yorun çünkü\nHangimizin canını aldıysa\nEksildi bu dünyadan\nHep bi tane aklı muallak\nYaktım ve rüyalar gördüm\nEn tepeden düştüm, geri döndüm\nKendimi sarıp, içtim\nSoğuduğu yerden ateşlerken yine öldüm\nYaktım ve rüyalar gördüm\nEn tepeden düştüm, geri döndüm\nAteşimi körüklediğim\nBu cehennemden bi çıkış yok, yine öldüm\nBi daha dirildim\nGaliba şizofrenim\nHiç hissetmedim\nBi bokların yolunda gitmediğini\nİyilik için geciktim\nBil ki şu ana kadar\nSade fırtınamın uğultusuyla\nKulağınızda belirdim\nBu daha bi bok değil, derim\nDua edin de bitsin\nHer cumadan önce uyu\nDoğal felaketimle dikil\nYazdıran şelale derin aktığımda sevin\nAklınızı silip, ruhumu, hakikati bulana dek\nYaktım ve rüyalar gördüm\nEn tepeden düştüm, geri döndüm\nKendimi sarıp, içtim\nSoğuduğu yerden ateşlerken yine öldüm\nYaktım ve rüyalar gördüm\nEn tepeden düştüm, geri döndüm\nAteşimi körüklediğim\nBu cehennemden bi çıkış yok, yine öldüm\nYaktım ve rüyalar gördüm\nEn tepeden düştüm, geri döndüm\nKendimi sarıp, içtim\nSoğuduğu yerden ateşlerken yine öldüm\nYaktım ve rüyalar gördüm\nEn tepeden düştüm, geri döndüm\nAteşimi körüklediğim\nBu cehennemden bi çıkış yok, yine öldüm",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_d5d36d558ea149aaae038f19da2e3f37",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/23d9635a480b495b8bbf721de441095e.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/23d9635a480b495b8bbf721de441095e.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_3f85b95ba18c433d88b4102204fa6a57",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/eae15e91885245ae82e241f25a00792d.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/eae15e91885245ae82e241f25a00792d.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_bab64c5b5da348fd870667f7bc6b4e70",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0658c9e5ccd54e618ea8157c2c0be6b0.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0658c9e5ccd54e618ea8157c2c0be6b0.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
+    },
+    {
+      "id": "track_227b7b1ecd984e31a1a55510aa33cb6a",
+      "slug": "baslangicin-sonu",
+      "title": "Başlangıcın Sonu",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 83,
+      "isrc": "GBSMU2477324",
+      "explicit": true,
+      "spotifyId": "616jlXJCZCewY1m7Y1P9Nx",
+      "spotifyUrl": "https://open.spotify.com/track/616jlXJCZCewY1m7Y1P9Nx",
+      "lyrics": "Maalesef ki benim için diyorlar \"O en iyisi\"\nAma ben en kötüyüm, bilmez hiçbirisi\nKötülük konusunda dünyanın en iyisiyim\nKötü ruhların ruhani velisiyim\nTabii ki de küçükken Afacan Dennis'tim\nÇabukça büyüdüm ve görevi yerine getirdim\nHadi ama sen de kötü bi' çocuk olabilirsen\nBelki beni bile görebilirsin\nEzcümle sevgi, neşe, değil renkli cümlelerin pek çükümde\nBin günah işleyebilirim tek bi' günde\nGani Müjde'nin renkli züppe dizilerindeki zengin zümreleri gibiyim\nKötülük yaparım nedensizce, neden sizce?\nBence sadece nedensizce ama emin ol değil şerefsizce\nVicdanım rahat buna istinaden\nHayat ne viski, ne çizgi zaten\nAma yerime konuşan birisi var\nBen beyninizin içinde içip sıçarken\nBen bende değilim çünkü bazen\nHadi beni ayıpla madem\nAma ne diyebilir ki ailen\nRekor sıçan dizinin esin kaynağı Halit Ziya iken? (Ha?)",
+      "syncedLyrics": "[00:14.86] Maalesef ki benim için diyorlar \"O en iyisi\"\n[00:17.39] Ama ben en kötüyüm, bilmez hiçbirisi\n[00:19.33] Kötülük konusunda dünyanın en iyisiyim\n[00:21.41] Kötü ruhların ruhani velisiyim\n[00:23.38] Tabii ki de küçükken Afacan Dennis'tim\n[00:25.38] Çabukça büyüdüm ve görevi yerine getirdim\n[00:27.46] Hadi ama sen de kötü bi' çocuk olabilirsen\n[00:29.87] Belki beni bile görebilirsin\n[00:31.89] Ezcümle sevgi, neşe, değil renkli cümlelerin pek çükümde\n[00:35.50] Bin günah işleyebilirim tek bi' günde\n[00:37.45] Gani Müjde'nin renkli züppe dizilerindeki zengin zümreleri gibiyim\n[00:41.13] Kötülük yaparım nedensizce, neden sizce?\n[00:43.82] Bence sadece nedensizce ama emin ol değil şerefsizce\n[00:47.50] Vicdanım rahat buna istinaden\n[00:49.66] Hayat ne viski, ne çizgi zaten\n[00:51.63] Ama yerime konuşan birisi var\n[00:53.37] Ben beyninizin içinde içip sıçarken\n[00:55.61] Ben bende değilim çünkü bazen\n[00:57.46] Hadi beni ayıpla madem\n[00:58.97] Ama ne diyebilir ki ailen\n[01:00.63] Rekor sıçan dizinin esin kaynağı Halit Ziya iken? (Ha?)",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_bed7f32b060a484cb3de97b8b7812b68",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/3156ec0728214eea9b36c13b94810e27.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/3156ec0728214eea9b36c13b94810e27.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_1e051c13ddb54b04949afbff725078ee",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/480b3db223cc430da688e25f366e632c.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/480b3db223cc430da688e25f366e632c.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_65dad525ac594dfdaaf545431a44f208",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/83d5d41c2fae49d29d98175610648e45.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/83d5d41c2fae49d29d98175610648e45.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
+    },
+    {
+      "id": "track_49d3fbbf665c4f32a6722dbdd0c6c0ae",
+      "slug": "yatistirici",
+      "title": "Yatıştırıcı",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 150,
+      "isrc": "GBSMU2477381",
+      "explicit": true,
+      "spotifyId": "2k51394WpSRiL6xXHbRd02",
+      "spotifyUrl": "https://open.spotify.com/track/2k51394WpSRiL6xXHbRd02",
+      "lyrics": "Dilinmin ucundaki yatıştırıcı bir hap rap\nNe bağımlıyım, ne süpermenim, ne de Clark Kent\nİçindeyim evet, cont is back\nHisset, dinleyip de ki \"What the fuck is that hep\"\nRap bu mu, rap bu değil olmayacak kadar iyi, (Ha-ha)\nÖlü ama diri yemişim ölüsünü dirisini\nBu ototbüste yanındakine\n\"Dinlediğinin ismi ne\" Diye sorucağın kadar iyi\nContravolta hemen abart ki\nSövdüm, saydım en başta\nDedim \"Oha bu nası çıta yüksek boyumdan\"\nYapabilirdi beni atıp oyundan bi kokainman\nAma şimdi içim rahat egomu severim kanka\nÇünkü onun sayesinde her gün\nTeşbihim refah\nNe yazık ki ceheneme ama biletim Mayk\n(Ah, ah yatıştırıcı bir hap rap, vu-hu)\nBurası cehennem bitch\n(Cont is back, ah)\n(Aha, ah yatıştırıcı bir hap rap, vu-hu)\n(Cont is back, ah)\nBurası cehennem bitch, kokainman\nŞaşırtıcı beklememeniz benden hata\nHata yapabilirken Hazreti Adem ile Havva\nO yüzden şakayı kaka yapıp her şey, diyebilirim\nBakanım derse bakara makara\nEzik bir köleyim işçi değilim büyütme reis\nO kadar eblehim ki hep dedirtirim pes\nEvimde elimde tel, beynimi ederim test\nYes tek yetisi Face'te criminal case\nTürkçe mi, İngilizce mi konuştuğum belli olmaz\nSebebi Nato üyesi olmamız mı sanmam?\nKafa açma lan siyasi mesaj falan, ne ayak?\nKes traşı beğenip paylaş\n(Ha-ha, ah, ah yatıştırıcı bir hap rap, vu-hu)\nBurası cehennem bitch\n(Cont is back, ah)\n(Yatıştırıcı bir hap rap, vu-hu)\n(Cont is back, ah)\nBurası cehennem bitch, kokainman",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_82b8b7d8fa2c4056bf331c2ebd69b1f3",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a2f3974d6d384751876f06916479f731.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a2f3974d6d384751876f06916479f731.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_d981d7dfbc2d4792a79723ebf5f13f29",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/90c36d3700154cd2b8b2486676d2795b.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/90c36d3700154cd2b8b2486676d2795b.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_5d21c048a121460887a191a975a17fa9",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/014bf2c473254eae859661d3b718c87f.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/014bf2c473254eae859661d3b718c87f.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
+    },
+    {
+      "id": "track_c02a0ae5b56e4185b95d319e3d4a519e",
+      "slug": "16-bar",
+      "title": "16 Bar",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 107,
+      "isrc": "GBSMU2477387",
+      "explicit": true,
+      "spotifyId": "6ZgTZFnQW1xu6PKLVczAnZ",
+      "spotifyUrl": "https://open.spotify.com/track/6ZgTZFnQW1xu6PKLVczAnZ",
+      "lyrics": "Tuvalette sigara dönen bi' liseliyim\nKanımda hip hop rap\nOkulda ve evde psikolojik vahşet\nOnlar değil Allah'ım, sen affet!\nCinnet geçirip olursam Hürriyet'e manşet\nYıllardır zaten her şeyi denedim\nLakin peşimde hep lanet Şeytan der hep \"İsyan et!\"\nGidip gözünü kırpmadan hepsini katlet\nArtık kalk dediğimi yap ve de intihar et\nTuvalette sigara dönen bi' liseliyim\nKanımda hip hop rap\nOkulda ve evde psikolojik vahşet\nOnlar değil Allah'ım, sen affet!\nCinnet geçirip olursam Hürriyet'e manşet\nYıllardır zaten her şeyi denedim\nLakin peşimde hep lanet Şeytan der hep \"İsyan et!\"\nGidip gözünü kırpmadan hepsini katlet\nArtık kalk dediğimi yap ve de intihar et\nYap onu hiç takma. Yap, sonra da affet\nCehennem için demişimdir \"Eğitim Şart!\" hep\nHer şeyi mahvet, ispat et ki\nBana bi' günlüktense bi' ömür rahat et\nÇünkü ben tek başımayım hep bu hikayede\nÇünkü ben beceremem etmeyi onu bile şikayet\nArtık bana daha fazla günah işlemeden\nBi' an önce yanına gelmeyi bahşet!",
+      "syncedLyrics": "[00:19.96] Tuvalette sigara dönen bi' liseliyim\n[00:22.15] Kanımda hip hop rap\n[00:23.37] Okulda ve evde psikolojik vahşet\n[00:25.51] Onlar değil Allah'ım, sen affet!\n[00:27.56] Cinnet geçirip olursam Hürriyet'e manşet\n[00:30.39] Yıllardır zaten her şeyi denedim\n[00:32.44] Lakin peşimde hep lanet Şeytan der hep \"İsyan et!\"\n[00:35.66] Gidip gözünü kırpmadan hepsini katlet\n[00:38.20] Artık kalk dediğimi yap ve de intihar et\n[00:42.79] Tuvalette sigara dönen bi' liseliyim\n[00:45.08] Kanımda hip hop rap\n[00:46.41] Okulda ve evde psikolojik vahşet\n[00:48.54] Onlar değil Allah'ım, sen affet!\n[00:50.64] Cinnet geçirip olursam Hürriyet'e manşet\n[00:53.28] Yıllardır zaten her şeyi denedim\n[00:55.28] Lakin peşimde hep lanet Şeytan der hep \"İsyan et!\"\n[00:58.55] Gidip gözünü kırpmadan hepsini katlet\n[01:00.92] Artık kalk dediğimi yap ve de intihar et\n[01:03.68] Yap onu hiç takma. Yap, sonra da affet\n[01:06.14] Cehennem için demişimdir \"Eğitim Şart!\" hep\n[01:08.86] Her şeyi mahvet, ispat et ki\n[01:11.01] Bana bi' günlüktense bi' ömür rahat et\n[01:13.34] Çünkü ben tek başımayım hep bu hikayede\n[01:16.27] Çünkü ben beceremem etmeyi onu bile şikayet\n[01:19.35] Artık bana daha fazla günah işlemeden\n[01:21.83] Bi' an önce yanına gelmeyi bahşet!",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_ffb71fb9971443379e3eaec26285748c",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d5c1b1a8b29a42159838dfe28d000cb0.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d5c1b1a8b29a42159838dfe28d000cb0.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_0fb043d0d2a34b978bdd72469f4a664d",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/792687bc3d8e4eb79d787645986ed057.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/792687bc3d8e4eb79d787645986ed057.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_f6f0d0b68f744fc7b3015b94da325cb8",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/928a1c319dbf4adcabaa89b85569fe44.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/928a1c319dbf4adcabaa89b85569fe44.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
+    },
+    {
+      "id": "track_7f57954691734347a5201d27888adf9e",
+      "slug": "flowlarim-cok-zengin",
+      "title": "Flowlarım Çok Zengin",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436",
+        "artist_092b2fd8612f48a8b24589ab4b096adc"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [
+        "artist_092b2fd8612f48a8b24589ab4b096adc"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 183,
+      "isrc": "GBSMU2477415",
+      "explicit": true,
+      "spotifyId": "1E6l6wLjVXURKH2If5BG2M",
+      "spotifyUrl": "https://open.spotify.com/track/1E6l6wLjVXURKH2If5BG2M",
+      "lyrics": "Volkanik\nFlowlarım çok zengin sanarsın arap şeyhi\nKompleksim olmadı hiç, beni gören sanar 'Shady '\nEn dipte sanal şehrin Tupac gibi kalıcı fame'im\nYer altının en dibi bu, Cehennem'de çalar teybim\nBu punchlarda yüzüne vurur sanki Jason Statham\nBen yüzüne \"Mal\" dedikçe o illaki sırıtır\nŞu an ritim tutuyorsun ve işte işimin kanıtı bir de\nYaptırmakla olmuyor ki stüdyonda yalıtım\nGeceleri sokaklarda herkes Tony Montana\nHer an koşmak gerekebilir ayakkabını sıkı bağla\nTuzaklardan tuzak beğen çünkü hiphop labirent\nÇıkış yolunu bulamadıkça olacaksın kangren\nVe round'ı ver, gong sesiyle kimlik oldu Tyson\nBenim flowlarım onun vuruşlarından farksız\nRinge hakem koyun attığım punchları saysın\nArtık attığım müzik evinde çalar zamansız\nŞu anda Contra kontrolden çıktı döndü Contravolta hâline\nKusura bakma underground bu Kral TV tarife\nBi' boktan anlamayana okurum tane tane\nOlay punchline'sa budur fakat değil ne sana ne Paris'e\nYeraltı sessiz kaldı, bi' kaç yıldır hamile\nSiken sikene şu boku ki zaten aynı kafa hep aynı ses\nBakın kızlar benim sesim Soner'den iyi değildir\nBari size de gitar çalayım, gelin benle sahile\nHep aynı kafiye\n2008 çıkışlı Contra zenci çocuk, bi' Aspirinle döndü dahiye\nMichael Jackson'dan iyiyim\nAhmet sandan iyi bi türkçem olmasa bile\nLady Gaga'dan hap getirdim herkese",
+      "syncedLyrics": "[00:09.86] Volkanik\n[00:22.54] Flowlarım çok zengin sanarsın arap şeyhi\n[00:25.27] Kompleksim olmadı hiç, beni gören sanar 'Shady '\n[00:28.17] En dipte sanal şehrin Tupac gibi kalıcı fame'im\n[00:31.09] Yer altının en dibi bu, Cehennem'de çalar teybim\n[00:33.80] Bu punchlarda yüzüne vurur sanki Jason Statham\n[00:36.49] Ben yüzüne \"Mal\" dedikçe o illaki sırıtır\n[00:39.30] Şu an ritim tutuyorsun ve işte işimin kanıtı bir de\n[00:42.11] Yaptırmakla olmuyor ki stüdyonda yalıtım\n[00:44.85] Geceleri sokaklarda herkes Tony Montana\n[00:47.80] Her an koşmak gerekebilir ayakkabını sıkı bağla\n[00:50.76] Tuzaklardan tuzak beğen çünkü hiphop labirent\n[00:53.59] Çıkış yolunu bulamadıkça olacaksın kangren\n[00:56.18] Ve round'ı ver, gong sesiyle kimlik oldu Tyson\n[00:58.89] Benim flowlarım onun vuruşlarından farksız\n[01:01.85] Ringe hakem koyun attığım punchları saysın\n[01:04.58] Artık attığım müzik evinde çalar zamansız\n[01:09.82] Şu anda Contra kontrolden çıktı döndü Contravolta hâline\n[01:13.12] Kusura bakma underground bu Kral TV tarife\n[01:16.05] Bi' boktan anlamayana okurum tane tane\n[01:18.67] Olay punchline'sa budur fakat değil ne sana ne Paris'e\n[01:21.64] Yeraltı sessiz kaldı, bi' kaç yıldır hamile\n[01:24.43] Siken sikene şu boku ki zaten aynı kafa hep aynı ses\n[01:27.34] Bakın kızlar benim sesim Soner'den iyi değildir\n[01:30.11] Bari size de gitar çalayım, gelin benle sahile\n[01:33.08] Hep aynı kafiye\n[01:34.59] 2008 çıkışlı Contra zenci çocuk, bi' Aspirinle döndü dahiye\n[01:38.65] Michael Jackson'dan iyiyim\n[01:40.13] Ahmet sandan iyi bi türkçem olmasa bile\n[01:42.34] Lady Gaga'dan hap getirdim herkese",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_6c02bd328cd14862ba1c0ff42f8e57ac",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b9aee42ef2e24187aef75ac4f38e39ba.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b9aee42ef2e24187aef75ac4f38e39ba.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_4290270c4d774130ab4b2370242de3f5",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8cc0599dd7224c1fa7f429a79488d075.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8cc0599dd7224c1fa7f429a79488d075.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_0cc918d37c1044c8af2a53826669adee",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8fdb64a47a994cdb99372d0f0ac09818.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8fdb64a47a994cdb99372d0f0ac09818.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
+    },
+    {
+      "id": "track_64dc98f447d8406893fc4ba244d744a4",
+      "slug": "flowlarim-cok-zengin-2",
+      "title": "Flowlarım Çok Zengin 2",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436",
+        "artist_092b2fd8612f48a8b24589ab4b096adc"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [
+        "artist_092b2fd8612f48a8b24589ab4b096adc"
+      ],
+      "featuredArtistNames": [],
+      "durationSeconds": 157,
+      "isrc": "GBSMU2477405",
+      "explicit": true,
+      "spotifyId": "3DOBaDceMIIAZJzsXHZvoJ",
+      "spotifyUrl": "https://open.spotify.com/track/3DOBaDceMIIAZJzsXHZvoJ",
+      "lyrics": "İta\nFlowlarım çok zengin, sanarsın ki IMF\nBu çocuk da sert MC'ymiş, iyi de bundan banane?\nSenin sertliğini aldığın mekansa belli, genel ev\nVe muamele gırla moruk, iyi bahşiş verene\nRap bu çocuk, ninni değil. Senin suçun belli\nSana da etek, tanga giydirelim. Pembe favori rengin (Hey!)\nHey millet! Bence bunun 'Tom ve Jerry'dir dengi\nİta engin hip hop kültüründe başlı başına devrim\nBundan beş yıl sonra anlarsın verdiğim tüm hasarı\nVe yine karşı çıkarsan ben sel gibi basarım\nEcel çaktı selamı, yapman gereken vedadır\nBak brother! Testere gibi bitmem, gelir devamı\nİpleriyle oynanan, karşımda var bi' kukla\nRinge çıktığında değersiz rap'in elimde tutsak homie\nBizde yürek aslan gibi. Bak senin ki yufka\nYaptığın en iyi iş ağzından çıkan her lafı yutmak\nŞu anda Contra kontrolden çıktı, döndü Contravolta hâline\nBen aynı bokum, lacivertim. Dönmedi hiç maviye\nKi birinci bölüme kalbiniz dayanmadıysa\nBu bölümü doktor nezaretinde dinlemeniz tavsiye (Hey!)\nKızınız hamile. Merak etmeyin\nDoyar gayri safi cari kafiyemle hayli aile\nHem öyle olsa bile özür dilemem gerek bence\nBenzemediğim için dinlediğiniz hiç bi' kamile (Ha ha)\nTamam! Çıkmadım Demet'le falan tatile\nTamam! Bozulma! Yok hâlâ yasal bi' albümüm bile\nAma bu bok bi' marifetse emin ol ki Timbaland olurdum\nBenle takılsaydı Hande'yle Hadise (Vay!)\nBu yüzden aynı belki ilk bölümle kafiye\nBu yüzden hâlâ \"Mal\" dedikçe sırıtırım cemaline\nBi' saygısızlık etmem asla, ne yapsa nafile\nÇünkü anca orta parmağım kalkar bu abime",
+      "syncedLyrics": "[00:16.14] İta\n[00:16.99] Flowlarım çok zengin, sanarsın ki IMF\n[00:19.58] Bu çocuk da sert MC'ymiş, iyi de bundan banane?\n[00:22.30] Senin sertliğini aldığın mekansa belli, genel ev\n[00:25.10] Ve muamele gırla moruk, iyi bahşiş verene\n[00:28.23] Rap bu çocuk, ninni değil. Senin suçun belli\n[00:30.54] Sana da etek, tanga giydirelim. Pembe favori rengin (Hey!)\n[00:33.98] Hey millet! Bence bunun 'Tom ve Jerry'dir dengi\n[00:36.25] İta engin hip hop kültüründe başlı başına devrim\n[00:39.27] Bundan beş yıl sonra anlarsın verdiğim tüm hasarı\n[00:41.99] Ve yine karşı çıkarsan ben sel gibi basarım\n[00:44.87] Ecel çaktı selamı, yapman gereken vedadır\n[00:47.60] Bak brother! Testere gibi bitmem, gelir devamı\n[00:50.63] İpleriyle oynanan, karşımda var bi' kukla\n[00:52.98] Ringe çıktığında değersiz rap'in elimde tutsak homie\n[00:56.37] Bizde yürek aslan gibi. Bak senin ki yufka\n[00:58.83] Yaptığın en iyi iş ağzından çıkan her lafı yutmak\n[01:12.51] Şu anda Contra kontrolden çıktı, döndü Contravolta hâline\n[01:15.98] Ben aynı bokum, lacivertim. Dönmedi hiç maviye\n[01:18.74] Ki birinci bölüme kalbiniz dayanmadıysa\n[01:21.34] Bu bölümü doktor nezaretinde dinlemeniz tavsiye (Hey!)\n[01:24.89] Kızınız hamile. Merak etmeyin\n[01:27.03] Doyar gayri safi cari kafiyemle hayli aile\n[01:30.16] Hem öyle olsa bile özür dilemem gerek bence\n[01:33.08] Benzemediğim için dinlediğiniz hiç bi' kamile (Ha ha)\n[01:35.88] Tamam! Çıkmadım Demet'le falan tatile\n[01:38.59] Tamam! Bozulma! Yok hâlâ yasal bi' albümüm bile\n[01:41.32] Ama bu bok bi' marifetse emin ol ki Timbaland olurdum\n[01:44.56] Benle takılsaydı Hande'yle Hadise (Vay!)\n[01:47.08] Bu yüzden aynı belki ilk bölümle kafiye\n[01:49.76] Bu yüzden hâlâ \"Mal\" dedikçe sırıtırım cemaline\n[01:52.70] Bi' saygısızlık etmem asla, ne yapsa nafile\n[01:55.47] Çünkü anca orta parmağım kalkar bu abime",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_0f305c4eac7e4f2fa4d14d40e011b0a6",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f2ce92ebd3c64f8a9fc97c1125b7af34.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f2ce92ebd3c64f8a9fc97c1125b7af34.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_dac43ada9b7044719d5b25d0a55d600c",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b2972c99895949e0a95b26d25a7b17af.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b2972c99895949e0a95b26d25a7b17af.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_531aa134cdcd4628a81dcd2bbf1eead2",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/fd837b3daeb7462a8e4fcbe627c9eb25.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/fd837b3daeb7462a8e4fcbe627c9eb25.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
+    },
+    {
+      "id": "track_16e3d00fdb8c4fc9945499dfadc70b9d",
+      "slug": "outro",
+      "title": "Outro",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 61,
+      "isrc": "GBSMU2477395",
+      "explicit": true,
+      "spotifyId": "7riXraYQ5tD21G3GKrDzS4",
+      "spotifyUrl": "https://open.spotify.com/track/7riXraYQ5tD21G3GKrDzS4",
+      "lyrics": "İşte şimdi kanatlarımın altında İstanbul\nŞaşırdı tabii ki üstünde yaz gününde yağmur\nEvrenin nesli gözlerinde kabus\nEbeveyninin ki vaaz olur benim sözlerimse kanun gibidir\nOnun için aslında sadece odur içimdeki onun için içindeyim yavrum\nÇünkü onla kurduğumuz koalisyonu kuramamıştır ne Demirkırat, ne Yılmaz, ne Tansu\nO ki hep mağdur, üstündeki vekiller hep mağrur\nOnlara göre bir çoğunuz sadece maymun\nİşte durum bu ya gülüp geç, ya haline yan dur\nAma emin ol ki büyük şehir haline kambur\nİstanbul, Eskişehir, Adana, Rize, Samsun\nÇanakkale, Tunceli, Manisa, Niğde, Van, Muş\nHer tarafı cennet olduğu için mi uyuruz?\nUyanmamız için ne olur yağdır Mevla'm su\nBoğulalım gerekirse belki de tek şans budur\nİlelebet uykuda kalmamak için mahsur\nÇünkü şu anda fanusta mahkum\nYiyip içip pislemeye razı yedi milyar mahluk",
+      "syncedLyrics": "[00:00.00] İşte şimdi kanatlarımın altında İstanbul\n[00:00.00] Şaşırdı tabii ki üstünde yaz gününde yağmur\n[00:00.00] Evrenin nesli gözlerinde kabus\n[00:00.00] Ebeveyninin ki vaaz olur benim sözlerimse kanun gibidir\n[00:00.00] Onun için aslında sadece odur içimdeki onun için içindeyim yavrum\n[00:00.00] Çünkü onla kurduğumuz koalisyonu kuramamıştır ne Demirkırat, ne Yılmaz, ne Tansu\n[00:00.00] O ki hep mağdur, üstündeki vekiller hep mağrur\n[00:00.00] Onlara göre bir çoğunuz sadece maymun\n[00:00.00] İşte durum bu ya gülüp geç, ya haline yan dur\n[00:00.00] Ama emin ol ki büyük şehir haline kambur\n[00:00.00] İstanbul, Eskişehir, Adana, Rize, Samsun\n[00:00.00] Çanakkale, Tunceli, Manisa, Niğde, Van, Muş\n[00:00.00] Her tarafı cennet olduğu için mi uyuruz?\n[00:00.00] Uyanmamız için ne olur yağdır Mevla'm su\n[00:00.00] Boğulalım gerekirse belki de tek şans budur\n[00:00.00] İlelebet uykuda kalmamak için mahsur\n[00:00.00] Çünkü şu anda fanusta mahkum\n[00:00.00] Yiyip içip pislemeye razı yedi milyar mahluk",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_515efee74f8740cf8a886cb733cb2b58",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0bad1c63ad6c4824b233f0775b1b6ea0.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/0bad1c63ad6c4824b233f0775b1b6ea0.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_5e38a3acde814b0e9de70128ec2f2145",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/71448d7fc9514c99973daf369243374c.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/71448d7fc9514c99973daf369243374c.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_007f7d301b244f119b50dc498e02d2e4",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5b70ed8af79f4a80acec4f17aebd62b4.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5b70ed8af79f4a80acec4f17aebd62b4.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     }
   ],
   "releases": [
@@ -3886,6 +4518,77 @@
       "status": "published",
       "availableTrackCount": 1,
       "totalTrackCount": 1
+    },
+    {
+      "id": "release_63cad213c9b146b5aeed5f0c21916f37",
+      "slug": "hitz-en-sitz",
+      "title": "Hitz En Şitz",
+      "type": "album",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2015-06-10",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/e6a8b5833d194d9a8dcacc2958d58c57.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b273a2d1b23d398783207a08c1ed",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2018 ContravoltaMusic",
+      "description": "",
+      "spotifyId": "5uiHb0xHaz3yabUblYeX1N",
+      "spotifyUrl": "https://open.spotify.com/album/5uiHb0xHaz3yabUblYeX1N",
+      "tracks": [
+        {
+          "trackId": "track_87ad8d498d4b41c2b12a370aacbf7e2e",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_daa1611d19ca40e69e8f7cfca018754e",
+          "disc": 1,
+          "position": 2
+        },
+        {
+          "trackId": "track_27d7eec7006440dc997cfdf9e42b73a2",
+          "disc": 1,
+          "position": 3
+        },
+        {
+          "trackId": "track_227b7b1ecd984e31a1a55510aa33cb6a",
+          "disc": 1,
+          "position": 4
+        },
+        {
+          "trackId": "track_49d3fbbf665c4f32a6722dbdd0c6c0ae",
+          "disc": 1,
+          "position": 5
+        },
+        {
+          "trackId": "track_c02a0ae5b56e4185b95d319e3d4a519e",
+          "disc": 1,
+          "position": 6
+        },
+        {
+          "trackId": "track_7f57954691734347a5201d27888adf9e",
+          "disc": 1,
+          "position": 7
+        },
+        {
+          "trackId": "track_64dc98f447d8406893fc4ba244d744a4",
+          "disc": 1,
+          "position": 8
+        },
+        {
+          "trackId": "track_16e3d00fdb8c4fc9945499dfadc70b9d",
+          "disc": 1,
+          "position": 9
+        }
+      ],
+      "status": "published",
+      "availableTrackCount": 9,
+      "totalTrackCount": 9
     }
   ],
   "qualityJobs": [
