@@ -15,6 +15,50 @@ APP_VERSION = v6.APP_VERSION
 
 
 class AuroraStudioV6Final(v6.AuroraStudioV6):
+    def __init__(self):
+        super().__init__()
+        self.ensure_final_navigation_v6()
+        if hasattr(self, "cover_fetch_btn_v3"):
+            self.cover_fetch_btn_v3.hide()
+        self.refresh_all_views()
+
+    def ensure_final_navigation_v6(self) -> None:
+        desired_titles = [
+            "Genel Bakış",
+            "Yeni Yayın",
+            "Yayın Kütüphanesi",
+            "Yakında Tamamlama",
+            "Sanatçılar",
+            "Sunum ve Listeler",
+            "Katalog JSON",
+            "Ayarlar",
+        ]
+        current: dict[str, Any] = {}
+        count = min(self.nav.count(), self.pages.count())
+        for index in range(count):
+            title = self.nav.item(index).text()
+            current.setdefault(title, self.pages.widget(index))
+        current.setdefault("Yayın Kütüphanesi", self.make_library_page_v6())
+        current.setdefault("Yakında Tamamlama", self.make_completion_page_v6())
+
+        while self.pages.count():
+            self.pages.removeWidget(self.pages.widget(0))
+        self.nav.blockSignals(True)
+        self.nav.clear()
+        for title in desired_titles:
+            page = current.get(title)
+            if page is None:
+                continue
+            self.nav.addItem(base.QListWidgetItem(title))
+            self.pages.addWidget(page)
+        self.nav.blockSignals(False)
+        try:
+            self.nav.currentRowChanged.disconnect()
+        except Exception:
+            pass
+        self.nav.currentRowChanged.connect(self.pages_set_index_v6)
+        self.nav.setCurrentRow(0)
+
     def save_library_release_v6(self) -> None:
         release_id = self.library_selected_release_id
         values = {
