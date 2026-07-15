@@ -9,10 +9,10 @@ Daemon will be stopped at the end of the build
 > Task :app:mapDebugSourceSetPaths
 > Task :app:generateDebugResources
 > Task :app:packageDebugResources
+> Task :app:mergeDebugResources
 > Task :app:createDebugCompatibleScreenManifests
 > Task :app:extractDeepLinksDebug
 > Task :app:parseDebugLocalResources
-> Task :app:mergeDebugResources
 > Task :app:processDebugMainManifest
 > Task :app:processDebugManifest
 > Task :app:processDebugManifestForPackage
@@ -24,14 +24,9 @@ Daemon will be stopped at the end of the build
 > Task :app:desugarDebugFileDependencies
 > Task :app:compressDebugAssets
 > Task :app:mergeDebugJniLibFolders
-> Task :app:processDebugResources
 > Task :app:checkDebugDuplicateClasses
 > Task :app:mergeDebugNativeLibs
-
-> Task :app:compileDebugKotlin
-e: The daemon has terminated unexpectedly on startup attempt #1 with error code: 0. The daemon process output:
-    1. Kotlin compile daemon is ready
-
+> Task :app:processDebugResources
 > Task :app:mergeLibDexDebug
 
 > Task :app:stripDebugDebugSymbols
@@ -44,17 +39,17 @@ Unable to strip the following libraries, packaging them as they are: libandroidx
 > Task :studioapp:preDebugBuild UP-TO-DATE
 > Task :studioapp:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :studioapp:checkKotlinGradlePluginConfigurationErrors SKIPPED
-> Task :studioapp:checkDebugAarMetadata
 > Task :studioapp:generateDebugResValues
+> Task :studioapp:checkDebugAarMetadata
 > Task :studioapp:mapDebugSourceSetPaths
 > Task :studioapp:generateDebugResources
 > Task :studioapp:packageDebugResources
 > Task :studioapp:parseDebugLocalResources
 > Task :studioapp:createDebugCompatibleScreenManifests
 > Task :studioapp:extractDeepLinksDebug
-> Task :studioapp:mergeDebugResources
 > Task :studioapp:processDebugMainManifest
 > Task :studioapp:processDebugManifest
+> Task :studioapp:mergeDebugResources
 > Task :studioapp:processDebugManifestForPackage
 > Task :studioapp:javaPreCompileDebug
 > Task :studioapp:mergeDebugShaders
@@ -66,16 +61,18 @@ Unable to strip the following libraries, packaging them as they are: libandroidx
 > Task :studioapp:processDebugResources
 > Task :studioapp:checkDebugDuplicateClasses
 > Task :app:mergeExtDexDebug
+> Task :app:compileDebugKotlin
+> Task :studioapp:compileDebugKotlin
+> Task :studioapp:mergeExtDexDebug
 > Task :studioapp:mergeLibDexDebug
 > Task :studioapp:mergeDebugJniLibFolders
-> Task :studioapp:mergeExtDexDebug
-> Task :studioapp:validateSigningDebug
 > Task :studioapp:mergeDebugNativeLibs
-> Task :studioapp:writeDebugAppMetadata
+> Task :studioapp:validateSigningDebug
 
 > Task :studioapp:stripDebugDebugSymbols
 Unable to strip the following libraries, packaging them as they are: libandroidx.graphics.path.so. Run with --info option to learn more.
 
+> Task :studioapp:writeDebugAppMetadata
 > Task :studioapp:writeDebugSigningConfigVersions
 
 > Task :app:compileDebugKotlin
@@ -97,11 +94,11 @@ w: file:///home/runner/work/music-project/music-project/studioapp/src/main/kotli
 w: file:///home/runner/work/music-project/music-project/studioapp/src/main/kotlin/com/apexlions/aurorastudio/StudioHubActivity.kt:161:32 'val Icons.Rounded.ArrowForward: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Rounded.ArrowForward.
 w: file:///home/runner/work/music-project/music-project/studioapp/src/main/kotlin/com/apexlions/aurorastudio/StudioV2Activity.kt:624:85 'val Icons.Rounded.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Rounded.ArrowBack.
 
+> Task :studioapp:compileDebugJavaWithJavac NO-SOURCE
 > Task :app:compileDebugJavaWithJavac NO-SOURCE
 > Task :app:dexBuilderDebug
 > Task :app:mergeDebugGlobalSynthetics
 > Task :app:processDebugJavaRes
-> Task :studioapp:compileDebugJavaWithJavac NO-SOURCE
 > Task :app:mergeProjectDexDebug
 > Task :app:mergeDebugJavaResource
 > Task :studioapp:dexBuilderDebug
@@ -115,7 +112,7 @@ w: file:///home/runner/work/music-project/music-project/studioapp/src/main/kotli
 > Task :studioapp:packageDebug
 > Task :studioapp:createDebugApkListingFileRedirect
 > Task :studioapp:assembleDebug
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/build-1784117109143.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/build-1784117296645.json
 
-BUILD SUCCESSFUL in 1m 3s
+BUILD SUCCESSFUL in 1m 27s
 70 actionable tasks: 70 executed
