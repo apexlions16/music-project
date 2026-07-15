@@ -72,10 +72,28 @@ if "Ses dosyalarını toplu seç ve eşleştir" not in text:
         raise SystemExit("Parça ekleme bloğu bulunamadı")
     text = text.replace(old_tracks, new_tracks, 1)
 
+# Yayınlanmış içerik yönetimi artık yalnız StudioHub > Yayın Kütüphanesi içindedir.
+text = text.replace('    CATALOG("Katalog ve Düzenle"),\n', "")
+text = text.replace('                        V2Screen.CATALOG -> Icons.Rounded.LibraryMusic\n', "")
+catalog_branch = '''                V2Screen.CATALOG -> V2CatalogScreen(
+                    snapshot = snapshot,
+                    selected = selectedEdit,
+                    onSelected = { selectedEdit = it; editAudio = null },
+                    editAudio = editAudio,
+                    pickAudio = { audioTarget = AudioTarget.ExistingTrack; audioPicker.launch(arrayOf("audio/*", "application/octet-stream")) },
+                    save = ::saveTrackEdit,
+                    reload = ::loadCatalog,
+                    busy = busy,
+                )
+'''
+text = text.replace(catalog_branch, "")
+
 if "Görsel Fetch" in text:
     raise SystemExit("Görsel Fetch metni kaynakta kaldı")
 if "pickBulkAudio" not in text or "bulkAudioPicker" not in text:
     raise SystemExit("Toplu ses eşleştirme eklenemedi")
+if "V2Screen.CATALOG" in text:
+    raise SystemExit("Eski katalog sekmesi kaynakta kaldı")
 
 path.write_text(text, encoding="utf-8")
-print("StudioV2Activity v0.6 yaması uygulandı")
+print("StudioV2Activity v0.6 sadeleştirmesi uygulandı")
