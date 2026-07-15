@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T13:50:38.782Z",
+  "updatedAt": "2026-07-15T13:52:28.869Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_16e894766a8f4e67a3e05a0bd4bdc2a7",
     "release_fbacac7a895e49b1820041a25ea04ac2",
     "release_a67a10795be84ba29316d87d8ea32c1b",
     "release_5ff3b93775fe4ca8a5645dd23143822d",
@@ -2099,6 +2100,88 @@
       "playable": true,
       "availability": "available",
       "qualityState": "ready"
+    },
+    {
+      "id": "track_9af45afed30749fca2fd9e4877546469",
+      "slug": "olu",
+      "title": "Ölü",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 148,
+      "isrc": "GBSMU2663252",
+      "explicit": true,
+      "spotifyId": "4HbJLNbqtZI5AHKg12VtNr",
+      "spotifyUrl": "https://open.spotify.com/track/4HbJLNbqtZI5AHKg12VtNr",
+      "lyrics": "Şu anda cennetteyim, elimde avokado\nDert değil nere İstanbul, nere Chicago\nŞahane bu, fonda \"Ya-ya-ya Coco Jamboo\"\nLady D'yle son tango\nİlk ve son, kank', bu abıölüm suyu\nBu beton taş, ağaç ama kökü kuru, kötü sonu\nYa gözüne dizine durur\nYa da panzehir olur, düzeltir ölü solu\nÖlmek ne güzel, törenim sade güzel\n\"Niye hâlâ kâmil bu bağda gezer?\" diye düşün, kâmil\nAma sana bu ölü hâlimle gömdükçe diyo'sun, \"Ah, ne güzel\"\nBu benim suçum mu şimdi, göt? Söyle, korkma\nSenin için değil bu dört dörtlük bomba\nBenim için hiç, onun için iyi, senin için hep\nÖlmüş olsam da \"G-g-g\" dememek benimkisi\nBana olma destek, bak, homie\nEmin ol ki bi'çoğu gibi yanar döner olsaydım\nDerdim egoma Contravolta yerine Contravesti\nDerler ki, \"Cont', az reklam yap\nYa da hesap aç, sosyal mesaj yaz\"\nEgom var, yapamam, büyük egom var\nİstesem de reklam yaptırmaz\nAğlama, layn, bu benim tribim değildi\nKi beğendim ben, o sarı klibin iyiydi\nBili'n mi? Ben osursam da dinlenir\nDeli gibi desem \"Di-ri-bi-ri-di-bi-bi-bi-bi\"\nTribim bitmez bugünlük, çünkü her biri bir ders\nDüşerim en dibe, bi' anda yükselip kendimi bilmem\nPeşimde çakal Wile E. gibisiniz, sikilmişler\nBendeyse mimiklerden ziyade\n\"Mee-meep, mee-meep\" deyip de gitmektir rap, yetenektir hep\nKool G Rap dinlemek gibi sektir rap\nMucizem text'imde\nKendin seç, bul bi' şey, keklik wack\nKi 75 sene denesen n'olur? Hevesin elimde boğulur\nOrası neresiyse burası tersine doğrudur\nNe diyo'sam o, ötesi berisi yoktur\nTüm kariyeriniz benim için intro'dur\nİçim hep rahat ki namım Karateci Joe\nAsimileyim ama sana kalan babafingo\nNasılsa halk beni sev'o'\nDediklerimin ana fikri olsa da \"Ray malifalitiko\"\nKapımı çal dang-ding-dong, de \"Kalk, babo\"\n\"Hiç hâlin yoksa bile bizi rhyme'la boğ\"\nYerinde kal, layn çiko\n\"Sanki Cont 007, Godfather, Michael Bond\"\nDese de vicdanı çıkar, içi el vermez\nBu ego bana bile çıkar için el vermez\nBi' sorun varsa koş, bulabilirsen ona sor\nBana sorma, egom bilir, ben bilmez\nEgomun kölesidir hayat, köpeği hip-hop\nÇalan yuvarlak değil, köşeli pikap\nAman dikkat, uzaktan sev\nBin kat derine yuvarlar her döneği\nÇünkü bi' saat fark var aramda insanoğluyla şu an\nAlayı Bradley, bense Hakeem Olajuwon\nFlow crossover, Cont A.I., bu çok fena\nYat bi' sağa bi' sola, oh, bye bye baby",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_1972b268e8cd47c293e00c8192f35ef8",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/8aab3ad9451e4163ba07da72296e84dd.m4a",
+          "downloadUrl": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/8aab3ad9451e4163ba07da72296e84dd.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_a294007593c042658395fa742d454c48",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/5f5a60d65903464ab2ef49564f1d65f9.m4a",
+          "downloadUrl": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/5f5a60d65903464ab2ef49564f1d65f9.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_3344bf9968124bd9a20098d2c75e0afc",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/f6187c71a260458c8d097969bc5dce30.flac",
+          "downloadUrl": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/f6187c71a260458c8d097969bc5dce30.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_524e95cf1bea43f2aeee3829895cc5df",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/40095f0ca61b44c889b092b9062cdfd8.flac",
+          "downloadUrl": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/audio1/40095f0ca61b44c889b092b9062cdfd8.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 48.0,
+          "bitDepth": 24
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     }
   ],
   "releases": [
@@ -2628,6 +2711,37 @@
       "tracks": [
         {
           "trackId": "track_9ad1ef3c8632464493543fffeddfb12c",
+          "disc": 1,
+          "position": 1
+        }
+      ],
+      "status": "published",
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
+    },
+    {
+      "id": "release_16e894766a8f4e67a3e05a0bd4bdc2a7",
+      "slug": "olu",
+      "title": "Ölü",
+      "type": "single",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2012-08-30",
+      "cover": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/artwork1/b6280cbdba824b7eaff68c24105ebe92.jpg",
+      "heroImage": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/artwork1/aaaa8291e3a9407ebfccbd22e4994af2.jpg",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2012 ContravoltaMusic • (P) 2012 ContravoltaMusic",
+      "description": "",
+      "spotifyId": "5UvLuIgZ3c29ICGmmQ3SSL",
+      "spotifyUrl": "https://open.spotify.com/album/5UvLuIgZ3c29ICGmmQ3SSL",
+      "tracks": [
+        {
+          "trackId": "track_9af45afed30749fca2fd9e4877546469",
           "disc": 1,
           "position": 1
         }
