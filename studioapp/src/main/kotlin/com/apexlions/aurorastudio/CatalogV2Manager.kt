@@ -20,7 +20,7 @@ internal class CatalogV2Manager(
 
     fun fetchRemoteCover(url: String): AssetDraft {
         require(url.startsWith("https://")) { "Görsel adresi HTTPS olmalı." }
-        val request = Request.Builder().url(url).header("User-Agent", "AuroraStudioMobile/0.4.0").get().build()
+        val request = Request.Builder().url(url).header("User-Agent", "AuroraStudioMobile/0.5.0").get().build()
         return http.client.newCall(request).execute().use { response ->
             if (!response.isSuccessful) error("Görsel indirilemedi: HTTP ${response.code}")
             val type = response.header("Content-Type").orEmpty().lowercase(Locale.ROOT)

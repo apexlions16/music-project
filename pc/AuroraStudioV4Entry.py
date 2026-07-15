@@ -10,7 +10,7 @@ import AuroraStudioV3 as v3
 import AuroraStudioV3Entry as v3_entry
 
 APP_NAME = base.APP_NAME
-APP_VERSION = "0.4.0"
+APP_VERSION = "0.5.0"
 
 # Kalıtım zincirindeki tüm başlıklar ve HTTP User-Agent değerleri aynı sürümü görür.
 base.APP_VERSION = APP_VERSION

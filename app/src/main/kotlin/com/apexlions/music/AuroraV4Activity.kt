@@ -946,7 +946,7 @@ private fun V4AnimatedBackground(
                 val host = runCatching { android.net.Uri.parse(clean).host.orEmpty().lowercase() }.getOrDefault("")
                 val hf = host == "huggingface.co" || host.endsWith(".huggingface.co") || host == "hf.co" || host.endsWith(".hf.co")
                 val factory = DefaultHttpDataSource.Factory()
-                    .setUserAgent("AuroraMusic/0.4.0")
+                    .setUserAgent("AuroraMusic/0.6.0")
                     .setAllowCrossProtocolRedirects(true)
                     .setDefaultRequestProperties(if (hf && token.isNotBlank()) mapOf("Authorization" to "Bearer ${token.trim()}") else emptyMap())
                 ExoPlayer.Builder(context).setMediaSourceFactory(DefaultMediaSourceFactory(context).setDataSourceFactory(factory)).build().apply {

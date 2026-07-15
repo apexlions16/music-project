@@ -356,7 +356,7 @@ private fun StudioV2App() {
                 title = {
                     Column {
                         Text("Aurora Studio Mobile", fontWeight = FontWeight.Bold)
-                        Text("v0.4.0 • ${screen.title}", color = StudioMuted, fontSize = 11.sp)
+                        Text("v0.5.0 • ${screen.title}", color = StudioMuted, fontSize = 11.sp)
                     }
                 },
                 actions = {

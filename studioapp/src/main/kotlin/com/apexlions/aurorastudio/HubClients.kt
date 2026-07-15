@@ -144,7 +144,7 @@ internal class GitHubCatalogClient(
         .url(url)
         .header("Accept", "application/vnd.github+json")
         .header("X-GitHub-Api-Version", "2022-11-28")
-        .header("User-Agent", "AuroraStudioMobile/0.1.0")
+        .header("User-Agent", "AuroraStudioMobile/0.5.0")
         .apply { if (config.githubToken.isNotBlank()) header("Authorization", "Bearer ${config.githubToken.trim()}") }
 
     private fun contentsUrl(): String = "https://api.github.com".toHttpUrl().newBuilder()
@@ -202,7 +202,7 @@ internal class HuggingFaceUploader(
     private val ndjsonType = "application/x-ndjson".toMediaType()
 
     private fun auth(builder: Request.Builder): Request.Builder = builder
-        .header("User-Agent", "AuroraStudioMobile/0.1.0")
+        .header("User-Agent", "AuroraStudioMobile/0.5.0")
         .apply { if (config.hfToken.isNotBlank()) header("Authorization", "Bearer ${config.hfToken.trim()}") }
 
     fun resolveUrl(path: String): String = "https://huggingface.co/datasets/${config.hfRepo}/resolve/main/$path"
@@ -247,12 +247,79 @@ internal class HuggingFaceUploader(
         return PreparedUpload(uri, displayName, remotePath, hash.size, hash.sha256)
     }
 
+    private data class CommitAttempt(val code: Int, val body: String, val successful: Boolean)
+
+    private fun normalizedCommitSummary(message: String): String = message
+        .replace(Regex("[\u0000-\u001F\u007F]+"), " ")
+        .replace(Regex("\s+"), " ")
+        .trim()
+        .take(200)
+        .ifBlank { "Aurora Studio Mobile media upload" }
+
+    private fun commitPayload(
+        uploads: List<PreparedUpload>,
+        index: JSONObject,
+        summary: String,
+        trailingNewline: Boolean,
+    ): ByteArray {
+        val safeSummary = normalizedCommitSummary(summary)
+        val headerValue = JSONObject()
+            .put("summary", safeSummary)
+            .put("description", "Aurora Studio Mobile")
+        check(headerValue.optString("summary").isNotBlank()) { "Hugging Face commit özeti boş olamaz." }
+
+        val lines = mutableListOf<String>()
+        lines += JSONObject().put("key", "header").put("value", headerValue).toString()
+        uploads.forEach { item ->
+            require(item.remotePath.isNotBlank()) { "Hugging Face uzak dosya yolu boş." }
+            require(item.sha256.matches(Regex("[0-9a-fA-F]{64}"))) { "Geçersiz SHA-256: ${item.displayName}" }
+            lines += JSONObject().put("key", "lfsFile").put(
+                "value",
+                JSONObject()
+                    .put("path", item.remotePath)
+                    .put("algo", "sha256")
+                    .put("oid", item.sha256.lowercase(Locale.ROOT))
+                    .put("size", item.size),
+            ).toString()
+        }
+        val indexEncoded = Base64.encodeToString((index.toString(2) + "\n").toByteArray(), Base64.NO_WRAP)
+        lines += JSONObject().put("key", "file").put(
+            "value",
+            JSONObject().put("content", indexEncoded).put("path", INDEX_PATH).put("encoding", "base64"),
+        ).toString()
+        val text = lines.joinToString("\n") + if (trailingNewline) "\n" else ""
+        // Sunucuya gönderilmeden önce ilk NDJSON satırını tekrar parse ederek value.summary'nin
+        // gerçekten bir String olduğunu garanti et.
+        val parsedHeader = JSONObject(text.lineSequence().first())
+            .getJSONObject("value")
+            .getString("summary")
+        check(parsedHeader.isNotBlank()) { "Hugging Face commit özeti oluşturulamadı." }
+        return text.toByteArray(Charsets.UTF_8)
+    }
+
+    private fun postCommit(payload: ByteArray): CommitAttempt {
+        val url = "https://huggingface.co/api/datasets/${config.hfRepo}/commit/main"
+        val response = http.client.newCall(
+            auth(Request.Builder().url(url))
+                .header("Accept", "application/json")
+                .post(payload.toRequestBody(ndjsonType))
+                .build(),
+        ).execute()
+        return response.use {
+            CommitAttempt(it.code, runCatching { it.body?.string().orEmpty() }.getOrDefault(""), it.isSuccessful)
+        }
+    }
+
     fun uploadAndCommit(
         uploads: List<PreparedUpload>,
         index: JSONObject,
         message: String,
         progress: (String, Float) -> Unit,
     ) {
+        if (uploads.isEmpty()) {
+            progress("Yüklenecek medya yok; Hugging Face commit'i atlandı", 1f)
+            return
+        }
         val recent = SecureSettings.recentCommits(context)
         if (recent.size >= SOFT_COMMIT_LIMIT) {
             val waitMillis = (recent.first() + 3_600_000L - System.currentTimeMillis()).coerceAtLeast(1L)
@@ -273,33 +340,23 @@ internal class HuggingFaceUploader(
         }
 
         progress("Tek Hugging Face commit'i oluşturuluyor…", 0.90f)
-        val lines = mutableListOf<String>()
-        lines += JSONObject().put("key", "header").put(
-            "value",
-            JSONObject().put("summary", message).put("description", "Aurora Studio Mobile"),
-        ).toString()
-        uploads.forEach { item ->
-            lines += JSONObject().put("key", "lfsFile").put(
-                "value",
-                JSONObject()
-                    .put("path", item.remotePath)
-                    .put("algo", "sha256")
-                    .put("oid", item.sha256)
-                    .put("size", item.size),
-            ).toString()
+        val safeSummary = normalizedCommitSummary(message)
+        val attempts = listOf(
+            commitPayload(uploads, index, safeSummary, trailingNewline = false),
+            commitPayload(uploads, index, "Aurora Studio Mobile media upload", trailingNewline = false),
+            commitPayload(uploads, index, "Aurora Studio Mobile media upload", trailingNewline = true),
+        )
+        var result: CommitAttempt? = null
+        for ((attemptIndex, payload) in attempts.withIndex()) {
+            result = postCommit(payload)
+            if (result.successful) break
+            val summaryProtocolError = result.code == 400 && result.body.contains("value.summary", ignoreCase = true)
+            if (!summaryProtocolError || attemptIndex == attempts.lastIndex) break
+            progress("Hugging Face commit protokolü yeniden deneniyor…", 0.92f + attemptIndex * 0.02f)
         }
-        val indexEncoded = Base64.encodeToString((index.toString(2) + "\n").toByteArray(), Base64.NO_WRAP)
-        lines += JSONObject().put("key", "file").put(
-            "value",
-            JSONObject().put("content", indexEncoded).put("path", INDEX_PATH).put("encoding", "base64"),
-        ).toString()
-        val payload = (lines.joinToString("\n") + "\n").toRequestBody(ndjsonType)
-        val url = "https://huggingface.co/api/datasets/${config.hfRepo}/commit/main"
-        val response = http.client.newCall(
-            auth(Request.Builder().url(url)).header("Content-Type", "application/x-ndjson").post(payload).build(),
-        ).execute()
-        response.use {
-            if (!it.isSuccessful) error(it.errorMessage("Hugging Face commit'i başarısız"))
+        val finalResult = result ?: error("Hugging Face commit yanıtı alınamadı.")
+        if (!finalResult.successful) {
+            error("Hugging Face commit'i başarısız: HTTP ${finalResult.code} ${finalResult.body.take(1000)}".trim())
         }
         SecureSettings.recordCommit(context)
         progress("Hugging Face yüklemesi tamamlandı", 1f)

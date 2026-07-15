@@ -859,6 +859,7 @@ class AuroraStudioV3(base.AuroraStudio):
             cover_url=self.cover_url.text().strip(),
             cover_path=Path(self.cover_path.text()) if self.cover_path.text() else None,
             hero_url=self.hero_url.text().strip(),
+            animated_cover_url=self.animated_url_v3.text().strip() if hasattr(self, "animated_url_v3") else "",
             animated_cover_path=Path(self.animated_path.text()) if self.animated_path.text() else None,
             tracks=copy.deepcopy(self.import_tracks),
             featured=self.import_featured.isChecked(),
@@ -893,7 +894,6 @@ class AuroraStudioV3(base.AuroraStudio):
         snapshot = copy.deepcopy(self.catalog)
         sha = self.catalog_sha
         settings = copy.deepcopy(self.settings)
-        animated_url = self.animated_url_v3.text().strip() if hasattr(self, "animated_url_v3") else ""
 
         def task(progress: Callable[[str, int], None]) -> tuple[dict[str, Any], str, int, int, int]:
             processor = base.MediaProcessor()
@@ -920,7 +920,7 @@ class AuroraStudioV3(base.AuroraStudio):
                     remote = storage.allocate_remote("artwork", request.cover_path.suffix.lower() or ".jpg", lambda status: progress(status, 4))
                     upload_files.append((request.cover_path, remote))
                     cover_url = storage.resolve_url(remote)
-                local_animated_url = animated_url
+                local_animated_url = request.animated_cover_url
                 if not local_animated_url and request.animated_cover_path and request.animated_cover_path.is_file():
                     remote = storage.allocate_remote("animated", request.animated_cover_path.suffix.lower() or ".mp4", lambda status: progress(status, 4))
                     upload_files.append((request.animated_cover_path, remote))
@@ -1044,7 +1044,7 @@ class AuroraStudioV3(base.AuroraStudio):
                 if request.featured:
                     snapshot.setdefault("featuredReleaseIds", []).insert(0, release_id)
                 progress("Katalog GitHub'a commit ediliyor…", 92)
-                new_sha = github.commit_catalog(snapshot, sha, f"Aurora Music: {request.release_title} yayınını Studio v0.3 ile ekle")
+                new_sha = github.commit_catalog(snapshot, sha, f"Aurora Music: {request.release_title} yayınını Studio v0.5 ile ekle")
                 progress("Yayın tamamlandı", 100)
                 return snapshot, new_sha, reused_count, len(new_tracks), upcoming_count
             finally:
