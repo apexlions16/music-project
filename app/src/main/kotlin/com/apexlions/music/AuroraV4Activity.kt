@@ -880,15 +880,14 @@ private fun V4NowPlaying(controller: PlayerController, animated: Boolean) {
                 IconButton(onClick = { lyrics = !lyrics }) { Icon(if (lyrics) Icons.Rounded.Album else Icons.Rounded.Lyrics, null) }
             }
             if (lyrics) {
-                LazyColumn(Modifier.weight(1f).fillMaxWidth(), contentPadding = PaddingValues(vertical = 20.dp)) {
-                    item {
-                        Text(track.lyrics.ifBlank { "Bu şarkı için söz bulunmuyor." }, fontSize = 25.sp, lineHeight = 36.sp, fontWeight = FontWeight.SemiBold)
-                        if (track.credits.isNotEmpty()) {
-                            Spacer(Modifier.height(28.dp)); Text("Künye", color = V4Accent, fontWeight = FontWeight.Bold)
-                            track.credits.forEach { Text("${it.role}: ${it.names.joinToString(", ")}", color = Color.White.copy(alpha = .72f)) }
-                        }
-                    }
-                }
+                SyncedLyricsPane(
+                    lrcText = track.syncedLyrics,
+                    plainLyrics = track.lyrics,
+                    positionMs = controller.positionMs,
+                    credits = track.credits,
+                    onSeek = controller::seekTo,
+                    modifier = Modifier.weight(1f),
+                )
             } else {
                 Spacer(Modifier.weight(1f))
                 Text(track.title, fontSize = 29.sp, fontWeight = FontWeight.ExtraBold, modifier = Modifier.fillMaxWidth())
@@ -946,7 +945,7 @@ private fun V4AnimatedBackground(
                 val host = runCatching { android.net.Uri.parse(clean).host.orEmpty().lowercase() }.getOrDefault("")
                 val hf = host == "huggingface.co" || host.endsWith(".huggingface.co") || host == "hf.co" || host.endsWith(".hf.co")
                 val factory = DefaultHttpDataSource.Factory()
-                    .setUserAgent("AuroraMusic/0.6.0")
+                    .setUserAgent("AuroraMusic/0.7.0")
                     .setAllowCrossProtocolRedirects(true)
                     .setDefaultRequestProperties(if (hf && token.isNotBlank()) mapOf("Authorization" to "Bearer ${token.trim()}") else emptyMap())
                 ExoPlayer.Builder(context).setMediaSourceFactory(DefaultMediaSourceFactory(context).setDataSourceFactory(factory)).build().apply {

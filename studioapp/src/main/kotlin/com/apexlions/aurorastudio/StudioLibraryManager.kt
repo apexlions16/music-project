@@ -130,7 +130,7 @@ internal class StudioLibraryManager(
             featuredArtists = value.featuredArtists,
             explicit = value.explicit,
             lyrics = value.lyrics,
-            syncedLyrics = value.syncedLyrics,
+            syncedLyrics = value.syncedLyrics.takeIf(String::isNotBlank)?.let(StudioLrcSupport::normalize).orEmpty(),
             creditsText = value.creditsText,
             playable = value.playable,
         )

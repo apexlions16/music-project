@@ -126,6 +126,10 @@ private fun AudioCompletionApp(back: () -> Unit) {
         status = "Eşleştirme hazır: isim benzerliği kullanıldı, kalanlar albüm sırasına göre dolduruldu."
     }
 
+    fun tracksForMode(value: CatalogSnapshot?): List<PendingTrack> = value?.let {
+        if (mode == CompletionMode.AUDIO) manager.pendingTracks(it) else manager.allTracks(it)
+    }.orEmpty()
+
     val audioPicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenMultipleDocuments()) { uris ->
         selectedFiles.clear()
         selectedFiles.addAll(uris.map(::asset))
@@ -148,7 +152,7 @@ private fun AudioCompletionApp(back: () -> Unit) {
             runCatching { withContext(Dispatchers.IO) { manager.load() } }
                 .onSuccess {
                     snapshot = it
-                    tracks = manager.pendingTracks(it)
+                    tracks = tracksForMode(it)
                     assignments.clear()
                     selectedFiles.clear()
                     status = if (tracks.isEmpty()) "Ses bekleyen Yakında şarkı yok." else "${tracks.size} şarkı ses dosyası bekliyor."
@@ -209,9 +213,10 @@ private fun AudioCompletionApp(back: () -> Unit) {
                     }
                 }.onSuccess {
                     snapshot = it
+                    tracks = manager.allTracks(it)
                     selectedFiles.clear()
                     assignments.clear()
-                    status = "Söz dosyaları mevcut şarkılara bağlandı."
+                    status = "Söz dosyaları mevcut şarkılara bağlandı ve LRC zamanları doğrulandı."
                     progress = 1f
                 }.onFailure {
                     error = it.message ?: it.toString()
@@ -231,7 +236,7 @@ private fun AudioCompletionApp(back: () -> Unit) {
             TopAppBar(
                 title = {
                     Column {
-                        Text("Yakında Ses Tamamlama", fontWeight = FontWeight.Bold)
+                        Text("Ses ve LRC Tamamlama", fontWeight = FontWeight.Bold)
                         Text("Yeni release oluşturmadan mevcut şarkıları aç", color = CompletionMuted, fontSize = 11.sp)
                     }
                 },
@@ -258,13 +263,13 @@ private fun AudioCompletionApp(back: () -> Unit) {
                     CompletionCard("Dosya türü") {
                         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                             CompletionMode.entries.forEach { option ->
-                                FilterChip(selected = mode == option, onClick = { mode = option; selectedFiles.clear(); assignments.clear() }, label = { Text(option.title) })
+                                FilterChip(selected = mode == option, onClick = { mode = option; selectedFiles.clear(); assignments.clear(); tracks = tracksForMode(snapshot) }, label = { Text(option.title) })
                             }
                         }
                         Button(
                             onClick = {
                                 if (mode == CompletionMode.AUDIO) audioPicker.launch(arrayOf("audio/*", "application/octet-stream"))
-                                else lyricsPicker.launch(arrayOf("text/plain", "application/x-subrip", "application/octet-stream"))
+                                else lyricsPicker.launch(arrayOf("application/x-lrc", "text/plain", "application/octet-stream"))
                             },
                             enabled = tracks.isNotEmpty() && !busy,
                             modifier = Modifier.fillMaxWidth(),

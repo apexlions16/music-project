@@ -56,6 +56,37 @@ internal class AudioCompletionManager(
             .sortedWith(compareBy<PendingTrack> { it.releaseTitle.lowercase() }.thenBy { it.disc }.thenBy { it.position })
     }
 
+    fun allTracks(snapshot: CatalogSnapshot): List<PendingTrack> {
+        val root = snapshot.json
+        val trackMap = buildMap<String, JSONObject> {
+            val rows = root.optJSONArray("tracks") ?: JSONArray()
+            for (index in 0 until rows.length()) {
+                val row = rows.optJSONObject(index) ?: continue
+                put(row.optString("id"), row)
+            }
+        }
+        val result = mutableListOf<PendingTrack>()
+        val releases = root.optJSONArray("releases") ?: JSONArray()
+        for (releaseIndex in 0 until releases.length()) {
+            val release = releases.optJSONObject(releaseIndex) ?: continue
+            val refs = release.optJSONArray("tracks") ?: JSONArray()
+            for (refIndex in 0 until refs.length()) {
+                val ref = refs.optJSONObject(refIndex) ?: continue
+                val track = trackMap[ref.optString("trackId")] ?: continue
+                result += PendingTrack(
+                    id = track.optString("id"),
+                    title = track.optString("title", "İsimsiz"),
+                    isrc = track.optString("isrc"),
+                    releaseTitle = release.optString("title", "Yayın"),
+                    disc = ref.optInt("disc", 1),
+                    position = ref.optInt("position", refIndex + 1),
+                )
+            }
+        }
+        return result.distinctBy(PendingTrack::id)
+            .sortedWith(compareBy<PendingTrack> { it.releaseTitle.lowercase() }.thenBy { it.disc }.thenBy { it.position })
+    }
+
     fun attachAudioBatch(
         snapshot: CatalogSnapshot,
         assignments: Map<String, AssetDraft>,
@@ -104,7 +135,7 @@ internal class AudioCompletionManager(
         val tracks = root.array("tracks")
         assignments.forEach { (trackId, content) ->
             val track = tracks.findById(trackId) ?: error("Şarkı bulunamadı: $trackId")
-            if (content.second) track.put("syncedLyrics", content.first) else track.put("lyrics", content.first)
+            if (content.second) track.put("syncedLyrics", StudioLrcSupport.normalize(content.first)) else track.put("lyrics", content.first.trim())
         }
         github.commitCatalog(root, snapshot.sha, "Aurora Music: toplu söz dosyalarını eşleştir")
         return github.loadCatalog()

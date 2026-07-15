@@ -3,7 +3,9 @@ package com.apexlions.aurorastudio
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -54,6 +56,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -114,6 +117,7 @@ private fun StudioLibraryApp(back: () -> Unit, openAudioCompletion: () -> Unit) 
     var status by remember { mutableStateOf("Yayın kütüphanesi yükleniyor…") }
     var error by remember { mutableStateOf<String?>(null) }
     var deleteAction by remember { mutableStateOf<LibraryDeleteAction?>(null) }
+    var search by remember { mutableStateOf("") }
 
     fun refreshState(newSnapshot: CatalogSnapshot) {
         snapshot = newSnapshot
@@ -164,8 +168,24 @@ private fun StudioLibraryApp(back: () -> Unit, openAudioCompletion: () -> Unit) 
 
     LaunchedEffect(Unit) { reload() }
 
+    val normalizedSearch = search.trim()
+    val visibleReleases = if (normalizedSearch.isBlank()) releases else releases.filter { release ->
+        release.title.contains(normalizedSearch, true) || release.tracks.any { track ->
+            track.title.contains(normalizedSearch, true) ||
+                track.isrc.contains(normalizedSearch, true) ||
+                track.primaryArtist.contains(normalizedSearch, true) ||
+                track.featuredArtists.contains(normalizedSearch, true)
+        }
+    }
     val selectedRelease = releases.firstOrNull { it.id == selectedReleaseId }
     val selectedTrack = selectedRelease?.tracks?.firstOrNull { it.id == selectedTrackId }
+    val visibleTracks = selectedRelease?.tracks.orEmpty().filter { track ->
+        normalizedSearch.isBlank() ||
+            track.title.contains(normalizedSearch, true) ||
+            track.isrc.contains(normalizedSearch, true) ||
+            track.primaryArtist.contains(normalizedSearch, true) ||
+            track.featuredArtists.contains(normalizedSearch, true)
+    }
 
     Scaffold(
         containerColor = LibraryBackground,
@@ -195,9 +215,18 @@ private fun StudioLibraryApp(back: () -> Unit, openAudioCompletion: () -> Unit) 
                 error?.let { Text(it, color = LibraryError, fontSize = 11.sp, maxLines = 5, overflow = TextOverflow.Ellipsis) }
             }
             item {
+                OutlinedTextField(
+                    value = search,
+                    onValueChange = { search = it },
+                    label = { Text("Şarkı, ISRC, sanatçı veya yayın ara") },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
+                )
+            }
+            item {
                 LibraryCard("Yayın Seç") {
                     LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        items(releases, key = LibraryRelease::id) { release ->
+                        items(visibleReleases, key = LibraryRelease::id) { release ->
                             FilterChip(
                                 selected = selectedReleaseId == release.id,
                                 onClick = { selectedReleaseId = release.id; selectedTrackId = "" },
@@ -205,7 +234,7 @@ private fun StudioLibraryApp(back: () -> Unit, openAudioCompletion: () -> Unit) 
                             )
                         }
                     }
-                    if (releases.isEmpty()) Text("Katalogda yayın bulunmuyor.", color = LibraryMuted)
+                    if (visibleReleases.isEmpty()) Text("Aramayla eşleşen yayın veya şarkı bulunamadı.", color = LibraryMuted)
                 }
             }
             selectedRelease?.let { release ->
@@ -230,7 +259,7 @@ private fun StudioLibraryApp(back: () -> Unit, openAudioCompletion: () -> Unit) 
                         }
                     }
                 }
-                itemsIndexed(release.tracks, key = { _, track -> track.id }) { index, track ->
+                itemsIndexed(visibleTracks, key = { _, track -> track.id }) { index, track ->
                     TrackSummaryCard(
                         number = index + 1,
                         track = track,
@@ -385,6 +414,20 @@ private fun TrackEditor(
     var lyrics by remember(track.id, track.lyrics) { mutableStateOf(track.lyrics) }
     var synced by remember(track.id, track.syncedLyrics) { mutableStateOf(track.syncedLyrics) }
     var credits by remember(track.id, track.creditsText) { mutableStateOf(track.creditsText) }
+    var lrcMessage by remember(track.id) { mutableStateOf<String?>(null) }
+    val context = LocalContext.current
+    val lrcPicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        if (uri != null) {
+            runCatching {
+                val raw = context.contentResolver.openInputStream(uri)?.bufferedReader(Charsets.UTF_8)?.use { it.readText() }
+                    ?: error("LRC dosyası okunamadı.")
+                StudioLrcSupport.normalize(raw)
+            }.onSuccess {
+                synced = it
+                lrcMessage = "LRC doğrulandı: ${it.lineSequence().count()} zamanlı satır"
+            }.onFailure { lrcMessage = it.message ?: "LRC dosyası geçersiz." }
+        }
+    }
 
     LibraryCard("Şarkıyı Düzenle") {
         OutlinedTextField(title, { title = it }, label = { Text("Şarkı adı") }, modifier = Modifier.fillMaxWidth())
@@ -397,6 +440,15 @@ private fun TrackEditor(
         }
         OutlinedTextField(lyrics, { lyrics = it }, label = { Text("Düz şarkı sözleri") }, minLines = 4, modifier = Modifier.fillMaxWidth())
         OutlinedTextField(synced, { synced = it }, label = { Text("Senkronize LRC") }, minLines = 4, modifier = Modifier.fillMaxWidth())
+        OutlinedButton(
+            onClick = { lrcPicker.launch(arrayOf("application/x-lrc", "text/plain", "application/octet-stream")) },
+            enabled = !busy,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Icon(Icons.Rounded.UploadFile, null)
+            Text(" LRC Dosyası Seç ve Doğrula")
+        }
+        lrcMessage?.let { Text(it, color = if (it.startsWith("LRC doğrulandı")) LibraryMuted else LibraryError, fontSize = 11.sp) }
         OutlinedTextField(credits, { credits = it }, label = { Text("Künye • Rol: İsimler") }, minLines = 2, modifier = Modifier.fillMaxWidth())
         if (!track.playable) {
             OutlinedButton(onClick = openAudioCompletion, modifier = Modifier.fillMaxWidth()) {
@@ -405,7 +457,15 @@ private fun TrackEditor(
             }
         }
         Button(
-            onClick = { onSave(track.copy(title = title, isrc = isrc, primaryArtist = primary, featuredArtists = featured, explicit = explicit, lyrics = lyrics, syncedLyrics = synced, creditsText = credits)) },
+            onClick = {
+                val normalized = if (synced.isBlank()) "" else runCatching { StudioLrcSupport.normalize(synced) }.getOrElse {
+                    lrcMessage = it.message ?: "Senkronize LRC geçersiz."
+                    ""
+                }
+                if (synced.isBlank() || normalized.isNotBlank()) {
+                    onSave(track.copy(title = title, isrc = isrc, primaryArtist = primary, featuredArtists = featured, explicit = explicit, lyrics = lyrics, syncedLyrics = normalized, creditsText = credits))
+                }
+            },
             enabled = title.isNotBlank() && primary.isNotBlank() && !busy,
             modifier = Modifier.fillMaxWidth(),
         ) {
