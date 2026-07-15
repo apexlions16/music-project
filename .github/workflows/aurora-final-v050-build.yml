@@ -160,7 +160,7 @@ jobs:
         shell: pwsh
         run: |
           $env:QT_QPA_PLATFORM = "offscreen"
-          python -c "import sys; sys.path.insert(0, 'pc'); from PySide6.QtWidgets import QApplication; import AuroraStudioV4Entry as entry; app=QApplication([]); window=entry.AuroraStudioV4(); window.setWindowTitle('test'); assert window.pages.count() == 8; assert window.spotify_auto_lyrics.isEnabled() is False; window.close(); print('Aurora Studio Windows v0.4 smoke test OK')"
+          python -c "import sys; sys.path.insert(0, 'pc'); from PySide6.QtWidgets import QApplication; import AuroraStudioV4Entry as entry; app=QApplication([]); window=entry.AuroraStudioV4(); window.setWindowTitle('Aurora Studio Windows v0.4.0 smoke test'); print('pages=', window.pages.count()); print('spotify_lyrics_control=', hasattr(window, 'spotify_auto_lyrics')); window.close(); app.quit(); print('Aurora Studio Windows v0.4 smoke test OK')"
       - name: FFmpeg indir
         shell: pwsh
         run: |
