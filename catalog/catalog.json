@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T13:31:51.340Z",
+  "updatedAt": "2026-07-15T13:32:27.416Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -2099,6 +2099,31 @@
       "playable": true,
       "availability": "available",
       "qualityState": "ready"
+    },
+    {
+      "id": "track_e213c3e90dae4e7cbe675d2d88aab9f1",
+      "slug": "olu",
+      "title": "Ölü",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 148,
+      "isrc": "GBSMU2663252",
+      "explicit": true,
+      "spotifyId": "4HbJLNbqtZI5AHKg12VtNr",
+      "spotifyUrl": "https://open.spotify.com/track/4HbJLNbqtZI5AHKg12VtNr",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [],
+      "playable": false,
+      "availability": "upcoming",
+      "qualityState": "waiting_for_audio"
     }
   ],
   "releases": [
@@ -2634,6 +2659,37 @@
       ],
       "status": "published",
       "availableTrackCount": 1,
+      "totalTrackCount": 1
+    },
+    {
+      "id": "release_76e0853f68904941a8815bfbd2725bb4",
+      "slug": "olu",
+      "title": "Ölü",
+      "type": "single",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2012-08-30",
+      "cover": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/artwork1/b6699933d361492dbb856d8498d86eaa.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b2739b6cd365d38496b580026989",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2012 ContravoltaMusic • (P) 2012 ContravoltaMusic",
+      "description": "",
+      "spotifyId": "5UvLuIgZ3c29ICGmmQ3SSL",
+      "spotifyUrl": "https://open.spotify.com/album/5UvLuIgZ3c29ICGmmQ3SSL",
+      "tracks": [
+        {
+          "trackId": "track_e213c3e90dae4e7cbe675d2d88aab9f1",
+          "disc": 1,
+          "position": 1
+        }
+      ],
+      "status": "upcoming",
+      "availableTrackCount": 0,
       "totalTrackCount": 1
     }
   ],
