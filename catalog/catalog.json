@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T11:04:57.429549Z",
+  "updatedAt": "2026-07-15T11:10:21.505086Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -1756,6 +1756,9 @@
           "sampleRateKhz": 44.1,
           "bitDepth": 16
         }
+      ],
+      "featuredArtistNames": [
+        "Arem & Arman"
       ]
     },
     {
