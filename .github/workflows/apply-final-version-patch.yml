@@ -1,4 +1,4 @@
-name: Apply Aurora Final Versions
+name: Apply Aurora Final Versions Debug
 
 on:
   push:
@@ -20,12 +20,25 @@ jobs:
           ref: agent/aurora-studios-v030
           fetch-depth: 0
       - name: Sürüm yamasını uygula
-        run: python tools/final_version_patch.py
-      - name: Değişiklikleri kaydet
+        id: patch
         run: |
+          set +e
+          python tools/final_version_patch.py > final-version-patch.log 2>&1
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Değişiklikleri ve sonucu kaydet
+        run: |
+          mkdir -p verification
+          cp final-version-patch.log verification/final-version-patch.log
+          {
+            echo "source_commit=${GITHUB_SHA}"
+            echo "exit_code=${{ steps.patch.outputs.exit_code }}"
+            echo "verified_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } > verification/final-version-patch-result.txt
           git config user.name "Aurora Release Bot"
           git config user.email "actions@users.noreply.github.com"
-          git add app studioapp pc .github/workflows/aurora-v030-build.yml
-          git commit -m "Aurora Music v0.5 ve Studio v0.4 sürümlerini hazırla"
+          git add app studioapp pc .github/workflows/aurora-v030-build.yml verification
+          git commit -m "Aurora Music v0.5 ve Studio v0.4 sürüm yamasını çalıştır" || exit 0
           git pull --rebase origin agent/aurora-studios-v030
           git push origin HEAD:agent/aurora-studios-v030
