@@ -1,0 +1,5 @@
+SUCCESS
+version=0.6.0
+nav_count=9
+page_count=9
+cover_fetch_hidden=True
