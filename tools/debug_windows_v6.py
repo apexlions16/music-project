@@ -17,11 +17,13 @@ try:
 
     app = QApplication([])
     window = entry.AuroraStudioV6()
+    titles = [window.nav.item(index).text() for index in range(window.nav.count())]
     text = (
         "SUCCESS\n"
         f"version={entry.APP_VERSION}\n"
         f"nav_count={window.nav.count()}\n"
         f"page_count={window.pages.count()}\n"
+        f"nav_titles={titles!r}\n"
         f"cover_fetch_hidden={window.cover_fetch_btn_v3.isHidden()}\n"
     )
     window.close()
