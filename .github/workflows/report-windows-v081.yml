@@ -1,0 +1,60 @@
+name: Report Windows Studio v0.8.1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/report-windows-v081.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: v0.8.1 final çalışmasını bekle
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p verification
+          run_id=""
+          for attempt in $(seq 1 80); do
+            run_id=$(gh run list --workflow aurora-studio-windows-v081-build.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId // empty')
+            status=$(gh run list --workflow aurora-studio-windows-v081-build.yml --branch main --limit 1 --json status --jq '.[0].status // empty')
+            if [ -n "$run_id" ] && [ "$status" = "completed" ]; then break; fi
+            sleep 15
+          done
+          if [ -z "$run_id" ]; then
+            printf '# Aurora Studio Windows v0.8.1 final doğrulaması\n\nFAILED\n\nWorkflow run bulunamadı.\n' > verification/AURORA_STUDIO_WINDOWS_V081.md
+          else
+            conclusion=$(gh run view "$run_id" --json conclusion --jq '.conclusion')
+            {
+              echo '# Aurora Studio Windows v0.8.1 final doğrulaması'
+              echo
+              echo "conclusion=$conclusion"
+              echo "run_id=$run_id"
+              echo "run_url=https://github.com/${GITHUB_REPOSITORY}/actions/runs/$run_id"
+              echo "release=https://github.com/${GITHUB_REPOSITORY}/releases/tag/aurora-studio-v0.8.1"
+              echo "asset=Aurora-Studio-Windows-x64-v0.8.1.zip"
+              if [ "$conclusion" != "success" ]; then
+                echo
+                echo '```text'
+                gh run view "$run_id" --log-failed || true
+                echo '```'
+              fi
+            } > verification/AURORA_STUDIO_WINDOWS_V081.md
+          fi
+      - name: Sonucu kaydet
+        run: |
+          git config user.name "Aurora Release Reporter"
+          git config user.email "actions@users.noreply.github.com"
+          git add verification/AURORA_STUDIO_WINDOWS_V081.md
+          git commit -m "Aurora Studio Windows v0.8.1 final sonucunu kaydet" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
