@@ -19,19 +19,19 @@ internal class CatalogV2Manager(
     fun loadCatalog(): CatalogSnapshot = github.loadCatalog()
 
     fun fetchRemoteCover(url: String): AssetDraft {
-        require(url.startsWith("https://")) { "Kapak adresi HTTPS olmalı." }
-        val request = Request.Builder().url(url).header("User-Agent", "AuroraStudioMobile/0.2.0").get().build()
+        require(url.startsWith("https://")) { "Görsel adresi HTTPS olmalı." }
+        val request = Request.Builder().url(url).header("User-Agent", "AuroraStudioMobile/0.4.0").get().build()
         return http.client.newCall(request).execute().use { response ->
-            if (!response.isSuccessful) error("Kapak indirilemedi: HTTP ${response.code}")
+            if (!response.isSuccessful) error("Görsel indirilemedi: HTTP ${response.code}")
             val type = response.header("Content-Type").orEmpty().lowercase(Locale.ROOT)
             val extension = when {
                 "png" in type -> "png"
                 "webp" in type -> "webp"
                 else -> "jpg"
             }
-            val file = File(context.cacheDir, "aurora-cover-${System.currentTimeMillis()}.$extension")
+            val file = File(context.cacheDir, "aurora-image-${System.currentTimeMillis()}.$extension")
             response.body?.byteStream()?.use { input -> file.outputStream().use(input::copyTo) }
-                ?: error("Kapak verisi boş döndü.")
+                ?: error("Görsel verisi boş döndü.")
             AssetDraft(Uri.fromFile(file), file.name, file.length())
         }
     }
@@ -44,7 +44,7 @@ internal class CatalogV2Manager(
         require(draft.title.isNotBlank()) { "Yayın adı gerekli." }
         require(draft.mainArtist.isNotBlank()) { "Ana sanatçı gerekli." }
         require(draft.tracks.isNotEmpty()) { "En az bir metadata parçası gerekli." }
-        require(draft.coverAsset != null || draft.coverUrl.isNotBlank()) { "Kapak dosyası veya URL gerekli." }
+        require(draft.coverAsset != null || draft.coverUrl.isNotBlank()) { "Kapak dosyası veya Spotify kapağı gerekli." }
 
         val catalog = JSONObject(snapshot.json.toString())
         catalog.put("schemaVersion", maxOf(5, catalog.optInt("schemaVersion", 1)))
@@ -53,16 +53,26 @@ internal class CatalogV2Manager(
         val releases = catalog.array("releases")
         val featured = catalog.array("featuredReleaseIds")
         val jobs = catalog.array("qualityJobs")
-        val mainArtistId = ensureArtist(artists, draft.mainArtist)
-        val existingByIsrc = existingByIsrc(tracks)
         val storage = hub.loadStorageIndex()
         val pending = mutableListOf<Pending>()
+        val mainArtistId = ensureArtist(artists, draft.mainArtist)
+        localizeArtistArtwork(artists, mainArtistId, draft.mainArtist, storage, pending, progress)
+        val existingByIsrc = existingByIsrc(tracks)
 
         var coverUrl = draft.coverUrl.trim()
-        draft.coverAsset?.let { asset ->
+        val coverAsset = draft.coverAsset ?: coverUrl
+            .takeIf { it.isNotBlank() && !isHuggingFaceUrl(it) }
+            ?.let {
+                progress("Spotify kapağı indiriliyor…", .02f)
+                fetchRemoteCover(it)
+            }
+        coverAsset?.let { asset ->
             val remote = hub.allocate(storage, "artwork", extensionOf(asset.displayName))
             pending += Pending(asset, remote)
             coverUrl = hub.resolveUrl(remote)
+        }
+        require(isHuggingFaceUrl(coverUrl)) {
+            "Kapak Hugging Face'e taşınamadı. Spotify kapağını yeniden içe aktarın veya yerel kapak seçin."
         }
 
         val releaseRows = JSONArray()
@@ -92,11 +102,19 @@ internal class CatalogV2Manager(
                 return@forEachIndexed
             }
 
-            val primaryId = ensureArtist(artists, row.primaryArtist.ifBlank { draft.mainArtist })
+            val primaryName = row.primaryArtist.ifBlank { draft.mainArtist }
+            val primaryId = ensureArtist(artists, primaryName)
+            localizeArtistArtwork(artists, primaryId, primaryName, storage, pending, progress)
             val featureIds = mutableListOf<String>()
             val featureNames = mutableListOf<String>()
             splitNames(row.featuredArtists).forEach { name ->
-                findArtistId(artists, name)?.let(featureIds::add) ?: featureNames.add(name)
+                val known = findArtistId(artists, name)
+                if (known != null) {
+                    featureIds += known
+                    localizeArtistArtwork(artists, known, name, storage, pending, progress)
+                } else {
+                    featureNames += name
+                }
             }
             val trackId = opaqueId("track")
             val sourceRows = JSONArray()
@@ -150,7 +168,7 @@ internal class CatalogV2Manager(
             .put("label", draft.label)
             .put("copyright", draft.copyright)
             .put("description", draft.description)
-            .put("metadataSource", draft.metadataSource)
+            .put("metadataSource", "spotify")
             .put("metadataSourceId", draft.metadataSourceId)
             .put("spotifyUrl", draft.spotifyUrl)
             .put("spotifyCoverUrl", draft.coverUrl)
@@ -160,7 +178,7 @@ internal class CatalogV2Manager(
         if (draft.featured) catalog.put("featuredReleaseIds", prependUnique(featured, releaseId))
 
         progress("GitHub kataloğu commit ediliyor…", .96f)
-        github.commitCatalog(catalog, snapshot.sha, "Aurora Music: ${draft.title} yayınını Studio Mobile v0.2 ile ekle")
+        github.commitCatalog(catalog, snapshot.sha, "Aurora Music: ${draft.title} yayınını Spotify metadata ile ekle")
         progress("Yayın tamamlandı", 1f)
         return PublishResult(newCount, reusedCount, releaseId)
     }
@@ -255,11 +273,38 @@ internal class CatalogV2Manager(
 
     private fun uploadPending(pending: List<Pending>, storage: JSONObject, message: String, progress: (String, Float) -> Unit) {
         if (pending.isEmpty()) return
-        val prepared = pending.mapIndexed { index, row ->
+        val prepared = pending.distinctBy { it.remote }.mapIndexed { index, row ->
             progress("${row.asset.displayName} hazırlanıyor…", .04f + index.toFloat() / pending.size * .10f)
             hub.prepare(row.asset.uri, row.asset.displayName, row.remote)
         }
         hub.uploadAndCommit(prepared, storage, message, progress)
+    }
+
+    private fun localizeArtistArtwork(
+        artists: JSONArray,
+        artistId: String,
+        artistName: String,
+        storage: JSONObject,
+        pending: MutableList<Pending>,
+        progress: (String, Float) -> Unit,
+    ) {
+        val artist = findById(artists, artistId) ?: return
+        if (isHuggingFaceUrl(artist.optString("image"))) return
+        val spotifyImage = SpotifyMetadataCache.artistImageUrl(artistName)
+        if (spotifyImage.isBlank()) return
+        progress("$artistName sanatçı görseli indiriliyor…", .03f)
+        val asset = fetchRemoteCover(spotifyImage)
+        val remote = hub.allocate(storage, "artist-artwork", extensionOf(asset.displayName))
+        pending += Pending(asset, remote)
+        val hfUrl = hub.resolveUrl(remote)
+        artist.put("image", hfUrl)
+        if (!isHuggingFaceUrl(artist.optString("heroImage"))) artist.put("heroImage", hfUrl)
+        if (!isHuggingFaceUrl(artist.optString("backgroundImage"))) artist.put("backgroundImage", hfUrl)
+    }
+
+    private fun isHuggingFaceUrl(url: String): Boolean {
+        val host = runCatching { Uri.parse(url).host.orEmpty().lowercase(Locale.ROOT) }.getOrDefault("")
+        return host == "huggingface.co" || host.endsWith(".huggingface.co") || host == "hf.co" || host.endsWith(".hf.co")
     }
 
     private fun qualityJob(trackId: String, sourcePath: String, sourceUrl: String): JSONObject = JSONObject()
