@@ -1,0 +1,6 @@
+SUCCESS
+task=:studioapp:assembleDebug
+version=0.6.0
+bulk_audio_match=true
+library=true
+upcoming_completion=true
