@@ -13,6 +13,10 @@
         android:usesCleartextTraffic="false">
         <activity
             android:name=".MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AuroraV4Activity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
