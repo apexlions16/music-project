@@ -1,0 +1,15 @@
+Auto-merging .github/workflows/aurora-v030-build.yml
+CONFLICT (content): Merge conflict in .github/workflows/aurora-v030-build.yml
+Auto-merging studioapp/build.gradle.kts
+CONFLICT (content): Merge conflict in studioapp/build.gradle.kts
+Auto-merging studioapp/src/main/kotlin/com/apexlions/aurorastudio/CatalogV2Manager.kt
+Auto-merging studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+CONFLICT (content): Merge conflict in studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+Auto-merging studioapp/src/main/kotlin/com/apexlions/aurorastudio/StudioV2Activity.kt
+CONFLICT (content): Merge conflict in studioapp/src/main/kotlin/com/apexlions/aurorastudio/StudioV2Activity.kt
+Automatic merge failed; fix conflicts and then commit the result.
+Çatışan dosyalar:
+.github/workflows/aurora-v030-build.yml
+studioapp/build.gradle.kts
+studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+studioapp/src/main/kotlin/com/apexlions/aurorastudio/StudioV2Activity.kt
