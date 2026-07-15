@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T11:21:46.815353Z",
+  "updatedAt": "2026-07-15T11:35:23.119182Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -35,7 +35,10 @@
       "heroImage": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/artist-background\/050a30a94e184f0082e15b4cd39ef706.jpg",
       "backgroundImage": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/artist-background\/050a30a94e184f0082e15b4cd39ef706.jpg",
       "backgroundVideoUrl": "",
-      "bio": "Manifest is a six-member girl group under Hypers Music, formed by Esin, Hilal, Lidya, Mina, Sueda and Zeynep.\nThey broke out with their debut run of singles, leading into Manifestival, one of the most streamed girl group albums globally in its release year and the most pre-saved album in Türkiye.\nThey brought the album to life with Manifestival, the country’s first artist-led music festival, selling out and reaching over 250,000 ticketed attendees across headline shows.\nFollowing the album, the group released Manifestival (Deluxe) with five remixes. Singles like “Amatör” and “Daha İyi” delivered the biggest global Spotify debuts of their release weeks, while “Rüya” with Winx Club pushed their reach beyond Türkiye."
+      "bio": "Manifest is a six-member girl group under Hypers Music, formed by Esin, Hilal, Lidya, Mina, Sueda and Zeynep.\nThey broke out with their debut run of singles, leading into Manifestival, one of the most streamed girl group albums globally in its release year and the most pre-saved album in Türkiye.\nThey brought the album to life with Manifestival, the country’s first artist-led music festival, selling out and reaching over 250,000 ticketed attendees across headline shows.\nFollowing the album, the group released Manifestival (Deluxe) with five remixes. Singles like “Amatör” and “Daha İyi” delivered the biggest global Spotify debuts of their release weeks, while “Rüya” with Winx Club pushed their reach beyond Türkiye.",
+      "listIds": [
+        "artist_list_e6580e061a8d480da75f9df6ece2258c"
+      ]
     }
   ],
   "tracks": [
@@ -2535,5 +2538,44 @@
       "totalTrackCount": 1
     }
   ],
-  "qualityJobs": []
+  "qualityJobs": [],
+  "artistLists": [
+    {
+      "id": "artist_list_e6580e061a8d480da75f9df6ece2258c",
+      "artistId": "artist_69a7219681e54025b7c9db28b1b6fd0b",
+      "title": "THIS IS MANIFEST",
+      "description": "En yeni şarkılar sadece burada!",
+      "cover": "https:\/\/b6s54eznn8xq.merlincdn.net\/Uploads\/People\/7eed7efc9f8540e5b3699c89ab224561.jpg",
+      "trackIds": [
+        "track_6484eb96b3e44df48bb62fdaa11c6d9f",
+        "track_5a5000b2a2874ee783fa47147d5aaf93",
+        "track_789badfe855c44bfb9aea973eb8a1bba",
+        "track_df3cfc8c856a472aa9b4948beb77da9f",
+        "track_1e315ee31a3c4b94865e2e6c0bac2aed",
+        "track_6b35bf1189d34c53b83553b6a633021f",
+        "track_661288848a98436296928e2b54badbef",
+        "track_ae5587f8ca4f4663be6aaf574d22aaee",
+        "track_cbbab467817048ecb28bd5a71e604368",
+        "track_9257ce4e8dd54dd98016565f333c6c4d",
+        "track_572780bad21c43b881fe0b0d7b4a0315",
+        "track_d9a945e7651c4820b87a01c2ee16f758",
+        "track_27371b18773a408bbb8b88a4a77dc36f",
+        "track_a3ab3c8c7af64241ae4f7cc3c98c1062",
+        "track_23796e708d844e01b48807c96b09afd8",
+        "track_d64dd5a059194cabb5ad4c5f7599b131",
+        "track_b39acd3b5d13452794fd1d0f82a52f28",
+        "track_b499f122279e40319f428499d3bff6cf",
+        "track_8ee9c3bc8be4434ebe8165e58882beb1",
+        "track_6f3f8f09be7044709c2ce59cd7eb37a7",
+        "track_14a06ca8ff454b8fa8adec28031a53cb",
+        "track_f7139ed0a6154cbfa5fb7eff9f86ecaf",
+        "track_b164e4ad9ea54d8b9e2246a1b6c2306d",
+        "track_a2e795dd6af547759b90d081728b713e",
+        "track_25f9930bd492467bb009263e4cbd7d1d",
+        "track_59b2ebee276445ab947ad82a3cbbf87d",
+        "track_1daf668ad19644eb8b14f0065d290cc8",
+        "track_9ad1ef3c8632464493543fffeddfb12c"
+      ]
+    }
+  ]
 }
