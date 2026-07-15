@@ -1,4 +1,4 @@
-name: Aurora Music 0.3.2 / Studio Mobile 0.2.0 / Studio Windows 0.2.3 Build
+name: Aurora Music 0.4.0 / Studio Mobile 0.2.0 / Studio Windows 0.2.3 Build
 
 on:
   pull_request:
@@ -30,7 +30,7 @@ concurrency:
 
 jobs:
   android_music:
-    name: Aurora Music Android v0.3.2
+    name: Aurora Music Android v0.4.0
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -70,13 +70,13 @@ jobs:
       - name: Aurora Music paketle
         run: |
           mkdir -p yayin
-          cp app/build/outputs/apk/debug/app-debug.apk yayin/Aurora-Music-Android-v0.3.2.apk
-          sha256sum yayin/Aurora-Music-Android-v0.3.2.apk > yayin/SHA256SUMS-Aurora-Music.txt
+          cp app/build/outputs/apk/debug/app-debug.apk yayin/Aurora-Music-Android-v0.4.0.apk
+          sha256sum yayin/Aurora-Music-Android-v0.4.0.apk > yayin/SHA256SUMS-Aurora-Music.txt
 
       - name: Aurora Music artifact
         uses: actions/upload-artifact@v4
         with:
-          name: aurora-music-android-v0.3.2
+          name: aurora-music-android-v0.4.0
           path: yayin/*
 
       - name: Aurora Music Release
@@ -84,8 +84,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release delete v0.3.2 --cleanup-tag --yes || true
-          gh release create v0.3.2 yayin/* --title "Aurora Music Android v0.3.2" --notes "Hareketli kapak, serbest feat isimleri ve Explicit E desteği. Kalıcı Android imzasıyla uygulama verileri güncellemede korunur."
+          gh release delete v0.4.0 --cleanup-tag --yes || true
+          gh release create v0.4.0 yayin/* \
+            --title "Aurora Music Android v0.4.0" \
+            --notes "Spotify benzeri dinamik ana sayfa bölümleri, sanatçı popülerleri, sanatçı seçkileri, üç yayınlık diskografi önizlemesi, iki sütun Tüm Diskografi ekranı, metadata-only Yakında ve kısmi yayın desteği, kilitli parçalar ve yalnızca hazır parçaları oynatma. Kalıcı Android imzası sayesinde uygulama ayarları ve şifreli token güncellemede korunur."
 
   android_studio:
     name: Aurora Studio Mobile v0.2.0
