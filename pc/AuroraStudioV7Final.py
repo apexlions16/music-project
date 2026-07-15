@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import copy
 import re
 import sys
 from pathlib import Path
+from typing import Any, Callable
 
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QColor, QKeySequence, QPalette, QShortcut
@@ -74,6 +76,7 @@ class AuroraStudioV7Final(AuroraStudioV6Final):
         self.setWindowTitle(f"{APP_NAME} {APP_VERSION}")
         self._install_library_search_v7()
         self._install_lrc_picker_v7()
+        self.completion_mode_v6.currentIndexChanged.connect(lambda _index: self.refresh_completion_v6())
         self.refresh_all_views()
 
     def _install_library_search_v7(self) -> None:
@@ -171,6 +174,62 @@ class AuroraStudioV7Final(AuroraStudioV6Final):
                 QMessageBox.warning(self, APP_NAME, f"Senkronize LRC geçersiz:\n{exc}")
                 return
         super().save_library_track_v6()
+
+    def pending_tracks_v6(self) -> list[tuple[str, str, str, int, int]]:
+        if not hasattr(self, "completion_mode_v6") or self.completion_mode_v6.currentData() != "lyrics":
+            return super().pending_tracks_v6()
+        lookup = {row.get("id"): row for row in self.catalog.get("tracks", [])}
+        result: list[tuple[str, str, str, int, int]] = []
+        for release in self.catalog.get("releases", []):
+            for ref in sorted(release.get("tracks", []), key=lambda row: (row.get("disc", 1), row.get("position", 1))):
+                track = lookup.get(ref.get("trackId"))
+                if not track:
+                    continue
+                result.append((track.get("id"), release.get("title", "Yayın"), track.get("title", "Şarkı"), ref.get("disc", 1), ref.get("position", 1)))
+        seen: set[str] = set()
+        return [row for row in result if not (row[0] in seen or seen.add(row[0]))]
+
+    def submit_completion_v6(self) -> None:
+        if self.completion_mode_v6.currentData() != "lyrics":
+            super().submit_completion_v6()
+            return
+        assignments = {track_id: path for track_id, path in self.completion_assignments.items() if path.is_file()}
+        if not assignments:
+            QMessageBox.warning(self, APP_NAME, "En az bir LRC/TXT dosyasını bir şarkıyla eşleyin.")
+            return
+        if len(set(assignments.values())) != len(assignments):
+            QMessageBox.warning(self, APP_NAME, "Aynı dosya birden fazla şarkıya atanamaz.")
+            return
+        if not self.catalog_sha:
+            QMessageBox.warning(self, APP_NAME, "Önce kataloğu yükleyin.")
+            return
+        snapshot = copy.deepcopy(self.catalog)
+        sha = self.catalog_sha
+        settings = copy.deepcopy(self.settings)
+
+        def task(progress: Callable[[str, int], None]) -> tuple[dict[str, Any], str]:
+            lookup = {row.get("id"): row for row in snapshot.get("tracks", [])}
+            for index, (track_id, path) in enumerate(assignments.items()):
+                text = path.read_text(encoding="utf-8-sig", errors="replace")
+                if path.suffix.lower() == ".lrc":
+                    lookup[track_id]["syncedLyrics"] = normalize_lrc_v7(text)
+                else:
+                    lookup[track_id]["lyrics"] = text.strip()
+                progress(f"Söz {index + 1}/{len(assignments)} doğrulandı", 20 + int((index + 1) / len(assignments) * 55))
+            progress("GitHub kataloğu commit ediliyor…", 92)
+            new_sha = base.GitHubCatalogClient(settings).commit_catalog(snapshot, sha, "Aurora Music: toplu LRC/TXT sözlerini güncelle")
+            progress("Tamamlandı", 100)
+            return snapshot, new_sha
+
+        def done(result: tuple[dict[str, Any], str]) -> None:
+            self.catalog, self.catalog_sha = result
+            self.completion_files.clear()
+            self.completion_assignments.clear()
+            self.set_dirty(False)
+            self.refresh_all_views()
+            QMessageBox.information(self, APP_NAME, "LRC/TXT dosyaları mevcut şarkılara bağlandı.")
+
+        self.run_task(task, done, "LRC/TXT dosyaları doğrulanıyor")
 
 
 def main() -> int:
