@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T16:46:32.878558Z",
+  "updatedAt": "2026-07-15T17:02:02.137184Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_8d2723e4832f46948995ce24adb32698",
     "release_adedeabdcc2c4aa39c2ec9e533753b65",
     "release_33e34f716ba243e6b5a9d398935bbaee",
     "release_51335f8beda841efb52c9e205ea55170",
@@ -2505,6 +2506,50 @@
       "playable": false,
       "availability": "upcoming",
       "qualityState": "waiting_for_audio"
+    },
+    {
+      "id": "track_7a4ab324f20549179a0a69343ace627a",
+      "slug": "civi",
+      "title": "Çivi",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 0,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "isrc": "GBSMU2463353",
+      "explicit": false,
+      "lyrics": "\n[Giriş]\nHey, bi' nakarat yazdım\nHaha, şöyle—\n\n[Nakarat]\nŞeytan diyo' \"Kalk, toz yapıp yak\"\n\"Bul damarını, çak tabutuna bi' çivi daha\"\n\"Suçu bana at, benden farkın kaldıysa eğer hala\"\nİnatla, şeytan diyo' \"Kalk, toz yapıp yak\"\n\"Bul damarını, çak tabutuna bi' çivi daha\"\n\"Suçu bana at, benden farkın kaldıysa eğer hala\"\n\n[Verse 1]\nAzrail olsaydım intiharı denerdim\nSonunda diyecek olmasaydı tanrı \"Denendin\"\nGelip de çattığında zaman, düşüp yalvaran\nNe kadar çok insan olduğunu inan bilmek istemezdim\nYazdığıma dersiniz hata, her lafım hata bu beş kalibre daha\nAma her vakit kolayca der insan vefat mukadderat\nNeden diler o halde bu dünyada rüya görmek için beş dakika daha?\nBu yüzden garip sözlerimde ders araman\nÇünkü bütün bu isyan kibir, fitne, kahır, yalan\nBi' gerçek var hayatında, hayatta olmayacak bir sabah annen baban\nTek bi' gün geçirme sarılmadan\n\n[Nakarat]\nŞeytan diyo' \"Kalk, toz yapıp yak\"\n\"Bul damarını, çak tabutuna bi' çivi daha\"\n\"Suçu bana at, benden farkın kaldıysa eğer hala\"\nİnatla, şeytan diyo' \"Kalk, toz yapıp yak\"\n\"Bul damarını, çak tabutuna bi' çivi daha\"\n\"Suçu bana at, benden farkın kaldıysa eğer hala\"\n\n[Verse 2]\nHala oyunum adaletli değil çünkü ben mükemmelim\nAdaletli değilmiş dünya şu an sikimde değil\nÇünkü ben ben değilim, ben olsam da değişmez bi' bok\nKafanda olmadıkça çelişkiler bi' ton\nNe anlatsam hepsi boş\nEdepsiz olan şarkılarım çokken\nHayat dersi bekleme benden cennette yerim yokken\nYapabilir beni her an bu şarkı mürted\nO yüzden şimdi daha fazla konuşmamam gerek çünkü—\n\n[Nakarat]\nŞeytan diyo' \"Kalk, toz yapıp yak\"\n\"Bul damarını, çak tabutuna bi' çivi daha\"\n\"Suçu bana at, benden farkın kaldıysa eğer hala\"\nİnatla, şeytan diyo' \"Kalk, toz yapıp yak\"\n\"Bul damarını, çak tabutuna bi' çivi daha\"\n\"Suçu bana at, benden farkın kaldıysa eğer hala\"\n\n(Haha, iyiymiş)",
+      "syncedLyrics": "",
+      "credits": [
+        {
+          "role": "Sanatçılar",
+          "names": [
+            "Contra"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "audio_cc4f900c71f4460da1f22822f261ae06",
+          "kind": "high",
+          "label": "Orijinal Kaynak",
+          "codec": "AAC",
+          "url": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/4b6bc7c544ec40549a322c28e67f7929.m4a",
+          "downloadUrl": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/4b6bc7c544ec40549a322c28e67f7929.m4a",
+          "downloadable": true,
+          "spatial": false,
+          "generated": false
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "queued"
     }
   ],
   "releases": [
@@ -3179,6 +3224,39 @@
       "status": "upcoming",
       "availableTrackCount": 0,
       "totalTrackCount": 10
+    },
+    {
+      "id": "release_8d2723e4832f46948995ce24adb32698",
+      "slug": "civi",
+      "title": "Çivi",
+      "type": "single",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2015-01-27",
+      "cover": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/artwork1\/a3309408bfb94223bcf3b3b228078748.jpg",
+      "heroImage": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/artwork1\/a3309408bfb94223bcf3b3b228078748.jpg",
+      "animatedCoverUrl": "",
+      "label": "667",
+      "copyright": "(C) 2015 ContravoltaMusic",
+      "description": "",
+      "metadataSource": "spotify",
+      "metadataSourceId": "1er2YE8IcH6kI42JUdbpit",
+      "spotifyUrl": "",
+      "spotifyCoverUrl": "https:\/\/i.scdn.co\/image\/ab67616d0000b273eb32c6483b7b8aebbe5406a7",
+      "tracks": [
+        {
+          "trackId": "track_7a4ab324f20549179a0a69343ace627a",
+          "disc": 1,
+          "position": 1
+        }
+      ],
+      "status": "published",
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     }
   ],
   "qualityJobs": [
@@ -3194,6 +3272,19 @@
         "lossless"
       ],
       "createdAt": "2026-07-15T16:44:23.600419Z"
+    },
+    {
+      "id": "quality_f63732585e574d08a86ea5d702031d64",
+      "trackId": "track_7a4ab324f20549179a0a69343ace627a",
+      "sourcePath": "aurora\/audio-source1\/4b6bc7c544ec40549a322c28e67f7929.m4a",
+      "sourceUrl": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/4b6bc7c544ec40549a322c28e67f7929.m4a",
+      "status": "queued",
+      "presets": [
+        "standard",
+        "high",
+        "lossless"
+      ],
+      "createdAt": "2026-07-15T17:01:58.814802Z"
     }
   ],
   "artistLists": [
