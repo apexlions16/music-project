@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T20:19:51.338Z",
+  "updatedAt": "2026-07-15T21:05:15.044Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -275,6 +275,48 @@
       "bio": "",
       "spotifyId": "1X8IDE7vOMFmhR8Hg32EGA",
       "spotifyUrl": "https://open.spotify.com/artist/1X8IDE7vOMFmhR8Hg32EGA",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_b66cca70804549d8ba8f2b54056a099e",
+      "slug": "emir-can-igrek",
+      "name": "Emir Can İğrek",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/bdd6e95be1af4297b5f562cfcaee363f.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/bdd6e95be1af4297b5f562cfcaee363f.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/bdd6e95be1af4297b5f562cfcaee363f.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "4XP7cGw4t8BqZ8Du5q3bHg",
+      "spotifyUrl": "https://open.spotify.com/artist/4XP7cGw4t8BqZ8Du5q3bHg",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_32c4753b22c946c7ba7a5c6cf356089f",
+      "slug": "reckol",
+      "name": "Reckol",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/8ce1c0ff59f1475784fe0f128cfe68e8.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/8ce1c0ff59f1475784fe0f128cfe68e8.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/8ce1c0ff59f1475784fe0f128cfe68e8.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "5FqTuN42w2zGw4Pzd50yaS",
+      "spotifyUrl": "https://open.spotify.com/artist/5FqTuN42w2zGw4Pzd50yaS",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_a170129ada9e4e578a913da659a8bb5e",
+      "slug": "yung-ouzo",
+      "name": "Yung Ouzo",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/f6fef23729c54e5783e482cce8cf00b0.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/f6fef23729c54e5783e482cce8cf00b0.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/f6fef23729c54e5783e482cce8cf00b0.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "3VooEK5HkkcSc4Tv7FCBzb",
+      "spotifyUrl": "https://open.spotify.com/artist/3VooEK5HkkcSc4Tv7FCBzb",
       "popularTrackIds": [],
       "listIds": []
     }
@@ -6726,7 +6768,9 @@
           "sampleRateKhz": 44.1,
           "bitDepth": 16
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_01c169c7fc4947cc9bc81b75129f0955",
@@ -6791,7 +6835,9 @@
           "sampleRateKhz": 44.1,
           "bitDepth": 16
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_72af8df4e41e4b01b9feed2f468ebaa7",
@@ -6869,7 +6915,9 @@
           "sampleRateKhz": 44.1,
           "bitDepth": 24
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_81be3d4767144f809300b7267c9b67b4",
@@ -6947,7 +6995,9 @@
           "sampleRateKhz": 44.1,
           "bitDepth": 24
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_3dfd08bfd37047219fe182887c949815",
@@ -7027,7 +7077,9 @@
           "sampleRateKhz": 44.1,
           "bitDepth": 24
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_e579a1c806494f5fbd135bdad767a8a4",
@@ -7105,7 +7157,9 @@
           "sampleRateKhz": 44.1,
           "bitDepth": 24
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_5ca47e70bb2d4edab67a6324a6faec77",
@@ -7132,7 +7186,9 @@
       "syncedLyrics": "",
       "credits": [],
       "availability": "pending",
-      "sources": []
+      "sources": [],
+      "playable": false,
+      "qualityState": "waiting_for_audio"
     },
     {
       "id": "track_c7540eacb7d74af3a63008d7f72df1a3",
@@ -7208,6 +7264,244 @@
           "channels": "2 kanal",
           "spatial": false,
           "sampleRateKhz": 44.1,
+          "bitDepth": 24
+        }
+      ],
+      "playable": true,
+      "qualityState": "ready"
+    },
+    {
+      "id": "track_b989e70dfc0b4a418a4d771305dd5f34",
+      "slug": "kor-x-islak-kum-mashup",
+      "title": "Kor x Islak Kum - Mashup",
+      "artistIds": [
+        "artist_b66cca70804549d8ba8f2b54056a099e",
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_b66cca70804549d8ba8f2b54056a099e",
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 181,
+      "isrc": "QM6MZ2433384",
+      "explicit": false,
+      "spotifyId": "61YzeQphhXaStgbJrohkjA",
+      "spotifyUrl": "https://open.spotify.com/track/61YzeQphhXaStgbJrohkjA",
+      "lyrics": "Yüze düşmüş zülüf, nası' geleyim dönüp?\nGece resmimi öpüp vazgeçmişsin benden\nKarayolları bozuk, kanadım yine kırık\nBana mektubu yazıp vazgeçmişsin benden\nYangın düşmüş kor kor, yanmış gönlüm yer yer\nDuydum sağdan soldan, vazgeçmişsin benden\nDoldur, bardak dolsun, yanmış gönlüm yansın\nSana da aşk olsun, vazgeçmişsin benden\nOlsam bile kalabalıklar içinde yokluğun var eder iliklerimde hiçliği\nYazın mont giyen evsiz şarapçı dayı da bıraktı şerefime içmeyi\nŞişelerin dibindekiler gibi biter sandım ama sürücek şarkın\nBi' ömür sana mahkûm etse bеni adaletinle yargın\nAdını yazsam sahilimin ıslak kumlarına, denizlеr gider mi suyuma?\nGörünmem senden başkasına, iki gözüm âmâ\nAdını yazsam sahilimin ıslak kumlarına denizler gider mi suyuma?\nGörünmem senden başkasına, iki gözüm âmâ\nYangın düşmüş kor kor, yanmış gönlüm yer yer\nDuydum sağdan soldan, vazgeçmişsin benden\nDoldur, bardak dolsun, yanmış gönlüm yansın\nSana da aşk olsun, vazgeçmişsin benden\nYangın düşmüş kor kor, yanmış gönlüm yer yer\nDuydum sağdan soldan, vazgeçmişsin benden\nDoldur, bardak dolsun, yanmış gönlüm yansın\nSana da aşk olsun, vazgeçmişsin benden\nYangın düşmüş kor kor, yanmış gönlüm yer yer\nDuydum sağdan soldan, vazgeçmişsin benden\nDoldur, bardak dolsun, yanmış gönlüm yansın\nSana da aşk olsun, vazgeçmişsin benden",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_60a60c1a67e84c5f8e2557570efe7533",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/95bcdfd9b04e4acc952c4c1208b7f269.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/95bcdfd9b04e4acc952c4c1208b7f269.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_bb9cfb2377ea479ba193be227285f6a5",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8babbb3dbe81439a9d63a792e4348eb3.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8babbb3dbe81439a9d63a792e4348eb3.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_2ab321d2513442f6a2b68922ace1dae6",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9fdcea5007cc45c19ce6dede480f2604.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9fdcea5007cc45c19ce6dede480f2604.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_37d131207d3f46aabc38963cc3f5a7e1",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f7035e685ea14ab0b982f59c04433ff5.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f7035e685ea14ab0b982f59c04433ff5.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_30165a254af542b09fd458b450ea08d7",
+      "slug": "tirmandim",
+      "title": "TIRMANDIM",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436",
+        "artist_32c4753b22c946c7ba7a5c6cf356089f",
+        "artist_a170129ada9e4e578a913da659a8bb5e"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436",
+        "artist_32c4753b22c946c7ba7a5c6cf356089f",
+        "artist_a170129ada9e4e578a913da659a8bb5e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 133,
+      "isrc": "QMFMG2598823",
+      "explicit": false,
+      "spotifyId": "7ozaiwhvK7n71jNoJF2v6y",
+      "spotifyUrl": "https://open.spotify.com/track/7ozaiwhvK7n71jNoJF2v6y",
+      "lyrics": "(Casap, show me what you got?)\n(D-D-Demo)\n(W-W-Wyldren)\nGidiyo'dum hedefe, agalar yanımda-da-da\nVurdum zirvelere-\n\nHenüz yirmi yaşında başardım\nYirmi bir, yirmi iki, tırmandım, durmam\nE, tırmanılıyo'sa tırmanıldığı kadar\nGidiyorum hedefe, agalar yanımda\nGidiyorum hedefe, agalar yanımda\n\nBeni fazla kesme, \"Şeker Kız Fendi\"\nGit, getir puro ve Brendi, sen kölesin, ben efendi\nSen al yazmalı selvi, yağmur yağdırmam yeterli\nEski beni isteme, eski ben üstüne işerdi\nParola \"Doğar aurora\", say \"Aloha\"\nDoya doya, doya doya oynarım poponla\nYeni şatomda oldum herkesin başına bela\n\nHenüz yirmi yaşında başardım\nYirmi bir, yirmi iki, tırmandım, durmam\nE, tırmanılıyo'sa tırmanıldığı kadar\nGidiyorum hedefe, agalar yanımda\n(Gidiyorum hedefe, agalar yanımda)\n\n\"Legolas ol, gel\" der\nDer, \"Reckol, bana gir\"\n\"Çok zengin ol'ca'm\" diyo', inş'\nGit, \"Git\" dediğimdeyse git\nSana, \"Gel\" dediğimdeyse gel\n\"Git\" dediğimdeyse git\nSana, \"Gel\" dediğimdeyse gel\n\nUm'rumda değil, kim ner'de, zulam kartonpiyerde\nEvet, or'da bi' yerde, ara sokak, ilerle\nEvet, bizimkilerle, dünden kalan şişelerle\nHızlı geçtim, ötmedi; otobanda, gişelerde\nBu bitti (bu bitti)\nGetir yenisini bana (getir yenisini bana)\nGetirirler Fizan'a (getirirler Fizan'a)\n\"Hızlanırız bi' ara\", dedim\n\nHenüz yirmi yaşında başardım\nYirmi bir, yirmi iki, tırmandım, durmam\nE, tırmanılıyo'sa tırmanıldığı kadar\nGidiyorum hedefe, agalar yanımda\nGidiyorum hedefe, agalar yanımda",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_60bd596fd5e848518b7fbdcc483c6c7f",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f3ba184f63cc43e38ddf6d249c5e4096.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/f3ba184f63cc43e38ddf6d249c5e4096.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_165f1c16c42946858ba37af0a22773b3",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/41e370eeead64bcabcc8c4fc60b5abb5.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/41e370eeead64bcabcc8c4fc60b5abb5.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_64d2de63ccf142ae9dfb2bb8cf825dd1",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d429cdc5f2f74ae9a72c3c3fadf2127f.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/d429cdc5f2f74ae9a72c3c3fadf2127f.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_2e32bcf229b14a1caf14b900f1ac5c72",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/78d41152d0314af9a18858845c5028c4.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/78d41152d0314af9a18858845c5028c4.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 24
+        }
+      ]
+    },
+    {
+      "id": "track_c957759a98b948d58c1cbe7c56baf206",
+      "slug": "yanki",
+      "title": "YANKI",
+      "artistIds": [
+        "artist_00d42b34dc194c35a21e2ce7e4ba3922",
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_00d42b34dc194c35a21e2ce7e4ba3922",
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 162,
+      "isrc": "QM6MZ2369244",
+      "explicit": false,
+      "spotifyId": "6tbWgRGxqzIaQqOI1o4qR7",
+      "spotifyUrl": "https://open.spotify.com/track/6tbWgRGxqzIaQqOI1o4qR7",
+      "lyrics": "Siper alırcasına\nÇöküyorum yine yolun ortasına\nBur'da rahat edemem\n\nTutunup bi' anıya\nDüşüyorum, korku dolan o yüzler gibi Yerlere sandım\nBen kendime yardım\nİstemem hiç uzaktan\nİstemem hiç uzatma\n\nHiçbi' şey göremiyorum, duyamıyorum\nKonuşup batıyorum\nYine siper alıyorum, dayanıyorum\nBozuşup kaçıyorum\n\nKıyıda yoktu kimse\nBen açıldıkça\nDeniz gibi soğudum iyice\n\nBi' şeyler yolunda gitmese\nNefesin kurtarır beni derinliğimde\nSolunum bitse belki, belki\nBen ki, Oldum Kim ne istediyse hep tersi\n\nBazen iyiydi en kötü tercih\nŞimdi savaşım kendime karşı\nSesim yaptıkça odamın içinde yankı\n\nBi' kıvılcıma, Buz sarkıtım alev aldı\nSonunda küllerim sana kaldı ya\nRahat ölebilirim bu ara sanki\n\nSiper alırcasına\nÇöküyorum yine yolun ortasına\nBur'da rahat edemem\n\nTutunup bi' anıya\nDüşüyorum, korku dolan o yüzler gibi Yerlere sandım\nBen kendime yardım\nİstemem hiç uzaktan\nİstemem hiç uzatma\n\nSiper alırcasına\nÇöküyorum yine yolun ortasına\nBur'da rahat edemem\n\nTutunup bi' anıya\nDüşüyorum, korku dolan o yüzler gibi Yerlere sandım\nBen kendime yardım\nİstemem hiç uzaktan\nİstemem hiç uzatma",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_337898c4db2440a981de5b107fcbce5d",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/eeffeca5bf8f435ebae69ac156bf6a33.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/eeffeca5bf8f435ebae69ac156bf6a33.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_a8ca0446a564471d9812361af3baa917",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c0900f13a8a942b095e21615d2baf67b.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c0900f13a8a942b095e21615d2baf67b.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_1f8eeb765e914077891ab8567e06fba7",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e3c112dee22a4c6cb97f658c9756975b.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e3c112dee22a4c6cb97f658c9756975b.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_57229e73133449648f0df88d8d2ffa79",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/48 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/90fc290b4671426e90ddf1e290574ef1.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/90fc290b4671426e90ddf1e290574ef1.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "sampleRateKhz": 48.0,
           "bitDepth": 24
         }
       ]
@@ -8299,8 +8593,8 @@
           "position": 1
         }
       ],
-      "status": "upcoming",
-      "availableTrackCount": 0,
+      "status": "published",
+      "availableTrackCount": 1,
       "totalTrackCount": 1
     },
     {
@@ -8834,7 +9128,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_1324dc89703442d190accd7a83b0dd4a",
@@ -8869,7 +9165,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_ab44a3569ca74ee48602ec189d6b934b",
@@ -8902,7 +9200,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_bdd0b2d0df414bf9a5aecdffa2260d5a",
@@ -8935,7 +9235,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_f9786ca73f9b44d1a53b34ba794db445",
@@ -8968,7 +9270,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_9dfbe4c724ea4f899be50166cee9a5c7",
@@ -9003,7 +9307,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_3f047a42eeaf47c094413d70571d6b42",
@@ -9036,7 +9342,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_386e6035ec29440ba322b88f2f785008",
@@ -9071,7 +9379,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 0,
+      "totalTrackCount": 1
     },
     {
       "id": "release_83ce0b1dbfc94e50a450d27d73dbcaeb",
@@ -9101,6 +9411,101 @@
       "tracks": [
         {
           "trackId": "track_c7540eacb7d74af3a63008d7f72df1a3",
+          "disc": 1,
+          "position": 1
+        }
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
+    },
+    {
+      "id": "release_53f3fca80f3348cf97c52a63a2a13ce1",
+      "slug": "kor-x-islak-kum-mashup",
+      "title": "Kor x Islak Kum - Mashup",
+      "type": "single",
+      "artistIds": [
+        "artist_b66cca70804549d8ba8f2b54056a099e"
+      ],
+      "primaryArtistIds": [
+        "artist_b66cca70804549d8ba8f2b54056a099e"
+      ],
+      "releaseDate": "2024-04-12",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/a94feddf60ab47049673d815ffdc8572.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b27310016ead0c3e905c071ccc9f",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2024 667 & Hypers Music • (P) 2024 667 & Hypers Music",
+      "description": "",
+      "spotifyId": "61YzeQphhXaStgbJrohkjA",
+      "spotifyUrl": "https://open.spotify.com/album/38FoRmCD8yeqjpBVgkvX0T",
+      "spotifyCoverUrl": "",
+      "status": "published",
+      "publishAt": "2024-04-12",
+      "tracks": [
+        {
+          "trackId": "track_b989e70dfc0b4a418a4d771305dd5f34",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "release_e9275bc92db8458d9d96890a3d4677e1",
+      "slug": "tirmandim",
+      "title": "TIRMANDIM",
+      "type": "single",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2025-12-12",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/21096f08c1a746148a940ed197e5d86e.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b273965092e0d85d21c64f7a8098",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2025 667 • (P) 2025 667",
+      "description": "",
+      "spotifyId": "7ozaiwhvK7n71jNoJF2v6y",
+      "spotifyUrl": "https://open.spotify.com/album/7fI8MrZfCWgds0YnnRVdPg",
+      "spotifyCoverUrl": "",
+      "status": "published",
+      "publishAt": "2025-12-12",
+      "tracks": [
+        {
+          "trackId": "track_30165a254af542b09fd458b450ea08d7",
+          "disc": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "release_8ad773d0d0014fa8b625d2b4c48a1dd2",
+      "slug": "yanki",
+      "title": "YANKI",
+      "type": "single",
+      "artistIds": [
+        "artist_00d42b34dc194c35a21e2ce7e4ba3922"
+      ],
+      "primaryArtistIds": [
+        "artist_00d42b34dc194c35a21e2ce7e4ba3922"
+      ],
+      "releaseDate": "2023-04-28",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/49610708921649e595c9c705127807fa.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b273376a3da7fc9d727fbc761d0c",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2023 667 & KF • (P) 2023 667",
+      "description": "",
+      "spotifyId": "6tbWgRGxqzIaQqOI1o4qR7",
+      "spotifyUrl": "https://open.spotify.com/album/4S6asnLRmtpv5hoMWFPBMC",
+      "spotifyCoverUrl": "",
+      "status": "published",
+      "publishAt": "2023-04-28",
+      "tracks": [
+        {
+          "trackId": "track_c957759a98b948d58c1cbe7c56baf206",
           "disc": 1,
           "position": 1
         }
