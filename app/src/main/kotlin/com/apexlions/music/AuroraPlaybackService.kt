@@ -3,6 +3,10 @@ package com.apexlions.music
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableLongStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.core.app.ContextCompat
 import androidx.media3.common.AudioAttributes
 import androidx.media3.common.C
@@ -23,14 +27,18 @@ internal object AuroraPlaybackEngine {
     private var internalPlayer: ExoPlayer? = null
     private var internalHttpFactory: DefaultHttpDataSource.Factory? = null
 
-    var currentTrack: Track? = null
-    var currentRelease: Release? = null
-    var currentCover: String = ""
-    var currentSource: AudioSource? = null
-    var currentArtistLine: String = ""
-    var queue: List<Track> = emptyList()
-    var preferredQuality: String = "hires"
-    var shuffle: Boolean = false
+    var currentTrack by mutableStateOf<Track?>(null)
+    var currentRelease by mutableStateOf<Release?>(null)
+    var currentCover by mutableStateOf("")
+    var currentSource by mutableStateOf<AudioSource?>(null)
+    var currentArtistLine by mutableStateOf("")
+    var queue by mutableStateOf<List<Track>>(emptyList())
+    var preferredQuality by mutableStateOf("hires")
+    var shuffle by mutableStateOf(false)
+    var isPlaying by mutableStateOf(false)
+    var positionMs by mutableLongStateOf(0L)
+    var durationMs by mutableLongStateOf(0L)
+    var playbackError by mutableStateOf<String?>(null)
 
     fun player(context: Context): ExoPlayer = synchronized(lock) {
         internalPlayer ?: buildPlayer(context.applicationContext).also { internalPlayer = it }
