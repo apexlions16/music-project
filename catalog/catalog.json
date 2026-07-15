@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T14:05:37.561Z",
+  "updatedAt": "2026-07-15T14:12:23.292Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_33e34f716ba243e6b5a9d398935bbaee",
     "release_51335f8beda841efb52c9e205ea55170",
     "release_fbacac7a895e49b1820041a25ea04ac2",
     "release_a67a10795be84ba29316d87d8ea32c1b",
@@ -2182,6 +2183,31 @@
       "playable": true,
       "availability": "available",
       "qualityState": "ready"
+    },
+    {
+      "id": "track_592a79eb5d5e42d780247426b60044e9",
+      "slug": "otesi",
+      "title": "Ötesi",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 154,
+      "isrc": "GBSMU2463439",
+      "explicit": false,
+      "spotifyId": "0lObSY55zUQxlkPGaMpKGL",
+      "spotifyUrl": "https://open.spotify.com/track/0lObSY55zUQxlkPGaMpKGL",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [],
+      "playable": false,
+      "availability": "upcoming",
+      "qualityState": "waiting_for_audio"
     }
   ],
   "releases": [
@@ -2748,6 +2774,37 @@
       ],
       "status": "published",
       "availableTrackCount": 1,
+      "totalTrackCount": 1
+    },
+    {
+      "id": "release_33e34f716ba243e6b5a9d398935bbaee",
+      "slug": "otesi",
+      "title": "Ötesi",
+      "type": "single",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2013-08-30",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/03537a07188e4a45becec631e25a2b1d.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/03537a07188e4a45becec631e25a2b1d.jpg",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2013 ContravoltaMusic",
+      "description": "",
+      "spotifyId": "4wbdJq5thINFBlCWdfKusP",
+      "spotifyUrl": "https://open.spotify.com/album/4wbdJq5thINFBlCWdfKusP",
+      "tracks": [
+        {
+          "trackId": "track_592a79eb5d5e42d780247426b60044e9",
+          "disc": 1,
+          "position": 1
+        }
+      ],
+      "status": "upcoming",
+      "availableTrackCount": 0,
       "totalTrackCount": 1
     }
   ],
