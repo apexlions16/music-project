@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T11:10:21.505086Z",
+  "updatedAt": "2026-07-15T11:10:36.843902Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -1116,6 +1116,9 @@
           "sampleRateKhz": 48,
           "bitDepth": 24
         }
+      ],
+      "featuredArtistNames": [
+        "Zeki Arkun"
       ]
     },
     {
