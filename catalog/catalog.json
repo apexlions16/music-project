@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T13:52:28.869Z",
+  "updatedAt": "2026-07-15T14:03:14.755Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,7 +13,6 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
-    "release_16e894766a8f4e67a3e05a0bd4bdc2a7",
     "release_fbacac7a895e49b1820041a25ea04ac2",
     "release_a67a10795be84ba29316d87d8ea32c1b",
     "release_5ff3b93775fe4ca8a5645dd23143822d",
@@ -2711,37 +2710,6 @@
       "tracks": [
         {
           "trackId": "track_9ad1ef3c8632464493543fffeddfb12c",
-          "disc": 1,
-          "position": 1
-        }
-      ],
-      "status": "published",
-      "availableTrackCount": 1,
-      "totalTrackCount": 1
-    },
-    {
-      "id": "release_16e894766a8f4e67a3e05a0bd4bdc2a7",
-      "slug": "olu",
-      "title": "Ölü",
-      "type": "single",
-      "artistIds": [
-        "artist_34728a73863e4cc2b5d73278f6911436"
-      ],
-      "primaryArtistIds": [
-        "artist_34728a73863e4cc2b5d73278f6911436"
-      ],
-      "releaseDate": "2012-08-30",
-      "cover": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/artwork1/b6280cbdba824b7eaff68c24105ebe92.jpg",
-      "heroImage": "https://huggingface.co/models/hcywashere/m-project/resolve/main/aurora/artwork1/aaaa8291e3a9407ebfccbd22e4994af2.jpg",
-      "animatedCoverUrl": "",
-      "label": "",
-      "copyright": "(C) 2012 ContravoltaMusic • (P) 2012 ContravoltaMusic",
-      "description": "",
-      "spotifyId": "5UvLuIgZ3c29ICGmmQ3SSL",
-      "spotifyUrl": "https://open.spotify.com/album/5UvLuIgZ3c29ICGmmQ3SSL",
-      "tracks": [
-        {
-          "trackId": "track_9af45afed30749fca2fd9e4877546469",
           "disc": 1,
           "position": 1
         }
