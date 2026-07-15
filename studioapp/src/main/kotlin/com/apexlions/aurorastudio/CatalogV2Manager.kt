@@ -73,7 +73,22 @@ internal class CatalogV2Manager(
             val existing = normalized.takeIf(String::isNotBlank)?.let(existingByIsrc::get)
             if (existing != null) {
                 reusedCount++
-                releaseRows.put(trackRef(existing.getString("id"), index + 1))
+                if (row.audio != null && !isPlayable(existing)) {
+                    val remote = hub.allocate(storage, "audio-source", extensionOf(row.audio.displayName))
+                    pending += Pending(row.audio, remote)
+                    val sourceUrl = hub.resolveUrl(remote)
+                    val sources = existing.optJSONArray("sources") ?: JSONArray().also { existing.put("sources", it) }
+                    sources.put(sourceJson(row.audio.displayName, sourceUrl, "original"))
+                    jobs.put(qualityJob(existing.getString("id"), remote, sourceUrl))
+                    existing
+                        .put("playable", true)
+                        .put("availability", "available")
+                        .put("qualityState", "queued")
+                        .put("durationSeconds", row.durationSeconds)
+                        .put("spotifyId", row.spotifyId)
+                        .put("spotifyUrl", row.spotifyUrl)
+                }
+                releaseRows.put(trackRef(existing.getString("id"), row.disc, row.position.ifBlankPosition(index + 1)))
                 return@forEachIndexed
             }
 
@@ -101,7 +116,9 @@ internal class CatalogV2Manager(
                 .put("primaryArtistIds", JSONArray().put(primaryId))
                 .put("featuredArtistIds", JSONArray(featureIds.distinct()))
                 .put("featuredArtistNames", JSONArray(featureNames.distinctBy { it.lowercase(Locale.ROOT) }))
-                .put("durationSeconds", 0)
+                .put("durationSeconds", row.durationSeconds)
+                .put("spotifyId", row.spotifyId)
+                .put("spotifyUrl", row.spotifyUrl)
                 .put("isrc", row.isrc.trim())
                 .put("explicit", row.explicit)
                 .put("lyrics", row.lyrics)
@@ -113,7 +130,7 @@ internal class CatalogV2Manager(
                 .put("qualityState", if (playable) "queued" else "waiting_for_audio")
             tracks.put(track)
             if (normalized.isNotBlank()) existingByIsrc[normalized] = track
-            releaseRows.put(trackRef(trackId, index + 1))
+            releaseRows.put(trackRef(trackId, row.disc, row.position.ifBlankPosition(index + 1)))
             newCount++
         }
 
@@ -135,6 +152,8 @@ internal class CatalogV2Manager(
             .put("description", draft.description)
             .put("metadataSource", draft.metadataSource)
             .put("metadataSourceId", draft.metadataSourceId)
+            .put("spotifyUrl", draft.spotifyUrl)
+            .put("spotifyCoverUrl", draft.coverUrl)
             .put("tracks", releaseRows)
         releases.put(release)
         refreshReleaseAvailability(catalog, release)
@@ -288,7 +307,12 @@ internal class CatalogV2Manager(
 
     private fun JSONObject.array(name: String): JSONArray = optJSONArray(name) ?: JSONArray().also { put(name, it) }
 
-    private fun trackRef(id: String, position: Int): JSONObject = JSONObject().put("trackId", id).put("disc", 1).put("position", position)
+    private fun trackRef(id: String, position: Int): JSONObject = trackRef(id, 1, position)
+    private fun trackRef(id: String, disc: Int, position: Int): JSONObject = JSONObject()
+        .put("trackId", id)
+        .put("disc", disc.coerceAtLeast(1))
+        .put("position", position.coerceAtLeast(1))
+    private fun Int.ifBlankPosition(fallback: Int): Int = if (this > 0) this else fallback
 
     private fun existingByIsrc(tracks: JSONArray): MutableMap<String, JSONObject> = buildMap {
         for (i in 0 until tracks.length()) {

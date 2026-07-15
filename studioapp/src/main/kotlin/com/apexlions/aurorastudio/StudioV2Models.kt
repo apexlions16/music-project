@@ -12,6 +12,11 @@ internal data class V2TrackDraft(
     val lyrics: String = "",
     val syncedLyrics: String = "",
     val creditsText: String = "",
+    val durationSeconds: Int = 0,
+    val disc: Int = 1,
+    val position: Int = 1,
+    val spotifyId: String = "",
+    val spotifyUrl: String = "",
     val audio: AssetDraft? = null,
 )
 
@@ -30,6 +35,7 @@ internal data class V2ReleaseDraft(
     val tracks: List<V2TrackDraft> = emptyList(),
     val metadataSource: String = "manual",
     val metadataSourceId: String = "",
+    val spotifyUrl: String = "",
 )
 
 internal data class ExistingTrackDraft(
@@ -56,11 +62,13 @@ internal data class ImportedRelease(
     val tracks: List<V2TrackDraft>,
     val source: String,
     val sourceId: String,
+    val spotifyUrl: String = "",
 )
 
 internal data class ProviderConfig(
     val spotifyClientId: String = "",
     val spotifyClientSecret: String = "",
+    val spotifyMarket: String = "TR",
     val musicBrainzContact: String = "",
 )
 
