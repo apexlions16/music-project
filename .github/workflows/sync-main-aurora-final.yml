@@ -1,0 +1,36 @@
+name: Sync Main Into Aurora Final
+
+on:
+  push:
+    branches:
+      - agent/aurora-studios-v030
+    paths:
+      - ".github/workflows/sync-main-aurora-final.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/aurora-studios-v030
+          fetch-depth: 0
+      - name: main değişikliklerini al
+        run: |
+          git config user.name "Aurora Sync Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git fetch origin main
+          git merge --no-edit -X ours origin/main
+          mkdir -p verification
+          {
+            echo "feature_head_before_sync=${GITHUB_SHA}"
+            echo "main_head=$(git rev-parse origin/main)"
+            echo "merged_head=$(git rev-parse HEAD)"
+            echo "synced_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } > verification/main-sync.txt
+          git add verification/main-sync.txt
+          git commit -m "main katalog değişikliklerini Aurora final dalına eşitle"
+          git push origin HEAD:agent/aurora-studios-v030
