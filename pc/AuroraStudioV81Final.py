@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import difflib
+import re
 import sys
+import unicodedata
 from pathlib import Path
 
 from PySide6.QtGui import QColor, QPalette
@@ -25,6 +28,82 @@ v4.APP_VERSION = APP_VERSION
 v6.APP_VERSION = APP_VERSION
 v7.APP_VERSION = APP_VERSION
 v8.APP_VERSION = APP_VERSION
+
+_TURKISH_ASCII = str.maketrans(
+    {
+        "ı": "i", "İ": "I", "ş": "s", "Ş": "S", "ğ": "g", "Ğ": "G",
+        "ü": "u", "Ü": "U", "ö": "o", "Ö": "O", "ç": "c", "Ç": "C",
+    }
+)
+
+
+def normalize_lrc_media_name_v81(value: str) -> str:
+    text = Path(value).stem.translate(_TURKISH_ASCII)
+    text = unicodedata.normalize("NFD", text).encode("ascii", "ignore").decode("ascii").lower()
+    text = re.sub(r"^\s*(?:cd\s*\d+\s*[-_. ]*)?(?:track\s*)?\d{1,3}\s*[-_. )]+", "", text)
+    text = re.sub(r"[\[(].*?[\])]", " ", text)
+    text = re.sub(
+        r"\b(feat|ft|featuring|remaster(?:ed)?|version|edit|mix|explicit|clean|official|audio|video|lyrics?|instrumental|master)\b.*$",
+        " ",
+        text,
+    )
+    text = re.sub(r"[^a-z0-9]+", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def lrc_media_score_v81(left: str, right: str) -> float:
+    a = normalize_lrc_media_name_v81(left)
+    b = normalize_lrc_media_name_v81(right)
+    if not a or not b:
+        return 0.0
+    if a == b:
+        return 1.0
+    if a in b or b in a:
+        return 0.72 + min(len(a), len(b)) / max(len(a), len(b)) * 0.18
+    at, bt = set(a.split()), set(b.split())
+    union = at | bt
+    token_score = len(at & bt) / len(union) if union else 0.0
+    edit_score = difflib.SequenceMatcher(None, a, b).ratio()
+    return token_score * 0.62 + edit_score * 0.38
+
+
+def match_lrc_files_v81(targets: list[str], files: list[Path]) -> tuple[dict[int, int], dict[int, str]]:
+    unused = set(range(len(files)))
+    result: dict[int, int] = {}
+    methods: dict[int, str] = {}
+    target_keys = [normalize_lrc_media_name_v81(value) for value in targets]
+    file_keys = [normalize_lrc_media_name_v81(path.name) for path in files]
+
+    for target_index, key in enumerate(target_keys):
+        exact = next((file_index for file_index in unused if key and file_keys[file_index] == key), None)
+        if exact is not None:
+            result[target_index] = exact
+            methods[target_index] = "kesin isim eşleşmesi"
+            unused.remove(exact)
+
+    for target_index, title in enumerate(targets):
+        if target_index in result:
+            continue
+        ranked = sorted(
+            ((file_index, lrc_media_score_v81(title, files[file_index].name)) for file_index in unused),
+            key=lambda row: row[1],
+            reverse=True,
+        )
+        if ranked:
+            best = ranked[0]
+            second_score = ranked[1][1] if len(ranked) > 1 else 0.0
+            if best[1] >= 0.64 and best[1] - second_score >= 0.08:
+                result[target_index] = best[0]
+                methods[target_index] = "isim benzerliği"
+                unused.remove(best[0])
+
+    remaining_targets = [index for index in range(len(targets)) if index not in result]
+    sorted_files = sorted(unused, key=lambda index: base.natural_sort_key(files[index].name))
+    for target_index, file_index in zip(remaining_targets, sorted_files):
+        result[target_index] = file_index
+        methods[target_index] = "albüm sırası"
+
+    return result, methods
 
 
 class AuroraStudioV81Final(AuroraStudioV8Final):
@@ -77,8 +156,8 @@ class AuroraStudioV81Final(AuroraStudioV8Final):
             return
 
         files = [Path(name) for name in names]
-        assignments = v6.match_media([track.title for track in self.import_tracks], files)
-        assigned_file_indexes: set[int] = set()
+        assignments, methods = match_lrc_files_v81([track.title for track in self.import_tracks], files)
+        consumed_file_indexes: set[int] = set()
         completed: list[str] = []
         failed: list[str] = []
 
@@ -87,18 +166,15 @@ class AuroraStudioV81Final(AuroraStudioV8Final):
                 continue
             track = self.import_tracks[track_index]
             path = files[file_index]
+            consumed_file_indexes.add(file_index)
             try:
                 raw = path.read_text(encoding="utf-8-sig", errors="replace")
-                normalized = normalize_lrc_v7(raw)
-                track.synced_lyrics = normalized
-                assigned_file_indexes.add(file_index)
-                score = v6.media_score(track.title, path.name)
-                method = "isim eşleşmesi" if score >= 0.64 else "albüm sırası"
-                completed.append(f"{track.title} ← {path.name} ({method})")
+                track.synced_lyrics = normalize_lrc_v7(raw)
+                completed.append(f"{track.title} ← {path.name} ({methods.get(track_index, 'eşleştirme')})")
             except Exception as exc:
-                failed.append(f"{path.name}: {exc}")
+                failed.append(f"{track.title} ← {path.name}: {exc}")
 
-        unused = [files[index].name for index in range(len(files)) if index not in assigned_file_indexes]
+        unused = [files[index].name for index in range(len(files)) if index not in consumed_file_indexes]
         self.refresh_import_table()
 
         self.publish_status.setText(
