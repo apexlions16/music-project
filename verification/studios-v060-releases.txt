@@ -1,0 +1,7 @@
+SUCCESS
+mobile_tag=aurora-studio-mobile-v0.6.0
+mobile_asset=Aurora-Studio-Mobile-v0.6.0.apk
+mobile_url=https://github.com/apexlions16/music-project/releases/download/aurora-studio-mobile-v0.6.0/Aurora-Studio-Mobile-v0.6.0.apk
+windows_tag=aurora-studio-v0.6.0
+windows_asset=Aurora-Studio-Windows-x64-v0.6.0.zip
+windows_url=https://github.com/apexlions16/music-project/releases/download/aurora-studio-v0.6.0/Aurora-Studio-Windows-x64-v0.6.0.zip
