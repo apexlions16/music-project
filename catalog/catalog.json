@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T18:32:37.305Z",
+  "updatedAt": "2026-07-15T18:42:26.148Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_53288cc4c85d49089a9da5132b7f5220",
     "release_cf0c1e64f61c46628dfa4959f878e4d6",
     "release_8d2723e4832f46948995ce24adb32698",
     "release_adedeabdcc2c4aa39c2ec9e533753b65",
@@ -3749,6 +3750,74 @@
       "playable": true,
       "availability": "available",
       "qualityState": "ready"
+    },
+    {
+      "id": "track_706c00d8f1cf4de1a27fec3e05ab001f",
+      "slug": "efsane",
+      "title": "Efsane",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 129,
+      "isrc": "GBSMU2388178",
+      "explicit": false,
+      "spotifyId": "3VWPdsdJTN330zrbluclyZ",
+      "spotifyUrl": "https://open.spotify.com/track/3VWPdsdJTN330zrbluclyZ",
+      "lyrics": "Halkını siklemeyen Führer gibiyim\nYeteneksiz erkek popçu gibi kıçımı titretmem\nBi anda patlarım, sönüp gitmem\nÇıkmış olsa da ünüm cikletten\nSürtüklere güzelleme düzerlerken\nBütün hüzünlü tüy sikletler\nNiyeyse bana albüm teklif edip\nDurur üç senedir tüm şirketler\nBen olsam onlara giderim\nSiz ondan anlarsınız hop atlarsınız\nAma ben ölüyüm, bay tanımsızım\nSiz çivisiniz hatta dan dansınız\nAffedin beni ben Che gibiyim\nAdalet için çalar hi-hatlerim\nBu yüzden stüdyom vermez bebeğim\nHiç bi komprador için tek bi ritim\nLugatım ters\nŞer kuşanıp sahnedeyim, suratım ter\nAma beş parasız milyona vuran işler\nSana koyduysa eğer, tur atıp gel\nİluminati zımbırtısı gibi\nEfsaneye döndüm rap kusan itten\nPeki, Cont eski okul mu, yeni okul mu?\nNe okulu lan ben okula gitmem\nSamimi değilim bilmelisin\nPlaylistinden beni silmelisin\nAfacan Dennis'ken iblisin yenisiyim\nHala katolik Melis’in delisiyim\nHissiz bi pislikken istemeden\nTrack yaptım Aleister’ın histerisini\nHani bi gün ola ki beni denerseniz\nDersiniz, biz hangi penisin menisiyiz\nHadi bi ileri, bi geri gidip derede boğulun\nAhmed Çelebi benim topu eskimo\nKi benim her barım ether gibidir eksiği yok fazlası var\nDisrespect bu flow\nAma hep aynıydım, değişmedim\nKüstahlığımı hiç gizlemedim\nSize beni dinlemeyin dedim, dinlediniz\nHiç dinlemediniz, hep dinlediniz\nRap sikimde değil, bana bel bağlama\nBen Musa gibi direnirken Ra’lara\nRapinizin askerleri biat ederler\nKarunlara çıkıp ekranlara\nZaten hiç bi şey diyemezsin bana\nAyet paylaşan arkadaşlar\nIsrarla destan yazarken\nNikahsız ilişki yaşadıkları kezbanlara\nBen pisliğin tekiyim\nSiz de öyle ama siz bunu söyleyemezsiniz\nO tarzı aşağılayıp çivi gibi şeyler\nYine yapacağım çok seveceksiniz\nEkmeksiz kalacak hüzünlü rapçiler\nBilmem kaç sene uğraştım ben\nDiyecekler, çok benim emeğim\nSanat bu lan, ne emeği?\nİşçi misin, sanatçı mı?\nSeç birini\nTaş mı taşıdın ibne, klişeni sikeyim\nKes beşliği sar çek gör o zaman\nNasıl akıyo bak her tonlama, her bi lirik\nAma yeteneksizsen eğer\nBi sikime yaramaz creek ya da weed\nOlmak dışında müptezel, bi işsiz\nYani siktirip gidin bitches, ha-ha",
+      "syncedLyrics": "[00:00.00]Halkını siklemeyen Führer gibiyim\n[00:00.00]Yeteneksiz erkek popçu gibi kıçımı titretmem\n[00:00.00]Bi anda patlarım, sönüp gitmem\n[00:00.00]Çıkmış olsa da ünüm cikletten\n[00:00.00]Sürtüklere güzelleme düzerlerken\n[00:00.00]Bütün hüzünlü tüy sikletler\n[00:00.00]Niyeyse bana albüm teklif edip\n[00:00.00]Durur üç senedir tüm şirketler\n[00:00.00]Ben olsam onlara giderim\n[00:00.00]Siz ondan anlarsınız hop atlarsınız\n[00:00.00]Ama ben ölüyüm, bay tanımsızım\n[00:00.00]Siz çivisiniz hatta dan dansınız\n[00:00.00]Affedin beni ben Che gibiyim\n[00:00.00]Adalet için çalar hi-hatlerim\n[00:00.00]Bu yüzden stüdyom vermez bebeğim\n[00:00.00]Hiç bi komprador için tek bi ritim\n[00:00.00]Lugatım ters\n[00:00.00]Şer kuşanıp sahnedeyim, suratım ter\n[00:00.00]Ama beş parasız milyona vuran işler\n[00:00.00]Sana koyduysa eğer, tur atıp gel\n[00:00.00]İluminati zımbırtısı gibi\n[00:00.00]Efsaneye döndüm rap kusan itten\n[00:00.00]Peki, Cont eski okul mu, yeni okul mu?\n[00:00.00]Ne okulu lan ben okula gitmem\n[00:00.00]Samimi değilim bilmelisin\n[00:00.00]Playlistinden beni silmelisin\n[00:00.00]Afacan Dennis'ken iblisin yenisiyim\n[00:00.00]Hala katolik Melis’in delisiyim\n[00:01.00]Hissiz bi pislikken istemeden\n[00:01.00]Track yaptım Aleister’ın histerisini\n[00:01.00]Hani bi gün ola ki beni denerseniz\n[00:01.00]Dersiniz, biz hangi penisin menisiyiz\n[00:01.00]Hadi bi ileri, bi geri gidip derede boğulun\n[00:01.00]Ahmed Çelebi benim topu eskimo\n[00:01.00]Ki benim her barım ether gibidir eksiği yok fazlası var\n[00:01.00]Disrespect bu flow\n[00:01.00]Ama hep aynıydım, değişmedim\n[00:01.00]Küstahlığımı hiç gizlemedim\n[00:01.00]Size beni dinlemeyin dedim, dinlediniz\n[00:01.00]Hiç dinlemediniz, hep dinlediniz\n[00:01.00]Rap sikimde değil, bana bel bağlama\n[00:01.00]Ben Musa gibi direnirken Ra’lara\n[00:01.00]Rapinizin askerleri biat ederler\n[00:01.00]Karunlara çıkıp ekranlara\n[00:01.00]Zaten hiç bi şey diyemezsin bana\n[00:01.00]Ayet paylaşan arkadaşlar\n[00:01.00]Israrla destan yazarken\n[00:01.00]Nikahsız ilişki yaşadıkları kezbanlara\n[00:01.00]Ben pisliğin tekiyim\n[00:01.00]Siz de öyle ama siz bunu söyleyemezsiniz\n[00:01.00]O tarzı aşağılayıp çivi gibi şeyler\n[00:01.00]Yine yapacağım çok seveceksiniz\n[00:01.00]Ekmeksiz kalacak hüzünlü rapçiler\n[00:01.00]Bilmem kaç sene uğraştım ben\n[00:01.00]Diyecekler, çok benim emeğim\n[00:01.00]Sanat bu lan, ne emeği?\n[00:01.00]İşçi misin, sanatçı mı?\n[00:01.00]Seç birini\n[00:01.00]Taş mı taşıdın ibne, klişeni sikeyim\n[00:01.00]Kes beşliği sar çek gör o zaman\n[00:01.00]Nasıl akıyo bak her tonlama, her bi lirik\n[00:01.00]Ama yeteneksizsen eğer\n[00:01.00]Bi sikime yaramaz creek ya da weed\n[00:01.00]Olmak dışında müptezel, bi işsiz\n[00:02.00]Yani siktirip gidin bitches, ha-ha",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_d0628bdb04164520a02ed9005d07fbbb",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/bfccdb3233dc4e5789d7a349fc8c75ce.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/bfccdb3233dc4e5789d7a349fc8c75ce.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_dbecdaaf10534ac3a311deeecc20d9ec",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/28f97d0712714b099e2be4a739d0d5cb.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/28f97d0712714b099e2be4a739d0d5cb.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_5d6928d530c94d3c8819757d51a49e31",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8d6aa56fbf85453ab01eeecc5aebfb86.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8d6aa56fbf85453ab01eeecc5aebfb86.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     }
   ],
   "releases": [
@@ -4589,6 +4658,37 @@
       "status": "published",
       "availableTrackCount": 9,
       "totalTrackCount": 9
+    },
+    {
+      "id": "release_53288cc4c85d49089a9da5132b7f5220",
+      "slug": "efsane",
+      "title": "Efsane",
+      "type": "single",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2015-08-30",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/438918e4b4c840fa992b079a4820efb0.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b2738e22ccec7b69bb4a355cb11d",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2015 ContravoltaMusic",
+      "description": "",
+      "spotifyId": "45bfIygjG3dP1r8jyQnnyl",
+      "spotifyUrl": "https://open.spotify.com/album/45bfIygjG3dP1r8jyQnnyl",
+      "tracks": [
+        {
+          "trackId": "track_706c00d8f1cf4de1a27fec3e05ab001f",
+          "disc": 1,
+          "position": 1
+        }
+      ],
+      "status": "published",
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     }
   ],
   "qualityJobs": [
