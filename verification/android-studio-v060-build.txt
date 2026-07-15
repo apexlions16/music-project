@@ -1,0 +1,8 @@
+SUCCESS
+task=:studioapp:assembleDebug
+version=0.6.0
+bulk_audio_match=true
+library=true
+legacy_catalog_tab=false
+cover_fetch_button=false
+upcoming_completion=true

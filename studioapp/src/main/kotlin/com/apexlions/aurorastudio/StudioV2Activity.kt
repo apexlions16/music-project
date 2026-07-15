@@ -106,7 +106,6 @@ private fun StudioV2Theme(content: @Composable () -> Unit) {
 
 private enum class V2Screen(val title: String) {
     RELEASE("Yeni Yayın"),
-    CATALOG("Katalog ve Düzenle"),
     SETTINGS("Ayarlar"),
 }
 
@@ -174,6 +173,19 @@ private fun StudioV2App() {
         audioTarget = null
     }
 
+
+    val bulkAudioPicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenMultipleDocuments()) { uris ->
+        val files = uris.map(::asset)
+        val matches = MediaMatcher.match(releaseTracks.map(V2TrackDraft::title), files.map(AssetDraft::displayName))
+        matches.forEach { match ->
+            val fileIndex = match.fileIndex ?: return@forEach
+            if (match.targetIndex in releaseTracks.indices && fileIndex in files.indices) {
+                releaseTracks[match.targetIndex] = releaseTracks[match.targetIndex].copy(audio = files[fileIndex])
+            }
+        }
+        status = "${files.size} dosya isim benzerliğiyle eşleştirildi; kalanlar albüm sırasına yerleştirildi. Kartlardan tek tek değiştirebilirsiniz."
+    }
+
     fun loadCatalog() {
         if (busy) return
         SecureSettings.save(context, config)
@@ -235,27 +247,6 @@ private fun StudioV2App() {
         }
     }
 
-    fun fetchCover() {
-        if (busy || coverUrl.isBlank()) return
-        busy = true
-        error = null
-        status = "Kapak indiriliyor…"
-        progress = .15f
-        scope.launch {
-            runCatching { withContext(Dispatchers.IO) { CatalogV2Manager(context, config).fetchRemoteCover(coverUrl) } }
-                .onSuccess {
-                    coverAsset = it
-                    status = "Kapak indirildi; yayın sırasında Hugging Face'e kalıcı olarak yüklenecek."
-                    progress = 1f
-                }
-                .onFailure {
-                    error = it.message ?: it.toString()
-                    status = "Kapak indirilemedi"
-                    progress = 0f
-                }
-            busy = false
-        }
-    }
 
     fun publishRelease() {
         val current = snapshot ?: run {
@@ -356,7 +347,7 @@ private fun StudioV2App() {
                 title = {
                     Column {
                         Text("Aurora Studio Mobile", fontWeight = FontWeight.Bold)
-                        Text("v0.5.0 • ${screen.title}", color = StudioMuted, fontSize = 11.sp)
+                        Text("v0.6.0 • ${screen.title}", color = StudioMuted, fontSize = 11.sp)
                     }
                 },
                 actions = {
@@ -370,7 +361,6 @@ private fun StudioV2App() {
                 V2Screen.entries.forEach { item ->
                     val icon = when (item) {
                         V2Screen.RELEASE -> Icons.Rounded.CloudUpload
-                        V2Screen.CATALOG -> Icons.Rounded.LibraryMusic
                         V2Screen.SETTINGS -> Icons.Rounded.Settings
                     }
                     NavigationBarItem(
@@ -409,7 +399,6 @@ private fun StudioV2App() {
                     onCoverUrl = { coverUrl = it },
                     coverAsset = coverAsset,
                     pickCover = { coverPicker.launch(arrayOf("image/*")) },
-                    fetchCover = ::fetchCover,
                     animatedCoverUrl = animatedCoverUrl,
                     onAnimatedCoverUrl = { animatedCoverUrl = it },
                     featured = featured,
@@ -418,21 +407,12 @@ private fun StudioV2App() {
                     addTrack = { releaseTracks += V2TrackDraft(primaryArtist = mainArtist) },
                     updateTrack = { index, value -> releaseTracks[index] = value },
                     removeTrack = { releaseTracks.removeAt(it) },
+                    pickBulkAudio = { bulkAudioPicker.launch(arrayOf("audio/*", "application/octet-stream")) },
                     pickTrackAudio = { index -> audioTarget = AudioTarget.NewTrack(index); audioPicker.launch(arrayOf("audio/*", "application/octet-stream")) },
                     publish = ::publishRelease,
                     canPublish = snapshot != null && !busy,
                     busy = busy,
                     metadataSource = metadataSource,
-                )
-                V2Screen.CATALOG -> V2CatalogScreen(
-                    snapshot = snapshot,
-                    selected = selectedEdit,
-                    onSelected = { selectedEdit = it; editAudio = null },
-                    editAudio = editAudio,
-                    pickAudio = { audioTarget = AudioTarget.ExistingTrack; audioPicker.launch(arrayOf("audio/*", "application/octet-stream")) },
-                    save = ::saveTrackEdit,
-                    reload = ::loadCatalog,
-                    busy = busy,
                 )
                 V2Screen.SETTINGS -> V2SettingsScreen(
                     config = config,
@@ -483,13 +463,13 @@ private fun V2ReleaseScreen(
     onCoverUrl: (String) -> Unit,
     coverAsset: AssetDraft?,
     pickCover: () -> Unit,
-    fetchCover: () -> Unit,
     animatedCoverUrl: String,
     onAnimatedCoverUrl: (String) -> Unit,
     featured: Boolean,
     onFeatured: (Boolean) -> Unit,
     tracks: List<V2TrackDraft>,
     addTrack: () -> Unit,
+    pickBulkAudio: () -> Unit,
     updateTrack: (Int, V2TrackDraft) -> Unit,
     removeTrack: (Int) -> Unit,
     pickTrackAudio: (Int) -> Unit,
@@ -535,9 +515,9 @@ private fun V2ReleaseScreen(
         item {
             V2Card("Kapak ve hareketli arka plan") {
                 OutlinedTextField(coverUrl, onCoverUrl, label = { Text("Kapak URL'si") }, modifier = Modifier.fillMaxWidth())
-                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    OutlinedButton(onClick = pickCover, modifier = Modifier.weight(1f)) { Icon(Icons.Rounded.Image, null); Text(" Dosya seç") }
-                    OutlinedButton(onClick = fetchCover, enabled = coverUrl.isNotBlank() && !busy, modifier = Modifier.weight(1f)) { Text("Görsel Fetch") }
+                OutlinedButton(onClick = pickCover, modifier = Modifier.fillMaxWidth()) {
+                    Icon(Icons.Rounded.Image, null)
+                    Text(" Yerel kapak seç • isteğe bağlı")
                 }
                 Text(coverAsset?.let { "Kalıcı yükleme hazır: ${it.displayName} • ${sizeLabel(it.size)}" } ?: "Spotify kapağı yayın sırasında otomatik indirilip Hugging Face'e yüklenecek.", color = StudioMuted, fontSize = 11.sp)
                 OutlinedTextField(animatedCoverUrl, onAnimatedCoverUrl, label = { Text("Hareketli kapak / arka plan video URL'si") }, modifier = Modifier.fillMaxWidth())
@@ -550,6 +530,10 @@ private fun V2ReleaseScreen(
                 Button(onClick = addTrack, enabled = !busy, modifier = Modifier.fillMaxWidth()) {
                     Icon(Icons.Rounded.Add, null)
                     Text(" Metadata parçası ekle")
+                }
+                OutlinedButton(onClick = pickBulkAudio, enabled = tracks.isNotEmpty() && !busy, modifier = Modifier.fillMaxWidth()) {
+                    Icon(Icons.Rounded.UploadFile, null)
+                    Text(" Ses dosyalarını toplu seç ve eşleştir")
                 }
             }
         }

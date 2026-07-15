@@ -17,6 +17,12 @@
             android:name=".StudioCurationActivity"
             android:exported="false" />
         <activity
+            android:name=".StudioAudioCompletionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StudioLibraryActivity"
+            android:exported="false" />
+        <activity
             android:name=".StudioHubActivity"
             android:exported="true">
             <intent-filter>
