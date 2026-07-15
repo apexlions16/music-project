@@ -1,0 +1,65 @@
+name: Verify Spotify 2026 and Background Playback
+
+on:
+  push:
+    branches:
+      - agent/aurora-studios-v030
+    paths:
+      - ".github/workflows/verify-spotify-playback-v050.yml"
+      - "app/**"
+      - "studioapp/**"
+      - "pc/**"
+
+permissions:
+  contents: read
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/aurora-studios-v030
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.11.1"
+      - name: Spotify 2026 kaynak denetimi
+        run: |
+          ! grep -q 'spotifyJson("/tracks",' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          ! grep -q 'spotifyJson("/artists",' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          grep -q '/tracks/\$id' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          grep -q '/artists/\$id' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          grep -q 'track,album' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+      - name: Arka plan medya servisi denetimi
+        run: |
+          grep -q 'MediaSessionService' app/src/main/kotlin/com/apexlions/music/AuroraPlaybackService.kt
+          grep -q 'FOREGROUND_SERVICE_MEDIA_PLAYBACK' app/src/main/AndroidManifest.xml
+          grep -q 'media3-session' app/build.gradle.kts
+          grep -q 'setWakeMode' app/src/main/kotlin/com/apexlions/music/AuroraPlaybackService.kt
+          grep -q 'startForegroundService' app/src/main/kotlin/com/apexlions/music/AuroraPlaybackService.kt
+      - name: Android uygulamalarını derle
+        run: gradle --no-daemon --stacktrace --console=plain :app:assembleDebug :studioapp:assembleDebug
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/aurora-studios-v030
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Windows Spotify 2026 doğrulaması
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r pc/requirements.txt
+          python -m py_compile pc/AuroraStudio.py pc/AuroraStudioV3.py pc/AuroraStudioV3Entry.py
+          if (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern 'self.get\("/tracks", ids=' -Quiet) { throw 'Eski toplu tracks endpointi kullanılıyor' }
+          if (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern 'self.get\("/artists", ids=' -Quiet) { throw 'Eski toplu artists endpointi kullanılıyor' }
+          if (-not (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern '/tracks/\{spotify_id\}' -Quiet)) { throw 'Tekil track endpointi eksik' }
+          if (-not (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern '/artists/\{spotify_id\}' -Quiet)) { throw 'Tekil artist endpointi eksik' }
