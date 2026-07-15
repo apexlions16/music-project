@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T16:37:57.545761Z",
+  "updatedAt": "2026-07-15T16:44:28.658403Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -2233,10 +2233,22 @@
       "lyrics": "",
       "syncedLyrics": "",
       "credits": [],
-      "sources": [],
-      "playable": false,
-      "availability": "upcoming",
-      "qualityState": "waiting_for_audio"
+      "sources": [
+        {
+          "id": "audio_9a34700a17574b2ba6f69ba52c169627",
+          "kind": "original",
+          "label": "Orijinal Kaynak",
+          "codec": "FLAC",
+          "url": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/2c7b3f2740364fbc873caccdffc8cab5.flac",
+          "downloadUrl": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/2c7b3f2740364fbc873caccdffc8cab5.flac",
+          "downloadable": true,
+          "spatial": false,
+          "generated": false
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "queued"
     },
     {
       "id": "track_534ac1eccaad45bda3a5d6af24b3ba7e",
@@ -3088,8 +3100,8 @@
           "position": 1
         }
       ],
-      "status": "upcoming",
-      "availableTrackCount": 0,
+      "status": "published",
+      "availableTrackCount": 1,
       "totalTrackCount": 1
     },
     {
@@ -3169,7 +3181,21 @@
       "totalTrackCount": 10
     }
   ],
-  "qualityJobs": [],
+  "qualityJobs": [
+    {
+      "id": "quality_12f9e46ab507461287902feb5740b5ee",
+      "trackId": "track_592a79eb5d5e42d780247426b60044e9",
+      "sourcePath": "aurora\/audio-source1\/2c7b3f2740364fbc873caccdffc8cab5.flac",
+      "sourceUrl": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/2c7b3f2740364fbc873caccdffc8cab5.flac",
+      "status": "queued",
+      "presets": [
+        "standard",
+        "high",
+        "lossless"
+      ],
+      "createdAt": "2026-07-15T16:44:23.600419Z"
+    }
+  ],
   "artistLists": [
     {
       "id": "artist_list_e6580e061a8d480da75f9df6ece2258c",
