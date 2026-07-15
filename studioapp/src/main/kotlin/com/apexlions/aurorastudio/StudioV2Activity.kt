@@ -106,7 +106,6 @@ private fun StudioV2Theme(content: @Composable () -> Unit) {
 
 private enum class V2Screen(val title: String) {
     RELEASE("Yeni Yayın"),
-    CATALOG("Katalog ve Düzenle"),
     SETTINGS("Ayarlar"),
 }
 
@@ -362,7 +361,6 @@ private fun StudioV2App() {
                 V2Screen.entries.forEach { item ->
                     val icon = when (item) {
                         V2Screen.RELEASE -> Icons.Rounded.CloudUpload
-                        V2Screen.CATALOG -> Icons.Rounded.LibraryMusic
                         V2Screen.SETTINGS -> Icons.Rounded.Settings
                     }
                     NavigationBarItem(
@@ -410,21 +408,12 @@ private fun StudioV2App() {
                     updateTrack = { index, value -> releaseTracks[index] = value },
                     removeTrack = { releaseTracks.removeAt(it) },
                     pickBulkAudio = { bulkAudioPicker.launch(arrayOf("audio/*", "application/octet-stream")) },
+                    pickBulkAudio = { bulkAudioPicker.launch(arrayOf("audio/*", "application/octet-stream")) },
                     pickTrackAudio = { index -> audioTarget = AudioTarget.NewTrack(index); audioPicker.launch(arrayOf("audio/*", "application/octet-stream")) },
                     publish = ::publishRelease,
                     canPublish = snapshot != null && !busy,
                     busy = busy,
                     metadataSource = metadataSource,
-                )
-                V2Screen.CATALOG -> V2CatalogScreen(
-                    snapshot = snapshot,
-                    selected = selectedEdit,
-                    onSelected = { selectedEdit = it; editAudio = null },
-                    editAudio = editAudio,
-                    pickAudio = { audioTarget = AudioTarget.ExistingTrack; audioPicker.launch(arrayOf("audio/*", "application/octet-stream")) },
-                    save = ::saveTrackEdit,
-                    reload = ::loadCatalog,
-                    busy = busy,
                 )
                 V2Screen.SETTINGS -> V2SettingsScreen(
                     config = config,
@@ -481,6 +470,7 @@ private fun V2ReleaseScreen(
     onFeatured: (Boolean) -> Unit,
     tracks: List<V2TrackDraft>,
     addTrack: () -> Unit,
+    pickBulkAudio: () -> Unit,
     pickBulkAudio: () -> Unit,
     updateTrack: (Int, V2TrackDraft) -> Unit,
     removeTrack: (Int) -> Unit,
