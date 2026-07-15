@@ -7,21 +7,12 @@
         android:label="Aurora Studio Mobile"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Material.NoActionBar">
-        <activity
-            android:name=".StudioActivity"
-            android:exported="false" />
-        <activity
-            android:name=".StudioV2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".StudioCurationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".StudioAudioCompletionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".StudioLibraryActivity"
-            android:exported="false" />
+        <activity android:name=".StudioActivity" android:exported="false" />
+        <activity android:name=".StudioV2Activity" android:exported="false" />
+        <activity android:name=".StudioCurationActivity" android:exported="false" />
+        <activity android:name=".StudioAudioCompletionActivity" android:exported="false" />
+        <activity android:name=".StudioLibraryActivity" android:exported="false" />
+        <activity android:name=".StudioAdminActivity" android:exported="false" />
         <activity
             android:name=".StudioHubActivity"
             android:exported="true">
