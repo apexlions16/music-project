@@ -1,4 +1,4 @@
-name: Aurora Music 0.4.0 / Studio Mobile 0.2.0 / Studio Windows 0.2.3 Build
+name: Aurora Music 0.4.0 / Studio Mobile 0.2.0 / Studio Windows 0.3.0 Build
 
 on:
   pull_request:
@@ -148,7 +148,7 @@ jobs:
           gh release create aurora-studio-mobile-v0.2.0 yayin/* --title "Aurora Studio Mobile v0.2.0" --notes "Mevcut şarkı düzenleme, metadata-only ve kısmi yayın, MusicBrainz/Cover Art Archive/LRCLIB içe aktarma, Spotify destekli eşleme, ISRC tekrar kullanımı, Görsel Fetch ve otomatik çoklu kalite kuyruğu. Tokenlar şifreli saklanır ve kalıcı imzalı güncellemede korunur."
 
   windows:
-    name: Aurora Studio Windows v0.2.3
+    name: Aurora Studio Windows v0.3.0
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -160,17 +160,25 @@ jobs:
           cache: pip
           cache-dependency-path: pc/requirements.txt
 
-      - name: Bağımlılıklar ve doğrulama
+      - name: Bağımlılıklar ve v0.3 doğrulaması
         shell: pwsh
         run: |
           python -m pip install --upgrade pip
           pip install -r pc/requirements.txt
-          python -m py_compile pc/AuroraStudio.py
+          python -m py_compile pc/AuroraStudio.py pc/AuroraStudioV3.py pc/AuroraStudioV3Entry.py
           python -c "from huggingface_hub import HfApi; assert hasattr(HfApi, 'preupload_lfs_files')"
           if (Select-String -Path pc/AuroraStudio.py -Pattern 'HF_HUB_DISABLE_XET' -Quiet) { throw 'Xet kapatılmamalı' }
           if (-not (Select-String -Path pc/AuroraStudio.py -Pattern 'HF_HUB_DISABLE_PROGRESS_BARS' -Quiet)) { throw 'Windowed tqdm düzeltmesi eksik' }
-          if (-not (Select-String -Path pc/AuroraStudio.py -Pattern 'featuredArtistNames' -Quiet)) { throw 'Serbest feat desteği eksik' }
-          if (-not (Select-String -Path pc/AuroraStudio.py -Pattern 'APP_VERSION = "0.2.3"' -Quiet)) { throw 'Studio sürümü yanlış' }
+          if (-not (Select-String -Path pc/AuroraStudioV3.py -Pattern 'APP_VERSION = "0.3.0"' -Quiet)) { throw 'Studio v0.3 sürümü yanlış' }
+          if (-not (Select-String -Path pc/AuroraStudioV3.py -Pattern 'homeSections' -Quiet)) { throw 'Ana sayfa bölüm yönetimi eksik' }
+          if (-not (Select-String -Path pc/AuroraStudioV3.py -Pattern 'artistLists' -Quiet)) { throw 'Sanatçı listesi yönetimi eksik' }
+          if (-not (Select-String -Path pc/AuroraStudioV3.py -Pattern 'MusicBrainz' -Quiet)) { throw 'Ücretsiz metadata içe aktarma eksik' }
+
+      - name: Qt arayüzünü ekransız başlat
+        shell: pwsh
+        run: |
+          $env:QT_QPA_PLATFORM = "offscreen"
+          python -c "import sys; sys.path.insert(0, 'pc'); from PySide6.QtWidgets import QApplication; import AuroraStudioV3Entry as entry; app=QApplication([]); window=entry.AuroraStudioV3Final(); assert window.pages.count() == 9; assert window.catalog['schemaVersion'] >= 5; window.close(); print('Aurora Studio v0.3 UI smoke test OK')"
 
       - name: FFmpeg indir
         shell: pwsh
@@ -189,10 +197,13 @@ jobs:
         run: |
           pyinstaller --noconfirm --clean --windowed --onedir `
             --name AuroraStudio `
+            --paths pc `
             --collect-all huggingface_hub `
             --collect-all PySide6 `
+            --hidden-import AuroraStudio `
+            --hidden-import AuroraStudioV3 `
             --hidden-import win32timezone `
-            pc/AuroraStudio.py
+            pc/AuroraStudioV3Entry.py
           New-Item -ItemType Directory -Force dist\AuroraStudio\tools | Out-Null
           Copy-Item pc\bundled-tools\ffmpeg.exe dist\AuroraStudio\tools\ffmpeg.exe
           Copy-Item pc\bundled-tools\ffprobe.exe dist\AuroraStudio\tools\ffprobe.exe
@@ -202,14 +213,14 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force yayin | Out-Null
-          Compress-Archive -Path dist\AuroraStudio\* -DestinationPath yayin\Aurora-Studio-Windows-x64-v0.2.3.zip -Force
-          $hash = (Get-FileHash yayin\Aurora-Studio-Windows-x64-v0.2.3.zip -Algorithm SHA256).Hash.ToLower()
-          "$hash  Aurora-Studio-Windows-x64-v0.2.3.zip" | Set-Content yayin\SHA256SUMS-Aurora-Studio.txt
+          Compress-Archive -Path dist\AuroraStudio\* -DestinationPath yayin\Aurora-Studio-Windows-x64-v0.3.0.zip -Force
+          $hash = (Get-FileHash yayin\Aurora-Studio-Windows-x64-v0.3.0.zip -Algorithm SHA256).Hash.ToLower()
+          "$hash  Aurora-Studio-Windows-x64-v0.3.0.zip" | Set-Content yayin\SHA256SUMS-Aurora-Studio.txt
 
       - name: Windows artifact
         uses: actions/upload-artifact@v4
         with:
-          name: aurora-studio-windows-v0.2.3
+          name: aurora-studio-windows-v0.3.0
           path: yayin/*
 
       - name: Windows Release
@@ -218,5 +229,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         shell: pwsh
         run: |
-          gh release delete aurora-studio-v0.2.3 --cleanup-tag --yes 2>$null
-          gh release create aurora-studio-v0.2.3 yayin/* --title "Aurora Studio Windows v0.2.3" --notes "Xet açık, serbest feat isimleri ve Explicit E desteği."
+          gh release delete aurora-studio-v0.3.0 --cleanup-tag --yes 2>$null
+          gh release create aurora-studio-v0.3.0 yayin/* `
+            --title "Aurora Studio Windows v0.3.0" `
+            --notes "Ücretsiz MusicBrainz/Cover Art Archive/LRCLIB metadata içe aktarma, metadata-only ve kısmi yayın, ISRC tekrar kullanımı, Görsel Fetch, hareketli medya URL alanı, sanatçı popüler sıralaması, sanatçı listeleri ve dinamik ana sayfa bölüm yönetimi. Tokenlar Windows DPAPI ile korunur."
