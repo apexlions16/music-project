@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T18:47:23.161Z",
+  "updatedAt": "2026-07-15T18:49:31.370Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_e39da73181924bc69401435bdeb4a647",
     "release_93c678013ec342f8a7f5fa38da997f4f",
     "release_05f5426ca7de40e2920c17213be3bc22",
     "release_53288cc4c85d49089a9da5132b7f5220",
@@ -3989,6 +3990,74 @@
       "playable": true,
       "availability": "available",
       "qualityState": "ready"
+    },
+    {
+      "id": "track_202d8d88185f473891081600b7ef6414",
+      "slug": "kibir",
+      "title": "Kibir",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 154,
+      "isrc": "QZCE61897838",
+      "explicit": true,
+      "spotifyId": "1y2mzrtAcHvmPJlNZUQ78e",
+      "spotifyUrl": "https://open.spotify.com/track/1y2mzrtAcHvmPJlNZUQ78e",
+      "lyrics": "Yine koyuyorum ortaya ruhumu\nKumarda gibi\nKorur annemin duası beni\nSudan çıktım, uyandım\nEninde sonunda biri dese bile\nSusmayı bil\nÖlürüm olmam sistem kurbanı bitch\nNe okulu len okula uymadım hiç\nZihnimi ben yönlendirdiğimden\nÖğretmene gerek duymadım hiç\nHitap ediyomuşum ergenlere ha-ha\nBunu diyen de bi kertenkele\nNoel babasından para dileniyo\nBen para babalarını sererken yere\nCanını sıkanı etiketlerken çenen\nAğzın yamuluyo ama görünce meme\nYouTube'da manken memesi aratırken\nKimseye ergen deme\nYetmiyo, sarıyo melek yine\nAteşledi mi geliyo yürek dile\nYakışan giyiyo lafımı yelek diye\nKaşınan geliyo bana da gerek diye\nFakat vurmam bel altı her adiye\nVicdanıma sıçayım hela diye\nAma nafile, benden iğrenç olamaz\nBok yiyen elitist Celal bile\nİnadım inat hala\nHiç kimseye yok yağma\nHayat ince bi çizgi\nÇiz ve de git\nSök kalbini yürü arkana bakma\nAtsınlar takla\nAnlatmaya çalışıp da kötü olma\nHem ne anlatıyosun hala ama\nİnadım inat hala\nHiç kimseye yok yağma\nHayat ince bi çizgi\nÇiz ve de git\nSök kalbini yürü arkana bakma\nAtsınlar takla\nAnlatmaya çalışıp da kötü olma\nHem ne anlatıyosun hala a-ah\nAnlayanlara tek sözüm yok oh\nBu kez küfür yok\nHem sence ihtiyacım var mı küfre\nEtmek için yüzünü mor\nGençler uçurumun eşiğindeler\nAma bu senin suçun değil yeğen\nÇünkü fikir üret isterdi\nFikri hür olsaydı eğer senin peder\nDirilirim yeniden\nMegalomanim daha sert yapıyo\nBeni Dirty Harry'den\nEn sevdiğim günah kibir\nÇünkü daha çekici bu his Jenny Mary'den\nİşim sanat, sen anlamazsın\nBasit bi ironiyi bile anlayamıyo\nÇünkü o aydın geçinen aklın ha-ha\nYobazdan yok bi farkın\nİnadım inat hala\nHiç kimseye yok yağma\nHayat ince bi çizgi\nÇiz ve de git\nSök kalbini yürü arkana bakma\nAtsınlar takla\nAnlatmaya çalışıp da kötü olma\nHem ne anlatıyosun hala ama\nİnadım inat hala\nHiç kimseye yok yağma\nHayat ince bi çizgi\nÇiz ve de git\nSök kalbini yürü arkana bakma\nAtsınlar takla\nAnlatmaya çalışıp da kötü olma\nHem ne anlatıyosun hala a-ah",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_ef6660e5960c43bf8aedcc8bd89a6019",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/6f7f1a1fb0d341edb267be50a308dc3b.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/6f7f1a1fb0d341edb267be50a308dc3b.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_2a4324e5ac864f50904fe5ad445f9746",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ca18bf9dfdd34c178a2526af625f924d.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ca18bf9dfdd34c178a2526af625f924d.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_bbfb1635d4854e6cae96145baf91d26f",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/88988e6f5f264be49b9a28de470b0821.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/88988e6f5f264be49b9a28de470b0821.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     }
   ],
   "releases": [
@@ -4915,6 +4984,37 @@
       "tracks": [
         {
           "trackId": "track_26e6337262c84153a2316c85c1f162be",
+          "disc": 1,
+          "position": 1
+        }
+      ],
+      "status": "published",
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
+    },
+    {
+      "id": "release_e39da73181924bc69401435bdeb4a647",
+      "slug": "kibir",
+      "title": "Kibir",
+      "type": "single",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2018-05-04",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/45ed96047e8e474e809d0f7dc7a73dcb.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b273eda68a9be2be266a7e425916",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2018 ContravoltaMusic",
+      "description": "",
+      "spotifyId": "5TzYlcaROVoSYga7IjTsr6",
+      "spotifyUrl": "https://open.spotify.com/album/5TzYlcaROVoSYga7IjTsr6",
+      "tracks": [
+        {
+          "trackId": "track_202d8d88185f473891081600b7ef6414",
           "disc": 1,
           "position": 1
         }
