@@ -1,0 +1,212 @@
+name: Aurora Final v0.5 / Studio v0.4
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "app/**"
+      - "studioapp/**"
+      - "pc/**"
+      - "settings.gradle.kts"
+      - ".github/workflows/aurora-final-v050-build.yml"
+  push:
+    branches: [main]
+    paths:
+      - "app/**"
+      - "studioapp/**"
+      - "pc/**"
+      - "settings.gradle.kts"
+      - ".github/workflows/aurora-final-v050-build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aurora-final-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  android_music:
+    name: Aurora Music Android v0.5.0
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Kalıcı Android imzası
+        id: signing
+        uses: actions/cache@v4
+        with:
+          path: ~/.android/debug.keystore
+          key: aurora-android-signing-v1
+      - name: İmza yoksa üret
+        if: steps.signing.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/.android
+          keytool -genkeypair -v -keystore ~/.android/debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Aurora Android,OU=Personal,O=Aurora,L=Bursa,ST=Bursa,C=TR"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.11.1"
+      - name: Arka plan oynatma kaynak denetimi
+        run: |
+          grep -q 'versionName = "0.5.0"' app/build.gradle.kts
+          grep -q 'media3-session' app/build.gradle.kts
+          grep -q 'MediaSessionService' app/src/main/kotlin/com/apexlions/music/AuroraPlaybackService.kt
+          grep -q 'setWakeMode' app/src/main/kotlin/com/apexlions/music/AuroraPlaybackService.kt
+          grep -q 'FOREGROUND_SERVICE_MEDIA_PLAYBACK' app/src/main/AndroidManifest.xml
+          grep -q 'POST_NOTIFICATIONS' app/src/main/AndroidManifest.xml
+      - name: Aurora Music APK derle
+        run: gradle --no-daemon --stacktrace --console=plain :app:assembleDebug
+      - name: Paketle
+        run: |
+          mkdir -p yayin
+          cp app/build/outputs/apk/debug/app-debug.apk yayin/Aurora-Music-Android-v0.5.0.apk
+          sha256sum yayin/Aurora-Music-Android-v0.5.0.apk > yayin/SHA256SUMS-Aurora-Music-v0.5.0.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aurora-music-android-v0.5.0
+          path: yayin/*
+      - name: GitHub Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete v0.5.0 --cleanup-tag --yes || true
+          gh release create v0.5.0 yayin/* \
+            --title "Aurora Music Android v0.5.0" \
+            --notes "MediaSessionService tabanlı kesintisiz arka plan oynatma; şarkı adı, sanatçı ve kapak içeren medya bildirimi; oynat/duraklat, önceki/sonraki ve ileri-geri sarma kontrolleri; kilit ekranı ve bağlı cihaz medya denetimleri; ağ uyandırma kilidi ve yeniden deneme. Dinamik ana sayfa, sanatçı seçkileri, diskografi, Yakında ve kısmi yayın desteği korunur."
+
+  android_studio:
+    name: Aurora Studio Mobile v0.4.0
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Kalıcı Android imzası
+        id: signing
+        uses: actions/cache@v4
+        with:
+          path: ~/.android/debug.keystore
+          key: aurora-android-signing-v1
+      - name: İmza yoksa üret
+        if: steps.signing.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/.android
+          keytool -genkeypair -v -keystore ~/.android/debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Aurora Studio Android,OU=Personal,O=Aurora,L=Bursa,ST=Bursa,C=TR"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.11.1"
+      - name: Spotify 2026 kaynak denetimi
+        run: |
+          grep -q 'versionName = "0.4.0"' studioapp/build.gradle.kts
+          grep -q 'source = "spotify"' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          grep -q '/tracks/\$id' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          grep -q '/artists/\$id' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          grep -q 'spotify.link' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          ! grep -q 'spotifyJson("/tracks",' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          ! grep -q 'spotifyJson("/artists",' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          ! grep -q 'musicbrainz.org' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          ! grep -q 'coverartarchive.org' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          ! grep -q 'lrclib.net' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+      - name: Studio Mobile APK derle
+        run: gradle --no-daemon --stacktrace --console=plain :studioapp:assembleDebug
+      - name: Paketle
+        run: |
+          mkdir -p yayin
+          cp studioapp/build/outputs/apk/debug/studioapp-debug.apk yayin/Aurora-Studio-Mobile-v0.4.0.apk
+          sha256sum yayin/Aurora-Studio-Mobile-v0.4.0.apk > yayin/SHA256SUMS-Aurora-Studio-Mobile-v0.4.0.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aurora-studio-mobile-v0.4.0
+          path: yayin/*
+      - name: GitHub Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete aurora-studio-mobile-v0.4.0 --cleanup-tag --yes || true
+          gh release create aurora-studio-mobile-v0.4.0 yayin/* \
+            --title "Aurora Studio Mobile v0.4.0" \
+            --notes "Spotify 2026 Development Mode uyumu: kaldırılan toplu uç noktalar yerine tekil track/artist çağrıları. Albüm/şarkı URL ve URI'leri, Spotify kısa paylaşım bağlantıları, ham 22 karakterli ID ve düz metin araması desteklenir. Kapak ve sanatçı görselleri Hugging Face'e taşınır; düzenleme, metadata-only/kısmi yayın, ISRC tekrar kullanımı, kalite kuyruğu ve sunum yönetimi korunur."
+
+  windows_studio:
+    name: Aurora Studio Windows v0.4.0
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pc/requirements.txt
+      - name: Bağımlılıklar ve Spotify 2026 doğrulaması
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r pc/requirements.txt
+          python -m py_compile pc/AuroraStudio.py pc/AuroraStudioV3.py pc/AuroraStudioV3Entry.py pc/AuroraStudioV4Entry.py
+          if (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern 'self.get\("/tracks", ids=' -Quiet) { throw 'Eski toplu tracks endpointi kullanılıyor' }
+          if (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern 'self.get\("/artists", ids=' -Quiet) { throw 'Eski toplu artists endpointi kullanılıyor' }
+          if (-not (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern '/tracks/\{spotify_id\}' -Quiet)) { throw 'Tekil track endpointi eksik' }
+          if (-not (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern '/artists/\{spotify_id\}' -Quiet)) { throw 'Tekil artist endpointi eksik' }
+          if (-not (Select-String -Path pc/AuroraStudioV4Entry.py -Pattern 'APP_VERSION = "0.4.0"' -Quiet)) { throw 'Windows v0.4 giriş sürümü yanlış' }
+      - name: Qt arayüzünü ekransız başlat
+        shell: pwsh
+        run: |
+          $env:QT_QPA_PLATFORM = "offscreen"
+          python -c "import sys; sys.path.insert(0, 'pc'); from PySide6.QtWidgets import QApplication; import AuroraStudioV4Entry as entry; app=QApplication([]); window=entry.AuroraStudioV4(); window.setWindowTitle('test'); assert window.pages.count() == 8; assert window.spotify_auto_lyrics.isEnabled() is False; window.close(); print('Aurora Studio Windows v0.4 smoke test OK')"
+      - name: FFmpeg indir
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip" -OutFile "$env:RUNNER_TEMP\ffmpeg.zip"
+          Expand-Archive "$env:RUNNER_TEMP\ffmpeg.zip" "$env:RUNNER_TEMP\ffmpeg" -Force
+          $ffmpeg = Get-ChildItem "$env:RUNNER_TEMP\ffmpeg" -Recurse -Filter ffmpeg.exe | Select-Object -First 1
+          $ffprobe = Get-ChildItem "$env:RUNNER_TEMP\ffmpeg" -Recurse -Filter ffprobe.exe | Select-Object -First 1
+          if (-not $ffmpeg -or -not $ffprobe) { throw "FFmpeg araçları bulunamadı" }
+          New-Item -ItemType Directory -Force pc\bundled-tools | Out-Null
+          Copy-Item $ffmpeg.FullName pc\bundled-tools\ffmpeg.exe
+          Copy-Item $ffprobe.FullName pc\bundled-tools\ffprobe.exe
+      - name: EXE üret
+        shell: pwsh
+        run: |
+          pyinstaller --noconfirm --clean --windowed --onedir `
+            --name AuroraStudio `
+            --paths pc `
+            --collect-all huggingface_hub `
+            --collect-all PySide6 `
+            --hidden-import AuroraStudio `
+            --hidden-import AuroraStudioV3 `
+            --hidden-import AuroraStudioV3Entry `
+            --hidden-import win32timezone `
+            pc/AuroraStudioV4Entry.py
+          New-Item -ItemType Directory -Force dist\AuroraStudio\tools | Out-Null
+          Copy-Item pc\bundled-tools\ffmpeg.exe dist\AuroraStudio\tools\ffmpeg.exe
+          Copy-Item pc\bundled-tools\ffprobe.exe dist\AuroraStudio\tools\ffprobe.exe
+          Copy-Item pc\README.md dist\AuroraStudio\KULLANIM.md
+      - name: Paketle
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force yayin | Out-Null
+          Compress-Archive -Path dist\AuroraStudio\* -DestinationPath yayin\Aurora-Studio-Windows-x64-v0.4.0.zip -Force
+          $hash = (Get-FileHash yayin\Aurora-Studio-Windows-x64-v0.4.0.zip -Algorithm SHA256).Hash.ToLower()
+          "$hash  Aurora-Studio-Windows-x64-v0.4.0.zip" | Set-Content yayin\SHA256SUMS-Aurora-Studio-Windows-v0.4.0.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aurora-studio-windows-v0.4.0
+          path: yayin/*
+      - name: GitHub Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: pwsh
+        run: |
+          gh release delete aurora-studio-v0.4.0 --cleanup-tag --yes 2>$null
+          gh release create aurora-studio-v0.4.0 yayin/* `
+            --title "Aurora Studio Windows v0.4.0" `
+            --notes "Spotify 2026 Development Mode uyumu: tekil track/artist uç noktaları; albüm/şarkı URL-URI, kısa paylaşım bağlantısı, ham ID ve düz metin araması. Spotify kapak/sanatçı görselleri Hugging Face'e taşınır; kısmi yayın, ISRC tekrar kullanımı ve sunum yönetimi korunur. Tokenlar Windows DPAPI ile korunur."
