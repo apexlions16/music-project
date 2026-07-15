@@ -1,0 +1,76 @@
+name: Verify Aurora Studios v0.6.0 Releases
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/verify-studio-v060-releases.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Release assetlerini bekle ve doğrula
+        run: |
+          mobile_tag="aurora-studio-mobile-v0.6.0"
+          windows_tag="aurora-studio-v0.6.0"
+          mobile_asset="Aurora-Studio-Mobile-v0.6.0.apk"
+          windows_asset="Aurora-Studio-Windows-x64-v0.6.0.zip"
+
+          success=0
+          for attempt in $(seq 1 50); do
+            mobile_assets="$(gh release view "$mobile_tag" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' 2>/dev/null || true)"
+            windows_assets="$(gh release view "$windows_tag" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' 2>/dev/null || true)"
+            if grep -Fxq "$mobile_asset" <<<"$mobile_assets" && grep -Fxq "$windows_asset" <<<"$windows_assets"; then
+              success=1
+              break
+            fi
+            echo "Deneme $attempt/50: release dosyaları henüz tamamlanmadı."
+            sleep 30
+          done
+
+          mkdir -p verification
+          if [ "$success" -ne 1 ]; then
+            {
+              echo "FAILURE"
+              echo "mobile_tag=$mobile_tag"
+              echo "mobile_assets=${mobile_assets//$'\n'/,}"
+              echo "windows_tag=$windows_tag"
+              echo "windows_assets=${windows_assets//$'\n'/,}"
+            } > verification/studios-v060-releases.txt
+            cat verification/studios-v060-releases.txt
+            exit 1
+          fi
+
+          mobile_url="https://github.com/$GITHUB_REPOSITORY/releases/download/$mobile_tag/$mobile_asset"
+          windows_url="https://github.com/$GITHUB_REPOSITORY/releases/download/$windows_tag/$windows_asset"
+          {
+            echo "SUCCESS"
+            echo "mobile_tag=$mobile_tag"
+            echo "mobile_asset=$mobile_asset"
+            echo "mobile_url=$mobile_url"
+            echo "windows_tag=$windows_tag"
+            echo "windows_asset=$windows_asset"
+            echo "windows_url=$windows_url"
+          } > verification/studios-v060-releases.txt
+          cat verification/studios-v060-releases.txt
+
+      - name: Doğrulama kaydını repoya yaz
+        if: success()
+        run: |
+          git config user.name "Aurora Release Verification Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add verification/studios-v060-releases.txt
+          git commit -m "Aurora Studios v0.6.0 release dosyalarını doğrula"
+          git pull --rebase origin main
+          git push origin HEAD:main
