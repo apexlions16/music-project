@@ -17,7 +17,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowForward
 import androidx.compose.material.icons.rounded.AutoAwesome
@@ -62,6 +64,7 @@ class StudioHubActivity : ComponentActivity() {
             ) {
                 StudioHub(
                     openPublishing = { startActivity(Intent(this, StudioV2Activity::class.java)) },
+                    openLibrary = { startActivity(Intent(this, StudioLibraryActivity::class.java)) },
                     openCompletion = { startActivity(Intent(this, StudioAudioCompletionActivity::class.java)) },
                     openCuration = { startActivity(Intent(this, StudioCurationActivity::class.java)) },
                 )
@@ -73,6 +76,7 @@ class StudioHubActivity : ComponentActivity() {
 @Composable
 private fun StudioHub(
     openPublishing: () -> Unit,
+    openLibrary: () -> Unit,
     openCompletion: () -> Unit,
     openCuration: () -> Unit,
 ) {
@@ -87,9 +91,10 @@ private fun StudioHub(
             .padding(22.dp),
     ) {
         Column(
-            Modifier.fillMaxSize(),
+            Modifier.fillMaxSize().verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.Center,
         ) {
+            Spacer(Modifier.height(30.dp))
             Surface(
                 shape = RoundedCornerShape(20.dp),
                 color = HubAccent,
@@ -103,16 +108,23 @@ private fun StudioHub(
             Text("Aurora Studio", fontSize = 38.sp, fontWeight = FontWeight.ExtraBold)
             Text("Mobile v0.6.0", color = HubAccent, fontWeight = FontWeight.Bold)
             Text(
-                "Yayınları, Yakında şarkıların seslerini ve müzik uygulamasındaki sunum düzenini aynı güvenli ayarlarla yönetin.",
+                "Yeni yayın oluşturma ile yayınlanmış içerik yönetimini birbirinden ayıran sade merkez.",
                 color = HubMuted,
                 lineHeight = 21.sp,
-                modifier = Modifier.padding(top = 7.dp, bottom = 24.dp),
+                modifier = Modifier.padding(top = 7.dp, bottom = 22.dp),
             )
             HubCard(
-                title = "Yayın ve Şarkı Yönetimi",
-                description = "Spotify metadata içe aktar, mevcut şarkıyı düzenle ve kalite kuyruğu oluştur. Kapak otomatik Hugging Face'e taşınır.",
+                title = "Yeni Yayın Oluştur",
+                description = "Spotify metadata içe aktar, sesleri seç ve yeni albüm/single yayınla. Kapak otomatik Hugging Face'e taşınır.",
                 icon = Icons.Rounded.Edit,
                 onClick = openPublishing,
+            )
+            Spacer(Modifier.height(12.dp))
+            HubCard(
+                title = "Yayın Kütüphanesi",
+                description = "Yayınlanmış albüm ve şarkıları tek yerde düzenle, albümden çıkar veya tamamen sil.",
+                icon = Icons.Rounded.LibraryMusic,
+                onClick = openLibrary,
             )
             Spacer(Modifier.height(12.dp))
             HubCard(
@@ -124,7 +136,7 @@ private fun StudioHub(
             Spacer(Modifier.height(12.dp))
             HubCard(
                 title = "Sunum ve Listeler",
-                description = "Sanatçı popülerlerini, sanatçı seçkilerini ve dinamik ana sayfa bölümlerini sırala.",
+                description = "Sanatçı popülerlerini, seçkileri ve dinamik ana sayfa bölümlerini sırala.",
                 icon = Icons.Rounded.LibraryMusic,
                 onClick = openCuration,
             )
@@ -138,6 +150,7 @@ private fun StudioHub(
                     modifier = Modifier.padding(start = 8.dp),
                 )
             }
+            Spacer(Modifier.height(30.dp))
         }
     }
 }
