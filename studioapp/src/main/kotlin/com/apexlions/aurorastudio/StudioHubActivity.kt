@@ -24,8 +24,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowForward
 import androidx.compose.material.icons.rounded.AutoAwesome
 import androidx.compose.material.icons.rounded.CloudDone
+import androidx.compose.material.icons.rounded.Code
 import androidx.compose.material.icons.rounded.Edit
+import androidx.compose.material.icons.rounded.Groups
+import androidx.compose.material.icons.rounded.Home
 import androidx.compose.material.icons.rounded.LibraryMusic
+import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material.icons.rounded.UploadFile
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -52,6 +56,7 @@ class StudioHubActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        fun admin(mode: StudioAdminMode) = Intent(this, StudioAdminActivity::class.java).putExtra("mode", mode.key)
         setContent {
             MaterialTheme(
                 colorScheme = darkColorScheme(
@@ -63,10 +68,14 @@ class StudioHubActivity : ComponentActivity() {
                 ),
             ) {
                 StudioHub(
+                    openOverview = { startActivity(admin(StudioAdminMode.OVERVIEW)) },
                     openPublishing = { startActivity(Intent(this, StudioV2Activity::class.java)) },
                     openLibrary = { startActivity(Intent(this, StudioLibraryActivity::class.java)) },
                     openCompletion = { startActivity(Intent(this, StudioAudioCompletionActivity::class.java)) },
+                    openArtists = { startActivity(admin(StudioAdminMode.ARTISTS)) },
                     openCuration = { startActivity(Intent(this, StudioCurationActivity::class.java)) },
+                    openJson = { startActivity(admin(StudioAdminMode.JSON)) },
+                    openSettings = { startActivity(admin(StudioAdminMode.SETTINGS)) },
                 )
             }
         }
@@ -75,19 +84,19 @@ class StudioHubActivity : ComponentActivity() {
 
 @Composable
 private fun StudioHub(
+    openOverview: () -> Unit,
     openPublishing: () -> Unit,
     openLibrary: () -> Unit,
     openCompletion: () -> Unit,
+    openArtists: () -> Unit,
     openCuration: () -> Unit,
+    openJson: () -> Unit,
+    openSettings: () -> Unit,
 ) {
     Box(
         Modifier
             .fillMaxSize()
-            .background(
-                Brush.verticalGradient(
-                    listOf(HubAccent.copy(alpha = .22f), HubBackground, HubBackground),
-                ),
-            )
+            .background(Brush.verticalGradient(listOf(HubAccent.copy(alpha = .22f), HubBackground, HubBackground)))
             .padding(22.dp),
     ) {
         Column(
@@ -95,60 +104,37 @@ private fun StudioHub(
             verticalArrangement = Arrangement.Center,
         ) {
             Spacer(Modifier.height(30.dp))
-            Surface(
-                shape = RoundedCornerShape(20.dp),
-                color = HubAccent,
-                modifier = Modifier.size(68.dp),
-            ) {
-                Box(contentAlignment = Alignment.Center) {
-                    Icon(Icons.Rounded.AutoAwesome, null, modifier = Modifier.size(38.dp), tint = Color.White)
-                }
+            Surface(shape = RoundedCornerShape(20.dp), color = HubAccent, modifier = Modifier.size(68.dp)) {
+                Box(contentAlignment = Alignment.Center) { Icon(Icons.Rounded.AutoAwesome, null, modifier = Modifier.size(38.dp), tint = Color.White) }
             }
             Spacer(Modifier.height(18.dp))
             Text("Aurora Studio", fontSize = 38.sp, fontWeight = FontWeight.ExtraBold)
-            Text("Mobile v0.6.0", color = HubAccent, fontWeight = FontWeight.Bold)
+            Text("Mobile v0.7.0", color = HubAccent, fontWeight = FontWeight.Bold)
             Text(
-                "Yeni yayın oluşturma ile yayınlanmış içerik yönetimini birbirinden ayıran sade merkez.",
+                "Windows Studio'daki sekiz yönetim bölümüyle eşlenik mobil merkez.",
                 color = HubMuted,
                 lineHeight = 21.sp,
                 modifier = Modifier.padding(top = 7.dp, bottom = 22.dp),
             )
-            HubCard(
-                title = "Yeni Yayın Oluştur",
-                description = "Spotify metadata içe aktar, sesleri seç ve yeni albüm/single yayınla. Kapak otomatik Hugging Face'e taşınır.",
-                icon = Icons.Rounded.Edit,
-                onClick = openPublishing,
-            )
-            Spacer(Modifier.height(12.dp))
-            HubCard(
-                title = "Yayın Kütüphanesi",
-                description = "Yayınlanmış albüm ve şarkıları tek yerde düzenle, albümden çıkar veya tamamen sil.",
-                icon = Icons.Rounded.LibraryMusic,
-                onClick = openLibrary,
-            )
-            Spacer(Modifier.height(12.dp))
-            HubCard(
-                title = "Yakında Ses Tamamlama",
-                description = "Yeni release oluşturmadan bekleyen şarkılara toplu ses veya TXT/LRC dosyası eşleştir.",
-                icon = Icons.Rounded.UploadFile,
-                onClick = openCompletion,
-            )
-            Spacer(Modifier.height(12.dp))
-            HubCard(
-                title = "Sunum ve Listeler",
-                description = "Sanatçı popülerlerini, seçkileri ve dinamik ana sayfa bölümlerini sırala.",
-                icon = Icons.Rounded.LibraryMusic,
-                onClick = openCuration,
-            )
+            HubCard("Genel Bakış", "Sanatçı, yayın, şarkı ve Yakında durumlarını tek ekranda gör.", Icons.Rounded.Home, openOverview)
+            Spacer(Modifier.height(10.dp))
+            HubCard("Yeni Yayın", "Spotify metadata içe aktar, toplu ses eşleştir ve yeni albüm/single yayınla.", Icons.Rounded.Edit, openPublishing)
+            Spacer(Modifier.height(10.dp))
+            HubCard("Yayın Kütüphanesi", "Yayın ve şarkıları ara, düzenle, LRC yükle veya kaldır.", Icons.Rounded.LibraryMusic, openLibrary)
+            Spacer(Modifier.height(10.dp))
+            HubCard("Yakında Tamamlama", "Mevcut şarkılara yeni release oluşturmadan ses, TXT veya LRC ekle.", Icons.Rounded.UploadFile, openCompletion)
+            Spacer(Modifier.height(10.dp))
+            HubCard("Sanatçılar", "Profil, hero, arka plan, video ve biyografi alanlarını yönet.", Icons.Rounded.Groups, openArtists)
+            Spacer(Modifier.height(10.dp))
+            HubCard("Sunum ve Listeler", "Popülerleri, sanatçı seçkilerini ve ana sayfa raflarını sırala.", Icons.Rounded.LibraryMusic, openCuration)
+            Spacer(Modifier.height(10.dp))
+            HubCard("Katalog JSON", "Ham katalog verisini doğrulayarak düzenle ve GitHub'a commit et.", Icons.Rounded.Code, openJson)
+            Spacer(Modifier.height(10.dp))
+            HubCard("Ayarlar", "GitHub, Hugging Face ve Spotify anahtarlarını şifreli kaydet.", Icons.Rounded.Settings, openSettings)
             Spacer(Modifier.height(18.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Rounded.CloudDone, null, tint = HubAccent, modifier = Modifier.size(18.dp))
-                Text(
-                    "GitHub, Hugging Face ve metadata tokenları ortak şifreli kasada korunur.",
-                    color = HubMuted,
-                    fontSize = 12.sp,
-                    modifier = Modifier.padding(start = 8.dp),
-                )
+                Text("Bütün bölümler aynı katalog ve şifreli ayar kasasını kullanır.", color = HubMuted, fontSize = 12.sp, modifier = Modifier.padding(start = 8.dp))
             }
             Spacer(Modifier.height(30.dp))
         }
@@ -167,18 +153,9 @@ private fun HubCard(
         shape = RoundedCornerShape(22.dp),
         modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
     ) {
-        Row(
-            Modifier.fillMaxWidth().padding(18.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Surface(
-                shape = RoundedCornerShape(16.dp),
-                color = HubAccent.copy(alpha = .16f),
-                modifier = Modifier.size(54.dp),
-            ) {
-                Box(contentAlignment = Alignment.Center) {
-                    Icon(icon, null, tint = HubAccent, modifier = Modifier.size(29.dp))
-                }
+        Row(Modifier.fillMaxWidth().padding(18.dp), verticalAlignment = Alignment.CenterVertically) {
+            Surface(shape = RoundedCornerShape(16.dp), color = HubAccent.copy(alpha = .16f), modifier = Modifier.size(54.dp)) {
+                Box(contentAlignment = Alignment.Center) { Icon(icon, null, tint = HubAccent, modifier = Modifier.size(29.dp)) }
             }
             Column(Modifier.weight(1f).padding(horizontal = 14.dp)) {
                 Text(title, fontSize = 18.sp, fontWeight = FontWeight.Bold)
