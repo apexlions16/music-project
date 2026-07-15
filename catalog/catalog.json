@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T11:10:57.048324Z",
+  "updatedAt": "2026-07-15T11:21:46.815353Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -1836,7 +1836,8 @@
           "sampleRateKhz": 48,
           "bitDepth": 24
         }
-      ]
+      ],
+      "featuredArtistNames": []
     },
     {
       "id": "track_1daf668ad19644eb8b14f0065d290cc8",
