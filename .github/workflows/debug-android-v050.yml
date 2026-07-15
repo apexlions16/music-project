@@ -1,4 +1,4 @@
-name: Debug Aurora Android v0.5
+name: Debug Aurora Android v0.5 Final
 
 on:
   push:
@@ -6,6 +6,8 @@ on:
       - agent/aurora-studios-v030
     paths:
       - ".github/workflows/debug-android-v050.yml"
+      - "app/**"
+      - "studioapp/**"
 
 permissions:
   contents: write
@@ -38,9 +40,14 @@ jobs:
         run: |
           mkdir -p verification
           cp android-v050-build.log verification/android-v050-build.log
-          echo "exit_code=${{ steps.build.outputs.exit_code }}" > verification/android-v050-result.txt
+          {
+            echo "source_commit=${GITHUB_SHA}"
+            echo "exit_code=${{ steps.build.outputs.exit_code }}"
+            echo "verified_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } > verification/android-v050-result.txt
           git config user.name "Aurora Debug Bot"
           git config user.email "actions@users.noreply.github.com"
           git add verification/android-v050-build.log verification/android-v050-result.txt
           git commit -m "Android v0.5 derleme çıktısını kaydet" || exit 0
+          git pull --rebase origin agent/aurora-studios-v030
           git push origin HEAD:agent/aurora-studios-v030
