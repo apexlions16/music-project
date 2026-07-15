@@ -143,6 +143,7 @@ private fun StudioV2App() {
     var featured by remember { mutableStateOf(false) }
     var metadataSource by remember { mutableStateOf("manual") }
     var metadataSourceId by remember { mutableStateOf("") }
+    var releaseSpotifyUrl by remember { mutableStateOf("") }
     val releaseTracks = remember { mutableStateListOf<V2TrackDraft>() }
 
     var selectedEdit by remember { mutableStateOf<ExistingTrackDraft?>(null) }
@@ -222,6 +223,7 @@ private fun StudioV2App() {
                 coverAsset = null
                 metadataSource = imported.source
                 metadataSourceId = imported.sourceId
+                releaseSpotifyUrl = imported.spotifyUrl
                 releaseTracks.clear()
                 releaseTracks.addAll(imported.tracks)
                 status = "Metadata hazır: ${imported.tracks.size} parça. Ses dosyalarını istediğiniz zaman ekleyebilirsiniz."
@@ -282,6 +284,7 @@ private fun StudioV2App() {
             tracks = releaseTracks.toList(),
             metadataSource = metadataSource,
             metadataSourceId = metadataSourceId,
+            spotifyUrl = releaseSpotifyUrl,
         )
         scope.launch {
             runCatching {
@@ -303,6 +306,7 @@ private fun StudioV2App() {
                 animatedCoverUrl = ""
                 metadataSource = "manual"
                 metadataSourceId = ""
+                releaseSpotifyUrl = ""
                 releaseTracks.clear()
             }.onFailure {
                 error = it.message ?: it.toString()
@@ -508,7 +512,7 @@ private fun V2ReleaseScreen(
                 Button(onClick = importMetadata, enabled = !busy && metadataQuery.isNotBlank(), modifier = Modifier.fillMaxWidth()) {
                     Icon(Icons.Rounded.AutoAwesome, null)
                     Spacer(Modifier.size(7.dp))
-                    Text("Spotify ile eşleştir, MusicBrainz + CAA + LRCLIB'den doldur")
+                    Text("Spotify metadata + ISRC + kapak + LRCLIB sözlerini getir")
                 }
                 Text("Kaydedilen metadata kaynağı: $metadataSource", color = StudioMuted, fontSize = 11.sp)
             }
@@ -749,8 +753,8 @@ private fun V2SettingsScreen(
             V2Card("Metadata sağlayıcıları") {
                 OutlinedTextField(providers.spotifyClientId, { onProviders(providers.copy(spotifyClientId = it)) }, label = { Text("Spotify Client ID") }, modifier = Modifier.fillMaxWidth())
                 OutlinedTextField(providers.spotifyClientSecret, { onProviders(providers.copy(spotifyClientSecret = it)) }, label = { Text("Spotify Client Secret") }, visualTransformation = PasswordVisualTransformation(), modifier = Modifier.fillMaxWidth())
-                OutlinedTextField(providers.musicBrainzContact, { onProviders(providers.copy(musicBrainzContact = it)) }, label = { Text("MusicBrainz iletişim e-postası veya URL") }, modifier = Modifier.fillMaxWidth())
-                Text("Spotify yalnızca doğru albümü eşleştirmeye yardım eder. Kalıcı katalog verisi MusicBrainz, Cover Art Archive ve LRCLIB kaynaklarından oluşturulur.", color = StudioMuted, fontSize = 11.sp)
+                OutlinedTextField(providers.spotifyMarket, { onProviders(providers.copy(spotifyMarket = it.uppercase())) }, label = { Text("Spotify market (TR)") }, modifier = Modifier.fillMaxWidth())
+                Text("Albüm, şarkı sırası, sanatçılar, ISRC, explicit, süre, tarih, label/telif ve kapak URL'si doğrudan Spotify'dan alınır. Sözler LRCLIB ile eşleştirilir.", color = StudioMuted, fontSize = 11.sp)
             }
         }
         item {
