@@ -40,13 +40,13 @@ jobs:
           python -m py_compile pc/AuroraStudio.py pc/AuroraStudioV3.py pc/AuroraStudioV3Entry.py pc/AuroraStudioV4Entry.py pc/AuroraStudioV6Entry.py pc/AuroraStudioV6Final.py pc/AuroraStudioV7Final.py pc/AuroraStudioV8Final.py pc/AuroraStudioV81Final.py
           if (-not (Select-String -Path pc/AuroraStudioV81Final.py -Pattern 'APP_VERSION = "0.8.1"' -Quiet)) { throw 'Windows Studio sürümü yanlış' }
           if (-not (Select-String -Path pc/AuroraStudioV81Final.py -Pattern 'LRC Dosyalarını Toplu Seç ve İsimlerle Eşleştir' -Quiet)) { throw 'Toplu LRC düğmesi eksik' }
-          if (-not (Select-String -Path pc/AuroraStudioV81Final.py -Pattern 'v6.match_media' -Quiet)) { throw 'İsim eşleştirme motoru kullanılmıyor' }
+          if (-not (Select-String -Path pc/AuroraStudioV81Final.py -Pattern 'match_lrc_files_v81' -Quiet)) { throw 'Toplu LRC isim eşleştirme motoru eksik' }
           if (-not (Select-String -Path pc/AuroraStudioV81Final.py -Pattern 'normalize_lrc_v7' -Quiet)) { throw 'LRC doğrulama motoru kullanılmıyor' }
 
       - name: İsim eşleştirme ve LRC birim kontrolü
         shell: pwsh
         run: |
-          python -c "import sys; from pathlib import Path; sys.path.insert(0,'pc'); import AuroraStudioV6Entry as v6; from AuroraStudioV7Final import normalize_lrc_v7; tracks=['Başım Belada','Uzaklara','Son Gece']; files=[Path('03 - Son Gece.lrc'),Path('01 Basim Belada.lrc'),Path('02_Uzaklara.lrc')]; m=v6.match_media(tracks,files); assert files[m[0]].name=='01 Basim Belada.lrc',m; assert files[m[1]].name=='02_Uzaklara.lrc',m; assert files[m[2]].name=='03 - Son Gece.lrc',m; out=normalize_lrc_v7('[00:00.64] İlk satır [00:04.40] İkinci satır'); assert out.splitlines()==['[00:00.64]İlk satır','[00:04.40]İkinci satır'],out; print('Toplu LRC eşleştirme OK')"
+          python -c "import sys; from pathlib import Path; sys.path.insert(0,'pc'); from AuroraStudioV81Final import match_lrc_files_v81, normalize_lrc_media_name_v81; from AuroraStudioV7Final import normalize_lrc_v7; tracks=['Başım Belada','Uzaklara','Son Gece']; files=[Path('03 - Son Gece.lrc'),Path('01 Basim Belada.lrc'),Path('02_Uzaklara.lrc')]; m,methods=match_lrc_files_v81(tracks,files); assert normalize_lrc_media_name_v81('Başım Belada')=='basim belada'; assert files[m[0]].name=='01 Basim Belada.lrc',m; assert methods[0]=='kesin isim eşleşmesi',methods; assert files[m[1]].name=='02_Uzaklara.lrc',m; assert files[m[2]].name=='03 - Son Gece.lrc',m; out=normalize_lrc_v7('[00:00.64] İlk satır [00:04.40] İkinci satır'); assert out.splitlines()==['[00:00.64]İlk satır','[00:04.40]İkinci satır'],out; print('Toplu LRC eşleştirme OK')"
 
       - name: Qt arayüzünü ekransız başlat
         shell: pwsh
@@ -112,4 +112,4 @@ jobs:
           if ($LASTEXITCODE -ne 0) { Write-Host "Önceki Windows v0.8.1 release bulunmadı." }
           gh release create aurora-studio-v0.8.1 yayin/* `
             --title "Aurora Studio Windows v0.8.1" `
-            --notes "Yeni Yayın ekranında albüm veya single için çoklu LRC dosyası seçimi. Dosyalar önce şarkı adlarıyla eşleştirilir; eşleşmeyenler doğal dosya/albüm sırasına yerleştirilir. LRC zaman kodları doğrulanıp standartlaştırılır. v0.8.0 batch yayın, Spotify metadata, ses eşleştirme ve mevcut tekli LRC özellikleri korunmuştur."
+            --notes "Yeni Yayın ekranında albüm veya single için çoklu LRC dosyası seçimi. Türkçe karakterler ve parça numaraları normalize edilerek dosyalar önce şarkı adlarıyla eşleştirilir; eşleşmeyenler doğal dosya/albüm sırasına yerleştirilir. LRC zaman kodları doğrulanıp standartlaştırılır. v0.8.0 batch yayın, Spotify metadata, ses eşleştirme ve mevcut tekli LRC özellikleri korunmuştur."
