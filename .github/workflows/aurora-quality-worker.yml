@@ -1,0 +1,58 @@
+name: Aurora Audio Quality Worker
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "catalog/catalog.json"
+      - "tools/aurora_quality_worker.py"
+      - ".github/workflows/aurora-quality-worker.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aurora-audio-quality-main
+  cancel-in-progress: false
+
+jobs:
+  process_audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      HF_REPO: hcywashere/m-project
+      AURORA_CATALOG: catalog/catalog.json
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: FFmpeg ve Hugging Face istemcisi
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          pip install "huggingface_hub>=0.30,<2"
+
+      - name: Kuyruktaki sesleri işle
+        run: python tools/aurora_quality_worker.py
+
+      - name: Katalog değişikliğini yayınla
+        run: |
+          if git diff --quiet -- catalog/catalog.json; then
+            echo "Katalog değişmedi."
+            exit 0
+          fi
+          git config user.name "Aurora Quality Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add catalog/catalog.json
+          git commit -m "Aurora: otomatik ses kalitelerini işle"
+          git pull --rebase origin main
+          git push origin HEAD:main
