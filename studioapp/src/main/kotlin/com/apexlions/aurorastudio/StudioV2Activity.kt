@@ -147,6 +147,7 @@ private fun StudioV2App() {
     var selectedEdit by remember { mutableStateOf<ExistingTrackDraft?>(null) }
     var editAudio by remember { mutableStateOf<AssetDraft?>(null) }
     var audioTarget by remember { mutableStateOf<AudioTarget?>(null) }
+    var lrcTargetIndex by remember { mutableStateOf<Int?>(null) }
 
     fun persist(uri: Uri) {
         runCatching { context.contentResolver.takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION) }
@@ -172,7 +173,23 @@ private fun StudioV2App() {
         }
         audioTarget = null
     }
-
+    val lrcPicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        val index = lrcTargetIndex
+        lrcTargetIndex = null
+        if (uri != null && index != null && index in releaseTracks.indices) {
+            runCatching {
+                val raw = context.contentResolver.openInputStream(uri)?.bufferedReader(Charsets.UTF_8)?.use { it.readText() }
+                    ?: error("LRC dosyası okunamadı.")
+                StudioLrcSupport.normalize(raw)
+            }.onSuccess { normalized ->
+                releaseTracks[index] = releaseTracks[index].copy(syncedLyrics = normalized)
+                status = "${releaseTracks[index].title}: LRC doğrulandı ve yüklendi."
+                error = null
+            }.onFailure {
+                error = it.message ?: "LRC dosyası geçersiz."
+            }
+        }
+    }
 
     val bulkAudioPicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenMultipleDocuments()) { uris ->
         val files = uris.map(::asset)
@@ -347,7 +364,7 @@ private fun StudioV2App() {
                 title = {
                     Column {
                         Text("Aurora Studio Mobile", fontWeight = FontWeight.Bold)
-                        Text("v0.6.0 • ${screen.title}", color = StudioMuted, fontSize = 11.sp)
+                        Text("v0.7.0 • ${screen.title}", color = StudioMuted, fontSize = 11.sp)
                     }
                 },
                 actions = {
@@ -409,6 +426,7 @@ private fun StudioV2App() {
                     removeTrack = { releaseTracks.removeAt(it) },
                     pickBulkAudio = { bulkAudioPicker.launch(arrayOf("audio/*", "application/octet-stream")) },
                     pickTrackAudio = { index -> audioTarget = AudioTarget.NewTrack(index); audioPicker.launch(arrayOf("audio/*", "application/octet-stream")) },
+                    pickTrackLrc = { index -> lrcTargetIndex = index; lrcPicker.launch(arrayOf("application/x-lrc", "text/plain", "application/octet-stream")) },
                     publish = ::publishRelease,
                     canPublish = snapshot != null && !busy,
                     busy = busy,
@@ -473,6 +491,7 @@ private fun V2ReleaseScreen(
     updateTrack: (Int, V2TrackDraft) -> Unit,
     removeTrack: (Int) -> Unit,
     pickTrackAudio: (Int) -> Unit,
+    pickTrackLrc: (Int) -> Unit,
     publish: () -> Unit,
     canPublish: Boolean,
     busy: Boolean,
@@ -538,7 +557,7 @@ private fun V2ReleaseScreen(
             }
         }
         itemsIndexed(tracks, key = { _, item -> item.localId }) { index, track ->
-            V2TrackCard(index, track, { updateTrack(index, it) }, { pickTrackAudio(index) }, { removeTrack(index) }, busy)
+            V2TrackCard(index, track, { updateTrack(index, it) }, { pickTrackAudio(index) }, { pickTrackLrc(index) }, { removeTrack(index) }, busy)
         }
         item {
             Button(onClick = publish, enabled = canPublish && tracks.isNotEmpty(), modifier = Modifier.fillMaxWidth()) {
@@ -555,6 +574,7 @@ private fun V2TrackCard(
     value: V2TrackDraft,
     onValue: (V2TrackDraft) -> Unit,
     pickAudio: () -> Unit,
+    pickLrc: () -> Unit,
     remove: () -> Unit,
     busy: Boolean,
 ) {
@@ -565,6 +585,10 @@ private fun V2TrackCard(
         OutlinedTextField(value.isrc, { onValue(value.copy(isrc = it)) }, label = { Text("ISRC") }, modifier = Modifier.fillMaxWidth())
         OutlinedTextField(value.lyrics, { onValue(value.copy(lyrics = it)) }, label = { Text("Düz sözler") }, minLines = 2, modifier = Modifier.fillMaxWidth())
         OutlinedTextField(value.syncedLyrics, { onValue(value.copy(syncedLyrics = it)) }, label = { Text("Senkronize LRC") }, minLines = 2, modifier = Modifier.fillMaxWidth())
+        OutlinedButton(onClick = pickLrc, enabled = !busy, modifier = Modifier.fillMaxWidth()) {
+            Icon(Icons.Rounded.UploadFile, null)
+            Text(" LRC Dosyası Seç")
+        }
         OutlinedTextField(value.creditsText, { onValue(value.copy(creditsText = it)) }, label = { Text("Künye — her satır Rol: İsim") }, minLines = 2, modifier = Modifier.fillMaxWidth())
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             Text("Explicit", modifier = Modifier.weight(1f))
