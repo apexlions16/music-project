@@ -207,7 +207,7 @@ private fun StudioV2App() {
         scope.launch {
             runCatching {
                 withContext(Dispatchers.IO) {
-                    UnifiedMetadataClient(providerConfig).importRelease(metadataQuery, includeLyrics = true) { text ->
+                    UnifiedMetadataClient(providerConfig).importRelease(metadataQuery, includeLyrics = false) { text ->
                         scope.launch { status = text }
                     }
                 }
@@ -224,7 +224,7 @@ private fun StudioV2App() {
                 metadataSourceId = imported.sourceId
                 releaseTracks.clear()
                 releaseTracks.addAll(imported.tracks)
-                status = "Metadata hazır: ${imported.tracks.size} parça. Ses dosyalarını istediğiniz zaman ekleyebilirsiniz."
+                status = "Spotify metadata hazır: ${imported.tracks.size} parça. Kapak ve sanatçı görselleri yayın sırasında Hugging Face'e taşınacak."
                 progress = 1f
             }.onFailure {
                 error = it.message ?: it.toString()
@@ -356,7 +356,7 @@ private fun StudioV2App() {
                 title = {
                     Column {
                         Text("Aurora Studio Mobile", fontWeight = FontWeight.Bold)
-                        Text("v0.2.0 • ${screen.title}", color = StudioMuted, fontSize = 11.sp)
+                        Text("v0.3.0 • ${screen.title}", color = StudioMuted, fontSize = 11.sp)
                     }
                 },
                 actions = {
@@ -503,12 +503,12 @@ private fun V2ReleaseScreen(
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         item {
-            V2Card("Tek dokunuşla metadata") {
-                OutlinedTextField(metadataQuery, onMetadataQuery, label = { Text("Albüm / single adı veya Spotify bağlantısı") }, modifier = Modifier.fillMaxWidth())
+            V2Card("Tek dokunuşla Spotify metadata") {
+                OutlinedTextField(metadataQuery, onMetadataQuery, label = { Text("Spotify albüm / şarkı bağlantısı veya arama metni") }, modifier = Modifier.fillMaxWidth())
                 Button(onClick = importMetadata, enabled = !busy && metadataQuery.isNotBlank(), modifier = Modifier.fillMaxWidth()) {
                     Icon(Icons.Rounded.AutoAwesome, null)
                     Spacer(Modifier.size(7.dp))
-                    Text("Spotify ile eşleştir, MusicBrainz + CAA + LRCLIB'den doldur")
+                    Text("Yalnızca Spotify'dan metadata bilgilerini doldur")
                 }
                 Text("Kaydedilen metadata kaynağı: $metadataSource", color = StudioMuted, fontSize = 11.sp)
             }
@@ -539,7 +539,7 @@ private fun V2ReleaseScreen(
                     OutlinedButton(onClick = pickCover, modifier = Modifier.weight(1f)) { Icon(Icons.Rounded.Image, null); Text(" Dosya seç") }
                     OutlinedButton(onClick = fetchCover, enabled = coverUrl.isNotBlank() && !busy, modifier = Modifier.weight(1f)) { Text("Görsel Fetch") }
                 }
-                Text(coverAsset?.let { "Kalıcı yükleme hazır: ${it.displayName} • ${sizeLabel(it.size)}" } ?: "URL geçicidir; Görsel Fetch ile Hugging Face'e kalıcı aktarım hazırlayın.", color = StudioMuted, fontSize = 11.sp)
+                Text(coverAsset?.let { "Kalıcı yükleme hazır: ${it.displayName} • ${sizeLabel(it.size)}" } ?: "Spotify kapağı yayın sırasında otomatik indirilip Hugging Face'e yüklenecek.", color = StudioMuted, fontSize = 11.sp)
                 OutlinedTextField(animatedCoverUrl, onAnimatedCoverUrl, label = { Text("Hareketli kapak / arka plan video URL'si") }, modifier = Modifier.fillMaxWidth())
                 Text("Hareketli medya yalnızca URL olarak tutulur.", color = StudioMuted, fontSize = 11.sp)
             }
@@ -746,11 +746,10 @@ private fun V2SettingsScreen(
             }
         }
         item {
-            V2Card("Metadata sağlayıcıları") {
+            V2Card("Spotify metadata") {
                 OutlinedTextField(providers.spotifyClientId, { onProviders(providers.copy(spotifyClientId = it)) }, label = { Text("Spotify Client ID") }, modifier = Modifier.fillMaxWidth())
                 OutlinedTextField(providers.spotifyClientSecret, { onProviders(providers.copy(spotifyClientSecret = it)) }, label = { Text("Spotify Client Secret") }, visualTransformation = PasswordVisualTransformation(), modifier = Modifier.fillMaxWidth())
-                OutlinedTextField(providers.musicBrainzContact, { onProviders(providers.copy(musicBrainzContact = it)) }, label = { Text("MusicBrainz iletişim e-postası veya URL") }, modifier = Modifier.fillMaxWidth())
-                Text("Spotify yalnızca doğru albümü eşleştirmeye yardım eder. Kalıcı katalog verisi MusicBrainz, Cover Art Archive ve LRCLIB kaynaklarından oluşturulur.", color = StudioMuted, fontSize = 11.sp)
+                Text("Tüm metadata Spotify Web API'den alınır. Spotify kapak ve sanatçı görselleri indirilip Hugging Face'e taşınır; GitHub kataloğunda dış görsel URL'si bırakılmaz. Spotify şarkı sözü sağlamadığı için söz alanları elle düzenlenebilir.", color = StudioMuted, fontSize = 11.sp)
             }
         }
         item {

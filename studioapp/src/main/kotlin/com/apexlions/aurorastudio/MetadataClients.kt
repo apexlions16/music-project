@@ -29,7 +29,7 @@ internal class UnifiedMetadataClient(
 
     fun importRelease(
         rawQuery: String,
-        includeLyrics: Boolean = true,
+        includeLyrics: Boolean = false,
         progress: (String) -> Unit = {},
     ): ImportedRelease {
         require(rawQuery.isNotBlank()) { "Spotify albüm/şarkı bağlantısı veya arama metni gerekli." }
@@ -48,13 +48,6 @@ internal class UnifiedMetadataClient(
                 albumArtists.optJSONObject(index)?.optString("id")?.takeIf(String::isNotBlank)?.let(::add)
             }
         }
-        val artistDetails = fetchArtists(albumArtistIds)
-        artistDetails.values.forEach { artist ->
-            SpotifyMetadataCache.rememberArtist(
-                artist.optString("name"),
-                largestImage(artist.optJSONArray("images")),
-            )
-        }
 
         progress("Spotify parça metadata bilgileri alınıyor…")
         val fullTracks = if (resource.trackId != null) {
@@ -63,6 +56,23 @@ internal class UnifiedMetadataClient(
             hydrateAlbumTracks(album)
         }
         if (fullTracks.isEmpty()) error("Spotify yayınında kullanılabilir parça bulunamadı.")
+
+        val allArtistIds = buildList {
+            addAll(albumArtistIds)
+            fullTracks.forEach { track ->
+                val rows = track.optJSONArray("artists") ?: JSONArray()
+                for (index in 0 until rows.length()) {
+                    rows.optJSONObject(index)?.optString("id")?.takeIf(String::isNotBlank)?.let(::add)
+                }
+            }
+        }.distinct()
+        val artistDetails = fetchArtists(allArtistIds)
+        artistDetails.values.forEach { artist ->
+            SpotifyMetadataCache.rememberArtist(
+                artist.optString("name"),
+                largestImage(artist.optJSONArray("images")),
+            )
+        }
 
         val title = album.optString("name").ifBlank { rawQuery.trim() }
         val mainArtist = albumArtists.optJSONObject(0)?.optString("name").orEmpty().ifBlank {
@@ -85,7 +95,7 @@ internal class UnifiedMetadataClient(
                     explicit = track.optBoolean("explicit", false),
                     lyrics = "",
                     syncedLyrics = "",
-                    creditsText = names.takeIf(List<String>::isNotEmpty)
+                    creditsText = names.takeIf { it.isNotEmpty() }
                         ?.let { "Sanatçılar: ${it.joinToString(", ")}" }
                         .orEmpty(),
                 )
