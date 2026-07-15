@@ -121,7 +121,6 @@ class PlayerController(context: Context) {
         tracks: List<Track>,
         artistLine: (Track) -> String,
     ) {
-        AuroraPlaybackEngine.startService(appContext)
         currentRelease = release
         currentCover = cover
 
@@ -135,11 +134,14 @@ class PlayerController(context: Context) {
             playbackError = "Seçilen şarkı oynatma kuyruğuna eklenemedi."
             return
         }
+        AuroraPlaybackEngine.startService(appContext)
         queue = playableQueue
 
         val same = currentTrack?.id == track.id
         if (same && player.mediaItemCount > 0) {
-            if (player.isPlaying) player.pause() else player.play()
+            runCatching {
+                if (player.isPlaying) player.pause() else player.play()
+            }.onFailure(::recordPlaybackFailure)
             return
         }
 
@@ -151,10 +153,12 @@ class PlayerController(context: Context) {
 
         val items = playlistItems(artistLine, cover, release?.title.orEmpty())
         val index = items.indexOfFirst { it.mediaId == track.id }.coerceAtLeast(0)
-        player.setMediaItems(items, index, 0L)
-        player.shuffleModeEnabled = shuffle
-        player.prepare()
-        player.playWhenReady = true
+        runCatching {
+            player.setMediaItems(items, index, 0L)
+            player.shuffleModeEnabled = shuffle
+            player.prepare()
+            player.playWhenReady = true
+        }.onFailure(::recordPlaybackFailure)
     }
 
     private fun playlistItems(
@@ -188,12 +192,20 @@ class PlayerController(context: Context) {
     }
 
     fun toggle() {
-        if (player.isPlaying) {
-            player.pause()
-        } else {
-            AuroraPlaybackEngine.startService(appContext)
-            player.play()
-        }
+        runCatching {
+            if (player.isPlaying) {
+                player.pause()
+            } else {
+                if (player.mediaItemCount == 0) return
+                AuroraPlaybackEngine.startService(appContext)
+                player.play()
+            }
+        }.onFailure(::recordPlaybackFailure)
+    }
+
+    private fun recordPlaybackFailure(error: Throwable) {
+        isPlaying = false
+        playbackError = "Oynatıcı işlemi güvenli biçimde durduruldu: ${error.message ?: error.javaClass.simpleName}"
     }
 
     fun seekTo(value: Long) = player.seekTo(value.coerceAtLeast(0L))
@@ -245,10 +257,12 @@ class PlayerController(context: Context) {
         }
         if (items.isEmpty()) return
         val index = items.indexOfFirst { it.mediaId == currentTrackId }.coerceAtLeast(0)
-        player.setMediaItems(items, index, position)
-        player.shuffleModeEnabled = shuffle
-        player.prepare()
-        player.playWhenReady = playWhenReady
+        runCatching {
+            player.setMediaItems(items, index, position)
+            player.shuffleModeEnabled = shuffle
+            player.prepare()
+            player.playWhenReady = playWhenReady
+        }.onFailure(::recordPlaybackFailure)
     }
 
     private fun chooseSource(track: Track): AudioSource? {

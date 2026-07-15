@@ -1,4 +1,4 @@
-name: Aurora Final v0.5 / Studio v0.4
+name: Aurora Final v0.6 / Studio v0.5
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ on:
       - "studioapp/**"
       - "pc/**"
       - "settings.gradle.kts"
-      - ".github/workflows/aurora-final-v050-build.yml"
+      - ".github/workflows/aurora-final-v060-build.yml"
   push:
     branches: [main]
     paths:
@@ -16,19 +16,19 @@ on:
       - "studioapp/**"
       - "pc/**"
       - "settings.gradle.kts"
-      - ".github/workflows/aurora-final-v050-build.yml"
+      - ".github/workflows/aurora-final-v060-build.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: aurora-final-${{ github.ref }}
+  group: aurora-final-v060-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   android_music:
-    name: Aurora Music Android v0.5.0
+    name: Aurora Music Android v0.6.0
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -50,37 +50,38 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "8.11.1"
-      - name: Arka plan oynatma kaynak denetimi
+      - name: Arka plan kararlılık sözleşmesi
         run: |
-          grep -q 'versionName = "0.5.0"' app/build.gradle.kts
-          grep -q 'media3-session' app/build.gradle.kts
+          grep -q 'versionName = "0.6.0"' app/build.gradle.kts
           grep -q 'MediaSessionService' app/src/main/kotlin/com/apexlions/music/AuroraPlaybackService.kt
-          grep -q 'setWakeMode' app/src/main/kotlin/com/apexlions/music/AuroraPlaybackService.kt
+          grep -q 'appContext.startService' app/src/main/kotlin/com/apexlions/music/AuroraPlaybackService.kt
+          ! grep -R -q 'startForegroundService' app/src/main/kotlin/com/apexlions/music
           grep -q 'FOREGROUND_SERVICE_MEDIA_PLAYBACK' app/src/main/AndroidManifest.xml
           grep -q 'POST_NOTIFICATIONS' app/src/main/AndroidManifest.xml
+          grep -q 'recordPlaybackFailure' app/src/main/kotlin/com/apexlions/music/PlayerController.kt
       - name: Aurora Music APK derle
         run: gradle --no-daemon --stacktrace --console=plain :app:assembleDebug
       - name: Paketle
         run: |
           mkdir -p yayin
-          cp app/build/outputs/apk/debug/app-debug.apk yayin/Aurora-Music-Android-v0.5.0.apk
-          sha256sum yayin/Aurora-Music-Android-v0.5.0.apk > yayin/SHA256SUMS-Aurora-Music-v0.5.0.txt
+          cp app/build/outputs/apk/debug/app-debug.apk yayin/Aurora-Music-Android-v0.6.0.apk
+          sha256sum yayin/Aurora-Music-Android-v0.6.0.apk > yayin/SHA256SUMS-Aurora-Music-v0.6.0.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: aurora-music-android-v0.5.0
+          name: aurora-music-android-v0.6.0
           path: yayin/*
       - name: GitHub Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release delete v0.5.0 --cleanup-tag --yes || true
-          gh release create v0.5.0 yayin/* \
-            --title "Aurora Music Android v0.5.0" \
-            --notes "MediaSessionService tabanlı kesintisiz arka plan oynatma; şarkı adı, sanatçı ve kapak içeren medya bildirimi; oynat/duraklat, önceki/sonraki ve ileri-geri sarma kontrolleri; kilit ekranı ve bağlı cihaz medya denetimleri; ağ uyandırma kilidi ve yeniden deneme. Dinamik ana sayfa, sanatçı seçkileri, diskografi, Yakında ve kısmi yayın desteği korunur."
+          gh release delete v0.6.0 --cleanup-tag --yes || true
+          gh release create v0.6.0 yayin/* \
+            --title "Aurora Music Android v0.6.0" \
+            --notes "Arka plan geçişinden sonra oluşan foreground-service zaman aşımı kaldırıldı. MediaSessionService güvenli ve idempotent başlatılır; oynatılabilir kaynak doğrulanmadan servis açılmaz. Oynatma, toggle ve kuyruk yenileme hataları uygulama sürecini düşürmek yerine kullanıcıya bildirilir. Sistem medya bildirimi, kilit ekranı ve bağlı cihaz kontrolleri korunur. Hareketli kapak varsa video, yoksa standart kapak gösterilir."
 
   android_studio:
-    name: Aurora Studio Mobile v0.4.0
+    name: Aurora Studio Mobile v0.5.0
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -102,15 +103,15 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "8.11.1"
-      - name: Spotify 2026 kaynak denetimi
+      - name: Metadata-only ve Hugging Face sözleşmesi
         run: |
-          grep -q 'versionName = "0.4.0"' studioapp/build.gradle.kts
-          grep -q 'source = "spotify"' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
-          grep -q '/tracks/\$id' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
-          grep -q '/artists/\$id' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
-          grep -q 'spotify.link' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
-          ! grep -q 'spotifyJson("/tracks",' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
-          ! grep -q 'spotifyJson("/artists",' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
+          grep -q 'versionName = "0.5.0"' studioapp/build.gradle.kts
+          grep -q 'normalizedCommitSummary' studioapp/src/main/kotlin/com/apexlions/aurorastudio/HubClients.kt
+          grep -q 'getString("summary")' studioapp/src/main/kotlin/com/apexlions/aurorastudio/HubClients.kt
+          grep -q "Yüklenecek medya yok; Hugging Face commit'i atlandı" studioapp/src/main/kotlin/com/apexlions/aurorastudio/HubClients.kt
+          grep -q 'value.summary' studioapp/src/main/kotlin/com/apexlions/aurorastudio/HubClients.kt
+          grep -q 'waiting_for_audio' studioapp/src/main/kotlin/com/apexlions/aurorastudio/CatalogV2Manager.kt
+          grep -q 'animatedCoverUrl' studioapp/src/main/kotlin/com/apexlions/aurorastudio/CatalogV2Manager.kt
           ! grep -q 'musicbrainz.org' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
           ! grep -q 'coverartarchive.org' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
           ! grep -q 'lrclib.net' studioapp/src/main/kotlin/com/apexlions/aurorastudio/MetadataClients.kt
@@ -119,24 +120,24 @@ jobs:
       - name: Paketle
         run: |
           mkdir -p yayin
-          cp studioapp/build/outputs/apk/debug/studioapp-debug.apk yayin/Aurora-Studio-Mobile-v0.4.0.apk
-          sha256sum yayin/Aurora-Studio-Mobile-v0.4.0.apk > yayin/SHA256SUMS-Aurora-Studio-Mobile-v0.4.0.txt
+          cp studioapp/build/outputs/apk/debug/studioapp-debug.apk yayin/Aurora-Studio-Mobile-v0.5.0.apk
+          sha256sum yayin/Aurora-Studio-Mobile-v0.5.0.apk > yayin/SHA256SUMS-Aurora-Studio-Mobile-v0.5.0.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: aurora-studio-mobile-v0.4.0
+          name: aurora-studio-mobile-v0.5.0
           path: yayin/*
       - name: GitHub Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release delete aurora-studio-mobile-v0.4.0 --cleanup-tag --yes || true
-          gh release create aurora-studio-mobile-v0.4.0 yayin/* \
-            --title "Aurora Studio Mobile v0.4.0" \
-            --notes "Spotify 2026 Development Mode uyumu: kaldırılan toplu uç noktalar yerine tekil track/artist çağrıları. Albüm/şarkı URL ve URI'leri, Spotify kısa paylaşım bağlantıları, ham 22 karakterli ID ve düz metin araması desteklenir. Kapak ve sanatçı görselleri Hugging Face'e taşınır; düzenleme, metadata-only/kısmi yayın, ISRC tekrar kullanımı, kalite kuyruğu ve sunum yönetimi korunur."
+          gh release delete aurora-studio-mobile-v0.5.0 --cleanup-tag --yes || true
+          gh release create aurora-studio-mobile-v0.5.0 yayin/* \
+            --title "Aurora Studio Mobile v0.5.0" \
+            --notes "Hugging Face NDJSON commit başlığı gönderilmeden önce doğrulanır; value.summary protokol hatasında sınırlı güvenli retry uygulanır. Medya bulunmayan metadata-only yayınlarda Hugging Face commit'i atlanır ve GitHub kataloğu Yakında olarak commit edilir. Hareketli kapak URL'si isteğe bağlıdır; boşsa normal kapak kullanılır. Spotify-only metadata akışı korunur."
 
   windows_studio:
-    name: Aurora Studio Windows v0.4.0
+    name: Aurora Studio Windows v0.5.0
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -145,22 +146,21 @@ jobs:
           python-version: "3.12"
           cache: pip
           cache-dependency-path: pc/requirements.txt
-      - name: Bağımlılıklar ve Spotify 2026 doğrulaması
+      - name: Bağımlılıklar ve ImportRequest testi
         shell: pwsh
         run: |
           python -m pip install --upgrade pip
           pip install -r pc/requirements.txt
           python -m py_compile pc/AuroraStudio.py pc/AuroraStudioV3.py pc/AuroraStudioV3Entry.py pc/AuroraStudioV4Entry.py
-          if (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern 'self.get\("/tracks", ids=' -Quiet) { throw 'Eski toplu tracks endpointi kullanılıyor' }
-          if (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern 'self.get\("/artists", ids=' -Quiet) { throw 'Eski toplu artists endpointi kullanılıyor' }
-          if (-not (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern '/tracks/\{spotify_id\}' -Quiet)) { throw 'Tekil track endpointi eksik' }
-          if (-not (Select-String -Path pc/AuroraStudioV3Entry.py -Pattern '/artists/\{spotify_id\}' -Quiet)) { throw 'Tekil artist endpointi eksik' }
-          if (-not (Select-String -Path pc/AuroraStudioV4Entry.py -Pattern 'APP_VERSION = "0.4.0"' -Quiet)) { throw 'Windows v0.4 giriş sürümü yanlış' }
+          if (-not (Select-String -Path pc/AuroraStudioV4Entry.py -Pattern 'APP_VERSION = "0.5.0"' -Quiet)) { throw 'Windows Studio sürümü yanlış' }
+          if (-not (Select-String -Path pc/AuroraStudio.py -Pattern 'animated_cover_path: Path \| None = None' -Quiet)) { throw 'animated_cover_path şeması eksik' }
+          if (-not (Select-String -Path pc/AuroraStudioV3.py -Pattern 'animated_cover_url=self.animated_url_v3' -Quiet)) { throw 'Hareketli URL request alanı eksik' }
+          python -c "import sys; sys.path.insert(0,'pc'); import AuroraStudio as b; r=b.ImportRequest(artist_id='a',release_artist_ids=['a'],release_title='T',release_type='single',release_date='2026-07-15',label='',copyright_text='',description='',cover_url='https://huggingface.co/x',cover_path=None,hero_url='',animated_cover_url='',tracks=[],featured=False); assert r.animated_cover_path is None; print('ImportRequest metadata-only OK')"
       - name: Qt arayüzünü ekransız başlat
         shell: pwsh
         run: |
           $env:QT_QPA_PLATFORM = "offscreen"
-          python -c "import sys; sys.path.insert(0, 'pc'); from PySide6.QtWidgets import QApplication; import AuroraStudioV4Entry as entry; app=QApplication([]); window=entry.AuroraStudioV4(); window.setWindowTitle('Aurora Studio Windows v0.4.0 smoke test'); print('pages=', window.pages.count()); print('spotify_lyrics_control=', hasattr(window, 'spotify_auto_lyrics')); window.close(); app.quit(); print('Aurora Studio Windows v0.4 smoke test OK')"
+          python -c "import sys; sys.path.insert(0,'pc'); from PySide6.QtWidgets import QApplication; import AuroraStudioV4Entry as entry; app=QApplication([]); w=entry.AuroraStudioV4(); assert entry.APP_VERSION=='0.5.0'; assert w.spotify_auto_lyrics.isEnabled() is False; w.close(); print('Aurora Studio Windows v0.5 smoke test OK')"
       - name: FFmpeg indir
         shell: pwsh
         run: |
@@ -193,12 +193,12 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force yayin | Out-Null
-          Compress-Archive -Path dist\AuroraStudio\* -DestinationPath yayin\Aurora-Studio-Windows-x64-v0.4.0.zip -Force
-          $hash = (Get-FileHash yayin\Aurora-Studio-Windows-x64-v0.4.0.zip -Algorithm SHA256).Hash.ToLower()
-          "$hash  Aurora-Studio-Windows-x64-v0.4.0.zip" | Set-Content yayin\SHA256SUMS-Aurora-Studio-Windows-v0.4.0.txt
+          Compress-Archive -Path dist\AuroraStudio\* -DestinationPath yayin\Aurora-Studio-Windows-x64-v0.5.0.zip -Force
+          $hash = (Get-FileHash yayin\Aurora-Studio-Windows-x64-v0.5.0.zip -Algorithm SHA256).Hash.ToLower()
+          "$hash  Aurora-Studio-Windows-x64-v0.5.0.zip" | Set-Content yayin\SHA256SUMS-Aurora-Studio-Windows-v0.5.0.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: aurora-studio-windows-v0.4.0
+          name: aurora-studio-windows-v0.5.0
           path: yayin/*
       - name: GitHub Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -206,7 +206,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         shell: pwsh
         run: |
-          gh release delete aurora-studio-v0.4.0 --cleanup-tag --yes 2>$null
-          gh release create aurora-studio-v0.4.0 yayin/* `
-            --title "Aurora Studio Windows v0.4.0" `
-            --notes "Spotify 2026 Development Mode uyumu: tekil track/artist uç noktaları; albüm/şarkı URL-URI, kısa paylaşım bağlantısı, ham ID ve düz metin araması. Spotify kapak/sanatçı görselleri Hugging Face'e taşınır; kısmi yayın, ISRC tekrar kullanımı ve sunum yönetimi korunur. Tokenlar Windows DPAPI ile korunur."
+          gh release delete aurora-studio-v0.5.0 --cleanup-tag --yes 2>$null
+          if ($LASTEXITCODE -ne 0) { Write-Host "Önceki Windows release bulunmadı." }
+          gh release create aurora-studio-v0.5.0 yayin/* `
+            --title "Aurora Studio Windows v0.5.0" `
+            --notes "ImportRequest şeması hareketli kapak URL ve isteğe bağlı yerel video yoluyla eşitlendi. animated_cover_path parametre hatası kaldırıldı. Ses dosyası olmayan metadata-only yayınlar Hugging Face media commit'i olmadan GitHub kataloğuna Yakında olarak yazılır. Normal kapak zorunlu temel görseldir; hareketli medya isteğe bağlıdır."
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

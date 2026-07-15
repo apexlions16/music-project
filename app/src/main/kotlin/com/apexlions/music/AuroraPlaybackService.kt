@@ -7,7 +7,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.core.content.ContextCompat
 import androidx.media3.common.AudioAttributes
 import androidx.media3.common.C
 import androidx.media3.common.Player
@@ -26,6 +25,7 @@ internal object AuroraPlaybackEngine {
     private val lock = Any()
     private var internalPlayer: ExoPlayer? = null
     private var internalHttpFactory: DefaultHttpDataSource.Factory? = null
+    @Volatile private var serviceStarted = false
 
     var currentTrack by mutableStateOf<Track?>(null)
     var currentRelease by mutableStateOf<Release?>(null)
@@ -53,13 +53,27 @@ internal object AuroraPlaybackEngine {
     }
 
     fun startService(context: Context) {
-        val intent = Intent(context.applicationContext, AuroraPlaybackService::class.java)
-        ContextCompat.startForegroundService(context.applicationContext, intent)
+        if (serviceStarted) return
+        val appContext = context.applicationContext
+        runCatching {
+            // MediaSessionService kendi medya bildirimiyle gerektiğinde foreground'a yükselir.
+            // Oynatma başlamadan startForegroundService çağırmak Android'in süre sınırında
+            // uygulamayı kapatmasına neden oluyordu; bu nedenle normal started-service kullanılır.
+            appContext.startService(Intent(appContext, AuroraPlaybackService::class.java))
+            serviceStarted = true
+        }.onFailure { error ->
+            serviceStarted = false
+            playbackError = "Arka plan oynatma servisi başlatılamadı: ${error.message ?: error.javaClass.simpleName}"
+        }
+    }
+
+    fun markServiceStopped() {
+        serviceStarted = false
     }
 
     private fun buildPlayer(context: Context): ExoPlayer {
         val httpFactory = DefaultHttpDataSource.Factory()
-            .setUserAgent("AuroraMusic/0.5.0")
+            .setUserAgent("AuroraMusic/0.6.0")
             .setAllowCrossProtocolRedirects(true)
             .setConnectTimeoutMs(30_000)
             .setReadTimeoutMs(60_000)
@@ -114,6 +128,7 @@ class AuroraPlaybackService : MediaSessionService() {
     }
 
     override fun onDestroy() {
+        AuroraPlaybackEngine.markServiceStopped()
         mediaSession?.release()
         mediaSession = null
         // ExoPlayer process genelinde tutulur. Servis sistem tarafından yeniden oluşturulursa

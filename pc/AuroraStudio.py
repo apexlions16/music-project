@@ -933,6 +933,7 @@ class ImportRequest:
     featured: bool
     spotify_id: str = ""
     spotify_url: str = ""
+    animated_cover_path: Path | None = None
 
 
 class TaskThread(QThread):
