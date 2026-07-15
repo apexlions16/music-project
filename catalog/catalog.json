@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T19:03:12.866Z",
+  "updatedAt": "2026-07-15T19:42:09.283Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -163,6 +163,20 @@
       "bio": "",
       "spotifyId": "1Kb8Eb6SbHbzUYSqhhDtx5",
       "spotifyUrl": "https://open.spotify.com/artist/1Kb8Eb6SbHbzUYSqhhDtx5",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_399a65a9c2684237afef2c312207c25e",
+      "slug": "ed-sheeran",
+      "name": "Ed Sheeran",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/1642feb931ff496e92c383e3a85a6a0f.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/1642feb931ff496e92c383e3a85a6a0f.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/1642feb931ff496e92c383e3a85a6a0f.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "6eUKZXaKkcviH0Ku9w2n3V",
+      "spotifyUrl": "https://open.spotify.com/artist/6eUKZXaKkcviH0Ku9w2n3V",
       "popularTrackIds": [],
       "listIds": []
     }
@@ -4676,6 +4690,982 @@
       "playable": true,
       "availability": "available",
       "qualityState": "ready"
+    },
+    {
+      "id": "track_55c11924a36e4cd680e562382faf5db9",
+      "slug": "eraser",
+      "title": "Eraser",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 228,
+      "isrc": "GBAHS1700020",
+      "explicit": false,
+      "spotifyId": "7oolFzHipTMg2nL7shhdz2",
+      "spotifyUrl": "https://open.spotify.com/track/7oolFzHipTMg2nL7shhdz2",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_b65daa5418874b8d85aecc40d7bd63b3",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ff5583721df94986b5488c1a553a2517.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ff5583721df94986b5488c1a553a2517.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_6a3b32f6f6a840a9b232ebdb02c2d9ae",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/03bfb89d9c994fbeab5f57b63a24042c.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/03bfb89d9c994fbeab5f57b63a24042c.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_7d6129971d49415b94f62bf9aae4224e",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/bebbba29cf8748e9b454a2d6dc0f2e66.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/bebbba29cf8748e9b454a2d6dc0f2e66.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_94f4941bf145481ebbab93677017dfc8",
+      "slug": "castle-on-the-hill",
+      "title": "Castle on the Hill",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 262,
+      "isrc": "GBAHS1600462",
+      "explicit": false,
+      "spotifyId": "6PCUP3dWmTjcTtXY02oFdT",
+      "spotifyUrl": "https://open.spotify.com/track/6PCUP3dWmTjcTtXY02oFdT",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_298efeba096245afb9660d13a797d5b2",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/10b52d54a7ae47a9b7ef62d04a5c1520.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/10b52d54a7ae47a9b7ef62d04a5c1520.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_3590df63ad194032849ddb0d5b21a516",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/64ed020e42eb45fb9cf6ab2fb42fa554.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/64ed020e42eb45fb9cf6ab2fb42fa554.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_1faa9921a4024a0896d48f815ee59b69",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/3dc5c7332fc8457ebd50627d7b76f445.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/3dc5c7332fc8457ebd50627d7b76f445.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_161920a62bd349d0b643fae45803d2ae",
+      "slug": "dive",
+      "title": "Dive",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 239,
+      "isrc": "GBAHS1700022",
+      "explicit": false,
+      "spotifyId": "51ChrwmUPDJvedPQnIU8Ls",
+      "spotifyUrl": "https://open.spotify.com/track/51ChrwmUPDJvedPQnIU8Ls",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_b3e26655514e46039574f54d1f717b67",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/2a275bae012b45e690de43344399acb9.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/2a275bae012b45e690de43344399acb9.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_9e267ec60d9741cfb05a5bfce72e34f0",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b3fdc5ed4b6448299e49a11bfe252f2b.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b3fdc5ed4b6448299e49a11bfe252f2b.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_bd7133bf74b24680930128880f6d2733",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/345179daa49046298a94c472ab43fdf4.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/345179daa49046298a94c472ab43fdf4.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_5e171e7569c949a48151129f1032a1c0",
+      "slug": "shape-of-you",
+      "title": "Shape of You",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 234,
+      "isrc": "GBAHS1600463",
+      "explicit": false,
+      "spotifyId": "7qiZfU4dY1lWllzX7mPBI3",
+      "spotifyUrl": "https://open.spotify.com/track/7qiZfU4dY1lWllzX7mPBI3",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_6919d6506ac0497b8f723de8a67effc8",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c70219e5dc0b48e8b888aec0e2844d50.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c70219e5dc0b48e8b888aec0e2844d50.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_55c8796d22384a75bc1fc33af5a11196",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/77e68de90b884f5ebb77711e25b90184.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/77e68de90b884f5ebb77711e25b90184.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_3060aabc964349afbff92100f3265642",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/2ceea9872ac247369993e1e7ab3fa811.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/2ceea9872ac247369993e1e7ab3fa811.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_77f2f759ddb94974b14a954ec92e73fd",
+      "slug": "perfect",
+      "title": "Perfect",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 264,
+      "isrc": "GBAHS1700024",
+      "explicit": false,
+      "spotifyId": "0tgVpDi06FyKpA1z0VMD4v",
+      "spotifyUrl": "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_f909a25bbebb4bb69b98317548015eee",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/56ec22b2e86a46b396d667b8db1e24d3.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/56ec22b2e86a46b396d667b8db1e24d3.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_86aff781c69d48bd95d7016691e1d7b1",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9a9f51a75a5f46bfbad4a075e7e76e16.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9a9f51a75a5f46bfbad4a075e7e76e16.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_6c4efe69b9024f598fc60d8cfc27bf9c",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/5090cc5a77374f3192378833e0780cef.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/5090cc5a77374f3192378833e0780cef.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_2297377d56be4ae68238fa66d6d49182",
+      "slug": "galway-girl",
+      "title": "Galway Girl",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 171,
+      "isrc": "GBAHS1700026",
+      "explicit": false,
+      "spotifyId": "0afhq8XCExXpqazXczTSve",
+      "spotifyUrl": "https://open.spotify.com/track/0afhq8XCExXpqazXczTSve",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_aee73bcf9143454fb6cc5d3a4aea0ce8",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/bcacb58052154766b563d87b444f6f25.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/bcacb58052154766b563d87b444f6f25.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_2edb62a2105141448ef020132cd80d9e",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/80df446b00cc467eb0c7ee6e40aa13fa.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/80df446b00cc467eb0c7ee6e40aa13fa.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_6159b196ddc4462a87f4a29284431e1a",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/5e1e1b7359b5420b8a5aaf61a3dabc33.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/5e1e1b7359b5420b8a5aaf61a3dabc33.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_430e976ab0ad464699622a18bfa56ed8",
+      "slug": "happier",
+      "title": "Happier",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 208,
+      "isrc": "GBAHS1700028",
+      "explicit": false,
+      "spotifyId": "2RttW7RAu5nOAfq6YFvApB",
+      "spotifyUrl": "https://open.spotify.com/track/2RttW7RAu5nOAfq6YFvApB",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_b4733a65e55b4061a8d74f48d044c3c9",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/4866f44624a24aad9c96bf36646cfc95.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/4866f44624a24aad9c96bf36646cfc95.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_2d875ada77d748dca5d6ba7d104946dd",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/6bf6bc50fd3d43e0bce364e5a5eb2976.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/6bf6bc50fd3d43e0bce364e5a5eb2976.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_e69a37264bce4727bfe2fa828a225831",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/9dd3fc30b1744706b107df2a668275c6.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/9dd3fc30b1744706b107df2a668275c6.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_e14eb875d53b477c8ba84afb456a89c2",
+      "slug": "new-man",
+      "title": "New Man",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 190,
+      "isrc": "GBAHS1700030",
+      "explicit": false,
+      "spotifyId": "5HDPtsnyb3maFmPL8LLUTG",
+      "spotifyUrl": "https://open.spotify.com/track/5HDPtsnyb3maFmPL8LLUTG",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_d0e5f38c01f340de9f04f77ed65cb624",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/fd4052e616f748b1a5cd5a7c64b7ef32.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/fd4052e616f748b1a5cd5a7c64b7ef32.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_1d6bd8a030a54e3bbc01eccc2736fdef",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9cded5639e484031905761b124df8f27.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9cded5639e484031905761b124df8f27.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_94ca0fa433dd4788bfecf0ba68146b47",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/d0826794f5fb413e8a12636f89146378.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/d0826794f5fb413e8a12636f89146378.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_739d66c67f5a455f87d85ad9694bfa34",
+      "slug": "hearts-don-t-break-around-here",
+      "title": "Hearts Don't Break Around Here",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 249,
+      "isrc": "GBAHS1700032",
+      "explicit": false,
+      "spotifyId": "2dfHh7ECGxfNqZTQno09Vk",
+      "spotifyUrl": "https://open.spotify.com/track/2dfHh7ECGxfNqZTQno09Vk",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_2011bc64e9104582a270e7f62cbf2eba",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5c2eb9fe60f34cc6a0d5491812dd3932.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5c2eb9fe60f34cc6a0d5491812dd3932.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_24f27ff7f1bc4f3eb4ef8fd633e54b88",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ba74f071747742039f0dafa03b5091c9.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/ba74f071747742039f0dafa03b5091c9.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_f54d8aa107444cacac99e542f8981692",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/a40d54ba981347798fead9498f307d19.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/a40d54ba981347798fead9498f307d19.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_7f2679dfccc54bddbf844cc29e257943",
+      "slug": "what-do-i-know",
+      "title": "What Do I Know?",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 238,
+      "isrc": "GBAHS1700036",
+      "explicit": false,
+      "spotifyId": "2pJZ1v8HezrAoZ0Fhzby92",
+      "spotifyUrl": "https://open.spotify.com/track/2pJZ1v8HezrAoZ0Fhzby92",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_7069f1a7edb045ec9832f3b78f22cb2a",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/407dda7731f24aceb23b7a4bcd8f747b.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/407dda7731f24aceb23b7a4bcd8f747b.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_51ba49257cbf46bb908ac3566d51bd27",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/51add9e2d07141fb88346354f38bc615.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/51add9e2d07141fb88346354f38bc615.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_c5da29cb46644db99bfb8ab5c83ca05f",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/58b91dfa987f405f9cd04c994f227f79.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/58b91dfa987f405f9cd04c994f227f79.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_bbe59d6c507d46db988923fbb2c87ba3",
+      "slug": "how-would-you-feel-paean",
+      "title": "How Would You Feel (Paean)",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 281,
+      "isrc": "GBAHS1700038",
+      "explicit": false,
+      "spotifyId": "6PJ8FF6UR8FZXfEvpHkIVN",
+      "spotifyUrl": "https://open.spotify.com/track/6PJ8FF6UR8FZXfEvpHkIVN",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_fc5df200640843d3866e5a21754be46d",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e6b9bd857b3a4350b644ed7494d9cff1.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e6b9bd857b3a4350b644ed7494d9cff1.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_6af3444a1fa14cbfb0299092b36fd93b",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b9c69b2db9c44ab1aaee304077843bca.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b9c69b2db9c44ab1aaee304077843bca.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_6e89743371504cb9a9ffeffb22b99563",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/1b8b85ff26fe49488c8bf0cadf6a5cf0.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/1b8b85ff26fe49488c8bf0cadf6a5cf0.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_400c6a402ced45218dbd3eb4fc259a6e",
+      "slug": "supermarket-flowers",
+      "title": "Supermarket Flowers",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 221,
+      "isrc": "GBAHS1700040",
+      "explicit": false,
+      "spotifyId": "4VuS959DSpr82t3qBqCrWG",
+      "spotifyUrl": "https://open.spotify.com/track/4VuS959DSpr82t3qBqCrWG",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_f06d2e3d1019453c8e85410d481408ac",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/35c855b482404fb4a778ea77ad27c694.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/35c855b482404fb4a778ea77ad27c694.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_65dc34c9fc014892a4e0243f701ae9e5",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b9cf3c6cd7dd4c1d9c3a7d83f13da678.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/b9cf3c6cd7dd4c1d9c3a7d83f13da678.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_9c18a32dd09f492ab0107e5366deed0e",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/65938ba8af974f8d960d6314b8734710.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/65938ba8af974f8d960d6314b8734710.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_d8f0d17e9ebb421b99b062f4edb54c27",
+      "slug": "barcelona",
+      "title": "Barcelona",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 191,
+      "isrc": "GBAHS1700042",
+      "explicit": false,
+      "spotifyId": "3Lfiu5sZ4M4B6JaKMBc0FU",
+      "spotifyUrl": "https://open.spotify.com/track/3Lfiu5sZ4M4B6JaKMBc0FU",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_4ecab804982a483f81624786d4562f66",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c001ec9e5f6d473fb1965a39ea5e35cb.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c001ec9e5f6d473fb1965a39ea5e35cb.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_bfa487191b194fb69de812ccdcc825cf",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/15731d649ea8461cb8ceec147295dceb.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/15731d649ea8461cb8ceec147295dceb.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_bf24bbc15f6141d595ad35eb9ff8378c",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/5a964ec368a24b2693ca3d4bff519d28.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/5a964ec368a24b2693ca3d4bff519d28.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_034701fcaedb4193908b9867eeadde09",
+      "slug": "bibia-be-ye-ye",
+      "title": "Bibia Be Ye Ye",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 177,
+      "isrc": "GBAHS1700044",
+      "explicit": false,
+      "spotifyId": "6SznMYPQJHzr3IwsAHLId2",
+      "spotifyUrl": "https://open.spotify.com/track/6SznMYPQJHzr3IwsAHLId2",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_05dcc7cc786749c8854058266f78b15d",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a506ce0e19e54e3c8b219c8f1853d01e.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/a506ce0e19e54e3c8b219c8f1853d01e.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_9df13ecd3d834ba4b18df1c50ded8e3b",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/db1f1f22098f45638e713c757b10d58a.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/db1f1f22098f45638e713c757b10d58a.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_a2fc22ef18db41bbadba40f4f46e4370",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/7652e529b2184070915eef99e93becae.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/7652e529b2184070915eef99e93becae.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_4f91498e14564e27b3bada874a755437",
+      "slug": "nancy-mulligan",
+      "title": "Nancy Mulligan",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 180,
+      "isrc": "GBAHS1700046",
+      "explicit": false,
+      "spotifyId": "35QZaWQRkmnAVqBF1TLCxQ",
+      "spotifyUrl": "https://open.spotify.com/track/35QZaWQRkmnAVqBF1TLCxQ",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_13ae5352c5134f339c3821a1721ba500",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5478e81c210d40308a8b93fb3b93e098.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5478e81c210d40308a8b93fb3b93e098.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_50ac386199d3475296165f348fa6f6d7",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c0eadebf763a49ba9762511dfb1a979d.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/c0eadebf763a49ba9762511dfb1a979d.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_128be6225f8943f8991f8bfba449b92f",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/baa96bb16c6244d1b4be608878b4ec19.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/baa96bb16c6244d1b4be608878b4ec19.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
+    },
+    {
+      "id": "track_01430c7c79c441859a3c7e8eb38bdb7b",
+      "slug": "save-myself",
+      "title": "Save Myself",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 248,
+      "isrc": "GBAHS1700048",
+      "explicit": false,
+      "spotifyId": "6TIU9Ehmi6dMzZK73Ym4yj",
+      "spotifyUrl": "https://open.spotify.com/track/6TIU9Ehmi6dMzZK73Ym4yj",
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [],
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_cc7d71c7ba084cf1a6cb09e3af06b0b1",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5f2e40695f7c41a4957965f2d6288540.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/5f2e40695f7c41a4957965f2d6288540.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_d5e29017d29d4841915f83091e373ef0",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9cd777c9ecdd4e4aaed77003fd69cdb9.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/9cd777c9ecdd4e4aaed77003fd69cdb9.m4a",
+          "downloadable": true,
+          "channels": "6 kanal",
+          "spatial": false,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_2ad8ae1ff14f49fea6e09afa36dfee7d",
+          "kind": "dolby_atmos",
+          "label": "Dolby Atmos",
+          "codec": "Dolby Atmos / E-AC-3 JOC",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/f01dfe1473774a53a84d0f4909586874.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/atmos1/f01dfe1473774a53a84d0f4909586874.m4a",
+          "downloadable": true,
+          "channels": "Çok kanallı",
+          "spatial": true
+        }
+      ]
     }
   ],
   "releases": [
@@ -5798,6 +6788,112 @@
       "status": "published",
       "availableTrackCount": 1,
       "totalTrackCount": 1
+    },
+    {
+      "id": "release_cec62024ab7c4f22b269c0b2b9983676",
+      "slug": "deluxe",
+      "title": "÷ (Deluxe)",
+      "type": "album",
+      "artistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "primaryArtistIds": [
+        "artist_399a65a9c2684237afef2c312207c25e"
+      ],
+      "releaseDate": "2017-03-03",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/6a11df1739084713a132ccb89017b58d.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b273ba5db46f4b838ef6027e6f96",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "© 2017 Asylum Records UK, a division of Atlantic Records UK, a Warner Music Group company. • ℗ 2017 Asylum Records UK, a division of Atlantic Records UK, a Warner Music Group company.",
+      "description": "",
+      "spotifyId": "3T4tUhGYeRNVUGevb0wThu",
+      "spotifyUrl": "https://open.spotify.com/album/3T4tUhGYeRNVUGevb0wThu",
+      "spotifyCoverUrl": "",
+      "status": "published",
+      "publishAt": "2017-03-03",
+      "tracks": [
+        {
+          "trackId": "track_55c11924a36e4cd680e562382faf5db9",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_94f4941bf145481ebbab93677017dfc8",
+          "disc": 1,
+          "position": 2
+        },
+        {
+          "trackId": "track_161920a62bd349d0b643fae45803d2ae",
+          "disc": 1,
+          "position": 3
+        },
+        {
+          "trackId": "track_5e171e7569c949a48151129f1032a1c0",
+          "disc": 1,
+          "position": 4
+        },
+        {
+          "trackId": "track_77f2f759ddb94974b14a954ec92e73fd",
+          "disc": 1,
+          "position": 5
+        },
+        {
+          "trackId": "track_2297377d56be4ae68238fa66d6d49182",
+          "disc": 1,
+          "position": 6
+        },
+        {
+          "trackId": "track_430e976ab0ad464699622a18bfa56ed8",
+          "disc": 1,
+          "position": 7
+        },
+        {
+          "trackId": "track_e14eb875d53b477c8ba84afb456a89c2",
+          "disc": 1,
+          "position": 8
+        },
+        {
+          "trackId": "track_739d66c67f5a455f87d85ad9694bfa34",
+          "disc": 1,
+          "position": 9
+        },
+        {
+          "trackId": "track_7f2679dfccc54bddbf844cc29e257943",
+          "disc": 1,
+          "position": 10
+        },
+        {
+          "trackId": "track_bbe59d6c507d46db988923fbb2c87ba3",
+          "disc": 1,
+          "position": 11
+        },
+        {
+          "trackId": "track_400c6a402ced45218dbd3eb4fc259a6e",
+          "disc": 1,
+          "position": 12
+        },
+        {
+          "trackId": "track_d8f0d17e9ebb421b99b062f4edb54c27",
+          "disc": 1,
+          "position": 13
+        },
+        {
+          "trackId": "track_034701fcaedb4193908b9867eeadde09",
+          "disc": 1,
+          "position": 14
+        },
+        {
+          "trackId": "track_4f91498e14564e27b3bada874a755437",
+          "disc": 1,
+          "position": 15
+        },
+        {
+          "trackId": "track_01430c7c79c441859a3c7e8eb38bdb7b",
+          "disc": 1,
+          "position": 16
+        }
+      ]
     }
   ],
   "qualityJobs": [
