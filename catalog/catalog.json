@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T14:12:23.292Z",
+  "updatedAt": "2026-07-15T14:12:45.245Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -2198,7 +2198,7 @@
       "featuredArtistNames": [],
       "durationSeconds": 154,
       "isrc": "GBSMU2463439",
-      "explicit": false,
+      "explicit": true,
       "spotifyId": "0lObSY55zUQxlkPGaMpKGL",
       "spotifyUrl": "https://open.spotify.com/track/0lObSY55zUQxlkPGaMpKGL",
       "lyrics": "",
