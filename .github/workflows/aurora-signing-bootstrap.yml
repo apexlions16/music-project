@@ -1,0 +1,42 @@
+name: Aurora Android Signing Bootstrap
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/aurora-signing-bootstrap.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  signing-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Aurora Android imza önbelleği
+        id: signing
+        uses: actions/cache@v4
+        with:
+          path: ~/.android/debug.keystore
+          key: aurora-android-signing-v1
+      - name: İlk imza anahtarını üret
+        if: steps.signing.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/.android
+          keytool -genkeypair -v \
+            -keystore ~/.android/debug.keystore \
+            -storepass android \
+            -alias androiddebugkey \
+            -keypass android \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -dname "CN=Aurora Android,OU=Personal,O=Aurora,L=Bursa,ST=Bursa,C=TR"
+      - name: İmza parmak izini doğrula
+        run: keytool -list -v -keystore ~/.android/debug.keystore -storepass android -alias androiddebugkey | grep -E "SHA256:|Valid from"
