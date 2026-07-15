@@ -13,10 +13,10 @@ output.parent.mkdir(parents=True, exist_ok=True)
 
 try:
     from PySide6.QtWidgets import QApplication
-    import AuroraStudioV6Entry as entry
+    import AuroraStudioV6Final as entry
 
     app = QApplication([])
-    window = entry.AuroraStudioV6()
+    window = entry.AuroraStudioV6Final()
     titles = [window.nav.item(index).text() for index in range(window.nav.count())]
     text = (
         "SUCCESS\n"
