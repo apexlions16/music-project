@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T19:42:09.283Z",
+  "updatedAt": "2026-07-15T19:42:46.037Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -4709,7 +4709,7 @@
       "spotifyId": "7oolFzHipTMg2nL7shhdz2",
       "spotifyUrl": "https://open.spotify.com/track/7oolFzHipTMg2nL7shhdz2",
       "lyrics": "",
-      "syncedLyrics": "",
+      "syncedLyrics": "[00:11.13]I was born inside a small town\n[00:12.60]I lost that state of mind\n[00:13.89]Learned to sing inside the Lord's house\n[00:15.44]But stopped the age of 9\n[00:16.64]I forget when I get awards now\n[00:18.24]The wave I had to ride\n[00:19.55]The paving stones I played upon\n[00:21.06]That kept me on the grind\n[00:22.30]So blame it on the pain\n[00:23.70]That blessed me with the life\n[00:25.05]Friends and family filled with envy when they should be filled with pride\n[00:27.91]And when the world's against me is when I really come alive\n[00:30.42]And every day that Satan tempts me, I try to take it in my stride\n[00:33.49]You know that I've got whisky with white lies and smoke in my lungs\n[00:36.80]I think life has got to the point I know without it's no fun\n[00:39.58]I need to get in the right mind and clear myself up\n[00:42.28]Instead, I look in the mirror questioning what I've become\n[00:45.00]Guess it's a stereotypical day for someone like me\n[00:47.78]Without a 9 to 5 job or a uni degree\n[00:50.58]To be caught up in the trappings of the industry\n[00:53.41]Show me the locked doors, I'll find another use for the key\n[00:56.11]And you'll see\n[00:56.98]I'm well aware of certain things that can destroy a man like me\n[01:02.57]But with that said give me one more\n[01:07.09]I am another one to take the sting away\n[01:15.18]I am happy on my own, so here I'll stay\n[01:20.84]Save your loving arms for a rainy day\n[01:26.26]And I'll find comfort in my pain\n[01:29.16]Eraser\n[01:30.27]I used to think that nothing could be better than touring the world with my songs\n[01:33.92]I chased the picture perfect life, I think they painted it wrong\n[01:36.68]I think that money is the root of evil, and fame is hell\n[01:39.77]Relationships and hearts you fix, they break as well\n[01:42.57]And ain't nobody wanna see you down in the dumps\n[01:45.01]Because you're living your dream this **** should be fun\n[01:47.82]Please know that I'm not trying to preach like I'm Reverend Run\n[01:50.56]I beg you, don't be disappointed with the man I've become\n[01:53.33]Whole conversations with my father on the A14\n[01:56.33]Age 12, telling me I've gotta chase those dreams\n[01:59.11]Now I'm playing for the people, Dad, and they know me\n[02:01.81]With my beaten small guitar wearing the same old jeans\n[02:04.64]Wembley Stadium crowds two hundred and forty thou'\n[02:07.39]I may have grown up but I hope that Damian's proud\n[02:10.18]And to the next generation, inspiration's allowed\n[02:12.88]The world may be filled with hate but keep erasing it now\n[02:15.77]Somehow\n[02:16.46]I'm well aware of certain things that will befall a man like me\n[02:22.02]But with that said, give me one more\n[02:26.63]I am another one to take the sting away\n[02:34.66]Oh, I am happy on my own, so here I'll stay\n[02:40.18]Well, save your loving arms for a rainy day\n[02:45.66]And I'll find comfort in my pain\n[02:48.65]Eraser\n[02:51.27]And I'll find comfort in my pain\n[02:54.19]Eraser\n[02:56.97]And I'll find comfort in my pain\n[02:59.77]Eraser\n[03:02.21]Welcome to the new show\n[03:04.88]I guess you know I've been away\n[03:07.64]But where I'm heading, who knows?\n[03:10.11]But my heart will stay the same\n[03:13.23]Welcome to the new show\n[03:15.88]I guess you know I've been away\n[03:18.72]But where I'm heading, who knows?\n[03:20.93]My pain\n[03:22.03]Eraser\n[03:24.81]And I'll find comfort in my pain\n[03:27.72]Eraser\n[03:30.37]And I'll find comfort in my pain\n[03:33.35]Eraser\n[03:36.08]And I'll find comfort in my pain\n[03:38.87]Eraser\n[03:41.68]And I'll find comfort in my pain\n[03:44.40]Eraser",
       "credits": [],
       "availability": "available",
       "sources": [
@@ -4750,7 +4750,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_94f4941bf145481ebbab93677017dfc8",
@@ -4811,7 +4813,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_161920a62bd349d0b643fae45803d2ae",
@@ -4872,7 +4876,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_5e171e7569c949a48151129f1032a1c0",
@@ -4933,7 +4939,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_77f2f759ddb94974b14a954ec92e73fd",
@@ -4994,7 +5002,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_2297377d56be4ae68238fa66d6d49182",
@@ -5055,7 +5065,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_430e976ab0ad464699622a18bfa56ed8",
@@ -5116,7 +5128,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_e14eb875d53b477c8ba84afb456a89c2",
@@ -5177,7 +5191,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_739d66c67f5a455f87d85ad9694bfa34",
@@ -5238,7 +5254,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_7f2679dfccc54bddbf844cc29e257943",
@@ -5299,7 +5317,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_bbe59d6c507d46db988923fbb2c87ba3",
@@ -5360,7 +5380,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_400c6a402ced45218dbd3eb4fc259a6e",
@@ -5421,7 +5443,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_d8f0d17e9ebb421b99b062f4edb54c27",
@@ -5482,7 +5506,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_034701fcaedb4193908b9867eeadde09",
@@ -5543,7 +5569,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_4f91498e14564e27b3bada874a755437",
@@ -5604,7 +5632,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_01430c7c79c441859a3c7e8eb38bdb7b",
@@ -5665,7 +5695,9 @@
           "channels": "Çok kanallı",
           "spatial": true
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     }
   ],
   "releases": [
@@ -6893,7 +6925,9 @@
           "disc": 1,
           "position": 16
         }
-      ]
+      ],
+      "availableTrackCount": 16,
+      "totalTrackCount": 16
     }
   ],
   "qualityJobs": [
