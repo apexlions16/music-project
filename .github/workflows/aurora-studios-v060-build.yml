@@ -1,4 +1,5 @@
 name: Aurora Studios v0.6.0 Build
+# Final release trigger: Studio Mobile ve Windows v0.6.0 asset doğrulaması.
 
 on:
   pull_request:
