@@ -7,9 +7,14 @@ on:
     paths:
       - ".github/workflows/debug-windows-v6.yml"
       - "tools/debug_windows_v6.py"
+      - "pc/AuroraStudioV6Final.py"
 
 permissions:
   contents: write
+
+concurrency:
+  group: debug-windows-v060
+  cancel-in-progress: true
 
 jobs:
   debug:
@@ -37,4 +42,5 @@ jobs:
           git add verification/windows-v6-debug.txt
           if (git diff --cached --quiet) { Write-Host "Debug sonucu değişmedi"; exit 0 }
           git commit -m "Windows v0.6 UI debug sonucunu kaydet"
+          git pull --rebase origin feature/aurora-upcoming-audio-matcher
           git push origin HEAD:feature/aurora-upcoming-audio-matcher
