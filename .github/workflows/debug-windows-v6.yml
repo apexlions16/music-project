@@ -6,12 +6,19 @@ on:
       - feature/aurora-upcoming-audio-matcher
     paths:
       - ".github/workflows/debug-windows-v6.yml"
+      - "tools/debug_windows_v6.py"
+
+permissions:
+  contents: write
 
 jobs:
   debug:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: feature/aurora-upcoming-audio-matcher
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -19,8 +26,15 @@ jobs:
         shell: pwsh
         run: |
           pip install -q -r pc/requirements.txt *> $null
-      - name: UI başlangıç testi
+      - name: UI başlangıç sonucunu yaz
+        shell: pwsh
+        run: python tools/debug_windows_v6.py
+      - name: Sonucu dala kaydet
         shell: pwsh
         run: |
-          $env:QT_QPA_PLATFORM = "offscreen"
-          python -c "import sys; sys.path.insert(0,'pc'); from PySide6.QtWidgets import QApplication; import AuroraStudioV6Entry as entry; app=QApplication([]); print('IMPORT_OK'); w=entry.AuroraStudioV6(); print('WINDOW_OK',w.nav.count(),w.pages.count()); w.close()"
+          git config user.name "Aurora Debug Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add verification/windows-v6-debug.txt
+          if (git diff --cached --quiet) { Write-Host "Debug sonucu değişmedi"; exit 0 }
+          git commit -m "Windows v0.6 UI debug sonucunu kaydet"
+          git push origin HEAD:feature/aurora-upcoming-audio-matcher
