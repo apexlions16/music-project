@@ -1,4 +1,4 @@
-name: Aurora Music 0.3.2 / Studio Mobile 0.1.0 / Studio Windows 0.2.3 Build
+name: Aurora Music 0.3.2 / Studio Mobile 0.2.0 / Studio Windows 0.2.3 Build
 
 on:
   pull_request:
@@ -41,6 +41,19 @@ jobs:
           distribution: temurin
           java-version: "17"
 
+      - name: Kalıcı Android imzasını yükle
+        id: signing
+        uses: actions/cache@v4
+        with:
+          path: ~/.android/debug.keystore
+          key: aurora-android-signing-v1
+
+      - name: İmza yoksa üret
+        if: steps.signing.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/.android
+          keytool -genkeypair -v -keystore ~/.android/debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Aurora Android,OU=Personal,O=Aurora,L=Bursa,ST=Bursa,C=TR"
+
       - name: Android 36 paketleri
         run: |
           yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null || true
@@ -72,12 +85,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete v0.3.2 --cleanup-tag --yes || true
-          gh release create v0.3.2 yayin/* \
-            --title "Aurora Music Android v0.3.2" \
-            --notes "Hareketli kapak videosu artık oynatma ekranının tamamını karartılmış arka plan olarak kaplar. Serbest feat isimleri ve Explicit E rozeti desteklenir. Gated Hugging Face videolarında token yalnızca Hugging Face alan adlarına gönderilir."
+          gh release create v0.3.2 yayin/* --title "Aurora Music Android v0.3.2" --notes "Hareketli kapak, serbest feat isimleri ve Explicit E desteği. Kalıcı Android imzasıyla uygulama verileri güncellemede korunur."
 
   android_studio:
-    name: Aurora Studio Mobile v0.1.0
+    name: Aurora Studio Mobile v0.2.0
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -87,6 +98,19 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
+
+      - name: Kalıcı Android imzasını yükle
+        id: signing
+        uses: actions/cache@v4
+        with:
+          path: ~/.android/debug.keystore
+          key: aurora-android-signing-v1
+
+      - name: İmza yoksa üret
+        if: steps.signing.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/.android
+          keytool -genkeypair -v -keystore ~/.android/debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Aurora Android Studio,OU=Personal,O=Aurora,L=Bursa,ST=Bursa,C=TR"
 
       - name: Android 36 paketleri
         run: |
@@ -104,13 +128,13 @@ jobs:
       - name: Studio Mobile paketle
         run: |
           mkdir -p yayin
-          cp studioapp/build/outputs/apk/debug/studioapp-debug.apk yayin/Aurora-Studio-Mobile-v0.1.0.apk
-          sha256sum yayin/Aurora-Studio-Mobile-v0.1.0.apk > yayin/SHA256SUMS-Aurora-Studio-Mobile.txt
+          cp studioapp/build/outputs/apk/debug/studioapp-debug.apk yayin/Aurora-Studio-Mobile-v0.2.0.apk
+          sha256sum yayin/Aurora-Studio-Mobile-v0.2.0.apk > yayin/SHA256SUMS-Aurora-Studio-Mobile.txt
 
       - name: Studio Mobile artifact
         uses: actions/upload-artifact@v4
         with:
-          name: aurora-studio-mobile-v0.1.0
+          name: aurora-studio-mobile-v0.2.0
           path: yayin/*
 
       - name: Studio Mobile Release
@@ -118,10 +142,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release delete aurora-studio-mobile-v0.1.0 --cleanup-tag --yes || true
-          gh release create aurora-studio-mobile-v0.1.0 yayin/* \
-            --title "Aurora Studio Mobile v0.1.0" \
-            --notes "Ayrı mobil yönetim uygulaması. GitHub katalog yönetimi, Hugging Face Xet-backed depoya Git LFS uyumluluk katmanı üzerinden yükleme, 9.000 öğelik shard sistemi, ISRC tekrar kullanımı, serbest feat isimleri, Explicit E seçimi ve kapak/video yükleme desteği."
+          gh release delete aurora-studio-mobile-v0.2.0 --cleanup-tag --yes || true
+          gh release create aurora-studio-mobile-v0.2.0 yayin/* --title "Aurora Studio Mobile v0.2.0" --notes "Mevcut şarkı düzenleme, metadata-only ve kısmi yayın, MusicBrainz/Cover Art Archive/LRCLIB içe aktarma, Spotify destekli eşleme, ISRC tekrar kullanımı, Görsel Fetch ve otomatik çoklu kalite kuyruğu. Tokenlar şifreli saklanır ve kalıcı imzalı güncellemede korunur."
 
   windows:
     name: Aurora Studio Windows v0.2.3
@@ -195,6 +217,4 @@ jobs:
         shell: pwsh
         run: |
           gh release delete aurora-studio-v0.2.3 --cleanup-tag --yes 2>$null
-          gh release create aurora-studio-v0.2.3 yayin/* `
-            --title "Aurora Studio Windows v0.2.3" `
-            --notes "Xet açık, görünmez konsol tqdm hatası giderilmiş, serbest feat isimleri ve Explicit E desteği eklenmiş sürüm. Shard sistemi, tek commit akışı ve 128 commit/saat koruması korunur."
+          gh release create aurora-studio-v0.2.3 yayin/* --title "Aurora Studio Windows v0.2.3" --notes "Xet açık, serbest feat isimleri ve Explicit E desteği."
