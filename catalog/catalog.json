@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T18:45:02.445Z",
+  "updatedAt": "2026-07-15T18:47:23.161Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_93c678013ec342f8a7f5fa38da997f4f",
     "release_05f5426ca7de40e2920c17213be3bc22",
     "release_53288cc4c85d49089a9da5132b7f5220",
     "release_cf0c1e64f61c46628dfa4959f878e4d6",
@@ -3920,6 +3921,74 @@
       "playable": true,
       "availability": "available",
       "qualityState": "ready"
+    },
+    {
+      "id": "track_26e6337262c84153a2316c85c1f162be",
+      "slug": "mahkum",
+      "title": "Mahkum",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 159,
+      "isrc": "GBSMU2617807",
+      "explicit": false,
+      "spotifyId": "3kMpSoCWHsYRRuiDMBsMz7",
+      "spotifyUrl": "https://open.spotify.com/track/3kMpSoCWHsYRRuiDMBsMz7",
+      "lyrics": "Ben olduğum yerden\nNe kadar ileri gittiysem\nHiç geri dönemem\nİstesem de yok düzelemem\nÜşenirim o kadar yolu geri dönemem\nBen olduğum yerden\nNe kadar ileri gittiysem\nHiç geri dönemem\nİstesem de yok düzelemem\nÜşenirim o kadar yolu geri dönemem\nBiliyosun yaşamım tuhaf geçti\nKandırma imkanım olsaydı seni\nDemek isterdim, her an dua ettim\nFakat her anım için şu an geçti\nMaalesef senin yarattığın yüzümün üstüne\nHep şeytani bir surat çektim\nArkadaş kurbanı olmadım\nKurban arkadaşlarımdı maalesef\nVe ben hep veda edendim, ettim\nSelametle dedim, bu adalet mi dedim\nCevabı beklemeyip devam ettim\nEttim ettim\nBi türlü bulmadım belamı her nedense\nHer nedende bi çünkü buldum\nBulandı küçük beynim\nO ben ben miydim?\nBu ben ben miyim?\nHiç bi benden emin değilim\nKeşke sade üşütseydim\nBen olduğum yerden\nNe kadar ileri gittiysem\nHiç geri dönemem\nİstesem de yok düzelemem\nÜşenirim o kadar yolu geri dönemem\nBen olduğum yerden\nNe kadar ileri gittiysem\nHiç geri dönemem\nİstesem de yok düzelemem\nÜşenirim o kadar yolu geri dönemem\nNiyetim bozuldu\nAltmış bir gün borcum olsun dedim\nYasaklı şeyler içip keyfe devam ettim\nZaman nasıl geçti bilmiyorum\nGünlerin farkında değilim\nHuzurundan uzak kaç cuma geçirdim unuttum\nUyuştum, unuttuğumu unuttum\nBazen olmamam gereken kadar somuttum\nÇelişkilerde boğuldum\nÖyle kibirliyim ki\nŞarkılarda bile savunmadım suçluluğumu\nBen olduğum yerden\nNe kadar ileri gittiysem\nHiç geri dönemem\nİstesem de yok düzelemem\nÜşenirim o kadar yolu geri dönemem\nBen olduğum yerden\nNe kadar ileri gittiysem\nHiç geri dönemem\nİstesem de yok düzelemem\nÜşenirim o kadar yolu geri dönemem\nBen olduğum yerden\nNe kadar ileri gittiysem\nHiç geri dönemem\nİstesem de yok düzelemem\nÜşenirim o kadar yolu geri dönemem\nBen olduğum yerden\nNe kadar ileri gittiysem\nHiç geri dönemem\nİstesem de yok düzelemem\nÜşenirim o kadar yolu geri dönemem",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_327f06f318f646c5b661872d9c3034c2",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e114e4e075df41f8ab3a335cee0d0e70.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/e114e4e075df41f8ab3a335cee0d0e70.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_356b30dd19ce4678a2c3aac613a1e900",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/635aca27ebf64466b18ac5242f8f5dac.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/635aca27ebf64466b18ac5242f8f5dac.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_0321c683139f4c169d645c9901ed9875",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/4eca415d09f24be59defaeb101563128.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/4eca415d09f24be59defaeb101563128.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     }
   ],
   "releases": [
@@ -4815,6 +4884,37 @@
       "tracks": [
         {
           "trackId": "track_4e1c2aa9345c4c40b26cb4e0cd21dd0d",
+          "disc": 1,
+          "position": 1
+        }
+      ],
+      "status": "published",
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
+    },
+    {
+      "id": "release_93c678013ec342f8a7f5fa38da997f4f",
+      "slug": "mahkum",
+      "title": "Mahkum",
+      "type": "single",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436"
+      ],
+      "releaseDate": "2016-08-30",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/4b0770ca102b406b9e573498da1a22d2.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b273dbae5a35c032f327ef71f27a",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2016 ContravoltaMusic",
+      "description": "",
+      "spotifyId": "0vVieieRBQS5W04Wbo4WFm",
+      "spotifyUrl": "https://open.spotify.com/album/0vVieieRBQS5W04Wbo4WFm",
+      "tracks": [
+        {
+          "trackId": "track_26e6337262c84153a2316c85c1f162be",
           "disc": 1,
           "position": 1
         }
