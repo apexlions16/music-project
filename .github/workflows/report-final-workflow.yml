@@ -1,0 +1,39 @@
+name: Report Aurora Final Workflow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/report-final-workflow.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Final workflow durumlarını al
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p release-status
+          gh run list \
+            --repo "$GITHUB_REPOSITORY" \
+            --workflow aurora-final-v050-build.yml \
+            --limit 10 \
+            --json databaseId,status,conclusion,headSha,event,createdAt,updatedAt,url \
+            > release-status/aurora-final-runs.json
+      - name: Raporu main dalına kaydet
+        run: |
+          git config user.name "Aurora Workflow Reporter"
+          git config user.email "actions@users.noreply.github.com"
+          git add release-status/aurora-final-runs.json
+          git commit -m "Aurora final workflow durumunu raporla"
+          git pull --rebase origin main
+          git push origin HEAD:main
