@@ -250,8 +250,8 @@ internal class HuggingFaceUploader(
     private data class CommitAttempt(val code: Int, val body: String, val successful: Boolean)
 
     private fun normalizedCommitSummary(message: String): String = message
-        .replace(Regex("[\u0000-\u001F\u007F]+"), " ")
-        .replace(Regex("\s+"), " ")
+        .replace(Regex("[\\p{Cc}]+"), " ")
+        .replace(Regex("\\s+"), " ")
         .trim()
         .take(200)
         .ifBlank { "Aurora Studio Mobile media upload" }
