@@ -67,7 +67,7 @@ from PySide6.QtWidgets import (
 )
 
 APP_NAME = "Aurora Studio"
-APP_VERSION = "0.2.3"
+APP_VERSION = "0.3.0"
 DEFAULT_REPO = "apexlions16/music-project"
 DEFAULT_BRANCH = "main"
 DEFAULT_CATALOG_PATH = "catalog/catalog.json"
@@ -928,7 +928,7 @@ class ImportRequest:
     cover_url: str
     cover_path: Path | None
     hero_url: str
-    animated_cover_path: Path | None
+    animated_cover_url: str
     tracks: list[ImportTrack]
     featured: bool
     spotify_id: str = ""
@@ -1031,7 +1031,7 @@ class AuroraStudio(QMainWindow):
     @staticmethod
     def empty_catalog() -> dict[str, Any]:
         return {
-            "schemaVersion": 3,
+            "schemaVersion": 5,
             "updatedAt": now_iso(),
             "brand": {"name": "Aurora Music", "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi", "logoText": "A"},
             "features": {"syncedLyrics": True, "animatedCovers": True, "artistBackgrounds": True, "offlineDownloads": True},
@@ -1039,6 +1039,8 @@ class AuroraStudio(QMainWindow):
             "artists": [],
             "tracks": [],
             "releases": [],
+            "artistLists": [],
+            "homeSections": [],
         }
 
     def build_ui(self) -> None:
@@ -1070,7 +1072,7 @@ class AuroraStudio(QMainWindow):
         self.nav = QListWidget()
         self.nav.setObjectName("nav")
         self.nav.setSpacing(4)
-        for text in ["Genel Bakış", "Yeni Yayın", "Sanatçılar", "Yayınlar", "Şarkılar", "Katalog JSON", "Ayarlar"]:
+        for text in ["Genel Bakış", "Yeni Yayın", "Sanatçılar", "Yayınlar", "Şarkılar", "Listeler", "Katalog JSON", "Ayarlar"]:
             self.nav.addItem(QListWidgetItem(text))
         self.nav.currentRowChanged.connect(self.pages_set_index)
         side_layout.addWidget(self.nav, 1)
@@ -1102,6 +1104,7 @@ class AuroraStudio(QMainWindow):
         self.pages.addWidget(self.make_artists_page())
         self.pages.addWidget(self.make_releases_page())
         self.pages.addWidget(self.make_tracks_page())
+        self.pages.addWidget(self.make_curation_page())
         self.pages.addWidget(self.make_json_page())
         self.pages.addWidget(self.make_settings_page())
         content_layout.addWidget(self.pages, 1)
@@ -1115,7 +1118,7 @@ class AuroraStudio(QMainWindow):
         if index < 0:
             return
         self.pages.setCurrentIndex(index)
-        if index == 5:
+        if index == 6:
             self.json_editor.setPlainText(json.dumps(self.catalog, ensure_ascii=False, indent=2))
 
     def page_container(self, title: str, subtitle: str) -> tuple[QWidget, QVBoxLayout]:
@@ -1238,6 +1241,11 @@ class AuroraStudio(QMainWindow):
         artwork = QGroupBox("Görseller ve Hareketli Kapak")
         aform = QFormLayout(artwork)
         self.cover_url = QLineEdit()
+        cover_fetch_btn = QPushButton("Görseli Getir → Hugging Face")
+        cover_fetch_btn.clicked.connect(self.fetch_cover_to_hf)
+        cover_url_row = QHBoxLayout()
+        cover_url_row.addWidget(self.cover_url, 1)
+        cover_url_row.addWidget(cover_fetch_btn)
         self.cover_path = QLineEdit()
         self.cover_path.setReadOnly(True)
         cover_btn = QPushButton("Kapak Dosyası Seç")
@@ -1247,16 +1255,11 @@ class AuroraStudio(QMainWindow):
         cover_row.addWidget(cover_btn)
         self.hero_url = QLineEdit()
         self.animated_path = QLineEdit()
-        self.animated_path.setReadOnly(True)
-        animated_btn = QPushButton("MP4/WebM Seç")
-        animated_btn.clicked.connect(self.pick_animated_cover)
-        animated_row = QHBoxLayout()
-        animated_row.addWidget(self.animated_path, 1)
-        animated_row.addWidget(animated_btn)
-        aform.addRow("Kapak HTTPS URL", self.cover_url)
+        self.animated_path.setPlaceholderText("MP4/WebM/Canvas URL'si — yalnızca bağlantı olarak kaydedilir")
+        aform.addRow("Kapak HTTPS URL", cover_url_row)
         aform.addRow("veya yerel kapak", cover_row)
         aform.addRow("Hero görsel URL", self.hero_url)
-        aform.addRow("Hareketli kapak", animated_row)
+        aform.addRow("Hareketli kapak URL", self.animated_path)
         body_layout.addWidget(artwork)
 
         tracks_group = QGroupBox("Şarkılar")
@@ -1464,6 +1467,60 @@ class AuroraStudio(QMainWindow):
         layout.addWidget(splitter, 1)
         return page
 
+    def make_curation_page(self) -> QWidget:
+        page, layout = self.page_container("Listeler ve Popülerler", "Sanatçı sayfasındaki ilk 5 şarkıyı ve sanatçı listelerini kendiniz sıralayın")
+        form = QFormLayout()
+        self.curation_artist = QComboBox()
+        self.curation_popular = QPlainTextEdit()
+        self.curation_popular.setPlaceholderText("Virgülle veya satır satır track_id. Boşsa en yeni 5 çalınabilir şarkı kullanılır.")
+        self.curation_playlist_title = QLineEdit()
+        self.curation_playlist_description = QTextEdit(); self.curation_playlist_description.setFixedHeight(80)
+        self.curation_playlist_cover = QLineEdit()
+        self.curation_playlist_tracks = QPlainTextEdit(); self.curation_playlist_tracks.setPlaceholderText("Her satıra veya virgülle bir track_id")
+        save = QPushButton("Popülerleri ve Listeyi Kaydet"); save.setObjectName("primaryButton"); save.clicked.connect(self.save_curation)
+        form.addRow("Sanatçı", self.curation_artist)
+        form.addRow("Popüler track ID'leri", self.curation_popular)
+        form.addRow("Yeni liste adı", self.curation_playlist_title)
+        form.addRow("Liste açıklaması", self.curation_playlist_description)
+        form.addRow("Liste kapak URL", self.curation_playlist_cover)
+        form.addRow("Liste şarkıları", self.curation_playlist_tracks)
+        form.addRow("", save)
+        layout.addLayout(form)
+        note = QLabel("Listeler Aurora Music ana sayfasında ve sanatçı profilinde görünür. Kapak URL'sini Spotify'dan çekebilir veya Hugging Face'e kalıcılaştırabilirsiniz.")
+        note.setWordWrap(True); note.setObjectName("muted"); layout.addWidget(note)
+        layout.addStretch()
+        return page
+
+    def save_curation(self) -> None:
+        artist_id = self.curation_artist.currentData()
+        if not artist_id:
+            QMessageBox.warning(self, APP_NAME, "Bir sanatçı seçin.")
+            return
+        artist = next((row for row in self.catalog.get("artists", []) if row.get("id") == artist_id), None)
+        if not artist:
+            return
+        popular = ordered_unique(re.split(r"[,;\\s]+", self.curation_popular.toPlainText().strip()))
+        popular = [value for value in popular if value]
+        artist["popularTrackIds"] = popular
+        title = self.curation_playlist_title.text().strip()
+        if title:
+            track_ids = ordered_unique(re.split(r"[,;\\s]+", self.curation_playlist_tracks.toPlainText().strip()))
+            track_ids = [value for value in track_ids if value]
+            playlist_id = opaque_id("artist_list")
+            self.catalog.setdefault("artistLists", []).append({
+                "id": playlist_id,
+                "title": title,
+                "description": self.curation_playlist_description.toPlainText(),
+                "cover": self.curation_playlist_cover.text().strip(),
+                "artistId": artist_id,
+                "trackIds": track_ids,
+            })
+            artist.setdefault("listIds", []).append(playlist_id)
+        self.catalog["schemaVersion"] = max(5, int(self.catalog.get("schemaVersion", 1)))
+        self.set_dirty()
+        self.refresh_all_views()
+        QMessageBox.information(self, APP_NAME, "Sanatçı popülerleri ve liste kataloğa eklendi. GitHub commit düğmesiyle yayınlayın.")
+
     def make_json_page(self) -> QWidget:
         page, layout = self.page_container("Katalog JSON", "İleri düzey kullanım için katalogun tamamı. Görsel editörle eş zamanlıdır.")
         self.json_editor = QPlainTextEdit()
@@ -1670,6 +1727,16 @@ class AuroraStudio(QMainWindow):
         self.release_list.blockSignals(False)
 
         self.track_list.blockSignals(True)
+        if hasattr(self, "curation_artist"):
+            current_curation = self.curation_artist.currentData()
+            self.curation_artist.clear()
+            for artist in self.catalog.get("artists", []):
+                self.curation_artist.addItem(artist.get("name", "İsimsiz"), artist.get("id"))
+            if current_curation:
+                idx = self.curation_artist.findData(current_curation)
+                if idx >= 0:
+                    self.curation_artist.setCurrentIndex(idx)
+
         self.track_list.clear()
         for track in tracks:
             item = QListWidgetItem(track.get("title", "Adsız")); item.setData(Qt.UserRole, track.get("id")); self.track_list.addItem(item)
@@ -2112,7 +2179,7 @@ class AuroraStudio(QMainWindow):
             elif track.has_master:
                 status = "Master hazır"
             else:
-                status = "Master gerekli"
+                status = "Metadata hazır • ses bekleniyor (Yakında)"
             values = [
                 str(row + 1),
                 track.path.name if track.has_master else "—",
@@ -2184,10 +2251,6 @@ class AuroraStudio(QMainWindow):
             raise ValueError("Yayın adı gerekli.")
         if not self.import_tracks:
             raise ValueError("En az bir şarkı ekleyin.")
-        existing_isrc = {normalize_isrc(row.get("isrc", "")) for row in self.catalog.get("tracks", []) if normalize_isrc(row.get("isrc", ""))}
-        missing = [row.title for row in self.import_tracks if not row.has_master and normalize_isrc(row.isrc) not in existing_isrc]
-        if missing:
-            raise ValueError("Bu yeni şarkılar için master dosyası gerekli\n" + "\n".join(missing[:20]))
         for row in self.import_tracks:
             if not row.primary_artist_ids:
                 row.primary_artist_ids = release_artist_ids.copy()
@@ -2205,7 +2268,7 @@ class AuroraStudio(QMainWindow):
             cover_url=self.cover_url.text().strip(),
             cover_path=Path(self.cover_path.text()) if self.cover_path.text() else None,
             hero_url=self.hero_url.text().strip(),
-            animated_cover_path=Path(self.animated_path.text()) if self.animated_path.text() else None,
+            animated_cover_url=self.animated_path.text().strip(),
             tracks=copy.deepcopy(self.import_tracks),
             featured=self.import_featured.isChecked(),
             spotify_id=self.import_spotify_id,
@@ -2238,7 +2301,7 @@ class AuroraStudio(QMainWindow):
             new_tracks: list[dict[str, Any]] = []
             release_rows: list[dict[str, Any]] = []
             reused_count = 0
-            snapshot["schemaVersion"] = max(4, int(snapshot.get("schemaVersion", 1)))
+            snapshot["schemaVersion"] = max(5, int(snapshot.get("schemaVersion", 1)))
             existing_by_isrc = {
                 normalize_isrc(row.get("isrc", "")): row
                 for row in snapshot.get("tracks", [])
@@ -2251,12 +2314,7 @@ class AuroraStudio(QMainWindow):
                     remote = storage.allocate_remote("artwork", ext, lambda status: progress(status, 4))
                     upload_files.append((request.cover_path, remote))
                     cover_url = storage.resolve_url(remote)
-                animated_url = ""
-                if request.animated_cover_path:
-                    ext = request.animated_cover_path.suffix.lower() or ".mp4"
-                    remote = storage.allocate_remote("animated", ext, lambda status: progress(status, 4))
-                    upload_files.append((request.animated_cover_path, remote))
-                    animated_url = storage.resolve_url(remote)
+                animated_url = request.animated_cover_url
                 if not cover_url:
                     raise RuntimeError("Kapak URL'si veya kapak dosyası gerekli.")
 
@@ -2265,7 +2323,7 @@ class AuroraStudio(QMainWindow):
                     base = 5 + int((index / max(total, 1)) * 65)
                     normalized = normalize_isrc(row.isrc)
                     existing = existing_by_isrc.get(normalized) if normalized else None
-                    if existing:
+                    if existing and (existing.get("sources") or not row.has_master):
                         reused_count += 1
                         progress(f"{row.title}: aynı ISRC bulundu, mevcut kayıt kullanılıyor", base)
                         release_rows.append({
@@ -2274,16 +2332,20 @@ class AuroraStudio(QMainWindow):
                             "position": row.position or index + 1,
                         })
                         continue
-                    if not row.has_master:
-                        raise RuntimeError(f"{row.title} için master dosyası yok.")
-                    progress(f"{row.title}: ses analiz ediliyor", base)
-                    track_id = opaque_id("track")
-                    media_folder = temp_root / track_id
-                    info, variants = processor.process(row.path, media_folder, settings)
+                    filling_existing = existing if existing and row.has_master else None
+                    track_id = filling_existing.get("id") if filling_existing else opaque_id("track")
                     sources: list[dict[str, Any]] = []
-                    if settings.upload_master:
-                        master_remote = storage.allocate_remote("masters", row.path.suffix.lower(), lambda status: progress(status, base))
-                        upload_files.append((row.path, master_remote))
+                    info = {"duration": row.duration_seconds, "channels": 0}
+                    variants: list[dict[str, Any]] = []
+                    if row.has_master:
+                        progress(f"{row.title}: ses analiz ediliyor", base)
+                        media_folder = temp_root / track_id
+                        info, variants = processor.process(row.path, media_folder, settings)
+                        if settings.upload_master:
+                            master_remote = storage.allocate_remote("masters", row.path.suffix.lower(), lambda status: progress(status, base))
+                            upload_files.append((row.path, master_remote))
+                    else:
+                        progress(f"{row.title}: metadata kaydı oluşturuluyor; ses daha sonra eklenecek", base)
                     for variant in variants:
                         ext = variant["path"].suffix.lower()
                         remote = storage.allocate_remote("audio", ext, lambda status: progress(status, base))
@@ -2337,11 +2399,18 @@ class AuroraStudio(QMainWindow):
                         "lyrics": row.lyrics,
                         "syncedLyrics": row.synced_lyrics,
                         "credits": row.credits,
+                        "availability": "available" if sources else "pending",
                         "sources": sources,
                     }
-                    new_tracks.append(track_data)
+                    if filling_existing:
+                        filling_existing.update(track_data)
+                        filling_existing["id"] = track_id
+                        filling_existing["availability"] = "available" if sources else "pending"
+                        reused_count += 1
+                    else:
+                        new_tracks.append(track_data)
                     if normalized:
-                        existing_by_isrc[normalized] = track_data
+                        existing_by_isrc[normalized] = filling_existing or track_data
                     release_rows.append({
                         "trackId": track_id,
                         "disc": row.disc or 1,
@@ -2369,6 +2438,9 @@ class AuroraStudio(QMainWindow):
                     "description": request.description,
                     "spotifyId": request.spotify_id,
                     "spotifyUrl": request.spotify_url,
+                    "spotifyCoverUrl": request.cover_url,
+                    "status": "published" if all(any(t.get("id") == r.get("trackId") and t.get("sources") for t in snapshot.get("tracks", []) + new_tracks) for r in release_rows) and request.release_date <= datetime.now().strftime("%Y-%m-%d") else ("partial" if any(any(t.get("id") == r.get("trackId") and t.get("sources") for t in snapshot.get("tracks", []) + new_tracks) for r in release_rows) else "upcoming"),
+                    "publishAt": request.release_date,
                     "tracks": sorted(release_rows, key=lambda item: (item.get("disc", 1), item.get("position", 1))),
                 }
                 snapshot.setdefault("tracks", []).extend(new_tracks)
@@ -2400,6 +2472,37 @@ class AuroraStudio(QMainWindow):
             QMessageBox.information(self, APP_NAME, "Yayın tamamlandı.\n\n" + summary)
 
         self.run_task(task, done, "Yeni yayın işleme başladı")
+
+    def fetch_cover_to_hf(self) -> None:
+        url = self.cover_url.text().strip()
+        if not url:
+            QMessageBox.warning(self, APP_NAME, "Önce Spotify kapak URL'sini çekin.")
+            return
+        settings = copy.deepcopy(self.settings)
+
+        def task(progress: Callable[[str, int], None]) -> str:
+            progress("Spotify kapak görseli indiriliyor…", 12)
+            response = requests.get(url, timeout=60, headers={"User-Agent": f"AuroraStudio/{APP_VERSION}"})
+            response.raise_for_status()
+            content_type = response.headers.get("Content-Type", "")
+            ext = ".png" if "png" in content_type else (".webp" if "webp" in content_type else ".jpg")
+            temp = Path(tempfile.mkdtemp(prefix="aurora-cover-")) / f"cover{ext}"
+            temp.write_bytes(response.content)
+            storage = HuggingFaceStorage(settings)
+            remote = storage.allocate_remote("artwork", ext, lambda status: progress(status, 25))
+            permanent = storage.upload_one(temp, remote, "Aurora Spotify kapağını kalıcılaştır", progress=lambda status, percent: progress(status, 25 + int(percent * .7)))
+            shutil.rmtree(temp.parent, ignore_errors=True)
+            return permanent
+
+        def done(permanent: str) -> None:
+            self.cover_url.setText(permanent)
+            if not self.hero_url.text().strip():
+                self.hero_url.setText(permanent)
+            self.publish_status.setText("Kapak Hugging Face'e kalıcılaştırıldı")
+            self.publish_progress.setValue(100)
+            self.append_log(f"Spotify kapağı kalıcı URL'ye çevrildi: {permanent}")
+
+        self.run_task(task, done, "Kapak kalıcılaştırma başladı")
 
     def upload_asset_to_field(self, field: QLineEdit, category: str) -> None:
         file, _ = QFileDialog.getOpenFileName(self, "Dosya Seç", "", "Medya (*.jpg *.jpeg *.png *.webp *.mp4 *.webm *.mov)")
