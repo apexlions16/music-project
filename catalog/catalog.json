@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T18:49:31.370Z",
+  "updatedAt": "2026-07-15T18:52:59.974Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_fd8d73aa2dec4ee5b4223a83d1d4cd9a",
     "release_e39da73181924bc69401435bdeb4a647",
     "release_93c678013ec342f8a7f5fa38da997f4f",
     "release_05f5426ca7de40e2920c17213be3bc22",
@@ -131,6 +132,20 @@
       "bio": "",
       "spotifyId": "0zW3UmR0ZAzLTdbFTlEadz",
       "spotifyUrl": "https://open.spotify.com/artist/0zW3UmR0ZAzLTdbFTlEadz",
+      "popularTrackIds": [],
+      "listIds": []
+    },
+    {
+      "id": "artist_98a0be370eda42f2b406b35debe14d7c",
+      "slug": "anil-piyanci",
+      "name": "Anıl Piyancı",
+      "image": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/96ee1122b54d424ea75a68b553b4a91f.jpg",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/96ee1122b54d424ea75a68b553b4a91f.jpg",
+      "backgroundImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artist-artwork1/96ee1122b54d424ea75a68b553b4a91f.jpg",
+      "backgroundVideoUrl": "",
+      "bio": "",
+      "spotifyId": "2u4xMsh0M2B7R8Wb3pEWae",
+      "spotifyUrl": "https://open.spotify.com/artist/2u4xMsh0M2B7R8Wb3pEWae",
       "popularTrackIds": [],
       "listIds": []
     }
@@ -4058,6 +4073,76 @@
       "playable": true,
       "availability": "available",
       "qualityState": "ready"
+    },
+    {
+      "id": "track_d286df572c4145d9844fd73002917155",
+      "slug": "tavsan",
+      "title": "Tavşan",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436",
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436",
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 246,
+      "isrc": "TCADU1843430",
+      "explicit": false,
+      "spotifyId": "4Md1e7Ia8gDIh94npSPEjH",
+      "spotifyUrl": "https://open.spotify.com/track/4Md1e7Ia8gDIh94npSPEjH",
+      "lyrics": "Yine iş başında yeni Donnie Darko\nO bi psycho, o benim evet\nYanımda birkaç dost\nİyilikleri için kimseye af yok\nVurucam baş çok\nOmzumda balta ve kapüşon\nLate night show gibi işim\nKızarsam hani cesetle dolar El Paso\nİronik tariz nice\nYok anlaman için olmana bir Nietzsche\nBazıları çenesini tutmalı bence\nCahilleşti çünkü çoğu iyice\nDevam et DJ\nKadın yaşlı tabii, bana bebe diyecek\nAttığımı tutamayacağına göre\nHer lafımı diğerleri gibi yiyecek\nYaşı kuruturum üşüyünce\nDeli bi dahiyim bunu düşününce\nTaşlarım yerinde ve ağır yükçe\nÇıkaramıyo kimse kuyuya düşünce\nArtık yok bi şey dicek\nAnlayamıyo zaten hiç kimse\nTabir-i caizse bitmesin diye\nDua ettiriyo rapim her ateiste\nNeden, nasıl sormasın dünya bana\nSorarsa cevap belli, la-la-la-la\nHiçbir şey umrumda değil bundan sonra\nDesinler, tavşan küsmüş bütün dağlara\nNeden, nasıl sormasın dünya bana\nSorarsa cevap belli, la-la-la-la\nHiçbir şey umrumda değil bundan sonra\nDesinler, tavşan küsmüş bütün dağlara\nNeden, nasıl sormasın dünya bana\nSorarsa cevap belli, la-la-la-la\nHiçbir şey umrumda değil bundan sonra\nDesinler, tavşan küsmüş bütün dağlara\nTakıldı peşime, takıldı peşime bir sürü sırtlan\nKovalar üzerime gelmek için fırsat\nPiyancı sorun değil hepinizi sırtlar\n(Sırtlar)\nAnlamaz, anlamaz bi türlü\nÇünkü bak zihniniz kıt lan\nKafanın içi boş görünüyo çıplak\nTıkılıp odana düz duvara tırman\n(Tırman)\nHayır yarını değil, bana bugünü sor\nAyakta kalmak için\nBak biz hayatla sürekli dövüşüyoz\n(Dövüşüyoz)\nHayır paramı değil\n(Paramı değil)\nBana gücümü sor\n(Gücümü sor)\nHepimiz kafada kurduk\nBak sanarız gerçekten ölümü son\n(Son, son)\nSanma ki boş bırakılır\nKapasite tam dolu bura meydan\nHip-hop özgüveni tam sahada\nÇılgın kıvrak bi çalım gibi Neymar'dan\nPiyano başına geçince dönüşür\nParmaklarımız bir anda Ray Charles'a\n(Yeah)\nŞu anda rakamlarım ekranda\nAltımda kalıyosun hep çaylak\nYazarım destan, olur akıma kapılınca Tesla\nGüzel bi hatun yürüyo bana bak ama\nSanırım onun çıkarı da şu anda reklam\nBir post at, dedi, patlasın ekran\nBen de Cont gibi dedim ona, say what?\nDurdu dünya, belirdi tavşan\nSardı korku gözlerini, eyvah\nNeden, nasıl sormasın dünya bana\nSorarsa cevap belli, la-la-la-la\nHiçbir şey umrumda değil bundan sonra\nDesinler, tavşan küsmüş bütün dağlara\nNeden, nasıl sormasın dünya bana\nSorarsa cevap belli, la-la-la-la\nHiçbir şey umrumda değil bundan sonra\nDesinler, tavşan küsmüş bütün dağlara\nNeden, nasıl sormasın dünya bana\nSorarsa cevap belli, la-la-la-la\nHiçbir şey umrumda değil bundan sonra\nDesinler, tavşan küsmüş bütün dağlara\nKüsmüş bütün dağlara\nKüsmüş bütün dağlara\nKüsmüş bütün dağlara\nKüsmüş bütün dağlara",
+      "syncedLyrics": "",
+      "credits": [],
+      "sources": [
+        {
+          "id": "audio_6de4feac9e78477faa1737787037d7a2",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8d8440d550be4ea4af6d352ab38281ec.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/8d8440d550be4ea4af6d352ab38281ec.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_9686053b090c4fa0aaa5e73649f6b04d",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/46aacdb2f56a467d95cd019c6138c24f.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/46aacdb2f56a467d95cd019c6138c24f.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_9274e143b39e4173830df8d186ecb88c",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/05bd1f208b484f529f69ec3e6c452fdb.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/05bd1f208b484f529f69ec3e6c452fdb.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "ready"
     }
   ],
   "releases": [
@@ -5015,6 +5100,39 @@
       "tracks": [
         {
           "trackId": "track_202d8d88185f473891081600b7ef6414",
+          "disc": 1,
+          "position": 1
+        }
+      ],
+      "status": "published",
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
+    },
+    {
+      "id": "release_fd8d73aa2dec4ee5b4223a83d1d4cd9a",
+      "slug": "tavsan",
+      "title": "Tavşan",
+      "type": "single",
+      "artistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436",
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "primaryArtistIds": [
+        "artist_34728a73863e4cc2b5d73278f6911436",
+        "artist_98a0be370eda42f2b406b35debe14d7c"
+      ],
+      "releaseDate": "2018-08-26",
+      "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/d325a0698c1d498c88b1a9bd7b551236.jpg",
+      "heroImage": "https://i.scdn.co/image/ab67616d0000b273d6eecc95903fa7c0cf564633",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "(C) 2018 Yeşil Oda Yapım & ContravoltaMusic",
+      "description": "",
+      "spotifyId": "6TZv6iIjNvjwMM5Qa8L5BZ",
+      "spotifyUrl": "https://open.spotify.com/album/6TZv6iIjNvjwMM5Qa8L5BZ",
+      "tracks": [
+        {
+          "trackId": "track_d286df572c4145d9844fd73002917155",
           "disc": 1,
           "position": 1
         }
