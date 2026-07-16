@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-07-15T21:49:13.867Z",
+  "updatedAt": "2026-07-16T18:11:04.631Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -7289,7 +7289,7 @@
       ],
       "featuredArtistIds": [],
       "featuredArtistNames": [],
-      "durationSeconds": 157,
+      "durationSeconds": 15,
       "isrc": "QMDA62129385",
       "explicit": true,
       "spotifyId": "5SzO5CMwJM7kJYRwSodtO1",
@@ -7297,10 +7297,67 @@
       "lyrics": "Evimden büyük bi ruhum kaybolan bi şuurum varken halen\n\nHalen kaygısız vücudum\n\nWatashi wa kazu mishima\n\nHarcırahım hava civa\n\nYedi sülaleni satın alırım sen hala kovala kara cuma\n\nAra cuvara\n\nDumanı duvara\n\nUç hadi uzağıma seni fukara\n\nKi çevirir havamız yakın duranı buhara kamil\n\nKonuştuk olmadı hayat adil\n\nSustu yaparken kafa tatil\n\nBurdaki kuşlar maviydi şimdi\n\nFıstık yeşili bi kawasaki misali rapim hızlı ve hava sakin\n\nJüpiter aktarmalı hawai\n\nUçuyorum hedefe üstünüzden gari\n\nGaipten sesler duydum\n\nHalimden memnunum hala bariz ben\n\nBu hustle yeğen\n\nSon hızla çakıl sen\n\nJingle bells\n\nKaçıp gel\n\nÇalıyom meşgul arayıp dursa da graham bell\n\nYok bize long distens hiç fark etmiyo\n\nNere İstanbul neresi france\n\nMa friends\n\nKapımız duvar işe gelip yerse\n\nKapımız duvar feriştahı gelse\n\nKapımız duvar kapımız duvar\n\nHayınlar uzar kalır yakınlar adımız uçar\n\nKapımız duvar işe gelip yerse\n\nKapımız duvar feriştahı gelse\n\nKapımız duvar bi sonraki celse\n\nKapımız duvar kapımız duvar\n\nOlamam onlar gibi tek tip\n\nKaplar hepsinin gözleri korku\n\nAlelacele telefonu kap\n\nSusar ecele gece bir kaç sap\n\nBir çakı bir can kaybı\n\nSerseri serbest stil tarzım\n\nIçip dökerim bombay gin\n\nüstüm başım double g\n\nBaşlatırız show time\n\nYaşatırız thug life\n\nçakal kasa bmw'den kafa boşa sarkar\n\nZaman nakit patek philippe\n\nTik tak yok taktik\n\nBas git digga bas git\n\nBas git digga bas git\n\nKapımız duvar işe gelip yerse\n\nKapımız duvar feriştahı gelse\n\nKapımız duvar kapımız duvar\n\nHayınlar uzar kalır yakınlar adımız uçar\n\nKapımız duvar işe gelip yerse\n\nKapımız duvar feriştahı gelse\n\nKapımız duvar bi sonraki celse\n\nKapımız duvar kapımız duvar",
       "syncedLyrics": "",
       "credits": [],
-      "availability": "pending",
-      "sources": [],
-      "playable": false,
-      "qualityState": "waiting_for_audio"
+      "availability": "available",
+      "sources": [
+        {
+          "id": "audio_0710b1fac18448bd82ad72cd0b2acc8e",
+          "kind": "standard",
+          "label": "Standart",
+          "codec": "AAC 128 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/53a014e752454e478cb7b028ea49b250.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/53a014e752454e478cb7b028ea49b250.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 128,
+          "sampleRateKhz": 44.1
+        },
+        {
+          "id": "audio_27b9f55a46e54b86853f0318c8e47e32",
+          "kind": "high",
+          "label": "Yüksek Kalite",
+          "codec": "AAC 256 kbps",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/7f32a57e447c43c1891b20b5993d1a71.m4a",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/7f32a57e447c43c1891b20b5993d1a71.m4a",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "bitrateKbps": 256,
+          "sampleRateKhz": 48.0
+        },
+        {
+          "id": "audio_464e620f85c24b84a034926ff69c17d7",
+          "kind": "lossless",
+          "label": "Lossless",
+          "codec": "FLAC 16-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/af560503297e49818db59028c1e29f54.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/af560503297e49818db59028c1e29f54.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 16
+        },
+        {
+          "id": "audio_f0ab0a3cb3504e26a22c10fddd802e16",
+          "kind": "hires",
+          "label": "Hi-Res Lossless",
+          "codec": "FLAC 24-bit/44.1 kHz",
+          "url": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/bb4a81b1828e4150b7c676fb346ce86a.flac",
+          "downloadUrl": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/audio1/bb4a81b1828e4150b7c676fb346ce86a.flac",
+          "downloadable": true,
+          "channels": "2 kanal",
+          "spatial": false,
+          "generated": true,
+          "sampleRateKhz": 44.1,
+          "bitDepth": 24
+        }
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_c7540eacb7d74af3a63008d7f72df1a3",
@@ -10550,7 +10607,7 @@
       "spotifyId": "1jhwjHSG86pDRL1GUldty7",
       "spotifyUrl": "https://open.spotify.com/album/1jhwjHSG86pDRL1GUldty7",
       "spotifyCoverUrl": "",
-      "status": "upcoming",
+      "status": "published",
       "publishAt": "2021-10-01",
       "tracks": [
         {
@@ -10559,7 +10616,7 @@
           "position": 1
         }
       ],
-      "availableTrackCount": 0,
+      "availableTrackCount": 1,
       "totalTrackCount": 1
     },
     {
