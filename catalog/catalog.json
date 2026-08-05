@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-08-05T16:56:30.547Z",
+  "updatedAt": "2026-08-05T16:58:15.842Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -9232,7 +9232,9 @@
           "sampleRateKhz": 44.1,
           "bitDepth": 24
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_504bc6958c044cd38bb0600e8bc85d00",
@@ -9295,7 +9297,9 @@
           "sampleRateKhz": 44.1,
           "bitDepth": 16
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_79ecfe6634a64583bdca2a00bb6a2ab7",
@@ -9361,7 +9365,9 @@
           "sampleRateKhz": 44.1,
           "bitDepth": 16
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_5495269b005e4e9ca13789868fdaa7fb",
@@ -9437,7 +9443,9 @@
           "sampleRateKhz": 48.0,
           "bitDepth": 24
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_3b8d891f63194de3b6a6a92d7583feb7",
@@ -9513,7 +9521,9 @@
           "sampleRateKhz": 48.0,
           "bitDepth": 24
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_f6900710f2c14e5c823cdd44516cf175",
@@ -9589,7 +9599,9 @@
           "sampleRateKhz": 48.0,
           "bitDepth": 24
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_cffeb524fed841b4981f2961bd118398",
@@ -9665,7 +9677,9 @@
           "sampleRateKhz": 48.0,
           "bitDepth": 24
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     },
     {
       "id": "track_be76f0617f5b4d6fbc21f5441fb66124",
@@ -9728,7 +9742,9 @@
           "sampleRateKhz": 44.1,
           "bitDepth": 16
         }
-      ]
+      ],
+      "playable": true,
+      "qualityState": "ready"
     }
   ],
   "releases": [
@@ -12025,7 +12041,7 @@
       ],
       "releaseDate": "2020-12-11",
       "cover": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/9c4cc9823be841218ecac45763657ba0.jpg",
-      "heroImage": "https://i.scdn.co/image/ab67616d0000b273bcd6c9d2a425a20a741aac24",
+      "heroImage": "https://huggingface.co/datasets/hcywashere/m-project/resolve/main/aurora/artwork1/9c4cc9823be841218ecac45763657ba0.jpg",
       "animatedCoverUrl": "",
       "label": "",
       "copyright": "(C) 2020 Poll Production • (P) 2020 Poll Production",
@@ -12041,7 +12057,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_bfffe4bb905440f99f43c02fe58a9639",
@@ -12072,7 +12090,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_8dcf3a0e8502407c98b03eea00c57507",
@@ -12103,7 +12123,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_64cb5130c73f4f92843f1898cdf8fc50",
@@ -12134,7 +12156,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_57383a4bebb643e6a50914e7ee7fb252",
@@ -12165,7 +12189,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_11a8d7e1d77e48039c27d4138074e206",
@@ -12196,7 +12222,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_31496f4bcb084887813ee0ed3569faa2",
@@ -12227,7 +12255,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     },
     {
       "id": "release_c3e9bf1bd5904352bfa398e73779dc8a",
@@ -12258,7 +12288,9 @@
           "disc": 1,
           "position": 1
         }
-      ]
+      ],
+      "availableTrackCount": 1,
+      "totalTrackCount": 1
     }
   ],
   "qualityJobs": [
