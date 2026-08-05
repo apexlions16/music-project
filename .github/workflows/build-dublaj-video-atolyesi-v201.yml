@@ -50,8 +50,23 @@ jobs:
         run: |
           set -euo pipefail
           patch -p1 --forward < "$GITHUB_WORKSPACE/.apkbuild-v201/download-storage.patch"
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path("app/src/main/AndroidManifest.xml")
+          text = path.read_text(encoding="utf-8")
+          text = text.replace(
+              '<manifest xmlns:android="http://schemas.android.com/apk/res/android">',
+              '<manifest xmlns:android="http://schemas.android.com/apk/res/android"\n    xmlns:tools="http://schemas.android.com/tools">'
+          )
+          text = text.replace(
+              '<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="29" />',
+              '<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="29" tools:replace="android:maxSdkVersion" />'
+          )
+          path.write_text(text, encoding="utf-8")
+          PY
           grep -q 'versionName '\''2.0.1'\''' app/build.gradle
           grep -q 'MANAGE_EXTERNAL_STORAGE' app/src/main/AndroidManifest.xml
+          grep -q 'tools:replace="android:maxSdkVersion"' app/src/main/AndroidManifest.xml
           grep -q 'DublajVideoProjeleri' app/src/main/java/com/odium/akillisesbolucu/AppFiles.java
       - name: Build APK
         working-directory: /tmp/dublaj-build/AkilliSesBolucuAndroid
@@ -66,6 +81,8 @@ jobs:
             "$ANDROID_SDK_ROOT/build-tools/35.0.0/apksigner" verify --verbose --print-certs "$APK"
             echo
             "$ANDROID_SDK_ROOT/build-tools/35.0.0/aapt" dump badging "$APK"
+            echo
+            "$ANDROID_SDK_ROOT/build-tools/35.0.0/aapt" dump permissions "$APK"
           } | tee /tmp/apk-verification.txt
       - name: Prepare artifact
         run: |
