@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updatedAt": "2026-08-05T11:18:32.480518Z",
+  "updatedAt": "2026-08-05T11:36:07.298604Z",
   "brand": {
     "name": "Aurora Music",
     "subtitle": "Kişisel yüksek çözünürlüklü müzik arşivi",
@@ -13,6 +13,7 @@
     "offlineDownloads": true
   },
   "featuredReleaseIds": [
+    "release_3f7626d7d83f4f3dbfd59851c84f346d",
     "release_a040aa1f571e4603a35cf641e7897bca",
     "release_5b8beec1ab91412ab21e1187a9d67294",
     "release_fda7486d05ef4e3aaf56fdd850c21d83",
@@ -431,6 +432,16 @@
       "spotifyUrl": "https:\/\/open.spotify.com\/artist\/3d4FAb7KcuSi6WrVYuIDbk",
       "popularTrackIds": [],
       "listIds": []
+    },
+    {
+      "id": "artist_cf14e59de1124c6d85ceabc29e99d263",
+      "slug": "norm-ender",
+      "name": "Norm Ender",
+      "image": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/artist-artwork1\/482f3b1ad4fd4f79a8b34c4e4a6a323d.jpg",
+      "heroImage": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/artist-artwork1\/482f3b1ad4fd4f79a8b34c4e4a6a323d.jpg",
+      "backgroundImage": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/artist-artwork1\/482f3b1ad4fd4f79a8b34c4e4a6a323d.jpg",
+      "backgroundVideoUrl": "",
+      "bio": ""
     }
   ],
   "tracks": [
@@ -8790,6 +8801,182 @@
       "playable": true,
       "availability": "available",
       "qualityState": "queued"
+    },
+    {
+      "id": "track_ea670ca080e54dc68cdee946c12da365",
+      "slug": "icinde-patlar",
+      "title": "İçinde Patlar",
+      "artistIds": [
+        "artist_cf14e59de1124c6d85ceabc29e99d263"
+      ],
+      "primaryArtistIds": [
+        "artist_cf14e59de1124c6d85ceabc29e99d263"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 0,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "isrc": "AUBEC1838605",
+      "explicit": true,
+      "lyrics": "Yes yes yo\nSample al ve kes rap bu nefesim\nDene bu sonda ses, şamatayı kesin\nNorm Ender yes, buda ilk albüm\nGeldim 2010 sessizliğe son\n300 - 500 kıroyu delirtir\nBaksana bu ritim ölüyü diriltir\nAvrupadan ithal herşey hadise\nİste gülüm burda bol Beyoncé\nBebekte 3-5 turunda şeytan\nDiyo, bi track yap yaza denk gelsin\nZor değil,kolay peşinde koş\nTarkan'da rap yaparda bi' gaza gelsin\nBendeki his sen de döktür iyice\nHesapta bizden bu çok zekice\nPompala DJ hepsi kıvırtsın\nSonra gelip adisyonda sırıtsın\nDütdürü dünya kimine bi cinnet\nGeçirtir ki sorma, dertli millet\nDövize yüklenin dolar azdıkça\nBende azıyorum ama yazdıkça\n\nÇek bi nefes hadi boşta vites\nİşte bu ortam sizi 5'e katlar\nHoşta bi ses hadi boş lafı kes\nDikkat et bu rap İçinde Patlar\nÇek bi nefes hadi boşta vites\nİşte bu ortam sizi 5'e katlar\nHoşta bi ses hadi boş lafı kes\nDikkat et bu rap İçinde Patlar\n\nSöz güzelim sana tatlı dilber\nO yana, bu yana oynar ince beller\nTaş gibi taş bebek hadi uçalım mı\nBu nasıl bi söz lan? Bu nasıl bir şarkı?\nBiz bunu hak ediyoruz diyorsanız\nMagazin oynayın siz hep aranızda\nBoş insan ordusu müzik piyasanız\nBi numara yoktu ki bi' numaranızda\nBak bu satırlar adım gibi gerçek\nDinleme beni ya da ağzını açma\nNeden yazıyorum ki bi' ton gerzek\nAnlamadığı söze diyo rap saçma\nHerşeye rağmen sabırla yoluma\nGülüyorum ve yürüyorum aheste\nYapmalıyım bol para, şan, şöhret\nHadi Sezen Abla banada bi' beste\n\nÇek bi nefes hadi boşta vites\nİşte bu ortam sizi 5'e katlar\nHoşta bi ses hadi boş lafı kes\nDikkat et bu rap İçinde Patlar\nÇek bi nefes hadi boşta vites\nİşte bu ortam sizi 5'e katlar\nHoşta bi ses hadi boş lafı kes\nDikkat et bu rap İçinde Patlar\n\nVar mı cesaret? Hey! basın basın\nBende esaret yok, yazın yazın\nDoğrular değil verilen hep xanax\nTırnak yeme lan, dur relax relax\nSin City değiliz burası Türkiye\nBir işe yaramasa'da atacağım hep diss\nEsefle kınayın bu arada dostum\nParlamento değil onun adı meclis\nAman, diyorlar fazla açılma\nEleştir Ender tadını kaçırma\nSözlerim kefil ve rap oyun değil\nBenim işim bu koç, susmak iş değil\nTopunuza birden cevap olacaksa\nBen size yazarım gavur İzmirden\nŞehrim ülkemin en batı yakası\nAllah'ı gibidir, ve tektir Atası\n\nÇek bi nefes hadi boşta vites\nİşte bu ortam sizi 5'e katlar\nHoşta bi ses hadi boş lafı kes\nDikkat et bu rap İçinde patlar\nÇek bi nefes hadi boşta vites\nİşte bu ortam sizi 5'e katlar\nHoşta bi ses hadi boş lafı kes\nDikkat et bu rap İçinde Patlar",
+      "syncedLyrics": "",
+      "credits": [
+        {
+          "role": "Sanatçılar",
+          "names": [
+            "Norm Ender"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "audio_660241c7ece3415f8f96b1e3ae89dfba",
+          "kind": "lossless",
+          "label": "Orijinal Kaynak",
+          "codec": "FLAC",
+          "url": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/f58ba534157a4111ad468ee8182c438d.flac",
+          "downloadUrl": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/f58ba534157a4111ad468ee8182c438d.flac",
+          "downloadable": true,
+          "spatial": false,
+          "generated": false
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "queued"
+    },
+    {
+      "id": "track_2915f3f332e04c4c9da49c042f2b5fe5",
+      "slug": "ciktik-yine-yollara",
+      "title": "Çıktık Yine Yollara",
+      "artistIds": [
+        "artist_cf14e59de1124c6d85ceabc29e99d263"
+      ],
+      "primaryArtistIds": [
+        "artist_cf14e59de1124c6d85ceabc29e99d263"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 0,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "isrc": "AUBEC1838606",
+      "explicit": true,
+      "lyrics": "Çıktık yine yollara\nYaşıyor bu sözler!\nAnlat hadi onlara\nNe diyor bu gözler!\nÇıktık yine yollara\nYaşıyor bu sözler!\nAnlat hadi onlara\nNe diyor bu gözler!\n\nYo! Yo!\nYollar anlatır, her bedende farklı kavgası\nBeni de ağlatır, yanmayan bu sokak lambası\nDamgasıdır dik yokuş, şehre uzak bölgeler\nKöşebaşında on yaşında, kimlik arıyor gölgeler\n\nDoğmayan hayallerin, cehennemin tam ortası\nSeni de korkutur mu, olmayan hayat sigortası?\nİlgisiz bu devletin bak, ilgisiz konutları\nBeşikten atlar uçuruma, varoşların umutları\n\nKapitalist beyinlerin, zekasının bir sonucu bu\nDengesiz terazi, düşman etti insanoğlunu\nVe sistem öyledir ki bedeni, asgari çalıştırır\nÖküz de servetiyle görgüsüz, sidik yarıştırır\n\nBoldur ülkemin, politikayla kuyu kazanları\nBir günde gündem estetik ve sosyatik sazanları\nYazar mısın, Beyaz Saray’da orucunu bozanları?\nYazar mısın ki, sen yazar mısın, basın kitapları!\n\nÇıktık yine yollara\nYaşıyor bu sözler!\nAnlat hadi onlara\nNe diyor bu gözler!\nÇıktık yine yollara\nYaşıyor bu sözler!\nAnlat hadi onlara\nNe diyor bu gözler!\n\nKavgalar ve zor yaşam, sebep geçim sıkıntısı\nBir iş, bir evdi sadece, mutluluk takıntısı\nSokaklarında büyüdüm hep, adımlarımla büyüdü Rap\nVe yürüğümde sahneler de, belgesel gibiydi hep\n\nKulaklarımda senfoni, çocuk silah siren sesi\nDudaklarımda bir küfür ki, bak hayat fakültesi\nMasterım bu burjuva, sanatta gerçek arıyorsan\nGözlerimde cümle çok, yazma dilimi biliyorsan\n\nKalbinizle yüzleşin, varsa bölsün uykunu\nÇelik kapıyla korumalar, zekana denk çözüm bu mu?\nÜlkemizde sayenizde gelecek oldu bilmece\nOnur, Şeref bir erkek ismi değildir be sadece!\n\nSusmayın sanatçılar, buydu işte kitleniz\nSöze gelince ortalık star'dan hiç geçilmiyor\nHesap sorun ve kafa yorun duyarlılık da göreviniz\nSatış düşünce \"Korsan almayın!\" demekle bitmiyor!\n\nDinleyin siyasetin, tepkisiz esirleri\nCaddelerde boş gezen, çaresiz nesilleri\nYarattınız, ne yaptınız bu topluma, bir çık da gör\nHer sokakta korku, her bedende farklı sorgu var\n\nBuna kader diyen kesim, empatiyle izlesin\nBirçok beden hayalleriyle sahneden yok oldular\nDikkat et hayat, sana da böyle tablo çizmesin\nRenklerin değişmesin, bu Rap sizinle Ghettolar!\n\nÇıktık yine yollara\nYaşıyor bu sözler!\nAnlat hadi onlara\nNe diyor bu gözler!\nÇıktık yine yollara\nYaşıyor bu sözler!\nAnlat hadi onlara\nNe diyor bu gözler!",
+      "syncedLyrics": "",
+      "credits": [
+        {
+          "role": "Sanatçılar",
+          "names": [
+            "Norm Ender"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "audio_3c79682dbb824fb297415880d2d0ad36",
+          "kind": "lossless",
+          "label": "Orijinal Kaynak",
+          "codec": "FLAC",
+          "url": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/838cbc91715f480a854fd64bcada0fa9.flac",
+          "downloadUrl": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/838cbc91715f480a854fd64bcada0fa9.flac",
+          "downloadable": true,
+          "spatial": false,
+          "generated": false
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "queued"
+    },
+    {
+      "id": "track_11f1a158a949407b9c9a4044077e7b6f",
+      "slug": "sozler-serefsiz-oldu",
+      "title": "Sözler Şerefsiz Oldu",
+      "artistIds": [
+        "artist_cf14e59de1124c6d85ceabc29e99d263"
+      ],
+      "primaryArtistIds": [
+        "artist_cf14e59de1124c6d85ceabc29e99d263"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 0,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "isrc": "AUBEC1838607",
+      "explicit": true,
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [
+        {
+          "role": "Sanatçılar",
+          "names": [
+            "Norm Ender"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "audio_c1ee12b42a324491a4ba03cb3afc42c2",
+          "kind": "lossless",
+          "label": "Orijinal Kaynak",
+          "codec": "FLAC",
+          "url": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/627f8648ebf84ac6ba30baafdd34a883.flac",
+          "downloadUrl": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/627f8648ebf84ac6ba30baafdd34a883.flac",
+          "downloadable": true,
+          "spatial": false,
+          "generated": false
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "queued"
+    },
+    {
+      "id": "track_59839f1fd36a47fd93ab709667c0a29b",
+      "slug": "depresyon-oteli",
+      "title": "Depresyon Oteli",
+      "artistIds": [
+        "artist_cf14e59de1124c6d85ceabc29e99d263"
+      ],
+      "primaryArtistIds": [
+        "artist_cf14e59de1124c6d85ceabc29e99d263"
+      ],
+      "featuredArtistIds": [],
+      "featuredArtistNames": [],
+      "durationSeconds": 0,
+      "spotifyId": "",
+      "spotifyUrl": "",
+      "isrc": "AUBEC1838608",
+      "explicit": true,
+      "lyrics": "",
+      "syncedLyrics": "",
+      "credits": [
+        {
+          "role": "Sanatçılar",
+          "names": [
+            "Norm Ender"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "audio_539c528921b0498fb1e68d158849ce6e",
+          "kind": "lossless",
+          "label": "Orijinal Kaynak",
+          "codec": "FLAC",
+          "url": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/e5a7c1d310f84988acdae393004c8ba6.flac",
+          "downloadUrl": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/e5a7c1d310f84988acdae393004c8ba6.flac",
+          "downloadable": true,
+          "spatial": false,
+          "generated": false
+        }
+      ],
+      "playable": true,
+      "availability": "available",
+      "qualityState": "queued"
     }
   ],
   "releases": [
@@ -10962,6 +11149,54 @@
       "status": "published",
       "availableTrackCount": 1,
       "totalTrackCount": 1
+    },
+    {
+      "id": "release_3f7626d7d83f4f3dbfd59851c84f346d",
+      "slug": "icinde-patlar",
+      "title": "İçinde Patlar",
+      "type": "ep",
+      "artistIds": [
+        "artist_cf14e59de1124c6d85ceabc29e99d263"
+      ],
+      "primaryArtistIds": [
+        "artist_cf14e59de1124c6d85ceabc29e99d263"
+      ],
+      "releaseDate": "2010",
+      "cover": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/artwork1\/b224af2fdb9b43c79553dcd017a87187.jpg",
+      "heroImage": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/artwork1\/b224af2fdb9b43c79553dcd017a87187.jpg",
+      "animatedCoverUrl": "",
+      "label": "",
+      "copyright": "2010 Ender Eroğlu",
+      "description": "",
+      "metadataSource": "spotify",
+      "metadataSourceId": "3LjDcmx5nVQV0HbvneBNVD",
+      "spotifyUrl": "",
+      "spotifyCoverUrl": "https:\/\/i.scdn.co\/image\/ab67616d0000b2739a96eafc1b0d25bde38723b6",
+      "tracks": [
+        {
+          "trackId": "track_ea670ca080e54dc68cdee946c12da365",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_2915f3f332e04c4c9da49c042f2b5fe5",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_11f1a158a949407b9c9a4044077e7b6f",
+          "disc": 1,
+          "position": 1
+        },
+        {
+          "trackId": "track_59839f1fd36a47fd93ab709667c0a29b",
+          "disc": 1,
+          "position": 1
+        }
+      ],
+      "status": "published",
+      "availableTrackCount": 4,
+      "totalTrackCount": 4
     }
   ],
   "qualityJobs": [
@@ -11003,6 +11238,58 @@
         "lossless"
       ],
       "createdAt": "2026-08-05T11:18:24.023252Z"
+    },
+    {
+      "id": "quality_67f97287d5cb4c53af7f6d5fa757dd37",
+      "trackId": "track_ea670ca080e54dc68cdee946c12da365",
+      "sourcePath": "aurora\/audio-source1\/f58ba534157a4111ad468ee8182c438d.flac",
+      "sourceUrl": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/f58ba534157a4111ad468ee8182c438d.flac",
+      "status": "queued",
+      "presets": [
+        "standard",
+        "high",
+        "lossless"
+      ],
+      "createdAt": "2026-08-05T11:35:23.586424Z"
+    },
+    {
+      "id": "quality_f6bf329b78284f3a95ebdf54c80b4076",
+      "trackId": "track_2915f3f332e04c4c9da49c042f2b5fe5",
+      "sourcePath": "aurora\/audio-source1\/838cbc91715f480a854fd64bcada0fa9.flac",
+      "sourceUrl": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/838cbc91715f480a854fd64bcada0fa9.flac",
+      "status": "queued",
+      "presets": [
+        "standard",
+        "high",
+        "lossless"
+      ],
+      "createdAt": "2026-08-05T11:35:23.591820Z"
+    },
+    {
+      "id": "quality_de54c78fdf9c4a21865f0d9d55ecc95a",
+      "trackId": "track_11f1a158a949407b9c9a4044077e7b6f",
+      "sourcePath": "aurora\/audio-source1\/627f8648ebf84ac6ba30baafdd34a883.flac",
+      "sourceUrl": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/627f8648ebf84ac6ba30baafdd34a883.flac",
+      "status": "queued",
+      "presets": [
+        "standard",
+        "high",
+        "lossless"
+      ],
+      "createdAt": "2026-08-05T11:35:23.592866Z"
+    },
+    {
+      "id": "quality_329135557a1442a48f86451593d26d2a",
+      "trackId": "track_59839f1fd36a47fd93ab709667c0a29b",
+      "sourcePath": "aurora\/audio-source1\/e5a7c1d310f84988acdae393004c8ba6.flac",
+      "sourceUrl": "https:\/\/huggingface.co\/datasets\/hcywashere\/m-project\/resolve\/main\/aurora\/audio-source1\/e5a7c1d310f84988acdae393004c8ba6.flac",
+      "status": "queued",
+      "presets": [
+        "standard",
+        "high",
+        "lossless"
+      ],
+      "createdAt": "2026-08-05T11:35:23.593829Z"
     }
   ],
   "artistLists": [
