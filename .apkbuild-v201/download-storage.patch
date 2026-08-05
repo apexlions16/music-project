@@ -1,0 +1,206 @@
+diff --git a/README.md b/README.md
+index e922cee..2f500dc 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,7 @@ Android 8.0+ (arm64-v8a) için proje tabanlı Türkçe dublaj video iş akışı
+ - Bir projeye ait bütün dahili dosyalar tek proje klasöründe tutulur; proje silinince hepsi silinir.
+ 
+ Yalnızca indirme ve kullanma izniniz bulunan içeriklerde kullanın.
++
++
++## Proje konumu
++Tüm projeler `Dahili depolama/Download/DublajVideoProjeleri` altında tutulur. Android 11+ ilk açılışta Tüm dosyalara erişim izni ister. Uygulamayı kaldırmak ortak Download klasörünü silmez; projeleri uygulamadaki silme düğmesiyle kaldırın.
+diff --git a/app/build.gradle b/app/build.gradle
+index dcd823f..5dd675d 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -10,8 +10,8 @@ android {
+         applicationId 'com.odium.akillisesbolucu'
+         minSdk 26
+         targetSdk 35
+-        versionCode 20
+-        versionName '2.0.0'
++        versionCode 21
++        versionName '2.0.1'
+ 
+         ndk {
+             abiFilters 'arm64-v8a'
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+index 324f5ac..5d87f0b 100644
+--- a/app/src/main/AndroidManifest.xml
++++ b/app/src/main/AndroidManifest.xml
+@@ -2,6 +2,9 @@
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+     <uses-permission android:name="android.permission.INTERNET" />
+     <uses-permission android:name="android.permission.WAKE_LOCK" />
++    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
++    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
++    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="29" />
+ 
+     <application
+         android:allowBackup="false"
+diff --git a/app/src/main/java/com/odium/akillisesbolucu/AppFiles.java b/app/src/main/java/com/odium/akillisesbolucu/AppFiles.java
+index 2a893b5..ef2ff41 100644
+--- a/app/src/main/java/com/odium/akillisesbolucu/AppFiles.java
++++ b/app/src/main/java/com/odium/akillisesbolucu/AppFiles.java
+@@ -5,6 +5,7 @@ import android.content.Context;
+ import android.database.Cursor;
+ import android.net.Uri;
+ import android.provider.OpenableColumns;
++import android.os.Environment;
+ 
+ import java.io.BufferedInputStream;
+ import java.io.BufferedOutputStream;
+@@ -24,11 +25,10 @@ final class AppFiles {
+     private AppFiles() {}
+ 
+     static File projectsRoot(Context context) {
+-        File base = context.getExternalFilesDir(null);
+-        if (base == null) base = context.getFilesDir();
+-        File root = new File(base, "DublajVideoProjeleri");
++        File downloads = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
++        File root = new File(downloads, "DublajVideoProjeleri");
+         if (!root.exists() && !root.mkdirs()) {
+-            throw new IllegalStateException("Proje klasörü oluşturulamadı.");
++            throw new IllegalStateException("Download/DublajVideoProjeleri klasörü oluşturulamadı. Tüm dosyalara erişim iznini verin.");
+         }
+         return root;
+     }
+diff --git a/app/src/main/java/com/odium/akillisesbolucu/MainActivity.java b/app/src/main/java/com/odium/akillisesbolucu/MainActivity.java
+index 20123a6..5b58ee2 100644
+--- a/app/src/main/java/com/odium/akillisesbolucu/MainActivity.java
++++ b/app/src/main/java/com/odium/akillisesbolucu/MainActivity.java
+@@ -2,6 +2,7 @@ package com.odium.akillisesbolucu;
+ 
+ import android.app.Activity;
+ import android.app.AlertDialog;
++import android.Manifest;
+ import android.content.ContentResolver;
+ import android.content.Intent;
+ import android.content.res.ColorStateList;
+@@ -11,9 +12,12 @@ import android.graphics.Typeface;
+ import android.graphics.drawable.GradientDrawable;
+ import android.net.Uri;
+ import android.os.Bundle;
++import android.os.Build;
++import android.os.Environment;
+ import android.os.Handler;
+ import android.os.Looper;
+ import android.provider.DocumentsContract;
++import android.provider.Settings;
+ import android.provider.OpenableColumns;
+ import android.view.Gravity;
+ import android.view.View;
+@@ -43,6 +47,7 @@ import java.util.concurrent.ExecutorService;
+ import java.util.concurrent.Executors;
+ 
+ public final class MainActivity extends Activity {
++    private static final int REQ_STORAGE_PERMISSION = 1001;
+     private static final int REQ_VOCALS = 1101;
+     private static final int REQ_BACKGROUND = 1102;
+     private static final int REQ_EXPORT_SEGMENTS_TREE = 1103;
+@@ -72,6 +77,7 @@ public final class MainActivity extends Activity {
+     private ProgressBar progressBar;
+     private EditText urlInput;
+     private final List<Button> controls = new ArrayList<>();
++    private boolean storagePermissionScreen;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+@@ -79,7 +85,78 @@ public final class MainActivity extends Activity {
+         mediaTools = new MediaTools(this);
+         getWindow().setStatusBarColor(COLOR_BG);
+         getWindow().setNavigationBarColor(COLOR_BG);
+-        showProjectList();
++        if (hasProjectStorageAccess()) {
++            showProjectList();
++        } else {
++            showStoragePermissionScreen();
++        }
++    }
++
++    @Override
++    protected void onResume() {
++        super.onResume();
++        if (hasProjectStorageAccess() && storagePermissionScreen) {
++            storagePermissionScreen = false;
++            showProjectList();
++        }
++    }
++
++    private boolean hasProjectStorageAccess() {
++        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
++            return Environment.isExternalStorageManager();
++        }
++        return checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
++                == android.content.pm.PackageManager.PERMISSION_GRANTED;
++    }
++
++    private void showStoragePermissionScreen() {
++        storagePermissionScreen = true;
++        project = null;
++        controls.clear();
++        ScrollView scroll = new ScrollView(this);
++        scroll.setFillViewport(true);
++        scroll.setBackgroundColor(COLOR_BG);
++        contentRoot = verticalRoot();
++        scroll.addView(contentRoot);
++
++        contentRoot.addView(text("Dosya erişimi gerekli", 27, COLOR_TEXT, Typeface.BOLD));
++        TextView info = text("Projelerin Samsung Dosyalarım ve diğer dosya yöneticilerinden görülebilmesi için uygulama Download/DublajVideoProjeleri klasörünü kullanır. Android'in ‘Tüm dosyalara erişim’ iznini bir kez vermen gerekiyor.",
++                15, COLOR_MUTED, Typeface.NORMAL);
++        info.setPadding(0, dp(12), 0, dp(22));
++        contentRoot.addView(info);
++
++        Button grant = button("Dosya Erişimi İzni Ver", COLOR_PRIMARY, Color.rgb(3, 29, 44));
++        grant.setOnClickListener(v -> requestProjectStorageAccess());
++        contentRoot.addView(grant, heightParams(58));
++
++        TextView path = text("Kayıt konumu:\nDahili depolama/Download/DublajVideoProjeleri",
++                14, COLOR_SUCCESS, Typeface.BOLD);
++        path.setPadding(0, dp(22), 0, dp(10));
++        contentRoot.addView(path);
++        setContentView(scroll);
++    }
++
++    private void requestProjectStorageAccess() {
++        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
++            try {
++                Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
++                intent.setData(Uri.parse("package:" + getPackageName()));
++                startActivity(intent);
++            } catch (Exception e) {
++                startActivity(new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION));
++            }
++        } else {
++            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQ_STORAGE_PERMISSION);
++        }
++    }
++
++    @Override
++    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
++        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
++        if (requestCode == REQ_STORAGE_PERMISSION) {
++            if (hasProjectStorageAccess()) showProjectList();
++            else Toast.makeText(this, "İzin olmadan Download klasörüne proje kaydedilemez.", Toast.LENGTH_LONG).show();
++        }
+     }
+ 
+     @Override
+@@ -101,6 +178,7 @@ public final class MainActivity extends Activity {
+     }
+ 
+     private void showProjectList() {
++        storagePermissionScreen = false;
+         project = null;
+         controls.clear();
+         ScrollView scroll = new ScrollView(this);
+@@ -154,7 +232,7 @@ public final class MainActivity extends Activity {
+             }
+         }
+ 
+-        TextView note = text("Uygulama içindeki proje silindiğinde projenin kaynak, parça, dublaj, mix, geçici ve final dosyaları birlikte silinir. Uygulama kaldırılırsa uygulamaya özel proje alanı Android tarafından temizlenir.",
++        TextView note = text("Projeler Dahili depolama/Download/DublajVideoProjeleri klasöründedir. Projeyi uygulama içinden sildiğinde kaynak, parça, dublaj, mix, geçici ve final dosyaları birlikte silinir. Uygulamayı kaldırmak Download klasöründeki projeleri otomatik silmez.",
+                 12, COLOR_MUTED, Typeface.NORMAL);
+         note.setPadding(dp(5), dp(18), dp(5), dp(18));
+         note.setGravity(Gravity.CENTER);
