@@ -39,14 +39,26 @@ jobs:
           mkdir -p /tmp/akilli-build
           cat .buildsrc/part* > /tmp/akilli-build/source.b64
           base64 -d /tmp/akilli-build/source.b64 > /tmp/akilli-build/source.zip
+          unzip -tq /tmp/akilli-build/source.zip
           unzip -q /tmp/akilli-build/source.zip -d /tmp/akilli-build
       - name: Build APK
         working-directory: /tmp/akilli-build/AkilliSesBolucuAndroid
         run: gradle --no-daemon --stacktrace :app:assembleDebug
+      - name: Verify Android signature and package
+        run: |
+          APK=/tmp/akilli-build/AkilliSesBolucuAndroid/app/build/outputs/apk/debug/app-debug.apk
+          {
+            echo "Akilli Ses Bolucu v1.0.0 - Android paket doğrulaması"
+            echo
+            "$ANDROID_SDK_ROOT/build-tools/35.0.0/apksigner" verify --verbose --print-certs "$APK"
+            echo
+            "$ANDROID_SDK_ROOT/build-tools/35.0.0/aapt" dump badging "$APK"
+          } | tee /tmp/apk-verification.txt
       - name: Prepare artifact
         run: |
           mkdir -p /tmp/artifact
           cp /tmp/akilli-build/AkilliSesBolucuAndroid/app/build/outputs/apk/debug/app-debug.apk /tmp/artifact/AkilliSesBolucu-v1.0.0.apk
+          cp /tmp/apk-verification.txt /tmp/artifact/AkilliSesBolucu-v1.0.0-DOGRULAMA.txt
           cd /tmp/artifact
           sha256sum AkilliSesBolucu-v1.0.0.apk > AkilliSesBolucu-v1.0.0-SHA256.txt
       - uses: actions/upload-artifact@v4
