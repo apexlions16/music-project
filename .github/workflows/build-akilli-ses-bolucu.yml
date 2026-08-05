@@ -6,6 +6,11 @@ on:
     paths:
       - ".github/workflows/build-akilli-ses-bolucu.yml"
       - ".buildsrc/**"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/build-akilli-ses-bolucu.yml"
+      - ".buildsrc/**"
   workflow_dispatch:
 
 permissions:
