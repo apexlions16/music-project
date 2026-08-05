@@ -5,12 +5,12 @@ on:
     branches: ["build/dublaj-video-atolyesi-v201"]
     paths:
       - ".github/workflows/build-dublaj-video-atolyesi-v201.yml"
-      - ".apkbuild-v201/**"
+      - ".apkbuild-v201/download-storage.patch"
   pull_request:
     branches: ["main"]
     paths:
       - ".github/workflows/build-dublaj-video-atolyesi-v201.yml"
-      - ".apkbuild-v201/**"
+      - ".apkbuild-v201/download-storage.patch"
   workflow_dispatch:
 
 permissions:
@@ -34,14 +34,25 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "8.9"
-      - name: Restore source project
+      - name: Restore verified v2 source project
         run: |
           set -euo pipefail
+          git fetch origin refs/heads/build/dublaj-video-atolyesi-v2:refs/remotes/origin/build/dublaj-video-atolyesi-v2 --depth=1
           mkdir -p /tmp/dublaj-build
-          cat .apkbuild-v201/part* > /tmp/dublaj-build/source.b64
+          for part in 000 001 002 003; do
+            git show "refs/remotes/origin/build/dublaj-video-atolyesi-v2:.apkbuild-v2/part${part}"
+          done > /tmp/dublaj-build/source.b64
           base64 -d /tmp/dublaj-build/source.b64 > /tmp/dublaj-build/source.zip
           unzip -tq /tmp/dublaj-build/source.zip
           unzip -q /tmp/dublaj-build/source.zip -d /tmp/dublaj-build
+      - name: Apply Downloads storage patch
+        working-directory: /tmp/dublaj-build/AkilliSesBolucuAndroid
+        run: |
+          set -euo pipefail
+          patch -p1 --forward < "$GITHUB_WORKSPACE/.apkbuild-v201/download-storage.patch"
+          grep -q 'versionName '\''2.0.1'\''' app/build.gradle
+          grep -q 'MANAGE_EXTERNAL_STORAGE' app/src/main/AndroidManifest.xml
+          grep -q 'DublajVideoProjeleri' app/src/main/java/com/odium/akillisesbolucu/AppFiles.java
       - name: Build APK
         working-directory: /tmp/dublaj-build/AkilliSesBolucuAndroid
         run: gradle --no-daemon --stacktrace :app:assembleDebug
